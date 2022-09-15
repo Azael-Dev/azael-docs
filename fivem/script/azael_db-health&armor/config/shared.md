@@ -14,7 +14,7 @@ CONFIG.Framework = {}
 
 ### Resource.Name
 
-ชื่อทรัพยากรของ Framework ที่ใช้งาน
+ชื่อทรัพยากรของ **Framework** ที่ใช้งาน
 
 ```lua
 CONFIG.Framework.Resource.Name = 'es_extended'
