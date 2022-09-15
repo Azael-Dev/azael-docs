@@ -1,6 +1,6 @@
 # Azael Docs
 
-**[View the docs →](https://docs.azael.dev/)**
+**[View the docs →](https://docs2.azael.dev/)**
 
 ### Introduction
 This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
