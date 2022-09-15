@@ -39,6 +39,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: 'https://github.com/Azael-Dev/azael-docs/edit/main/',
         },
+        blog: false,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -92,6 +93,8 @@ const config = {
         require.resolve('@easyops-cn/docusaurus-search-local'),
         {
           hashed: true,
+          docsDir: ['fivem'],
+          docsRouteBasePath: ['fivem'],
           //language: ['en', 'th'],
         },
       ],
