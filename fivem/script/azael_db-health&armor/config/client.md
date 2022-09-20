@@ -56,7 +56,7 @@ CONFIG.General.Notify.Enable = true -- [[ boolean ]]
 
 ### Debug.Enable
 
-เปิดใช้งานแสดง Debug ไปยัง Client Console (F8)
+เปิดใช้งานแสดง **Debug** ไปยัง **[Client Console](https://docs.fivem.net/docs/client-manual/console-commands)** <kbd>F8</kbd>
 
 ```lua
 CONFIG.General.Debug.Enable = false -- [[ boolean ]]
@@ -70,7 +70,7 @@ CONFIG.General.Debug.Enable = false -- [[ boolean ]]
 
 ## Status
 
-สถานะ **[esx_status](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_status)**
+สถานะ **"พลังชีวิต"** และ **"เกราะ"**
 
 ```lua
 CONFIG.Status = {} -- [[ table ]]
@@ -78,7 +78,7 @@ CONFIG.Status = {} -- [[ table ]]
 
 ### Health.Enable
 
-เปิดใช้งานบันทึก **"พลังชีวิต"** ไปยังฐานข้อมูล **[esx_status](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_status)**
+เปิดใช้งานบันทึก **"พลังชีวิต"** ไปยังฐานข้อมูล
 
 ```lua
 CONFIG.Status.Health.Enable = true -- [[ boolean ]]
@@ -87,28 +87,6 @@ CONFIG.Status.Health.Enable = true -- [[ boolean ]]
 :::info
 
 `true` เท่ากับ เปิดใช้งาน | `false` เท่ากับ ปิดใช้งาน
-
-:::
-
-### Health.Name
-
-ชื่อของสถานะ **"พลังชีวิต"**
-
-```lua
-CONFIG.Status.Health.Name = 'health' -- [[ string ]]
-```
-
-### Health.Color
-
-สีของสถานะ **"พลังชีวิต"**
-
-```lua
-CONFIG.Status.Health.Color = '#F4003E' -- [[ string ]]
-```
-
-:::info
-
-รหัสสีเลขฐานสิบหก (**[Hex Color](https://htmlcolorcodes.com/)**)
 
 :::
 
@@ -142,7 +120,7 @@ CONFIG.Status.Health.Default = 200 -- [[ number ]]
 
 ### Armour.Enable
 
-เปิดใช้งานบันทึก **"เกราะ"** ไปยังฐานข้อมูล **[esx_status](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_status)**
+เปิดใช้งานบันทึก **"เกราะ"** ไปยังฐานข้อมูล
 
 ```lua
 CONFIG.Status.Armour.Enable = true -- [[ boolean ]]
@@ -151,28 +129,6 @@ CONFIG.Status.Armour.Enable = true -- [[ boolean ]]
 :::info
 
 `true` เท่ากับ เปิดใช้งาน | `false` เท่ากับ ปิดใช้งาน
-
-:::
-
-### Armour.Name
-
-ชื่อของสถานะ **"เกราะ"**
-
-```lua
-CONFIG.Status.Armour.Name = 'armor' -- [[ string ]]
-```
-
-### Armour.Color
-
-สีของสถานะ **"เกราะ"**
-
-```lua
-CONFIG.Status.Armour.Color = '#00CC99' -- [[ string ]]
-```
-
-:::info
-
-รหัสสีเลขฐานสิบหก (**[Hex Color](https://htmlcolorcodes.com/)**)
 
 :::
 
@@ -194,7 +150,7 @@ CONFIG.Status.Armour.Maximum = 100 -- [[ number ]]
 
 ## Notification (function)
 
-แจ้งเตือนสถานะ "พลังชีวิต" และ "เกราะ" คงเหลือ ในขณะที่ผู้เล่นเข้าร่วมเซิร์ฟเวอร์
+แจ้งเตือนสถานะ **"พลังชีวิต"** และ **"เกราะ"** คงเหลือ ในขณะที่ผู้เล่นเข้าร่วมเซิร์ฟเวอร์
 
 ```lua
 CONFIG.Notification = function(status)
@@ -218,14 +174,14 @@ CONFIG.Notification = function(status)
 end
 ```
 
-### Parameters
+### Parameter
 
-| Name                         | Type               | Value              | Explanation                                                
+| Field                        | Type               | Value              | Description                                                
 |------------------------------|--------------------|--------------------|--------------------------------------------------
 | status                       | table              | -                  | ตารางข้อมูลสถานะ "พลังชีวิต" และ "เกราะ"
-| status.health                | table              | table หรือ nil      | ตารางข้อมูลสถานะ "พลังชีวิต"
+| status.health                | table              | table หรือ nil      | ตารางข้อมูลสถานะ "พลังชีวิต" หรือ ไม่มีค่า
 | status.health.value          | number             | -                  | ค่าสถานะ "พลังชีวิต"|
 | status.health.percent        | integer            | -                  | เปอร์เซ็นต์สถานะ "พลังชีวิต"
-| status.armour                | table              | table หรือ nil      | ตารางข้อมูลสถานะ "เกราะ"
+| status.armour                | table              | table หรือ nil      | ตารางข้อมูลสถานะ "เกราะ" หรือ ไม่มีค่า
 | status.armour.value          | number             | -                  | ค่าสถานะ "เกราะ"
 | status.armour.percent        | integer            | -                  | เปอร์เซ็นต์สถานะ "เกราะ"

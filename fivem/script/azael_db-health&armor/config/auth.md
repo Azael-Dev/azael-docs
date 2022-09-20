@@ -9,7 +9,7 @@ sidebar_position: 1
 ตรวจสอบสิทธิ์การใช้งานสินค้า
 
 ```lua
-CONFIG.Auth = {}
+CONFIG.Auth = {} -- [[ table ]]
 ```
 
 ### Token
@@ -17,7 +17,7 @@ CONFIG.Auth = {}
 ระบุ **Token** ของสินค้า เพื่อใช้ในการตรวจสอบสิทธิ์การใช้งาน
 
 ```lua
-CONFIG.Auth.Token = 'product_token'
+CONFIG.Auth.Token = 'product_token' -- [[ string ]]
 ```
 
 :::info

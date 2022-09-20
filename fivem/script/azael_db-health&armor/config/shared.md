@@ -4,12 +4,34 @@ sidebar_position: 3
 
 # shared.config.lua
 
+## Resource
+
+ทรัพยากร
+
+```lua
+CONFIG.Resource = {} -- [[ table ]]
+```
+
+### Name
+
+ชื่อทรัพยากร
+
+```lua
+CONFIG.Resource.Name = GetCurrentResourceName() -- [[ string ]]
+```
+
+:::info
+
+ใช้สำหรับการลงทะเบียน Events ภายในทรัพยากรนี้
+
+:::
+
 ## Framework
 
 ทรัพยากรนี้มีความต้องการ **[ESX Framework](https://github.com/esx-framework)**
 
 ```lua
-CONFIG.Framework = {}
+CONFIG.Framework = {} -- [[ table ]]
 ```
 
 ### Resource.Name
@@ -17,7 +39,7 @@ CONFIG.Framework = {}
 ชื่อทรัพยากรของ **Framework** ที่ใช้งาน
 
 ```lua
-CONFIG.Framework.Resource.Name = 'es_extended'
+CONFIG.Framework.Resource.Name = 'es_extended' -- [[ string ]]
 ```
 
 :::info
@@ -32,18 +54,15 @@ CONFIG.Framework.Resource.Name = 'es_extended'
 
 ```lua
 if IsDuplicityVersion() then                                -- Server
-    CONFIG.Framework.Events = {                             -- Events
-        [1] = 'esx:playerLoaded'
+    CONFIG.Framework.Events = {                               -- Framework Events
+        [1] = 'esx:playerLoaded',
+        [2] = 'esx:playerDropped'
     }
 else                                                        -- Client
-    CONFIG.Framework.Events = {                             -- Events
+    CONFIG.Framework.Events = {                             -- Framework Events
         [1] = 'esx:playerLoaded',
         [2] = 'esx:onPlayerLogout',
-        [3] = 'skinchanger:modelLoaded',
-        [4] = 'esx_status:loaded',
-        [5] = 'esx_status:registerStatus',
-        [6] = 'esx_status:getStatus',
-        [7] = 'esx_status:set'
+        [3] = 'skinchanger:modelLoaded'
     }
 end
 ```

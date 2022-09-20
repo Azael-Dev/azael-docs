@@ -4,15 +4,31 @@ sidebar_position: 4
 
 # azael_db-health&armor
 
-# ความต้องการ
+## ความต้องการ
+
+### เซิร์ฟเวอร์
+
+- เวอร์ชัน **[Server](https://runtime.fivem.net/artifacts/fivem/build_server_windows/master)** ขั้นต่ำ **`4664`**
+- เปิดใช้งาน **[OneSync](https://docs.fivem.net/docs/scripting-reference/onesync)**
+
+### ทรัพยากร
+
+- **[oxmysql](https://github.com/overextended/oxmysql)**
 - **[es_extended](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx%5D/es_extended)**
-- **[esx_status](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_status)**
+- **[skinchanger](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx%5D/skinchanger)**
 
 ## ติดตั้งและใช้งาน
 
 1. ดาวน์โหลดและแตกไฟล์ลงในโฟลเดอร์ `resources` ของคุณ
 2. ชื่อของทรัพยากรจะต้องเป็น `azael_db-health&armor` ห้ามแก้ไขโดยเด็ดขาด
-3. เปิดไฟล์ `server.cfg` และทำการเพิ่ม `ensure azael_db-health&armor` ไว้บริเวณด้านล่าง **[esx_status](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_status)** บรรทัดใดก็ได้
+3. ไปยังโฟลเดอร์ `[SQL]` และดำเนินการนำเข้าไฟล์ `azael_db-health&armor.sql` ไปยังฐานข้อมูลของคุณ
+
+```sql  title="azael_db-health&armor.sql"
+ALTER TABLE `users` ADD COLUMN `health` int(11) DEFAULT NULL AFTER `status`;
+ALTER TABLE `users` ADD COLUMN `armour` int(11) DEFAULT NULL AFTER `health`;
+```
+
+4. ไปยังไฟล์ `server.cfg` และทำการเพิ่ม `ensure azael_db-health&armor` ไว้บริเวณด้านล่าง **[es_extended](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx%5D/es_extended)** (บรรทัดใดก็ได้)
 
 ```diff  title="server.cfg"
 ensure azael_db-health&armor
@@ -20,13 +36,14 @@ ensure azael_db-health&armor
 
 :::caution
 
-ไม่เเนะนำให้รีสตาร์ททรัพยากรนี้ เนื่องจากทรัพยากรนี้ทำงานร่วมกับทรัพยากร **[esx_status](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_status)** เเละอาจจะทำให้เกิดข้อผิดพลาดได้
+- หากเซิร์ฟเวอร์ของคุณมีผู้เล่นออนไลน์อยู่เป็นจำนวนมาก โปรดหลีกเลี่ยงการรีสตาร์ททรัพยากรนี้
+- การปิดเซิร์ฟเวอร์อย่างไม่ถูกต้อง อาจจะทำให้ข้อมูลสถานะ "พลังชีวิต" และ "เกราะ" ของผู้เล่น **[Rollback](https://en.wikipedia.org/wiki/Rollback_(data_management))** ได้
 
 :::
 
 ## ยกเลิกใช้งาน
 
-1. เปิดไฟล์ `server.cfg` และค้นหา `ensure azael_db-health&armor`
+1. ไปยังไฟล์ `server.cfg` และค้นหา `ensure azael_db-health&armor`
 2. ทำการเพิ่ม `#` ไว้ข้างหน้า `ensure azael_db-health&armor`
 
 ```diff  title="server.cfg"
