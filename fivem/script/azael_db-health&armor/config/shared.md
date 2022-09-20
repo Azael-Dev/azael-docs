@@ -54,7 +54,7 @@ CONFIG.Framework.Resource.Name = 'es_extended' -- [[ string ]]
 
 ```lua
 if IsDuplicityVersion() then                                -- Server
-    CONFIG.Framework.Events = {                               -- Framework Events
+    CONFIG.Framework.Events = {                             -- Framework Events
         [1] = 'esx:playerLoaded',
         [2] = 'esx:playerDropped'
     }
