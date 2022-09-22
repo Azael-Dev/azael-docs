@@ -13,9 +13,9 @@ sidebar_position: 4
 
 ### ทรัพยากร
 
-- **[oxmysql](https://github.com/overextended/oxmysql)**
 - **[es_extended](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx%5D/es_extended)**
 - **[skinchanger](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx%5D/skinchanger)**
+- **[oxmysql](https://github.com/overextended/oxmysql)** (แก้ไขได้ที่ไฟล์ **[database.config.lua](./config/database)**)
 
 ## ติดตั้งและใช้งาน
 

@@ -1,14 +1,10 @@
----
-sidebar_position: 3
----
-
 # shared.config.lua
 
 ## Resource
 
 ทรัพยากร
 
-```lua
+```lua title="บรรทัดที่ 13"
 CONFIG.Resource = {} -- [[ table ]]
 ```
 
@@ -16,7 +12,7 @@ CONFIG.Resource = {} -- [[ table ]]
 
 ชื่อทรัพยากร
 
-```lua
+```lua title="บรรทัดที่ 14"
 CONFIG.Resource.Name = GetCurrentResourceName() -- [[ string ]]
 ```
 
@@ -30,7 +26,7 @@ CONFIG.Resource.Name = GetCurrentResourceName() -- [[ string ]]
 
 ทรัพยากรนี้มีความต้องการ **[ESX Framework](https://github.com/esx-framework)**
 
-```lua
+```lua title="บรรทัดที่ 17"
 CONFIG.Framework = {} -- [[ table ]]
 ```
 
@@ -38,7 +34,7 @@ CONFIG.Framework = {} -- [[ table ]]
 
 ชื่อทรัพยากรของ **Framework** ที่ใช้งาน
 
-```lua
+```lua title="บรรทัดที่ 19"
 CONFIG.Framework.Resource.Name = 'es_extended' -- [[ string ]]
 ```
 
@@ -52,7 +48,7 @@ CONFIG.Framework.Resource.Name = 'es_extended' -- [[ string ]]
 
 เหตุการณ์ทั้งหมดของ **Framework** ที่ใช้งาน
 
-```lua
+```lua title="บรรทัดที่ 23"
 if IsDuplicityVersion() then                                -- Server
     CONFIG.Framework.Events = {                             -- Framework Events
         [1] = 'esx:playerLoaded',

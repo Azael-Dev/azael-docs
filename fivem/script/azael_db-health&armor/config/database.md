@@ -1,22 +1,19 @@
----
-sidebar_position: 4
----
-
 # database.config.lua
 
 ## Database
 
 รหัสเริ่มต้นจะใช้งานทรัพยากร **[oxmysql](https://github.com/overextended/oxmysql)** คุณสามารถแก้ไขรหัสให้มีความเข้ากันได้กับทรัพยากรที่คุณใช้งานได้ที่ไฟล์นี้
 
-```lua
+```lua title="บรรทัดที่ 11"
 CONFIG.Database = {} -- [[ table ]]
 ```
 
 :::caution
 
-หากคุณไม่ได้ใช้งาน **[oxmysql](https://github.com/overextended/oxmysql)** คุณสามารถ **ปิด** หรือ **แก้ไข** รหัสการใช้งานได้ที่ไฟล์ `fxmanifest.lua`<br/>
+หากคุณไม่ได้ใช้งาน **[oxmysql](https://github.com/overextended/oxmysql)** คุณสามารถ **ปิด** หรือ **แก้ไข** รหัสการใช้งานได้ที่ไฟล์ **[fxmanifest.lua](https://docs.fivem.net/docs/scripting-reference/resource-manifest/resource-manifest/)**<br/>
 
-**server_scripts**
+<Tabs>
+<TabItem value="server_scripts" label="server_scripts">
 
 ```lua
 server_scripts {
@@ -28,7 +25,8 @@ server_scripts {
 }
 ```
 
-**dependencies**
+</TabItem>
+<TabItem value="dependencies" label="dependencies">
 
 ```lua
 dependencies {
@@ -39,13 +37,20 @@ dependencies {
     'skinchanger'
 }
 ```
+
+</TabItem>
+</Tabs>
+
 :::
 
 ## FetchPlayerStatus (function)
 
 รับข้อมูลสถานะ **"พลังชีวิต"** และ **"เกราะ"** ในขณะที่ผู้เล่นเข้าร่วมเซิร์ฟเวอร์
 
-```lua
+<Tabs>
+<TabItem value="oxmysql" label="oxmysql">
+
+```lua title="บรรทัดที่ 18"
 function CONFIG.Database.FetchPlayerStatus(identifier)
     local result = MySQL.single.await('SELECT health, armour FROM users WHERE identifier = ?', { identifier })
     local status = { health = result.health, armour = result.armour }
@@ -53,6 +58,21 @@ function CONFIG.Database.FetchPlayerStatus(identifier)
     return status
 end
 ```
+
+</TabItem>
+<TabItem value="mysql-async" label="mysql-async">
+
+```lua title="บรรทัดที่ 18"
+function CONFIG.Database.FetchPlayerStatus(identifier)
+    local result = MySQL.Sync.fetchAll('SELECT health, armour FROM users WHERE identifier = @identifier LIMIT 1', { ['@identifier'] = identifier })
+    local status = { health = result[1].health, armour = result[1].armour }
+
+    return status
+end
+```
+
+</TabItem>
+</Tabs>
 
 ### Parameter
 
@@ -78,13 +98,30 @@ end
 
 อัพเดทข้อมูลสถานะ **"พลังชีวิต"** และ **"เกราะ"** ในขณะที่ผู้เล่นออกจากเซิร์ฟเวอร์
 
-```lua
+<Tabs>
+<TabItem value="oxmysql" label="oxmysql">
+
+```lua title="บรรทัดที่ 31"
 function CONFIG.Database.UpdatePlayerStatus(identifier, status)
     MySQL.update('UPDATE users SET health = ?, armour = ? WHERE identifier = ?', { status.health, status.armour, identifier }, function(affectedRows)
         -- print(affectedRows)
     end)
 end
 ```
+
+</TabItem>
+<TabItem value="mysql-async" label="mysql-async">
+
+```lua title="บรรทัดที่ 31"
+function CONFIG.Database.UpdatePlayerStatus(identifier, status)
+    MySQL.Async.execute('UPDATE users SET health = @health, armour = @armour WHERE identifier = @identifier', { ['@health'] = status.health, ['@armour'] = status.armour, ['@identifier'] = identifier }, function(affectedRows)
+        -- print(affectedRows)
+    end)
+end
+```
+
+</TabItem>
+</Tabs>
 
 ### Parameter
 
@@ -94,3 +131,6 @@ end
 | status                       | table              | -                  | ตารางข้อมูลสถานะ "พลังชีวิต" และ "เกราะ"
 | status.health                | number             | -                  | ค่าสถานะ "พลังชีวิต"
 | status.armour                | number             | -                  | ค่าสถานะ "เกราะ"
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';

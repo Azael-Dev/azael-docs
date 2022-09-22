@@ -1,14 +1,10 @@
----
-sidebar_position: 1
----
-
 # auth.config.lua
 
 ## Auth
 
 ตรวจสอบสิทธิ์การใช้งานสินค้า
 
-```lua
+```lua title="บรรทัดที่ 11"
 CONFIG.Auth = {} -- [[ table ]]
 ```
 
@@ -16,7 +12,7 @@ CONFIG.Auth = {} -- [[ table ]]
 
 ระบุ **Token** ของสินค้า เพื่อใช้ในการตรวจสอบสิทธิ์การใช้งาน
 
-```lua
+```lua title="บรรทัดที่ 12"
 CONFIG.Auth.Token = 'product_token' -- [[ string ]]
 ```
 

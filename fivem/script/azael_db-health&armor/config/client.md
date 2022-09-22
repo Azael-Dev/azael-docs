@@ -1,14 +1,10 @@
----
-sidebar_position: 2
----
-
 # client.config.lua
 
 ## General
 
 ทั่วไป
 
-```lua
+```lua title="บรรทัดที่ 11"
 CONFIG.General = {} -- [[ table ]]
 ```
 
@@ -16,7 +12,7 @@ CONFIG.General = {} -- [[ table ]]
 
 เวลาในการตรวจสอบ **"พลังชีวิต"** และ **"เกราะ"** ตัวละคร ทุกๆ **X** วินาที
 
-```lua
+```lua title="บรรทัดที่ 13"
 CONFIG.General.Check.Time = 2 -- [[ number ]]
 ```
 
@@ -30,7 +26,7 @@ CONFIG.General.Check.Time = 2 -- [[ number ]]
 
 อัตราการฟื้นฟู **"พลังชีวิต"** หากพลังชีวิตของตัวละครน้อยกว่า **50%**
 
-```lua
+```lua title="บรรทัดที่ 18"
 CONFIG.General.Health.Recharge.Rate = 0.0 -- [[ integer ]]
 ```
 
@@ -44,7 +40,7 @@ CONFIG.General.Health.Recharge.Rate = 0.0 -- [[ integer ]]
 
 เปิดใช้งานการแจ้งเตือนสถานะ **"พลังชีวิต"** และ **"เกราะ"** คงเหลือ ในขณะที่ผู้เล่นเข้าร่วมเซิร์ฟเวอร์
 
-```lua
+```lua title="บรรทัดที่ 23"
 CONFIG.General.Notify.Enable = true -- [[ boolean ]]
 ```
 
@@ -58,7 +54,7 @@ CONFIG.General.Notify.Enable = true -- [[ boolean ]]
 
 เปิดใช้งานแสดง **Debug** ไปยัง **[Client Console](https://docs.fivem.net/docs/client-manual/console-commands)** <kbd>F8</kbd>
 
-```lua
+```lua title="บรรทัดที่ 27"
 CONFIG.General.Debug.Enable = false -- [[ boolean ]]
 ```
 
@@ -72,7 +68,7 @@ CONFIG.General.Debug.Enable = false -- [[ boolean ]]
 
 สถานะ **"พลังชีวิต"** และ **"เกราะ"**
 
-```lua
+```lua title="บรรทัดที่ 31"
 CONFIG.Status = {} -- [[ table ]]
 ```
 
@@ -80,7 +76,7 @@ CONFIG.Status = {} -- [[ table ]]
 
 เปิดใช้งานบันทึก **"พลังชีวิต"** ไปยังฐานข้อมูล
 
-```lua
+```lua title="บรรทัดที่ 33"
 CONFIG.Status.Health.Enable = true -- [[ boolean ]]
 ```
 
@@ -94,7 +90,7 @@ CONFIG.Status.Health.Enable = true -- [[ boolean ]]
 
 ค่าเริ่มต้นของสถานะ **"พลังชีวิต"** สำหรับการสร้างตัวละครในครั้งเเรก
 
-```lua
+```lua title="บรรทัดที่ 34"
 CONFIG.Status.Health.Default = 200 -- [[ number ]]
 ```
 
@@ -108,7 +104,7 @@ CONFIG.Status.Health.Default = 200 -- [[ number ]]
 
 ค่าสูงสุดของสถานะ **"พลังชีวิต"**
 
-```lua
+```lua title="บรรทัดที่ 35"
 CONFIG.Status.Health.Default = 200 -- [[ number ]]
 ```
 
@@ -122,7 +118,7 @@ CONFIG.Status.Health.Default = 200 -- [[ number ]]
 
 เปิดใช้งานบันทึก **"เกราะ"** ไปยังฐานข้อมูล
 
-```lua
+```lua title="บรรทัดที่ 39"
 CONFIG.Status.Armour.Enable = true -- [[ boolean ]]
 ```
 
@@ -136,7 +132,7 @@ CONFIG.Status.Armour.Enable = true -- [[ boolean ]]
 
 ค่าเริ่มต้นของสถานะ **"เกราะ"** สำหรับการสร้างตัวละครในครั้งเเรก
 
-```lua
+```lua title="บรรทัดที่ 40"
 CONFIG.Status.Armour.Default = 0 -- [[ number ]]
 ```
 
@@ -144,7 +140,7 @@ CONFIG.Status.Armour.Default = 0 -- [[ number ]]
 
 ค่าสูงสุดของสถานะ **"เกราะ"**
 
-```lua
+```lua title="บรรทัดที่ 41"
 CONFIG.Status.Armour.Maximum = 100 -- [[ number ]]
 ```
 
@@ -152,7 +148,7 @@ CONFIG.Status.Armour.Maximum = 100 -- [[ number ]]
 
 แจ้งเตือนสถานะ **"พลังชีวิต"** และ **"เกราะ"** คงเหลือ ในขณะที่ผู้เล่นเข้าร่วมเซิร์ฟเวอร์
 
-```lua
+```lua title="บรรทัดที่ 53"
 CONFIG.Notification = function(status)
     local playerId = PlayerId()
     local serverId = GetPlayerServerId(playerId)
@@ -161,11 +157,11 @@ CONFIG.Notification = function(status)
     local message
     
     if status.health and status.armour then
-        message = ('Your ~g~Health~s~ %s%s (%s)\nYour ~b~Armor~s~ %s%s (%s)'):format(status.health.percent, '%', status.health.value, status.armour.percent, '%', status.armour.value)
+        message = ('Your ~g~Health~s~ %s%s (%s)\nYour ~b~Armour~s~ %s%s (%s)'):format(status.health.percent, '%', status.health.value, status.armour.percent, '%', status.armour.value)
     elseif status.health then
         message = ('Your ~g~Health~s~ %s%s (%s)'):format(status.health.percent, '%', status.health.value)
     elseif status.armour then
-        message = ('Your ~b~Armor~s~ %s%s (%s)'):format(status.armour.percent, '%', status.armour.value)
+        message = ('Your ~b~Armour~s~ %s%s (%s)'):format(status.armour.percent, '%', status.armour.value)
     end
 
     ESX.ShowAdvancedNotification('PLAYER INFO', ('%s #%s'):format(playerName, serverId), message, mugshotStr, 8)
