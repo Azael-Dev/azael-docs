@@ -21,14 +21,15 @@ sidebar_position: 4
 
 1. ดาวน์โหลดและแตกไฟล์ลงในโฟลเดอร์ `resources` ของคุณ
 2. ชื่อของทรัพยากรจะต้องเป็น `azael_db-health&armor` ห้ามแก้ไขโดยเด็ดขาด
-3. ไปยังโฟลเดอร์ `[SQL]` และดำเนินการนำเข้าไฟล์ `azael_db-health&armor.sql` ไปยังฐานข้อมูลของคุณ
+3. ไปยังโฟลเดอร์ `config` และดำเนินการเปิดไฟล์ **[auth.config.lua](./config/auth.md)** เพื่อระบุ **[Token](./config/auth#token)** ของสินค้า
+4. ไปยังโฟลเดอร์ `[SQL]` และดำเนินการนำเข้าไฟล์ `azael_db-health&armor.sql` ไปยังฐานข้อมูลของคุณ
 
 ```sql  title="azael_db-health&armor.sql"
 ALTER TABLE `users` ADD COLUMN `health` int(11) DEFAULT NULL AFTER `status`;
 ALTER TABLE `users` ADD COLUMN `armour` int(11) DEFAULT NULL AFTER `health`;
 ```
 
-4. ไปยังไฟล์ `server.cfg` และทำการเพิ่ม `ensure azael_db-health&armor` ไว้บริเวณด้านล่าง **[es_extended](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx%5D/es_extended)** (บรรทัดใดก็ได้)
+5. ไปยังไฟล์ `server.cfg` และทำการเพิ่ม `ensure azael_db-health&armor` ไว้บริเวณด้านล่าง **[es_extended](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx%5D/es_extended)** (บรรทัดใดก็ได้)
 
 ```diff  title="server.cfg"
 ensure azael_db-health&armor
