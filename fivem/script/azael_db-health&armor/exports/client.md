@@ -4,7 +4,7 @@ sidebar_label: client
 
 # Export Functions (Client-Side)
 
-ฟังก์ชันการส่งออกเพื่อให้สามารถใช้งานได้จากทรัพยากรอื่นๆทางฝั่ง **[Client](https://en.wikipedia.org/wiki/Client-side)**
+ฟังก์ชันส่งออกเพื่อให้สามารถใช้งานได้จากทรัพยากรอื่นๆทางฝั่ง **[Client](https://en.wikipedia.org/wiki/Client-side)**
 
 ## GetPlayerHealth
 
@@ -29,9 +29,9 @@ exports['azael_db-health&armor']['GetPlayerHealth']();
 
 ### Return
 
-| Type               | Value              | Description                                                
-|--------------------|--------------------|--------------------------------------------------
-| number             | -                  | ค่าสถานะ "พลังชีวิต" ปัจจุบันของตัวละคร
+| Type               | Description                                                
+|--------------------|--------------------------------------------------
+| number             | ค่าสถานะ "พลังชีวิต" ปัจจุบันของตัวละคร
 
 ## DisablePlayerHealth
 
@@ -98,9 +98,9 @@ exports['azael_db-health&armor']['GetPlayerArmour']();
 
 ### Return
 
-| Type               | Value              | Description                                                
-|--------------------|--------------------|--------------------------------------------------
-| number             | -                  | ค่าสถานะ "เกราะ" ปัจจุบันของตัวละคร
+| Type               | Description                                                
+|--------------------|--------------------------------------------------
+| number             | ค่าสถานะ "เกราะ" ปัจจุบันของตัวละคร
 
 ## DisablePlayerArmour
 
