@@ -71,7 +71,7 @@ const config = {
             position: 'right',
           },
           {
-            href: 'https://github.com/Azael-Dev/azael-docs',
+            href: 'https://github.com/Azael-Dev',
             label: 'GitHub',
             position: 'right',
           },
