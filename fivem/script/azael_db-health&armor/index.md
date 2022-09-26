@@ -1,7 +1,3 @@
----
-sidebar_position: 4
----
-
 # azael_db-health&armor
 
 ## ความต้องการ
