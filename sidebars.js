@@ -41,8 +41,8 @@ const sidebars = {
         description: 'เอกสารประกอบการใช้งานสำหรับ FiveM Scripts ที่ถูกพัฒนาโดย Azael Dev',
         keywords: ['scripts'],
       },
-      /* azael_db-health&armor */
       items: [
+        /* azael_db-health&armor */
         {
           type: 'category',
           label: 'azael_db-health&armor',
@@ -66,6 +66,26 @@ const sidebars = {
               label: 'exports',
               items: [
                 'script/azael_db-health&armor/export/client',
+              ],
+            },
+          ],
+        },
+        /* azael_active-identifiers */
+        {
+          type: 'category',
+          label: 'azael_active-identifiers',
+          link: {
+            type: 'doc',
+            id: 'script/azael_active-identifiers/index',
+          },
+          items: [
+            {
+              type: 'category',
+              label: 'config',
+              items: [
+                'script/azael_active-identifiers/config/auth',
+                'script/azael_active-identifiers/config/server',
+                'script/azael_active-identifiers/config/shared',
               ],
             },
           ],
