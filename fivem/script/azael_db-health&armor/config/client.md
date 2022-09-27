@@ -175,9 +175,9 @@ end
 | Field                        | Type               | Description                                                
 |------------------------------|--------------------|--------------------------------------------------
 | status                       | table              | ตารางข้อมูลสถานะ "พลังชีวิต" และ "เกราะ"
-| status.health                | table หรือ nil      | ตารางข้อมูลสถานะ "พลังชีวิต" หรือ ไม่มีค่า
-| status.health.value          | number             | ค่าสถานะ "พลังชีวิต"
-| status.health.percent        | integer            | เปอร์เซ็นต์สถานะ "พลังชีวิต"
-| status.armour                | table หรือ nil      | ตารางข้อมูลสถานะ "เกราะ" หรือ ไม่มีค่า
-| status.armour.value          | number             | ค่าสถานะ "เกราะ"
-| status.armour.percent        | integer            | เปอร์เซ็นต์สถานะ "เกราะ"
+| `status.health`              | table หรือ nil      | ตารางข้อมูลสถานะ "พลังชีวิต" หรือ ไม่มีค่า
+| `status.health.value`        | number             | ค่าสถานะ "พลังชีวิต"
+| `status.health.percent`      | integer            | เปอร์เซ็นต์สถานะ "พลังชีวิต"
+| `status.armour`              | table หรือ nil      | ตารางข้อมูลสถานะ "เกราะ" หรือ ไม่มีค่า
+| `status.armour.value`        | number             | ค่าสถานะ "เกราะ"
+| `status.armour.percent`      | integer            | เปอร์เซ็นต์สถานะ "เกราะ"

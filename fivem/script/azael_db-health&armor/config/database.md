@@ -85,8 +85,8 @@ end
 | Field                        | Type               | Description                                                
 |------------------------------|--------------------|--------------------------------------------------
 | status                       | table              | ตารางข้อมูลสถานะ "พลังชีวิต" และ "เกราะ"
-| status.health                | number หรือ nil     | ค่าสถานะ "พลังชีวิต" หรือ ไม่มีค่า
-| status.armour                | number หรือ nil     | ค่าสถานะ "เกราะ" หรือ ไม่มีค่า
+| `status.health`              | number หรือ nil     | ค่าสถานะ "พลังชีวิต" หรือ ไม่มีค่า
+| `status.armour`              | number หรือ nil     | ค่าสถานะ "เกราะ" หรือ ไม่มีค่า
 
 :::info
 
@@ -129,8 +129,8 @@ end
 |------------------------------|--------------------|--------------------------------------------------
 | identifier                   | string             | ตัวระบุผู้เล่น
 | status                       | table              | ตารางข้อมูลสถานะ "พลังชีวิต" และ "เกราะ"
-| status.health                | number             | ค่าสถานะ "พลังชีวิต"
-| status.armour                | number             | ค่าสถานะ "เกราะ"
+| `status.health`              | number             | ค่าสถานะ "พลังชีวิต"
+| `status.armour`              | number             | ค่าสถานะ "เกราะ"
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
