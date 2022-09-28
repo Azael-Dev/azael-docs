@@ -35,6 +35,7 @@ const config = {
         docs: {
           path: 'fivem',
           routeBasePath: 'fivem',
+          showLastUpdateAuthor: true,
           showLastUpdateTime: true,
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: 'https://github.com/Azael-Dev/azael-docs/edit/main/',
