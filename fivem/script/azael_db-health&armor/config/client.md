@@ -172,12 +172,12 @@ end
 
 ### Parameter
 
-| Field                        | Type               | Description                                                
-|------------------------------|--------------------|--------------------------------------------------
-| status                       | table              | ตารางข้อมูลสถานะ "พลังชีวิต" และ "เกราะ"
-| `status.health`              | table หรือ nil      | ตารางข้อมูลสถานะ "พลังชีวิต" หรือ ไม่มีค่า
-| `status.health.value`        | number             | ค่าสถานะ "พลังชีวิต"
-| `status.health.percent`      | integer            | เปอร์เซ็นต์สถานะ "พลังชีวิต"
-| `status.armour`              | table หรือ nil      | ตารางข้อมูลสถานะ "เกราะ" หรือ ไม่มีค่า
-| `status.armour.value`        | number             | ค่าสถานะ "เกราะ"
-| `status.armour.percent`      | integer            | เปอร์เซ็นต์สถานะ "เกราะ"
+| Name                         | Type               | Default                                | Description                                                
+|------------------------------|--------------------|----------------------------------------|----------------------------------------------------------------------
+| `status`                     | `table`            | `{ health, armour }`                   | ตารางข้อมูลสถานะ "พลังชีวิต" และ "เกราะ"
+| `status.health`              | `table` หรือ `nil`  | `{ value, percent }`                   | ตารางข้อมูลสถานะ "พลังชีวิต" หรือ ไม่มีค่า ([Health.Enable](#healthenable))
+| `status.health.value`        | `number`           | Health Value                           | ค่าสถานะ "พลังชีวิต"
+| `status.health.percent`      | `integer`          | Health Percentage                      | เปอร์เซ็นต์สถานะ "พลังชีวิต"
+| `status.armour`              | `table` หรือ `nil`  | `{ value, percent }`                   | ตารางข้อมูลสถานะ "เกราะ" หรือ ไม่มีค่า ([Armour.Enable](#armourenable))
+| `status.armour.value`        | `number`           | Armour Value                           | ค่าสถานะ "เกราะ"
+| `status.armour.percent`      | `integer`          | Armour Percentage                      | เปอร์เซ็นต์สถานะ "เกราะ"
