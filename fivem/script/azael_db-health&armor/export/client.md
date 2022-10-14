@@ -41,7 +41,7 @@ exports['azael_db-health&armor']['GetPlayerHealth']();
 
 ## DisablePlayerHealth
 
-**ปิดใช้งาน** การการตรวจสอบ **"พลังชีวิต"** ของตัวละคร
+**ปิดใช้งาน** การตรวจสอบ **"พลังชีวิต"** ของตัวละคร
 
 <Tabs>
 <TabItem value="lua" label="Lua">
@@ -68,7 +68,7 @@ exports['azael_db-health&armor']['DisablePlayerHealth']();
 
 ## EnablePlayerHealth
 
-**เปิดใช้งาน** การการตรวจสอบ **"พลังชีวิต"** ของตัวละคร
+**เปิดใช้งาน** การตรวจสอบ **"พลังชีวิต"** ของตัวละคร
 
 <Tabs>
 <TabItem value="lua" label="Lua">
@@ -128,7 +128,7 @@ exports['azael_db-health&armor']['GetPlayerArmour']();
 
 ## DisablePlayerArmour
 
-**ปิดใช้งาน** การการตรวจสอบ **"เกราะ"** ของตัวละคร
+**ปิดใช้งาน** การตรวจสอบ **"เกราะ"** ของตัวละคร
 
 <Tabs>
 <TabItem value="lua" label="Lua">
@@ -155,7 +155,7 @@ exports['azael_db-health&armor']['DisablePlayerArmour']();
 
 ## EnablePlayerArmour
 
-**เปิดใช้งาน** การการตรวจสอบ **"เกราะ"** ของตัวละคร
+**เปิดใช้งาน** การตรวจสอบ **"เกราะ"** ของตัวละคร
 
 <Tabs>
 <TabItem value="lua" label="Lua">
