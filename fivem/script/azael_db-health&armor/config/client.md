@@ -27,7 +27,7 @@ CONFIG.General.Check.Time = 2 -- [[ number ]]
 อัตราการฟื้นฟู **"พลังชีวิต"** หากพลังชีวิตของตัวละครน้อยกว่า **50%**
 
 ```lua title="บรรทัดที่ 18"
-CONFIG.General.Health.Recharge.Rate = 0.0 -- [[ integer ]]
+CONFIG.General.Health.Recharge.Rate = 0.0 -- [[ number ]]
 ```
 
 :::info
@@ -177,7 +177,7 @@ end
 | `status`                     | `table`            | `{ health, armour }`                   | ตารางข้อมูลสถานะ "พลังชีวิต" และ "เกราะ"
 | `status.health`              | `table` หรือ `nil`  | `{ value, percent }`                   | ตารางข้อมูลสถานะ "พลังชีวิต" หรือ ไม่มีค่า ([Health.Enable](#healthenable))
 | `status.health.value`        | `number`           | Health Value                           | ค่าสถานะ "พลังชีวิต"
-| `status.health.percent`      | `integer`          | Health Percentage                      | เปอร์เซ็นต์สถานะ "พลังชีวิต"
+| `status.health.percent`      | `number`          | Health Percentage                      | เปอร์เซ็นต์สถานะ "พลังชีวิต"
 | `status.armour`              | `table` หรือ `nil`  | `{ value, percent }`                   | ตารางข้อมูลสถานะ "เกราะ" หรือ ไม่มีค่า ([Armour.Enable](#armourenable))
 | `status.armour.value`        | `number`           | Armour Value                           | ค่าสถานะ "เกราะ"
-| `status.armour.percent`      | `integer`          | Armour Percentage                      | เปอร์เซ็นต์สถานะ "เกราะ"
+| `status.armour.percent`      | `number`          | Armour Percentage                      | เปอร์เซ็นต์สถานะ "เกราะ"
