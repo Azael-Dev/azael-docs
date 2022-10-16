@@ -42,6 +42,25 @@ const sidebars = {
         keywords: ['scripts'],
       },
       items: [
+        /* azael_dc-serverlogs */
+        {
+          type: 'category',
+          label: 'azael_dc-serverlogs',
+          link: {
+            type: 'doc',
+            id: 'script/azael_dc-serverlogs/index',
+          },
+          items: [
+            {
+              type: 'category',
+              label: 'config',
+              items: [
+                'script/azael_dc-serverlogs/config/auth',
+                'script/azael_dc-serverlogs/config/server',
+              ],
+            },
+          ],
+        },
         /* azael_db-health&armor */
         {
           type: 'category',
