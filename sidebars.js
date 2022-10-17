@@ -58,6 +58,7 @@ const sidebars = {
                 'script/azael_dc-serverlogs/config/auth',
                 'script/azael_dc-serverlogs/config/server',
                 'script/azael_dc-serverlogs/config/client',
+                'script/azael_dc-serverlogs/config/shared',
               ],
             },
           ],

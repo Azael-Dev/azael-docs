@@ -88,15 +88,15 @@ CONFIG.Death.Reason = { -- [[ table ]]
 
 ประเภทข้อมูลของสาเหตุการตาย (**Types of Causes**)
 
-- `MELEE` อาวุธระยะประชิด<br/>
-- `BULLET` อาวุธปืน (กระสุน)<br/>
-- `EXPLOSION` แรงระเบิด<br/>
-- `GAS` แก๊สพิษ<br/>
-- `BURN` ไฟคลอก (เผา)<br/>
-- `VEHICLE` ยานพาหนะ<br/>
-- `ANIMAL` สัตว์<br/>
-- `FALL` ตกจากที่สูง<br/>
-- `DROWN` จมน้ำ<br/>
+- `MELEE` อาวุธระยะประชิด
+- `BULLET` อาวุธปืน (กระสุน)
+- `EXPLOSION` แรงระเบิด
+- `GAS` แก๊สพิษ
+- `BURN` ไฟคลอก (เผา)
+- `VEHICLE` ยานพาหนะ
+- `ANIMAL` สัตว์
+- `FALL` ตกจากที่สูง
+- `DROWN` จมน้ำ
 - `ADDONS` อาวุธเสริม (อ้างอิงจากการตั้งค่า **[config.weapons.lua](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx%5D/es_extended/config.weapons.lua)** ของ **[es_extended](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx%5D/es_extended)** โดยอัตโนมัติ)
 
 </details>
