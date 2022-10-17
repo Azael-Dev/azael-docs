@@ -74,7 +74,7 @@ CONFIG.Death.Reason = { -- [[ table ]]
 รายการ **[Weapon](https://www.vespura.com/fivem/weapons/stats/)**, **[Model](https://vespura.com/fivem/objects/)**, **[Object](https://vespura.com/fivem/objects/)** สำหรับ สาเหตุการตาย
 
 <details>
-<summary>คำอธิบายเพิ่มเติมเกี่ยวกับการกำหนดค่า</summary>
+    <summary>คำอธิบายเพิ่มเติมเกี่ยวกับการกำหนดค่า</summary>
 
 สามารถกำหนด **[Key](http://lua-users.org/wiki/TablesTutorial)** ของสาเหตุการตายเป็น **ชื่อ** หรือ **แฮช** ได้
 
