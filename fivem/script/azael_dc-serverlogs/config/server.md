@@ -39,7 +39,7 @@ CONFIG.General.Crashes.Enable = true -- [[ boolean ]]
 
 ### Hardware.Enable
 
-เปิดใช้งาน แสดง **Hardware Tokens** ของผู้เล่นที่เหตุการณ์ **Login**
+เปิดใช้งาน แสดง **Hardware Tokens** ของผู้เล่นที่เหตุการณ์ **Login (เข้าสู่เซิร์ฟเวอร์)**
 
 ```lua title="บรรทัดที่ 21"
 CONFIG.General.Crashes.Hardware = true -- [[ boolean ]]
@@ -53,7 +53,7 @@ CONFIG.General.Crashes.Hardware = true -- [[ boolean ]]
 
 ### Screenshot.Enable
 
-เปิดใช้งาน บันทึกภาพหน้าจอ ของผู้เล่นตามเหตุการณ์ที่กำหนด
+เปิดใช้งาน บันทึกภาพหน้าจอตามเหตุการณ์ที่กำหนดใน **[Screenshot.Webhooks](./server#screenshotwebhooks)**
 
 ```lua title="บรรทัดที่ 25"
 CONFIG.General.Screenshot.Enable = true -- [[ boolean ]]
@@ -89,7 +89,7 @@ CONFIG.General.Screenshot.Webhooks = { -- [[ table ]]
 
 ### Chat.Enable
 
-เปิดใช้งาน ตรวจสอบข้อความที่ผู้เล่นดำเนินการ (**[chatMessage](https://docs.fivem.net/docs/resources/chat/events/chatMessage/)**)
+เปิดใช้งาน ตรวจสอบข้อความที่ผู้เล่นดำเนินการ (**Event: [chatMessage](https://docs.fivem.net/docs/resources/chat/events/chatMessage/)**)
 
 ```lua title="บรรทัดที่ 33"
 CONFIG.General.Chat.Enable = false -- [[ boolean ]]
@@ -139,7 +139,7 @@ CONFIG.General.Chat.Kick.Reason = 'ตรวจพบคำที่ไม่ไ
 
 ### Chat.Kick.Word
 
-คำที่ไม่ได้รับอนุญาตให้ใช้งาน
+รายการคำที่ไม่ได้รับอนุญาตให้ใช้งาน
 
 ```lua title="บรรทัดที่ 44"
 CONFIG.General.Chat.Word = { -- [[ table ]]
@@ -226,7 +226,7 @@ local authorization = ('%s %s'):format(CONFIG.Custom.API.Authorization.Method, C
 
 ## Discord (API)
 
-ส่งคำขอไปยัง **[Discord API](https://discord.com/developers/docs/resources/webhook#create-webhook)** โดยใช้ **[Webhook URL](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)** ตามขีดจำกัดอัตราการใช้งาน **[Discord API](https://discord.com/developers/docs/resources/webhook#create-webhook)** สำหรับ **[Webhook](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)**
+ส่งคำขอไปยัง **[Discord API](https://discord.com/developers/docs/resources/webhook#create-webhook)** โดยใช้ **[Webhook URL](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)** ตามขีดจำกัดอัตราการใช้งาน **[Discord API](https://discord.com/developers/docs/resources/webhook#create-webhook)** สำหรับ **[Webhooks](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)**
 
 ```lua title="บรรทัดที่ 78"
 CONFIG.Discord = {} -- [[ table ]]
@@ -302,6 +302,12 @@ CONFIG.Discord.txAdmin.Enable = true -- [[ boolean ]]
 
 :::
 
+:::caution
+
+รองรับ **[txAdmin](https://txadm.in/)** เวอร์ชัน **[4.15](https://github.com/tabarra/txAdmin/blob/master/docs/events.md#txadmineventsservershuttingdown-v415)** ขึ้นไป
+
+:::
+
 ### txAdmin.Shutting.Event
 
 ชื่อเหตุการณ์ กำลังปิดเซิร์ฟเวอร์ โดย ผู้ดูแลระบบ หรือ ตามกำหนดการรีสตาร์ท
@@ -335,16 +341,15 @@ CONFIG.Discord.Webhooks = { -- [[ table ]]
 }
 ```
 
-:::info 
+:::info
 
 ```lua
-CONFIG.Discord.Webhooks = {
-    ['event'] = 'webhook_url'
-}
+['event'] = 'webhook_url'
 ```
 
 - `event` หมายถึง ชื่อเหตุการณ์ ที่กำหนดในรหัสส่งข้อมูลที่เพิ่มไปยังทรัพยากรอื่น<br/>
-- `webhook_url` หมายถึง **[URL](https://en.wikipedia.org/wiki/URL)** สำหรับ **[Webhook](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)** ที่คุณสร้างภายในชุมชนบนแอปพลิเคชัน **[Discord](https://discord.com/)** ของคุณ
+- `webhook_url` หมายถึง **[URL](https://en.wikipedia.org/wiki/URL)** สำหรับ **[Webhook](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)** ที่คุณสร้างภายในชุมชนของคุณ บนแอปพลิเคชัน **[Discord](https://discord.com/)**
+
 :::
 
 
