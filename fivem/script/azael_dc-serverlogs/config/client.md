@@ -76,7 +76,7 @@ CONFIG.Death.Reason = { -- [[ table ]]
 <details>
     <summary>คำอธิบายเพิ่มเติมเกี่ยวกับการกำหนดค่า</summary>
 
-สามารถกำหนด **[Key](http://lua-users.org/wiki/TablesTutorial)** ของสาเหตุการตายเป็น **ชื่อ** หรือ **แฮช** ได้
+สามารถกำหนด **[Key](http://lua-users.org/wiki/TablesTutorial)** สาเหตุการตายเป็น **ชื่อ** หรือ **แฮช** ได้
 
 ```lua title="Name"
 ['WEAPON_DAGGER'] -- [[ string ]]
@@ -86,7 +86,7 @@ CONFIG.Death.Reason = { -- [[ table ]]
 [2460120199] -- [[ number ]]
 ```
 
-ประเภทข้อมูลของสาเหตุการตาย (**Types of Causes**)
+ประเภทของสาเหตุการตาย (**Types of Causes**)
 
 - `MELEE` อาวุธระยะประชิด
 - `BULLET` อาวุธปืน (กระสุน)

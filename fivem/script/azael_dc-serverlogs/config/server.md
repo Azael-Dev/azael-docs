@@ -89,7 +89,7 @@ CONFIG.General.Screenshot.Webhooks = { -- [[ table ]]
 
 ### Chat.Enable
 
-เปิดใช้งาน ตรวจสอบข้อความที่ผู้เล่นดำเนินการ (**Event: [chatMessage](https://docs.fivem.net/docs/resources/chat/events/chatMessage/)**)
+เปิดใช้งาน ตรวจสอบข้อความที่ผู้เล่นดำเนินการ (**[chatMessage](https://docs.fivem.net/docs/resources/chat/events/chatMessage/)**)
 
 ```lua title="บรรทัดที่ 33"
 CONFIG.General.Chat.Enable = false -- [[ boolean ]]
@@ -200,10 +200,13 @@ CONFIG.Custom.API.BaseURL = 'http://localhost/api/azael_logs/' -- [[ string ]]
 CONFIG.Custom.API.Authorization.Method = 'Log' -- [[ string ]]
 ```
 
-:::note Example (Authorization Header)
+:::note HTTP Headers
 
 ```lua
-local authorization = ('%s %s'):format(CONFIG.Custom.API.Authorization.Method, CONFIG.Custom.API.Authorization.Token)
+{
+    ['Content-Type'] = 'application/json; charset=utf-8',
+    ['Authorization'] = ('%s %s'):format(CONFIG.Custom.API.Authorization.Method, CONFIG.Custom.API.Authorization.Token)
+}
 ```
 
 :::
@@ -216,10 +219,13 @@ local authorization = ('%s %s'):format(CONFIG.Custom.API.Authorization.Method, C
 CONFIG.Custom.API.Authorization.Token = 'security_token' -- [[ string ]]
 ```
 
-:::note Example (Authorization Header)
+:::note HTTP Headers
 
 ```lua
-local authorization = ('%s %s'):format(CONFIG.Custom.API.Authorization.Method, CONFIG.Custom.API.Authorization.Token)
+{
+    ['Content-Type'] = 'application/json; charset=utf-8',
+    ['Authorization'] = ('%s %s'):format(CONFIG.Custom.API.Authorization.Method, CONFIG.Custom.API.Authorization.Token)
+}
 ```
 
 :::
