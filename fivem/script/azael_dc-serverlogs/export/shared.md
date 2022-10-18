@@ -12,8 +12,8 @@ sidebar_label: both
 
 ```lua
 exports['azael_dc-serverlogs']:insertData({
-    event = 'eventName',
-    content = 'เนื้อหาของข้อความที่ต้องการส่ง',
+    event = 'Name',
+    content = 'Messages',
     source = playerId,
     color = 7,
     options = {
