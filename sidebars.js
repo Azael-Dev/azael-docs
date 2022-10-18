@@ -61,6 +61,13 @@ const sidebars = {
                 'script/azael_dc-serverlogs/config/shared',
               ],
             },
+            {
+              type: 'category',
+              label: 'exports',
+              items: [
+                'script/azael_dc-serverlogs/export/shared',
+              ],
+            },
           ],
         },
         /* azael_db-health&armor */
