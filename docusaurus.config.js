@@ -85,7 +85,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ['lua']
+        additionalLanguages: ['http', 'lua', 'mongodb', 'php']
       },
     }),
 
@@ -96,7 +96,7 @@ const config = {
           hashed: true,
           docsDir: ['fivem'],
           docsRouteBasePath: ['fivem'],
-          //language: ['en', 'th'],
+          language: ['en']
         },
       ],
     ],
