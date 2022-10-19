@@ -1,6 +1,6 @@
 # auth.config.lua
 
-ไฟล์การกำหนดค่าที่สามารถใช้งานได้ทางฝั่ง **[Server](https://en.wikipedia.org/wiki/Server-side)**
+ไฟล์การกำหนดค่าของทรัพยากรทางฝั่ง **[Server](https://en.wikipedia.org/wiki/Server-side)**
 
 ## Auth
 
