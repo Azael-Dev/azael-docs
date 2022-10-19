@@ -1,5 +1,7 @@
 # client.config.lua
 
+ไฟล์การกำหนดค่าของทรัพยากรทางฝั่ง **[Client](https://en.wikipedia.org/wiki/Client-side)**
+
 ## General
 
 ทั่วไป
