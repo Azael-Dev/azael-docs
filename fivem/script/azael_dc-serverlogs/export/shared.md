@@ -1,5 +1,5 @@
 ---
-sidebar_label: both
+sidebar_label: shared
 ---
 
 # Export Functions (Both-Side)
