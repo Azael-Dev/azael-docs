@@ -27,7 +27,7 @@ ALTER TABLE `users` ADD COLUMN `armour` int(11) DEFAULT NULL AFTER `health`;
 
 5. ไปยังไฟล์ `server.cfg` และทำการเพิ่ม `ensure azael_db-health&armor` ไว้บริเวณด้านล่าง **[es_extended](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx%5D/es_extended)** (บรรทัดใดก็ได้)
 
-```diff  title="server.cfg"
+```diff title="server.cfg"
 ensure azael_db-health&armor
 ```
 
@@ -43,6 +43,6 @@ ensure azael_db-health&armor
 1. ไปยังไฟล์ `server.cfg` และค้นหา `ensure azael_db-health&armor`
 2. ทำการเพิ่ม `#` ไว้ข้างหน้า `ensure azael_db-health&armor`
 
-```diff  title="server.cfg"
+```diff title="server.cfg"
 #ensure azael_db-health&armor
 ```

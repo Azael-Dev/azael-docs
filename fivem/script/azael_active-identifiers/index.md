@@ -17,7 +17,7 @@
 3. ไปยังโฟลเดอร์ `config` และดำเนินการเปิดไฟล์ **[auth.config.lua](./config/auth.md)** เพื่อระบุ **[Token](./config/auth#token)** ของสินค้า
 4. ไปยังไฟล์ `server.cfg` และทำการเพิ่ม `ensure azael_active-identifiers` (บรรทัดใดก็ได้)
 
-```diff  title="server.cfg"
+```diff title="server.cfg"
 ensure azael_active-identifiers
 ```
 
@@ -26,6 +26,6 @@ ensure azael_active-identifiers
 1. ไปยังไฟล์ `server.cfg` และค้นหา `ensure azael_active-identifiers`
 2. ทำการเพิ่ม `#` ไว้ข้างหน้า `ensure azael_active-identifiers`
 
-```diff  title="server.cfg"
+```diff title="server.cfg"
 #ensure azael_active-identifiers
 ```
