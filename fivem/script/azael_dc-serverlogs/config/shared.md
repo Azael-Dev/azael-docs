@@ -62,7 +62,7 @@ CONFIG.Framework.Events = { -- [[ table ]]
 
 ## Wrapper
 
-รองรับรหัสการส่งข้อมูล **[azael_dc-serverlogs](https://fivem.azael.dev/digishop/azael-dc-serverlogs/)** เวอร์ชันที่ล้าสมัยในรูปแบบ **[Trigger Events](https://docs.fivem.net/docs/scripting-manual/working-with-events/triggering-events/)**
+รองรับรหัสการส่งข้อมูล **[azael_dc-serverlogs](../)** เวอร์ชันที่ล้าสมัยในรูปแบบ **[Trigger Events](https://docs.fivem.net/docs/scripting-manual/working-with-events/triggering-events/)**
 
 ```lua title="บรรทัดที่ 24"
 CONFIG.Wrapper = {} -- [[ table ]]
@@ -70,7 +70,7 @@ CONFIG.Wrapper = {} -- [[ table ]]
 
 ### Events
 
-รายชื่อเหตุการณ์ทั้งหมดของ **[azael_dc-serverlogs](https://fivem.azael.dev/digishop/azael-dc-serverlogs/)** เวอร์ชันที่ล้าสมัย
+รายชื่อเหตุการณ์ทั้งหมดของ **[azael_dc-serverlogs](../)** เวอร์ชันที่ล้าสมัย
 
 ```lua title="บรรทัดที่ 25"
 CONFIG.Wrapper.Events = { -- [[ table ]]
@@ -98,7 +98,7 @@ local content = 'เนื้อหาของข้อความที่ต
 TriggerEvent('azael_dc-serverlogs:insertData', 'eventName', content, source, 7, false)
 ```
 
-- `Args[1]` ชื่อเหตุการณ์ที่ลงทะเบียนโดย **[azael_dc-serverlogs](https://fivem.azael.dev/digishop/azael-dc-serverlogs/)** เพื่อรับข้อมูลจากทรัพยากรอื่น
+- `Args[1]` ชื่อเหตุการณ์ที่ลงทะเบียนโดย **[azael_dc-serverlogs](../)** เพื่อรับข้อมูลจากทรัพยากรอื่น
 - `Args[2]` ชื่อเหตุการณ์เพื่อแยกประเภทของข้อมูล
 - `Args[3]` เนื้อหาของข้อความที่ต้องการส่ง
 - `Args[4]` แหล่งที่มาของผู้เล่น (**[NetID](https://docs.fivem.net/docs/scripting-manual/networking/ids/#players)**)

@@ -68,6 +68,7 @@ const sidebars = {
                 'script/azael_dc-serverlogs/export/shared',
               ],
             },
+            'script/azael_dc-serverlogs/tutorial',
           ],
         },
         /* azael_db-health&armor */
