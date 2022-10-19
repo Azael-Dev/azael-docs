@@ -1,5 +1,7 @@
 # shared.config.lua
 
+ไฟล์การกำหนดค่าที่สามารถใช้งานได้ทางฝั่ง **[Server](https://en.wikipedia.org/wiki/Server-side)** และ **[Client](https://en.wikipedia.org/wiki/Client-side)**
+
 ## Resource
 
 ทรัพยากร

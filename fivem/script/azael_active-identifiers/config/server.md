@@ -1,5 +1,7 @@
 # server.config.lua
 
+ไฟล์การกำหนดค่าที่สามารถใช้งานได้ทางฝั่ง **[Server](https://en.wikipedia.org/wiki/Server-side)**
+
 ## General
 
 ทั่วไป
