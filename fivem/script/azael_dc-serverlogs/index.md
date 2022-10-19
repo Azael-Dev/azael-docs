@@ -10,9 +10,9 @@
 ### ทรัพยากร
 
 - ไม่มี (**[Standalone](https://en.wikipedia.org/wiki/Stand-alone)**)
-- รองรับ **[es_extended](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx%5D/es_extended)** สำหรับ **สาเหตุการตาย** โดย **อาวุธเสริม** (อ้างอิงจากการตั้งค่า **[config.weapons.lua](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx%5D/es_extended/config.weapons.lua)**)
-- รองรับ **[esx_status](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_status)** สำหรับ **สาเหตุการตาย** โดย **ขาดน้ำ** หรือ **ขาดอาหาร**
-- รองรับ **[screenshot-basic](https://github.com/citizenfx/screenshot-basic)** สำหรับ **บันทึกภาพหน้าจอตามเหตุการณ์ที่กำหนด**
+- รองรับ **[es_extended](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx%5D/es_extended)** สำหรับ **[สาเหตุการตาย](./config/client#death)** โดย **อาวุธเสริม** (อ้างอิงจากการตั้งค่า **[config.weapons.lua](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx%5D/es_extended/config.weapons.lua)**)
+- รองรับ **[esx_status](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_status)** สำหรับ **[สาเหตุการตาย](./config/client#death)** โดย **ขาดน้ำ** หรือ **ขาดอาหาร**
+- รองรับ **[screenshot-basic](https://github.com/citizenfx/screenshot-basic)** สำหรับ **[บันทึกภาพหน้าจอตามเหตุการณ์ที่กำหนด](./config/server#screenshotwebhooks)**
 
 ## ติดตั้งและใช้งาน
 
