@@ -104,7 +104,7 @@ TriggerEvent('azael_dc-serverlogs:insertData', 'eventName', content, source, 7, 
 - `Args[2]` ชื่อเหตุการณ์เพื่อแยกประเภทของข้อมูล
 - `Args[3]` เนื้อหาของข้อความที่ต้องการส่ง
 - `Args[4]` แหล่งที่มาของผู้เล่น (**[NetID](https://docs.fivem.net/docs/scripting-manual/networking/ids/#players)**)
-- `Args[5]` รหัสสีที่กำหนดภายในไฟล์การตั้งค่า (**1**, **10**)
+- `Args[5]` รหัสสีที่กำหนดภายในไฟล์การตั้งค่า (**0**, **9**)
 - `Args[6]` ปิดการเเสดงข้อมูลของผู้เล่นบนแอปพลิเคชัน **[Discord](https://discord.com/)**
 
 </details>
