@@ -145,7 +145,7 @@ function OpenBodySearchMenu(player)
 <details>
     <summary>MongoDB คืออะไร?</summary>
 
-**[MongoDB](https://www.mongodb.com/)** เป็น Open Source Document Databases ประเภทหนึ่ง โดยเป็น **[Database](https://en.wikipedia.org/wiki/Database)** แบบ **[NoSQL Database](https://en.wikipedia.org/wiki/NoSQL)** จะไม่มีการใช้คำสั่ง **[SQL](en.wikipedia.org/wiki/SQL)** ไม่เน้นในการสร้างความสัมพันธ์ของข้อมูล แต่จะเป็นรูปแบบโครงสร้างที่เจ้าของ **[NoSQL](https://en.wikipedia.org/wiki/NoSQL)** สร้างขึ้นมาเองและจัดเก็บข้อมูลเป็นแบบ **[JSON (JavaScript Object Notation)](https://en.wikipedia.org/wiki/JSON)** ซึ่งจะเก็บค่าเป็น Key และ Value โดยจุดเด่นอยู่ที่ความเร็วในการทำงานเป็นหลัก คิวรี่ข้อมูลได้เร็วขึ้น การทำงานในส่วนของ **[Database](https://en.wikipedia.org/wiki/Database)** จะลดลง แต่จะไปเน้นการทำงานในส่วนของโปรแกรมที่พัฒนาขึ้นมาแทน โดย **[Database](https://en.wikipedia.org/wiki/Database)** ประเภทนี้ จะเหมาะกับข้อมูลขนาดใหญ่ที่ไม่ซับซ้อน การทำงานที่ไม่หนักมาก สามารถทำงานกับระบบที่เป็นการทำงานแบบเรียลไทม์ได้ดี
+**[MongoDB](https://www.mongodb.com/)** เป็น Open Source Document Databases ประเภทหนึ่ง โดยเป็น **[Database](https://en.wikipedia.org/wiki/Database)** แบบ **[NoSQL Database](https://en.wikipedia.org/wiki/NoSQL)** จะไม่มีการใช้คำสั่ง **[SQL](https://en.wikipedia.org/wiki/SQL)** ไม่เน้นในการสร้างความสัมพันธ์ของข้อมูล แต่จะเป็นรูปแบบโครงสร้างที่เจ้าของ **[NoSQL](https://en.wikipedia.org/wiki/NoSQL)** สร้างขึ้นมาเองและจัดเก็บข้อมูลเป็นแบบ **[JSON (JavaScript Object Notation)](https://https://en.wikipedia.org/wiki/JSON)** ซึ่งจะเก็บค่าเป็น Key และ Value โดยจุดเด่นอยู่ที่ความเร็วในการทำงานเป็นหลัก คิวรี่ข้อมูลได้เร็วขึ้น การทำงานในส่วนของ **[Database](https://en.wikipedia.org/wiki/Database)** จะลดลง แต่จะไปเน้นการทำงานในส่วนของโปรแกรมที่พัฒนาขึ้นมาแทน โดย **[Database](https://en.wikipedia.org/wiki/Database)** ประเภทนี้ จะเหมาะกับข้อมูลขนาดใหญ่ที่ไม่ซับซ้อน การทำงานที่ไม่หนักมาก สามารถทำงานกับระบบที่เป็นการทำงานแบบเรียลไทม์ได้ดี
 
 **รูปแบบการจัดเก็บ**
 
@@ -193,7 +193,7 @@ Authorization: <method> <token>
 
 ### HTTP Request Body
 
-ข้อมูลจะถูกส่งออกในรูปแบบ **[JSON](en.wikipedia.org/wiki/JSON)** ดังตัวอย่างด้านล่างนี้
+ข้อมูลจะถูกส่งออกในรูปแบบ **[JSON](https://en.wikipedia.org/wiki/JSON)** ดังตัวอย่างด้านล่างนี้
 
 <Tabs>
 <TabItem value="json" label="JSON">
@@ -267,7 +267,7 @@ Authorization: <method> <token>
 
 ### REST API (PHP & MongoDB)
 
-ใช้งานฐานข้อมูล **[MongoDB](https://www.mongodb.com/)** และ **[MongoDB PHP Driver](mongodb.com/docs/drivers/php/)**
+ใช้งานฐานข้อมูล **[MongoDB](https://www.mongodb.com/)** และ **[MongoDB PHP Driver](https://www.mongodb.com/docs/drivers/php/)**
 
 <Tabs>
 <TabItem value="php" label="PHP">

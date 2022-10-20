@@ -182,7 +182,7 @@ CONFIG.Custom = {} -- [[ table ]]
 
 ### API.BaseURL
 
-**[Base URL](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)** ของ **[Server API](https://en.wikipedia.org/wiki/Web_API)** สำหรับ รับข้อมูลจากฟอร์มคำขอ (**[HTTP Requests](en.wikipedia.org/wiki/POST_(HTTP))**)
+**[Base URL](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)** ของ **[Server API](https://en.wikipedia.org/wiki/Web_API)** สำหรับ รับข้อมูลจากฟอร์มคำขอ (**[HTTP Requests](https://en.wikipedia.org/wiki/POST_(HTTP))**)
 
 ```lua title="บรรทัดที่ 69"
 CONFIG.Custom.API.BaseURL = 'http://localhost/api/azael_logs/' -- [[ string ]]
