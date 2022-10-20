@@ -1,5 +1,7 @@
 # server.config.lua
 
+ไฟล์การกำหนดค่าของทรัพยากรทางฝั่ง **[Server](https://en.wikipedia.org/wiki/Server-side)**
+
 ## General
 
 ทั่วไป
@@ -170,7 +172,7 @@ CONFIG.General.Color = { -- [[ table ]]
 }
 ```
 
-## Custom (API)
+## Custom API
 
 ส่งคำขอไปยัง **[Server API](https://en.wikipedia.org/wiki/Web_API)** ที่กำหนดเองแบบเรียลไทม์
 
@@ -230,7 +232,7 @@ CONFIG.Custom.API.Authorization.Token = 'security_token' -- [[ string ]]
 
 :::
 
-## Discord (API)
+## Discord API
 
 ส่งคำขอไปยัง **[Discord API](https://discord.com/developers/docs/resources/webhook#create-webhook)** โดยใช้ **[Webhook URL](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)** ตามขีดจำกัดอัตราการใช้งาน **[Discord API](https://discord.com/developers/docs/resources/webhook#create-webhook)** สำหรับ **[Webhooks](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)**
 
