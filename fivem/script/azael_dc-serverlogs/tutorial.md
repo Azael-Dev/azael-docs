@@ -12,13 +12,16 @@ sidebar_label: บทช่วยสอน
 
 :::caution
 
-โปรดอ่านรายละเอียด **[Export Functions (Both-Side)](./export/shared)** เพื่อให้มีความเข้าใจเกี่ยวกับรหัสที่ใช้ในการส่งข้อมูล
+โปรดอ่านรายละเอียดจากตัวเลือกด้านล่างนี้ เพื่อให้มีความเข้าใจเกี่ยวกับรหัสที่ใช้ในการส่งข้อมูลทางฝั่ง **[Server](https://en.wikipedia.org/wiki/Server-side)** และ **[Client](https://en.wikipedia.org/wiki/Client-side)**
+
+- **[ฟังก์ชันที่ใช้สำหรับการส่งข้อมูลทางฝั่ง Server](./export/server)**
+- **[ฟังก์ชันที่ใช้สำหรับการส่งข้อมูลทางฝั่ง Client](./export/client)**
 
 :::
 
 :::tip
 
-รหัสการส่งข้อมูล **[azael_dc-serverlogs](./)** เวอร์ชันที่ล้าสมัยในรูปแบบ **[Trigger Events](https://docs.fivem.net/docs/scripting-manual/working-with-events/triggering-events/)** ยังคงรองรับ (ดูรายละเอียดเพิ่มเติมได้ที่ **[Wrapper.Events](./config/shared#events-1)**)
+รองรับรหัสการส่งข้อมูล **[azael_dc-serverlogs](./)** เวอร์ชันที่ล้าสมัยในรูปแบบ **[Trigger Events](https://docs.fivem.net/docs/scripting-manual/working-with-events/triggering-events/)** คุณสามารถดูรายละเอียดเพิ่มเติมได้ที่ **[Wrapper.Events](./config/shared#events-1)**
 
 :::
 
@@ -86,7 +89,6 @@ function ImpoundVehicle(vehicle)
         exports['azael_dc-serverlogs']:insertData({
             event = 'PoliceImPound',
             content = ('ส่ง ยานพาหนะ %s ทะเบียน %s ไปยังพาวท์'):format(vehicleName, GetVehicleNumberPlateText(vehicle)),
-            source = GetPlayerServerId(PlayerId()),
             color = 5
         })
     end)
@@ -97,6 +99,36 @@ function ImpoundVehicle(vehicle)
 	currentTask.busy = false
 end
 ```
+
+:::note
+
+ไม่ต้องกำหนด **`source`** เพื่อรับ **ID** ของผู้เล่นปัจจุบันทางฝั่ง **[Client](https://en.wikipedia.org/wiki/Client-side)** ยกเว้นในกรณีที่ต้องการรับ **ID** ของผู้เล่นที่มีปฏิสัมพันธ์กับผู้เล่นปัจจุบัน
+
+```lua title="esx_policejob/client/main.lua"
+function OpenBodySearchMenu(player)
+    --[[ START: azael_dc-serverlogs ]]
+    pcall(function()
+        -- Current Player (ผู้เล่นปัจจุบัน)
+        exports['azael_dc-serverlogs']:insertData({
+            event = 'PoliceBodySearch',
+            content = ('กำลังค้นตัว %s '):format(GetPlayerName(player)),
+            color = 5
+        })
+
+        -- Target Player (ผู้เล่นเป้าหมาย)
+        exports['azael_dc-serverlogs']:insertData({
+            event = 'PoliceBodySearch',
+            content = ('กำลังถูก %s ค้นตัว'):format(GetPlayerServerId(PlayerId())),
+            source = GetPlayerServerId(player),
+            color = 3
+        })
+    end)
+    --[[ END: azael_dc-serverlogs ]]
+
+    ...
+```
+
+:::
 
 ## ใช้งาน Custom API
 

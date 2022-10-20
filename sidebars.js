@@ -65,7 +65,8 @@ const sidebars = {
               type: 'category',
               label: 'exports',
               items: [
-                'script/azael_dc-serverlogs/export/shared',
+                'script/azael_dc-serverlogs/export/server',
+                'script/azael_dc-serverlogs/export/client',
               ],
             },
             'script/azael_dc-serverlogs/tutorial',

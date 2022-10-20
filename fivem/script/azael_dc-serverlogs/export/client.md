@@ -1,14 +1,14 @@
 ---
-sidebar_label: shared
+sidebar_label: client
 ---
 
-# Export Functions (Both-Side)
+# Export Functions (Client-Side)
 
-ฟังก์ชันส่งออกเพื่อให้สามารถใช้งานได้จากทรัพยากรอื่นๆทางฝั่ง **[Server](https://en.wikipedia.org/wiki/Server-side)** และ **[Client](https://en.wikipedia.org/wiki/Client-side)**
+ฟังก์ชันส่งออกเพื่อให้สามารถใช้งานได้จากทรัพยากรอื่นๆทางฝั่ง **[Client](https://en.wikipedia.org/wiki/Client-side)**
 
 ## insertData
 
-ส่งข้อมูลจากทรัพยากรอื่นๆมายัง **[azael_dc-serverlogs](../)**
+ส่งข้อมูลจากทรัพยากรอื่นๆมายัง **[azael_dc-serverlogs](../)** แบบ **[Asynchronous](https://en.wikipedia.org/wiki/Asynchrony_(computer_programming))**
 
 <Tabs>
 <TabItem value="lua" label="Lua">
@@ -17,7 +17,7 @@ sidebar_label: shared
 exports['azael_dc-serverlogs']:insertData({
     event = 'ชื่อเหตุการณ์',
     content = 'ข้อความ',
-    source = playerId,
+    source = serverId,
     color = 7,
     options = {
         public = false,
@@ -33,7 +33,7 @@ exports['azael_dc-serverlogs']:insertData({
 exports['azael_dc-serverlogs']['insertData']({
     event: 'ชื่อเหตุการณ์',
     content: 'ข้อความ',
-    source: playerId,
+    source: serverId,
     color: 7,
     options: {
         public: false,
@@ -51,7 +51,7 @@ exports['azael_dc-serverlogs']['insertData']({
 |-------------------------|--------------------|--------------------|----------------------------------------------|--------------------------------------------------
 | `event`                 | `string`           | ❌                 |                                              | ชื่อเหตุการณ์เพื่อแยกประเภทข้อมูล (หากใช้งาน **[Discord API](../config/server#discord-api)** จะอ้างอิงจากการกำหนดค่า **[Webhooks](../config/server#webhooks)**)
 | `content`               | `string`           | ❌                 |                                              | เนื้อหาของข้อความที่ต้องการส่ง
-| `source`                | `number`           | ❌                 |                                              | ID อ้างอิงผู้เล่น หรือที่รู้จักกันในอีกชื่อคือ **[Net ID](https://docs.fivem.net/docs/scripting-manual/networking/ids/#server-id)** หรือ  **[Server ID](https://docs.fivem.net/docs/scripting-manual/networking/ids/#server-id)**
+| `source`                | `number`           | ✔️                 | `nil`                                        | ID อ้างอิงผู้เล่น หรือที่รู้จักกันในอีกชื่อคือ **[Server ID](https://docs.fivem.net/docs/scripting-manual/networking/ids/#server-id)** (ไม่ต้องกำหนดสำหรับผู้เล่นปัจจุบัน **[ดูรายละเอียดเพิ่มเติม](../tutorial#ติดตั้งฝั่ง-client)**)
 | `color`                 | `number`           | ✔️                 | `nil`                                        | รหัสสีที่กำหนดเอาไว้ที่การตั้งค่า **[Color](../config/server#color)**
 | `options`               | `table`            | ✔️                 | `nil`                                        | ตัวเลือกการใช้งาน `public` หรือ `important`
 | `options.public`        | `boolean`          | ✔️                 | `nil`                                        | ปิดการเเสดงข้อมูลส่วนตัวของผู้เล่นบนแอปพลิเคชัน **[Discord](https://discord.com/)**
@@ -68,8 +68,7 @@ exports['azael_dc-serverlogs']['insertData']({
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'ชื่อเหตุการณ์',
-        content = 'ข้อความ',
-        source = playerId
+        content = 'ข้อความ'
     })
 end)
 ```
@@ -83,8 +82,7 @@ end)
 try {
     exports['azael_dc-serverlogs']['insertData']({
         event: 'ชื่อเหตุการณ์',
-        content: 'ข้อความ',
-        source: playerId
+        content: 'ข้อความ'
     });
 } catch {};
 ```
