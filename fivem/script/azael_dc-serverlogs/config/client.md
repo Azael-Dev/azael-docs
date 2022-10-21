@@ -15,7 +15,7 @@ CONFIG.Death = {} -- [[ table ]]
 เปิดใช้งาน ละเว้นสาเหตุการตายภายโซนที่กำหนดใน **[Ignore.Zones](./client#ignorezones)**
 
 ```lua title="บรรทัดที่ 13"
-CONFIG.Death.Ignore.Enable = true -- [[ boolean ]]
+CONFIG.Death.Ignore.Enable = false -- [[ boolean ]]
 ```
 
 :::info

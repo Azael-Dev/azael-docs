@@ -94,5 +94,12 @@ try {
 
 :::
 
+
+:::danger
+
+การใช้งาน **[pcall](https://www.lua.org/pil/8.4.html) (Lua)** หรือ **[try...catch](https://javascript.info/try-catch) (JavaScript)** อาจส่งผลให้ไม่มีการส่งข้อมูลไปยัง **[azael_dc-serverlogs](../)** เนื่องจากมีข้อผิดพลาดเกิดขึ้นจากรหัสที่คุณเพิ่มไปยังทรัพยากรนั้น โปรดตรวจสอบตัวแปรของรหัสทุกครั้งและทดสอบรหัสส่งข้อมูลโดยไม่ใช้งาน **[pcall](https://www.lua.org/pil/8.4.html) ([Lua](https://www.lua.org/))** หรือ **[try...catch](https://javascript.info/try-catch) ([JavaScript](https://javascript.info/))**
+
+:::
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
