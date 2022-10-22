@@ -70,6 +70,26 @@ const sidebars = {
               ],
             },
             'script/azael_dc-serverlogs/tutorial',
+            {
+              type: 'category',
+              label: 'รหัสส่งข้อมูล',
+              items: [
+                {
+                  type: 'category',
+                  label: 'ESX Framework',
+                  items: [
+                    'script/azael_dc-serverlogs/resource/esx/es_extended',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'NC Developer',
+                  items: [
+                    'script/azael_dc-serverlogs/resource/nc/nc_inventory',
+                  ],
+                },
+              ],
+            },
           ],
         },
         /* azael_db-health&armor */
