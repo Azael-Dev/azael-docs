@@ -68,14 +68,32 @@ CONFIG.General.Kick.Reason.Identifier = 'ไม่พบตัวระบุ %s
 
 ```lua title="บรรทัดที่ 36"
 CONFIG.Logger = function(player, target)
-    local eventName = 'ActiveIdentifiers' -- ชื่อ Event ที่กำหนดไว้ในการตั้งค่า azael_dc-serverlogs
+    local eventName = 'ActiveIdentifiers'   -- ชื่อเหตุการณ์ สำหรับทรัพยากร azael_dc-serverlogs
 
-    TriggerEvent('azael_dc-serverlogs:registerWaitEvent', eventName, target.id)
-    TriggerEvent('azael_dc-serverlogs:insertData', eventName, target.reason, target.id, 3, false)
+    pcall(function()
+        exports['azael_dc-serverlogs']:insertData({
+            event = eventName,
+            content = target.reason,
+            source = target.id,
+            color = 3,
+            options = {
+                important = true
+            }
+        })
+    end)
 
     if CONFIG.General.Kick.Player.Enable then
-        TriggerEvent('azael_dc-serverlogs:registerWaitEvent', eventName, player.id)
-        TriggerEvent('azael_dc-serverlogs:insertData', eventName, player.reason, player.id, 1, false)
+        pcall(function()
+            exports['azael_dc-serverlogs']:insertData({
+                event = eventName,
+                content = player.reason,
+                source = player.id,
+                color = 1,
+                options = {
+                    important = true
+                }
+            })
+        end)
     end
 end
 ```
