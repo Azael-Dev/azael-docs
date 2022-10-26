@@ -125,6 +125,7 @@ const sidebars = {
               label: 'config',
               items: [
                 'script/azael_db-health&armor/config/auth',
+                'script/azael_db-health&armor/config/server',
                 'script/azael_db-health&armor/config/client',
                 'script/azael_db-health&armor/config/shared',
                 'script/azael_db-health&armor/config/database',

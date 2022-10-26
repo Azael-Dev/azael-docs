@@ -64,3 +64,25 @@ else                                                        -- Client
     }
 end
 ```
+
+## Debug
+
+แสดง **Debug** เพื่อตรวจสอบสถานะการทำงานต่างๆ
+
+```lua title="บรรทัดที่ 36"
+CONFIG.Debug = {} -- [[ table ]]
+```
+
+### Enable
+
+เปิดใช้งาน แสดง **Debug** ไปยัง **[Server Console](https://docs.fivem.net/docs/server-manual/server-commands)** หรือ **[Client Console](https://docs.fivem.net/docs/client-manual/console-commands)** <kbd>F8</kbd>
+
+```lua title="บรรทัดที่ 37"
+CONFIG.Debug.Enable = false -- [[ boolean ]]
+```
+
+:::caution
+
+ไม่แนะนำให้เปิดใช้งาน หากเซิร์ฟเวอร์ของคุณมีผู้เล่นออนไลน์อยู่เป็นจำนวนมาก
+
+:::

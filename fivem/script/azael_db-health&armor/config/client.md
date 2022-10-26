@@ -52,25 +52,11 @@ CONFIG.General.Notify.Enable = true -- [[ boolean ]]
 
 :::
 
-### Debug.Enable
-
-เปิดใช้งานแสดง **Debug** ไปยัง **[Client Console](https://docs.fivem.net/docs/client-manual/console-commands)** <kbd>F8</kbd>
-
-```lua title="บรรทัดที่ 27"
-CONFIG.General.Debug.Enable = false -- [[ boolean ]]
-```
-
-:::info
-
-`true` เท่ากับ เปิดใช้งาน | `false` เท่ากับ ปิดใช้งาน
-
-:::
-
 ## Status
 
 สถานะ **"พลังชีวิต"** และ **"เกราะ"**
 
-```lua title="บรรทัดที่ 31"
+```lua title="บรรทัดที่ 27"
 CONFIG.Status = {} -- [[ table ]]
 ```
 
@@ -78,7 +64,7 @@ CONFIG.Status = {} -- [[ table ]]
 
 เปิดใช้งานบันทึก **"พลังชีวิต"** ไปยังฐานข้อมูล
 
-```lua title="บรรทัดที่ 33"
+```lua title="บรรทัดที่ 29"
 CONFIG.Status.Health.Enable = true -- [[ boolean ]]
 ```
 
@@ -92,7 +78,7 @@ CONFIG.Status.Health.Enable = true -- [[ boolean ]]
 
 ค่าเริ่มต้นของสถานะ **"พลังชีวิต"** สำหรับการสร้างตัวละครในครั้งเเรก
 
-```lua title="บรรทัดที่ 34"
+```lua title="บรรทัดที่ 30"
 CONFIG.Status.Health.Default = 200 -- [[ number ]]
 ```
 
@@ -106,7 +92,7 @@ CONFIG.Status.Health.Default = 200 -- [[ number ]]
 
 ค่าสูงสุดของสถานะ **"พลังชีวิต"**
 
-```lua title="บรรทัดที่ 35"
+```lua title="บรรทัดที่ 31"
 CONFIG.Status.Health.Default = 200 -- [[ number ]]
 ```
 
@@ -120,7 +106,7 @@ CONFIG.Status.Health.Default = 200 -- [[ number ]]
 
 เปิดใช้งานบันทึก **"เกราะ"** ไปยังฐานข้อมูล
 
-```lua title="บรรทัดที่ 39"
+```lua title="บรรทัดที่ 35"
 CONFIG.Status.Armour.Enable = true -- [[ boolean ]]
 ```
 
@@ -134,7 +120,7 @@ CONFIG.Status.Armour.Enable = true -- [[ boolean ]]
 
 ค่าเริ่มต้นของสถานะ **"เกราะ"** สำหรับการสร้างตัวละครในครั้งเเรก
 
-```lua title="บรรทัดที่ 40"
+```lua title="บรรทัดที่ 36"
 CONFIG.Status.Armour.Default = 0 -- [[ number ]]
 ```
 
@@ -142,7 +128,7 @@ CONFIG.Status.Armour.Default = 0 -- [[ number ]]
 
 ค่าสูงสุดของสถานะ **"เกราะ"**
 
-```lua title="บรรทัดที่ 41"
+```lua title="บรรทัดที่ 37"
 CONFIG.Status.Armour.Maximum = 100 -- [[ number ]]
 ```
 
@@ -150,7 +136,7 @@ CONFIG.Status.Armour.Maximum = 100 -- [[ number ]]
 
 แจ้งเตือนสถานะ **"พลังชีวิต"** และ **"เกราะ"** คงเหลือ ในขณะที่ผู้เล่นเข้าร่วมเซิร์ฟเวอร์
 
-```lua title="บรรทัดที่ 53"
+```lua title="บรรทัดที่ 49"
 CONFIG.Notification = function(status)
     local playerId = PlayerId()
     local serverId = GetPlayerServerId(playerId)

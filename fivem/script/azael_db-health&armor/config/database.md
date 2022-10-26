@@ -134,5 +134,45 @@ end
 | `status.health`              | `number`           | Health Value                                 | ค่าสถานะ "พลังชีวิต"
 | `status.armour`              | `number`           | Armour Value                                 | ค่าสถานะ "เกราะ"
 
+## UpdateAllPlayerStatus (function)
+
+อัพเดทข้อมูลสถานะ "พลังชีวิต" และ "เกราะ" ตามเวลาที่กำหนดใน **[Save.Time](./server#savetime)** เพื่อป้องกันข้อมูล **[Rollback](https://en.wikipedia.org/wiki/Rollback_(data_management))**
+
+<Tabs>
+<TabItem value="oxmysql" label="oxmysql">
+
+```lua title="บรรทัดที่ 43"
+function CONFIG.Database.UpdateAllPlayerStatus(data)
+    MySQL.prepare('UPDATE users SET health = ?, armour = ? WHERE identifier = ?', data, function(results)
+        -- print(results)
+    end)
+end
+```
+
+</TabItem>
+<TabItem value="mysql-async" label="mysql-async">
+
+```lua title="บรรทัดที่ 43"
+function CONFIG.Database.UpdateAllPlayerStatus(data)
+    for i = 1, #data, 1 do
+        MySQL.Async.execute('UPDATE users SET health = @health, armour = @armour WHERE identifier = @identifier', { ['@health'] = data[i][1], ['@armour'] = data[i][2], ['@identifier'] = data[i][3] }, function(affectedRows)
+            -- print(affectedRows)
+        end)
+    end
+end
+```
+
+</TabItem>
+</Tabs>
+
+### Parameter
+
+| Name                         | Type               | Default                                      | Description                                                
+|------------------------------|--------------------|----------------------------------------------|-----------------------------------------------------------
+| `data`                       | `table`            | `{ { ... } }`                                | ตารางข้อมูลสถานะ "พลังชีวิต" และ "เกราะ" ของผู้เล่นทั้งหมดที่ออนไลน์
+| `data[number][1]`            | `number`           | Health Value                                 | ค่าสถานะ "พลังชีวิต"
+| `data[number][2]`            | `number`           | Armour Value                                 | ค่าสถานะ "เกราะ"
+| `data[number][3]`            | `string`           | Player Identifier                            | ตัวระบุผู้เล่น (อ้างอิงจากตาราง `users` คอลัมน์ `identifier` บนฐานข้อมูล)
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
