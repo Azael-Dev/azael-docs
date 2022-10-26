@@ -73,17 +73,36 @@ const sidebars = {
             {
               type: 'category',
               label: 'รหัสส่งข้อมูล',
+              link: {
+                type: 'generated-index',
+                title: 'ตัวอย่างรหัสส่งข้อมูล',
+                description: 'ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากรอื่นๆเพื่อส่งข้อมูลมายัง azael_dc-serverlogs',
+                keywords: ['code-examples'],
+                slug: 'code-examples',
+              },
               items: [
                 {
                   type: 'category',
                   label: 'ESX Framework',
+                  link: {
+                    type: 'generated-index',
+                    title: 'ESX Framework',
+                    description: 'ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากร ESX Framework เพื่อส่งข้อมูลมายัง azael_dc-serverlogs',
+                    keywords: ['esx-framework'],
+                  },
                   items: [
                     'script/azael_dc-serverlogs/resource/esx/es_extended',
                   ],
                 },
                 {
                   type: 'category',
-                  label: 'NC Developer',
+                  label: 'Other Scripts',
+                  link: {
+                    type: 'generated-index',
+                    title: 'Other Scripts',
+                    description: 'ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากรอื่นๆ (Other Scripts) เพื่อส่งข้อมูลมายัง azael_dc-serverlogs',
+                    keywords: ['other-scripts'],
+                  },
                   items: [
                     'script/azael_dc-serverlogs/resource/nc/nc_inventory',
                   ],
