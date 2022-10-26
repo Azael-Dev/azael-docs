@@ -121,7 +121,7 @@ CONFIG.Debug = {} -- [[ table ]]
 
 เปิดใช้งาน แสดง **Debug** ไปยัง **[Server Console](https://docs.fivem.net/docs/server-manual/server-commands)** หรือ **[Client Console](https://docs.fivem.net/docs/client-manual/console-commands)** <kbd>F8</kbd>
 
-```lua title="บรรทัดที่ 37"
+```lua title="บรรทัดที่ 38"
 CONFIG.Debug.Enable = false -- [[ boolean ]]
 ```
 
