@@ -106,6 +106,7 @@ const sidebars = {
                   items: [
                     'script/azael_dc-serverlogs/example/nc/nc_inventory',
                     'script/azael_dc-serverlogs/example/nc/nc_vault',
+                    'script/azael_dc-serverlogs/example/nc/nc_stealjobs',
                   ],
                 },
               ],
