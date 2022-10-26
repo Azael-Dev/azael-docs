@@ -109,6 +109,7 @@ const sidebars = {
                     'script/azael_dc-serverlogs/example/other/nc_booth',
                     'script/azael_dc-serverlogs/example/other/nc_stealjobs',
                     'script/azael_dc-serverlogs/example/other/nc_tradingjobs',
+                    'script/azael_dc-serverlogs/example/other/monster_vault',
                   ],
                 },
               ],
