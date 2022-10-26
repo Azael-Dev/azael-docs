@@ -78,7 +78,7 @@ const sidebars = {
                 title: 'ตัวอย่างรหัสส่งข้อมูล',
                 description: 'ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากรอื่นๆเพื่อส่งข้อมูลมายัง azael_dc-serverlogs',
                 keywords: ['code-examples'],
-                slug: 'code-examples',
+                slug: 'script/azael_dc-serverlogs/examples',
               },
               items: [
                 {
@@ -91,7 +91,7 @@ const sidebars = {
                     keywords: ['esx-framework'],
                   },
                   items: [
-                    'script/azael_dc-serverlogs/resource/esx/es_extended',
+                    'script/azael_dc-serverlogs/example/esx/es_extended',
                   ],
                 },
                 {
@@ -104,7 +104,7 @@ const sidebars = {
                     keywords: ['other-scripts'],
                   },
                   items: [
-                    'script/azael_dc-serverlogs/resource/nc/nc_inventory',
+                    'script/azael_dc-serverlogs/example/nc/nc_inventory',
                   ],
                 },
               ],
