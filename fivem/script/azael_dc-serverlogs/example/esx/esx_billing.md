@@ -14,7 +14,7 @@ sidebar_label: esx_billing
 
 ## main.lua (Server)
 
-ไปยังโฟลเดอร์ **[server](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_billing/server)** แล้วดำเนินการเปิดไฟล์ **[main.lua](github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_billing/server/main.lua)**
+ไปยังโฟลเดอร์ **[server](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_billing/server)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_billing/server/main.lua)**
 
 ### ส่ง-บิล
 
