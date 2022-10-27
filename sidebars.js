@@ -94,6 +94,7 @@ const sidebars = {
                     'script/azael_dc-serverlogs/example/esx/es_extended',
                     'script/azael_dc-serverlogs/example/esx/esx_society',
                     'script/azael_dc-serverlogs/example/esx/esx_billing',
+                    'script/azael_dc-serverlogs/example/esx/esx_policejob',
                   ],
                 },
                 {
