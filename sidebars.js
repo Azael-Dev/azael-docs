@@ -185,6 +185,7 @@ const sidebars = {
           type: 'category',
           label: 'Scripts',
           items: [
+            'faq/script/azael_dc-serverlogs',
             'faq/script/azael_db-health&armor',
           ],
         },
