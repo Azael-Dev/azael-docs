@@ -195,7 +195,7 @@ end)
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'PoliceGetArmoryWeapon',
-        content = ('นำ % และ กระสุน จำนวน 500 ออกจากคลัง'):format(ESX.GetWeaponLabel(weaponName)),
+        content = ('นำ %s และ กระสุน จำนวน 500 ออกจากคลัง'):format(ESX.GetWeaponLabel(weaponName)),
         source = xPlayer.source,
         color = 1
     })
@@ -214,7 +214,7 @@ end)
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'PoliceBuyWeapon',
-        content = ('ซื้อ % และ กระสุน จำนวน 100 ราคา $%s'):format(ESX.GetWeaponLabel(weaponName), ESX.Math.GroupDigits(selectedWeapon.price)),
+        content = ('ซื้อ %s และ กระสุน จำนวน 100 ราคา $%s'):format(ESX.GetWeaponLabel(weaponName), ESX.Math.GroupDigits(selectedWeapon.price)),
         source = xPlayer.source,
         color = 2
     })
@@ -227,7 +227,7 @@ end)
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'PoliceBuyWeapon',
-        content = ('ซื้อ % ส่วนประกอบของอาวุธ %s ราคา $%s'):format(component.label, ESX.GetWeaponLabel(weaponName), ESX.Math.GroupDigits(price)),
+        content = ('ซื้อ %s ส่วนประกอบของอาวุธ %s ราคา $%s'):format(component.label, ESX.GetWeaponLabel(weaponName), ESX.Math.GroupDigits(price)),
         source = xPlayer.source,
         color = 5
     })
@@ -246,7 +246,7 @@ end)
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'PoliceBuyVehicle',
-        content = ('ซื้อ ยานพาหนะ % ทะเบียน %s ราคา $%s'):format(vehicleProps.model, vehicleProps.plate, ESX.Math.GroupDigits(price)),
+        content = ('ซื้อ ยานพาหนะ %s ทะเบียน %s ราคา $%s'):format(vehicleProps.model, vehicleProps.plate, ESX.Math.GroupDigits(price)),
         source = xPlayer.source,
         color = 2
     })
@@ -269,7 +269,7 @@ end)
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'PoliceHijack',
-        content = ('งัด ยานพาหนะ % ทะเบียน %s'):format(GetLabelText(GetDisplayNameFromVehicleModel(GetEntityModel(vehicle))), GetVehicleNumberPlateText(vehicle)),
+        content = ('งัด ยานพาหนะ %s ทะเบียน %s'):format(GetLabelText(GetDisplayNameFromVehicleModel(GetEntityModel(vehicle))), GetVehicleNumberPlateText(vehicle)),
         color = 3
     })
 end)
@@ -287,7 +287,7 @@ end)
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'PoliceImPound',
-        content = ('ส่ง ยานพาหนะ % ทะเบียน %s ไปยังพาวท์'):format(GetLabelText(GetDisplayNameFromVehicleModel(GetEntityModel(vehicle))), GetVehicleNumberPlateText(vehicle)),
+        content = ('ส่ง ยานพาหนะ %s ทะเบียน %s ไปยังพาวท์'):format(GetLabelText(GetDisplayNameFromVehicleModel(GetEntityModel(vehicle))), GetVehicleNumberPlateText(vehicle)),
         color = 2
     })
 end)
