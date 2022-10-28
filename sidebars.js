@@ -98,6 +98,7 @@ const sidebars = {
                     'script/azael_dc-serverlogs/example/esx/esx_ambulancejob',
                     'script/azael_dc-serverlogs/example/esx/esx_mechanicjob',
                     'script/azael_dc-serverlogs/example/esx/esx_vehicleshop',
+                    'script/azael_dc-serverlogs/example/esx/esx_boat',
                     'script/azael_dc-serverlogs/example/esx/esx_lscustom',
                     'script/azael_dc-serverlogs/example/esx/esx_accessories',
                     'script/azael_dc-serverlogs/example/esx/esx_clotheshop',
