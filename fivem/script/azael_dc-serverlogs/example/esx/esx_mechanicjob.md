@@ -197,7 +197,7 @@ end)
 
 ## main.lua (Client)
 
-ไปยังโฟลเดอร์ **[client](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_mechanicjob/client)** แล้วดำเนินการเปิดไฟล์ **[main.lua](github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_mechanicjob/client/main.lua)**
+ไปยังโฟลเดอร์ **[client](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_mechanicjob/client)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_mechanicjob/client/main.lua)**
 
 ### ช่าง-เบิกรถ
 
