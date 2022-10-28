@@ -97,6 +97,7 @@ const sidebars = {
                     'script/azael_dc-serverlogs/example/esx/esx_policejob',
                     'script/azael_dc-serverlogs/example/esx/esx_ambulancejob',
                     'script/azael_dc-serverlogs/example/esx/esx_mechanicjob',
+                    'script/azael_dc-serverlogs/example/esx/esx_vehicleshop',
                   ],
                 },
                 {
