@@ -183,7 +183,7 @@ end)
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'DocBuyVehicle',
-        content = ('ซื้อ ยานพาหนะ % ทะเบียน %s ราคา $%s'):format(vehicleProps.model, vehicleProps.plate, ESX.Math.GroupDigits(price)),
+        content = ('ซื้อ ยานพาหนะ %s ทะเบียน %s ราคา $%s'):format(vehicleProps.model, vehicleProps.plate, ESX.Math.GroupDigits(price)),
         source = xPlayer.source,
         color = 2
     })
@@ -202,7 +202,7 @@ end)
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'DocRemoveItem',
-        content = ('ใช้งาน % จำนวน 1'):format(ESX.GetItemLabel(item)),
+        content = ('ใช้งาน %s จำนวน 1'):format(ESX.GetItemLabel(item)),
         source = xPlayer.source,
         color = 1
     })
@@ -221,7 +221,7 @@ end)
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'DocGiveItem',
-        content = ('เบิก % จำนวน %s'):format(ESX.GetItemLabel(itemName), amount),
+        content = ('เบิก %s จำนวน %s'):format(ESX.GetItemLabel(itemName), amount),
         source = xPlayer.source,
         color = 2
     })
