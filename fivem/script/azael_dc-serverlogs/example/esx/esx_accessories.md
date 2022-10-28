@@ -14,7 +14,7 @@ sidebar_label: esx_accessories
 
 ## main.lua (Server)
 
-ไปยังโฟลเดอร์ **[server](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_accessories/server)** แล้วดำเนินการเปิดไฟล์ **[main.lua](github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_accessories/server/main.lua)**
+ไปยังโฟลเดอร์ **[server](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_accessories/server)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_accessories/server/main.lua)**
 
 ### ร้าน-เครื่องประดับ
 
