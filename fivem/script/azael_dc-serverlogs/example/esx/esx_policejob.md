@@ -202,11 +202,11 @@ pcall(function()
 end)
 ```
 
-### ตำรวจ-ซื้อ-อาวุธ
+### ตำรวจ-ซื้ออาวุธ
 
 | Event                                  | Label
 |----------------------------------------|----------------------------------------
-| `PoliceBuyWeapon`                      | ตำรวจ-ซื้อ-อาวุธ
+| `PoliceBuyWeapon`                      | ตำรวจ-ซื้ออาวุธ
 
 1. วางรหัสด้านล่างนี้ต่อจาก `xPlayer.addWeapon(weaponName, 100)` บรรทัดที่ **[324](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_policejob/server/main.lua#L324)**
 
@@ -234,11 +234,11 @@ pcall(function()
 end)
 ```
 
-### ตำรวจ-ซื้อ-รถ
+### ตำรวจ-ซื้อรถ
 
 | Event                                  | Label
 |----------------------------------------|----------------------------------------
-| `PoliceBuyVehicle`                     | ตำรวจ-ซื้อ-รถ
+| `PoliceBuyVehicle`                     | ตำรวจ-ซื้อรถ
 
 วางรหัสด้านล่างนี้ต่อจาก `function(rowsChanged)` บรรทัดที่ **[367](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_policejob/server/main.lua#L367)**
 
@@ -257,11 +257,11 @@ end)
 
 ไปยังโฟลเดอร์ **[client](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_policejob/client)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_policejob/client/main.lua)**
 
-### ตำรวจ-งัด-รถ
+### ตำรวจ-งัดรถ
 
 | Event                                  | Label
 |----------------------------------------|----------------------------------------
-| `PoliceHijack`                         | ตำรวจ-งัด-รถ
+| `PoliceHijack`                         | ตำรวจ-งัดรถ
 
 วางรหัสด้านล่างนี้ต่อจาก `ESX.ShowNotification(TranslateCap('vehicle_unlocked'))` บรรทัดที่ **[350](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_policejob/client/main.lua#L350)**
 
@@ -275,11 +275,11 @@ pcall(function()
 end)
 ```
 
-### ตำรวจ-พาวท์-รถ
+### ตำรวจ-พาวท์รถ
 
 | Event                                  | Label
 |----------------------------------------|----------------------------------------
-| `PoliceImPound`                         | ตำรวจ-พาวท์-รถ
+| `PoliceImPound`                         | ตำรวจ-พาวท์รถ
 
 วางรหัสด้านล่างนี้ต่อจาก `function ImpoundVehicle(vehicle)` บรรทัดที่ **[1582](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_policejob/client/main.lua#L1582)**
 
