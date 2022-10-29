@@ -32,7 +32,7 @@
 
 ### ขีดจำกัดอัตราการใช้งาน Webhooks
 
-ขีดจำกัดอัตราการใช้งาน **[Webhooks](https://discord.com/developers/docs/resources/webhook#execute-webhook)** ในปัจจุบัน ภายใน **`1`** ช่อง จะสามารถรับคำต่อเนื่องได้เพียง **`5`** คำขอ ต่อ **`2`** วินาที และ สามารถรับคำขอสูงสุดได้เพียง **`30`** คำขอ ต่อ **`1`** นาที เท่านั้น หากมีการส่งคำขอมาเกิน **[Rate Limits](https://discord.com/developers/docs/topics/rate-limits#rate-limits)** อาจจะส่งผลให้เซิร์ฟเวอร์ของคุณติดสถานะ **[429 - Global Rate Limit](https://discord.com/developers/docs/topics/rate-limits#global-rate-limit)** ได้
+ขีดจำกัดอัตราการใช้งาน **[Webhooks](https://discord.com/developers/docs/resources/webhook#execute-webhook)** ในปัจจุบัน ภายใน **`1`** ช่อง จะสามารถรับคำขอต่อเนื่องได้เพียง **`5`** คำขอ ต่อ **`2`** วินาที และ สามารถรับคำขอสูงสุดได้เพียง **`30`** คำขอ ต่อ **`1`** นาที เท่านั้น หากมีการส่งคำขอมาเกิน **[Rate Limits](https://discord.com/developers/docs/topics/rate-limits#rate-limits)** อาจจะส่งผลให้เซิร์ฟเวอร์ของคุณติดสถานะ **[429 - Global Rate Limit](https://discord.com/developers/docs/topics/rate-limits#global-rate-limit)** ได้
 
 ![Webhook Rate Limit](../../../static/img/faqs/api-webhook-incessant.png)
 
