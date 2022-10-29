@@ -128,6 +128,7 @@ const sidebars = {
                     'script/azael_dc-serverlogs/example/other/monster_vault',
                     'script/azael_dc-serverlogs/example/other/esx_advancedgarage',
                     'script/azael_dc-serverlogs/example/other/lls-mechanic',
+                    'script/azael_dc-serverlogs/example/other/new_banking',
                   ],
                 },
               ],
