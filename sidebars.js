@@ -127,6 +127,7 @@ const sidebars = {
                     'script/azael_dc-serverlogs/example/other/nc_tradingjobs',
                     'script/azael_dc-serverlogs/example/other/monster_vault',
                     'script/azael_dc-serverlogs/example/other/new_banking',
+                    'script/azael_dc-serverlogs/example/other/esx_inventoryhud',
                     'script/azael_dc-serverlogs/example/other/esx_giveallplayers',
                     'script/azael_dc-serverlogs/example/other/esx_givevehicle',
                     'script/azael_dc-serverlogs/example/other/esx_advancedgarage',
