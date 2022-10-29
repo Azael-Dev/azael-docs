@@ -12,7 +12,7 @@ sidebar_label: new_banking
 
 :::
 
-## main.lua (Server)
+## server.lua (Server)
 
 ไปยังโฟลเดอร์ **[server](https://github.com/ikovaa/new_banking/tree/main/server)** แล้วดำเนินการเปิดไฟล์ **[server.lua](https://github.com/ikovaa/new_banking/blob/main/server/server.lua)**
 
