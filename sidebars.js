@@ -107,6 +107,7 @@ const sidebars = {
                     'script/azael_dc-serverlogs/example/esx/esx_weaponshop',
                     'script/azael_dc-serverlogs/example/esx/esx_shops',
                     'script/azael_dc-serverlogs/example/esx/esx_banking',
+                    'script/azael_dc-serverlogs/example/esx/esx_drugs',
                   ],
                 },
                 {
