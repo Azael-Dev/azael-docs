@@ -20,7 +20,7 @@ sidebar_label: esx_policejob
 
 :::note
 
-ไม่ต้องดำเนินการในส่วนนี้ หากคุณใช้งาน **[nc_inventory](../other/nc_inventory)** หรือ **[esx_inventoryhud](https://github.com/Trsak/esx_inventoryhud)**
+ไม่ต้องดำเนินการในส่วนนี้ หากคุณใช้งาน **[nc_inventory](../other/nc_inventory)** หรือ **[esx_inventoryhud](../other/esx_inventoryhud)**
 
 :::
 
