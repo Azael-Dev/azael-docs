@@ -12,7 +12,7 @@ sidebar_label: lls-mechanic
 
 :::
 
-## main.lua (Client)
+## core.lua (Client)
 
 ไปยังโฟลเดอร์ **client** แล้วดำเนินการเปิดไฟล์ **core.lua**
 
