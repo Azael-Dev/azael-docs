@@ -41,7 +41,7 @@ CONFIG.Death.Ignore.Zones = { -- [[ table ]]
 :::info
 
 - `Coords` หมายถึง พิกัดของโซนที่กำหนด (`X`, `Y`, `Z`) ในรูปแบบ **[vector3](https://docs.fivem.net/docs/scripting-reference/runtimes/lua/functions/vector3/)**<br/>
-- `Radius` หมายถึง รัศมี หรือ ขอบเขต โดยอ้างอิงจากจุดศูนย์กลางของพิกีดที่กำหนดใน `Coords`
+- `Radius` หมายถึง รัศมี หรือ ขอบเขต โดยอ้างอิงจากจุดศูนย์กลางของพิกัดที่กำหนดใน `Coords`
 
 :::
 
@@ -64,12 +64,51 @@ CONFIG.Death.Reason = { -- [[ table ]]
         Gas = 'แก๊สพิษ',
         Burn = 'ไฟคลอก',
         Vehicle = 'ตกจากยานพาหนะ',
-        Hunger = 'ขาดอาหาร',
-        Thirst = 'ขาดน้ำ',
         Addon = 'อาวุธเสริม'
     }
 }
 ```
+
+### GetBasicNeeds (function)
+
+รับข้อมูลสถานะ **อาหาร** และ **น้ำ** จากทรัพยากร **[esx_status](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_status)**
+
+```lua title="บรรทัดที่ 44"
+GetBasicNeeds = function()
+    local cause
+    local hunger, thirst = false, false
+
+    TriggerEvent('esx_status:getStatus', 'hunger', function(status)
+        hunger = (status.val <= 0 and true or false)
+    end)
+
+    TriggerEvent('esx_status:getStatus', 'thirst', function(status)
+        thirst = (status.val <= 0 and true or false)
+    end)
+
+    if hunger and thirst then
+        cause = 'ขาดอาหาร & ขาดน้ำ'
+    elseif hunger then
+        cause = 'ขาดอาหาร'
+    elseif thirst then
+        cause = 'ขาดน้ำ'
+    end
+
+    return cause
+end
+```
+
+#### Return
+
+| Name                         | Type                         | Default                      | Description                                                
+|------------------------------|------------------------------|------------------------------|--------------------------------------------------
+| `cause`                      | `string` หรือ `nil`           | `nil`                        | สาเหตุการตายโดย ขาดอาหาร, ขาดน้ำ หรือ ไม่มีค่า
+
+:::tip
+
+หากคุณไม่ได้ใช้งานทรัพยากร **[esx_status](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_status)** คุณสามารถแก้ไขรหัสให้มีความเข้ากันได้กับทรัพยากรที่คุณกำลังใช้งานได้ฟังก์ชันนี้
+
+:::
 
 ### Causes
 
@@ -103,7 +142,7 @@ CONFIG.Death.Reason = { -- [[ table ]]
 
 </details>
 
-```lua title="บรรทัดที่ 45"
+```lua title="บรรทัดที่ 68"
 CONFIG.Death.Causes = { -- [[ table ]]
     --[[ MELEE - ระยะประชิด ]]
     ['WEAPON_DAGGER'] = {                                   -- ชื่อ หรือ แฮช

@@ -46,22 +46,6 @@ CONFIG.Framework.Resource.Name = 'es_extended' -- [[ string ]]
 
 :::
 
-### Events
-
-เหตุการณ์ทั้งหมดของ **Framework** ที่ใช้งาน
-
-```lua title="บรรทัดที่ 32"
-CONFIG.Framework.Events = { -- [[ table ]]
-    [1] = 'esx_status:getStatus'
-}
-```
-
-:::info
-
-รองรับ **[esx_status](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_status)** สำหรับ **สาเหตุการตาย** โดย **ขาดน้ำ** หรือ **ขาดอาหาร**
-
-:::
-
 ## Wrapper
 
 รองรับรหัสการส่งข้อมูล **[azael_dc-serverlogs](../)** เวอร์ชันที่ล้าสมัยในรูปแบบ **[Trigger Events](https://docs.fivem.net/docs/scripting-manual/working-with-events/triggering-events/)**
@@ -113,7 +97,7 @@ TriggerEvent('azael_dc-serverlogs:insertData', 'eventName', content, source, 7, 
 
 แสดง **Debug** เพื่อตรวจสอบสถานะการทำงานต่างๆ
 
-```lua title="บรรทัดที่ 37"
+```lua title="บรรทัดที่ 33"
 CONFIG.Debug = {} -- [[ table ]]
 ```
 
@@ -121,7 +105,7 @@ CONFIG.Debug = {} -- [[ table ]]
 
 เปิดใช้งาน แสดง **Debug** ไปยัง **[Server Console](https://docs.fivem.net/docs/server-manual/server-commands)** หรือ **[Client Console](https://docs.fivem.net/docs/client-manual/console-commands)** <kbd>F8</kbd>
 
-```lua title="บรรทัดที่ 38"
+```lua title="บรรทัดที่ 34"
 CONFIG.Debug.Enable = false -- [[ boolean ]]
 ```
 
