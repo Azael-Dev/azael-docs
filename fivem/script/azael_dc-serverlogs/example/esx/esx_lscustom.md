@@ -46,7 +46,7 @@ AddEventHandler('esx_lscustom:installMod', function(price)
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'LsCustom',
-        content = ('แต่ง ยานพาหนะ %s ทะเบียน %s เสียค่าใช้จ่าย $%s'):format(GetLabelText(GetDisplayNameFromVehicleModel(myCar.model)), myCar.plate, ESX.Math.GroupDigits(price)),
+        content = ('แต่ง ยานพาหนะ %s ทะเบียน %s เสียค่าใช้จ่าย $%s'):format(GetDisplayNameFromVehicleModel(myCar.model), myCar.plate, ESX.Math.GroupDigits(price)),
         color = 2
     })
 end)

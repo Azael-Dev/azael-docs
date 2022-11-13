@@ -211,7 +211,7 @@ end)
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'MechanicCarSpawner',
-        content = ('เบิก ยานพาหนะ %s ทะเบียน %s'):format(GetLabelText(GetDisplayNameFromVehicleModel(vehicleProps.model)), GetVehicleNumberPlateText(vehicle)),
+        content = ('เบิก ยานพาหนะ %s ทะเบียน %s'):format(GetDisplayNameFromVehicleModel(vehicleProps.model), GetVehicleNumberPlateText(vehicle)),
         color = 2
     })
 end)
@@ -223,7 +223,7 @@ end)
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'MechanicCarSpawner',
-        content = ('เบิก ยานพาหนะ %s ทะเบียน %s'):format(GetLabelText(GetDisplayNameFromVehicleModel(data.current.value)), GetVehicleNumberPlateText(vehicle)),
+        content = ('เบิก ยานพาหนะ %s ทะเบียน %s'):format(GetDisplayNameFromVehicleModel(data.current.value), GetVehicleNumberPlateText(vehicle)),
         color = 2
     })
 end)
@@ -235,7 +235,7 @@ end)
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'MechanicCarSpawner',
-        content = ('เบิก ยานพาหนะ %s ทะเบียน %s'):format(GetLabelText(GetDisplayNameFromVehicleModel(data.current.value)), GetVehicleNumberPlateText(vehicle)),
+        content = ('เบิก ยานพาหนะ %s ทะเบียน %s'):format(GetDisplayNameFromVehicleModel(data.current.value), GetVehicleNumberPlateText(vehicle)),
         color = 2
     })
 end)
@@ -253,7 +253,7 @@ end)
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'MechanicHijack',
-        content = ('งัด ยานพาหนะ %s ทะเบียน %s'):format(GetLabelText(GetDisplayNameFromVehicleModel(GetEntityModel(vehicle))), GetVehicleNumberPlateText(vehicle)),
+        content = ('งัด ยานพาหนะ %s ทะเบียน %s'):format(GetDisplayNameFromVehicleModel(GetEntityModel(vehicle)), GetVehicleNumberPlateText(vehicle)),
         color = 3
     })
 end)
@@ -271,7 +271,7 @@ end)
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'MechanicRepair',
-        content = ('ซ่อม ยานพาหนะ %s ทะเบียน %s'):format(GetLabelText(GetDisplayNameFromVehicleModel(GetEntityModel(vehicle))), GetVehicleNumberPlateText(vehicle)),
+        content = ('ซ่อม ยานพาหนะ %s ทะเบียน %s'):format(GetDisplayNameFromVehicleModel(GetEntityModel(vehicle)), GetVehicleNumberPlateText(vehicle)),
         color = 2
     })
 end)
@@ -289,7 +289,7 @@ end)
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'MechanicClean',
-        content = ('ล้าง ยานพาหนะ %s ทะเบียน %s'):format(GetLabelText(GetDisplayNameFromVehicleModel(GetEntityModel(vehicle))), GetVehicleNumberPlateText(vehicle)),
+        content = ('ล้าง ยานพาหนะ %s ทะเบียน %s'):format(GetDisplayNameFromVehicleModel(GetEntityModel(vehicle)), GetVehicleNumberPlateText(vehicle)),
         color = 2
     })
 end)
@@ -307,7 +307,7 @@ end)
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'MechanicImpVeh',
-        content = ('ส่ง ยานพาหนะ %s ทะเบียน %s ไปยังพาวท์'):format(GetLabelText(GetDisplayNameFromVehicleModel(GetEntityModel(vehicle))), GetVehicleNumberPlateText(vehicle)),
+        content = ('ส่ง ยานพาหนะ %s ทะเบียน %s ไปยังพาวท์'):format(GetDisplayNameFromVehicleModel(GetEntityModel(vehicle)), GetVehicleNumberPlateText(vehicle)),
         color = 2
     })
 end)
@@ -319,7 +319,7 @@ end)
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'MechanicImpVeh',
-        content = ('ส่ง ยานพาหนะ %s ทะเบียน %s ไปยังพาวท์'):format(GetLabelText(GetDisplayNameFromVehicleModel(GetEntityModel(vehicle))), GetVehicleNumberPlateText(vehicle)),
+        content = ('ส่ง ยานพาหนะ %s ทะเบียน %s ไปยังพาวท์'):format(GetDisplayNameFromVehicleModel(GetEntityModel(vehicle)), GetVehicleNumberPlateText(vehicle)),
         color = 2
     })
 end)

@@ -28,7 +28,7 @@ sidebar_label: esx_jb_eden_garage2
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'PutVehicleGarage',
-        content = ('เก็บ ยานพาหนะ %s ทะเบียน %s เข้า Garage (%s)'):format(GetLabelText(GetDisplayNameFromVehicleModel(trailerProps.model)), trailerProps.plate, garage_name),
+        content = ('เก็บ ยานพาหนะ %s ทะเบียน %s เข้า Garage (%s)'):format(GetDisplayNameFromVehicleModel(trailerProps.model), trailerProps.plate, garage_name),
         color = 7
     })
 end)
@@ -40,7 +40,7 @@ end)
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'PutVehicleGarage',
-        content = ('เก็บ ยานพาหนะ %s ทะเบียน %s เข้า Garage (%s)'):format(GetLabelText(GetDisplayNameFromVehicleModel(vehicleProps.model)), vehicleProps.plate, garage_name),
+        content = ('เก็บ ยานพาหนะ %s ทะเบียน %s เข้า Garage (%s)'):format(GetDisplayNameFromVehicleModel(vehicleProps.model), vehicleProps.plate, garage_name),
         color = 7
     })
 end)
@@ -58,7 +58,7 @@ end)
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'PutVehiclePound',
-        content = ('เก็บ ยานพาหนะ %s ทะเบียน %s เข้า Pound'):format(GetLabelText(GetDisplayNameFromVehicleModel(trailerProps.model)), trailerProps.plate),
+        content = ('เก็บ ยานพาหนะ %s ทะเบียน %s เข้า Pound'):format(GetDisplayNameFromVehicleModel(trailerProps.model), trailerProps.plate),
         color = 5
     })
 end)
@@ -70,7 +70,7 @@ end)
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'PutVehiclePound',
-        content = ('เก็บ ยานพาหนะ %s ทะเบียน %s เข้า Pound'):format(GetLabelText(GetDisplayNameFromVehicleModel(vehicleProps.model)), vehicleProps.plate),
+        content = ('เก็บ ยานพาหนะ %s ทะเบียน %s เข้า Pound'):format(GetDisplayNameFromVehicleModel(vehicleProps.model), vehicleProps.plate),
         color = 5
     })
 end)
@@ -88,7 +88,7 @@ end)
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'GetVehicleGarage',
-        content = ('เบิก ยานพาหนะ %s ทะเบียน %s ออกจาก Garage'):format(GetLabelText(GetDisplayNameFromVehicleModel(vehicleProps.model)), vehicleProps.plate),
+        content = ('เบิก ยานพาหนะ %s ทะเบียน %s ออกจาก Garage'):format(GetDisplayNameFromVehicleModel(vehicleProps.model), vehicleProps.plate),
         color = 2
     })
 end)
@@ -106,7 +106,7 @@ end)
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'GetVehiclePound',
-        content = ('เบิก ยานพาหนะ %s ทะเบียน %s ออกจาก Pound'):format(GetLabelText(GetDisplayNameFromVehicleModel(vehicleProps.model)), vehicleProps.plate),
+        content = ('เบิก ยานพาหนะ %s ทะเบียน %s ออกจาก Pound'):format(GetDisplayNameFromVehicleModel(vehicleProps.model), vehicleProps.plate),
         color = 3
     })
 end)

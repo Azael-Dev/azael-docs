@@ -64,7 +64,7 @@ end)
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'PutBoatGarage',
-        content = ('เก็บ ยานพาหนะ %s ทะเบียน %s เข้า Garage'):format(GetLabelText(GetDisplayNameFromVehicleModel(vehicleProps.model)), vehicleProps.plate),
+        content = ('เก็บ ยานพาหนะ %s ทะเบียน %s เข้า Garage'):format(GetDisplayNameFromVehicleModel(vehicleProps.model), vehicleProps.plate),
         color = 3
     })
 end)

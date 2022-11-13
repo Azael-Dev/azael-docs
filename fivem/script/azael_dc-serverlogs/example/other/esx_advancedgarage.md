@@ -28,7 +28,7 @@ sidebar_label: esx_advancedgarage
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'GetVehicleGarage',
-        content = ('เบิก ยานพาหนะ %s ทะเบียน %s ออกจาก Garage'):format(GetLabelText(GetDisplayNameFromVehicleModel(vehVehicle.model)), vehPlate),
+        content = ('เบิก ยานพาหนะ %s ทะเบียน %s ออกจาก Garage'):format(GetDisplayNameFromVehicleModel(vehVehicle.model), vehPlate),
         color = 2
     })
 end)
@@ -40,7 +40,7 @@ end)
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'GetVehicleGarage',
-        content = ('เบิก ยานพาหนะ %s ทะเบียน %s ออกจาก Garage'):format(GetLabelText(GetDisplayNameFromVehicleModel(vehVehicle.model)), vehPlate),
+        content = ('เบิก ยานพาหนะ %s ทะเบียน %s ออกจาก Garage'):format(GetDisplayNameFromVehicleModel(vehVehicle.model), vehPlate),
         color = 2
     })
 end)
@@ -58,7 +58,7 @@ end)
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'GetVehiclePound',
-        content = ('เบิก ยานพาหนะ %s ทะเบียน %s ออกจาก Pound'):format(GetLabelText(GetDisplayNameFromVehicleModel(vehVehicle.model)), vehPlate),
+        content = ('เบิก ยานพาหนะ %s ทะเบียน %s ออกจาก Pound'):format(GetDisplayNameFromVehicleModel(vehVehicle.model), vehPlate),
         color = 3
     })
 end)
@@ -76,7 +76,7 @@ end)
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'PutVehicleGarage',
-        content = ('เก็บ ยานพาหนะ %s ทะเบียน %s เข้า Garage'):format(GetLabelText(GetDisplayNameFromVehicleModel(vehicleProps.model)), vehicleProps.plate),
+        content = ('เก็บ ยานพาหนะ %s ทะเบียน %s เข้า Garage'):format(GetDisplayNameFromVehicleModel(vehicleProps.model), vehicleProps.plate),
         color = 7
     })
 end)

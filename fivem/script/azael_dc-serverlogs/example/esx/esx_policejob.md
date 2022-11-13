@@ -269,7 +269,7 @@ end)
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'PoliceHijack',
-        content = ('งัด ยานพาหนะ %s ทะเบียน %s'):format(GetLabelText(GetDisplayNameFromVehicleModel(GetEntityModel(vehicle))), GetVehicleNumberPlateText(vehicle)),
+        content = ('งัด ยานพาหนะ %s ทะเบียน %s'):format(GetDisplayNameFromVehicleModel(GetEntityModel(vehicle)), GetVehicleNumberPlateText(vehicle)),
         color = 3
     })
 end)
@@ -287,7 +287,7 @@ end)
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'PoliceImPound',
-        content = ('ส่ง ยานพาหนะ %s ทะเบียน %s ไปยังพาวท์'):format(GetLabelText(GetDisplayNameFromVehicleModel(GetEntityModel(vehicle))), GetVehicleNumberPlateText(vehicle)),
+        content = ('ส่ง ยานพาหนะ %s ทะเบียน %s ไปยังพาวท์'):format(GetDisplayNameFromVehicleModel(GetEntityModel(vehicle)), GetVehicleNumberPlateText(vehicle)),
         color = 2
     })
 end)

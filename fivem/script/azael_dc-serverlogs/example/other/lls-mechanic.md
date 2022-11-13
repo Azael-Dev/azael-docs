@@ -28,7 +28,7 @@ sidebar_label: lls-mechanic
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'LsCustom',
-        content = ('แต่งรถ %s ทะเบียน %s เสียค่าใช้จ่าย จำนวน $%s [%s]'):format(GetLabelText(GetDisplayNameFromVehicleModel(GetEntityModel(customVehicle))), GetVehicleNumberPlateText(customVehicle), ESX.Math.GroupDigits(tempPrice), menuOption.label .. (menu.title ~= '' and ' (' .. menu.title .. ')' or '')),
+        content = ('แต่งรถ %s ทะเบียน %s เสียค่าใช้จ่าย จำนวน $%s [%s]'):format(GetDisplayNameFromVehicleModel(GetEntityModel(customVehicle)), GetVehicleNumberPlateText(customVehicle), ESX.Math.GroupDigits(tempPrice), menuOption.label .. (menu.title ~= '' and ' (' .. menu.title .. ')' or '')),
         color = 2
     })
 end)
@@ -40,7 +40,7 @@ end)
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'LsCustom',
-        content = ('แต่งรถ %s ทะเบียน %s เสียค่าใช้จ่าย จำนวน $%s [%s]'):format(GetLabelText(GetDisplayNameFromVehicleModel(GetEntityModel(customVehicle))), GetVehicleNumberPlateText(customVehicle), ESX.Math.GroupDigits(tempPrice), tempModType .. (data.colorTitle and ' (' .. data.colorTitle .. ')' or '')),
+        content = ('แต่งรถ %s ทะเบียน %s เสียค่าใช้จ่าย จำนวน $%s [%s]'):format(GetDisplayNameFromVehicleModel(GetEntityModel(customVehicle)), GetVehicleNumberPlateText(customVehicle), ESX.Math.GroupDigits(tempPrice), tempModType .. (data.colorTitle and ' (' .. data.colorTitle .. ')' or '')),
         color = 2
     })
 end)

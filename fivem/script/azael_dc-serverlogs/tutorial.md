@@ -82,7 +82,7 @@ options = {
 
 ```lua title="esx_policejob/client/main.lua"
 function ImpoundVehicle(vehicle)
-    local vehicleName = GetLabelText(GetDisplayNameFromVehicleModel(GetEntityModel(vehicle)))
+    local vehicleName = GetDisplayNameFromVehicleModel(GetEntityModel(vehicle))
 
     --[[ START: azael_dc-serverlogs ]]
     pcall(function()
