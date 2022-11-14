@@ -63,17 +63,24 @@ const config = {
         items: [
           {
             href: 'https://www.azael.dev',
-            label: 'Azael.Dev',
             position: 'right',
+            className: 'header-home-link',
+            'aria-label': 'Home',
           },
           {
             href: 'https://discord.gg/Ca5W62f',
-            label: 'Discord',
             position: 'right',
+            className: 'header-discord-link',
+            'aria-label': 'Discord',
           },
           {
             href: 'https://github.com/Azael-Dev',
-            label: 'GitHub',
+            position: 'right',
+            className: 'header-github-link',
+            'aria-label': 'GitHub',
+          },
+          {
+            type: 'search',
             position: 'right',
           },
         ],
