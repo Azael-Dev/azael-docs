@@ -19,7 +19,7 @@ CONFIG.Database = {} -- [[ table ]]
 
 ```lua
 server_scripts {
-    '@oxmysql/lib/MySQL.lua', -- [[ oxmysql ]]
+    '@oxmysql/lib/MySQL.lua', -- หากใช้งาน mysql-async ให้แก้ไข oxmysql เป็น mysql-async
     'config/auth.config.lua',
     'config/database.config.lua',
     'source/server/auth.server.lua',
@@ -34,7 +34,7 @@ server_scripts {
 dependencies {
     '/server:4664',
     '/onesync',
-    'oxmysql', -- [[ oxmysql ]]
+    'oxmysql', -- หากใช้งาน mysql-async ให้แก้ไข oxmysql เป็น mysql-async
     'es_extended',
     'skinchanger'
 }
