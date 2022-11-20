@@ -170,6 +170,26 @@ const sidebars = {
             },
           ],
         },
+        /* azael_ui-diving */
+        {
+          type: 'category',
+          label: 'azael_ui-diving',
+          link: {
+            type: 'doc',
+            id: 'script/azael_ui-diving/index',
+          },
+          items: [
+            {
+              type: 'category',
+              label: 'config',
+              items: [
+                'script/azael_ui-diving/config/auth',
+                'script/azael_ui-diving/config/server',
+                'script/azael_ui-diving/config/client',
+              ],
+            },
+          ],
+        },
         /* azael_active-identifiers */
         {
           type: 'category',
