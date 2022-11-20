@@ -240,21 +240,21 @@ end)
 pcall(function()
     if xPlayer.source == args.playerId.source then
         exports['azael_dc-serverlogs']:insertData({
-            event = 'DocRevive',
+            event = 'DocReviveCommands',
             content = 'ใช้งานคำสั่ง /revive ตนเอง',
             source = xPlayer.source,
             color = 2
         })
     else
         exports['azael_dc-serverlogs']:insertData({
-            event = 'DocRevive',
+            event = 'DocReviveCommands',
             content = ('ใช้งานคำสั่ง /revive ไปยัง %s'):format(args.playerId.name),
             source = xPlayer.source,
             color = 3
         })
 
         exports['azael_dc-serverlogs']:insertData({
-            event = 'DocRevive',
+            event = 'DocReviveCommands',
             content = ('ถูก /revive โดย %s'):format(xPlayer.name),
             source = args.playerId.source,
             color = 2
@@ -268,7 +268,7 @@ end)
 ```lua
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
-        event = 'DocRevive',
+        event = 'DocReviveCommands',
         content = 'ใช้งานคำสั่ง /reviveall ไปยังผู้เล่นทั้งหมด',
         source = xPlayer.source,
         color = 9
