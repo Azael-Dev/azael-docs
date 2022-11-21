@@ -186,6 +186,8 @@ const sidebars = {
                 'script/azael_ui-diving/config/auth',
                 'script/azael_ui-diving/config/server',
                 'script/azael_ui-diving/config/client',
+                'script/azael_ui-diving/config/shared',
+                'script/azael_ui-diving/config/database',
               ],
             },
           ],
