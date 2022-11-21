@@ -190,6 +190,13 @@ const sidebars = {
                 'script/azael_ui-diving/config/database',
               ],
             },
+            {
+              type: 'category',
+              label: 'exports',
+              items: [
+                'script/azael_ui-diving/export/client',
+              ],
+            },
           ],
         },
         /* azael_active-identifiers */
