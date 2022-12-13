@@ -232,7 +232,7 @@ end)
 
 | Event                                  | Label
 |----------------------------------------|----------------------------------------
-| `DocReviveCommands`                    | ใช้คำสั่ง-ชุบชีวิต
+| `ReviveCommands`                    | ใช้คำสั่ง-ชุบชีวิต
 
 1. วางรหัสด้านล่างนี้ต่อจาก `args.playerId.triggerEvent('esx_ambulancejob:revive')` บรรทัดที่ **[297](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_ambulancejob/server/main.lua#L297)**
 
@@ -240,21 +240,21 @@ end)
 pcall(function()
     if xPlayer.source == args.playerId.source then
         exports['azael_dc-serverlogs']:insertData({
-            event = 'DocReviveCommands',
+            event = 'ReviveCommands',
             content = 'ใช้งานคำสั่ง /revive ตนเอง',
             source = xPlayer.source,
             color = 2
         })
     else
         exports['azael_dc-serverlogs']:insertData({
-            event = 'DocReviveCommands',
+            event = 'ReviveCommands',
             content = ('ใช้งานคำสั่ง /revive ไปยัง %s'):format(args.playerId.name),
             source = xPlayer.source,
             color = 3
         })
 
         exports['azael_dc-serverlogs']:insertData({
-            event = 'DocReviveCommands',
+            event = 'ReviveCommands',
             content = ('ถูก /revive โดย %s'):format(xPlayer.name),
             source = args.playerId.source,
             color = 2
@@ -268,7 +268,7 @@ end)
 ```lua
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
-        event = 'DocReviveCommands',
+        event = 'ReviveCommands',
         content = 'ใช้งานคำสั่ง /reviveall ไปยังผู้เล่นทั้งหมด',
         source = xPlayer.source,
         color = 9
