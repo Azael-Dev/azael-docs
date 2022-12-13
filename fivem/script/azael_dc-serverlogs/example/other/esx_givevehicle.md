@@ -36,7 +36,7 @@ pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'AdminGiveVehicle',
         content = ('ได้รับ %s รุ่น %s ทะเบียน %s จาก %s'):format(vehicleType, _args[2], plate, GetPlayerName(_source)),
-        source = _args[1],
+        source = tonumber(_args[1]),
         color = 2
     })
 end)
@@ -56,7 +56,7 @@ pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'AdminGiveVehicle',
         content = ('ได้รับ %s รุ่น %s จาก %s'):format(vehicleType, _args[2], GetPlayerName(_source)),
-        source = _args[1],
+        source = tonumber(_args[1]),
         color = 2
     })
 end)
@@ -69,7 +69,7 @@ pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'AdminGiveVehicle',
         content = ('ได้รับ %s รุ่น %s ทะเบียน %s จาก Admin (ใช้คำสั่งผ่าน Server Console)'):format(vehicleType, _args[2], plate),
-        source = _args[1],
+        source = tonumber(_args[1]),
         color = 2
     })
 end)
@@ -82,7 +82,7 @@ pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'AdminGiveVehicle',
         content = ('ได้รับ %s รุ่น %s จาก Admin (ใช้คำสั่งผ่าน Server Console)'):format(vehicleType, _args[2]),
-        source = _args[1],
+        source = tonumber(_args[1]),
         color = 2
     })
 end)
