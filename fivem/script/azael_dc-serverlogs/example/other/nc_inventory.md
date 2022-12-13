@@ -56,7 +56,7 @@ if itemType == 'item' then
 		})
 	end)
 elseif itemType == 'account' then
-	local label = (ESX.GetConfig().Accounts[itemName] or itemName)
+	local label = ESX.GetConfig().Accounts[itemName].label
 	local count = ESX.Math.GroupDigits(itemCount)
 
 	pcall(function()
@@ -64,7 +64,7 @@ elseif itemType == 'account' then
 	
 		exports['azael_dc-serverlogs']:insertData({
 			event = eventName,
-			content = ('ส่ง %s จำนวน $%s ให้กับ %s'):format(count, count, xTarget.name),
+			content = ('ส่ง %s จำนวน $%s ให้กับ %s'):format(label, count, xTarget.name),
 			source = xPlayer.source,
 			color = 1,
 			options = {
@@ -74,7 +74,7 @@ elseif itemType == 'account' then
 	
 		exports['azael_dc-serverlogs']:insertData({
 			event = eventName,
-			content = ('ได้รับ %s จำนวน $%s จาก %s'):format(count, count, xPlayer.name),
+			content = ('ได้รับ %s จำนวน $%s จาก %s'):format(label, count, xPlayer.name),
 			source = xTarget.source,
 			color = 2,
 			options = {
@@ -182,7 +182,7 @@ elseif itemType == 'account' then
 	pcall(function()
 		exports['azael_dc-serverlogs']:insertData({
 			event = (itemName == 'money' and 'NC_RemoveMoney' or 'NC_RemoveDirtyMoney'),
-			content = ('ทิ้ง %s จำนวน $%s'):format((ESX.GetConfig().Accounts[itemName] or itemName), ESX.Math.GroupDigits(itemCount)),
+			content = ('ทิ้ง %s จำนวน $%s'):format(ESX.GetConfig().Accounts[itemName].label, ESX.Math.GroupDigits(itemCount)),
 			source = xPlayer.source,
 			color = 1,
 			options = {
@@ -261,7 +261,7 @@ elseif itemType == 'account' then
 	pcall(function()
 		exports['azael_dc-serverlogs']:insertData({
 			event = 'NC_VaultPutMoneyPolice',
-			content = ('หน่วยงาน %s ฝาก %s จำนวน %s เข้าตู้นิรภัย (ยึดจาก %s)'):format(xPlayer.job.name, (ESX.GetConfig().Accounts[itemName] or itemName), ESX.Math.GroupDigits(itemCount), xTarget.name),
+			content = ('หน่วยงาน %s ฝาก %s จำนวน %s เข้าตู้นิรภัย (ยึดจาก %s)'):format(xPlayer.job.name, ESX.GetConfig().Accounts[itemName].label, ESX.Math.GroupDigits(itemCount), xTarget.name),
 			source = xPlayer.source,
 			color = 2,
 			options = {
@@ -302,7 +302,7 @@ end)
 pcall(function()
 	exports['azael_dc-serverlogs']:insertData({
 		event = 'VaultPutMoneyPolice',
-		content = ('หน่วยงาน %s ฝาก %s จำนวน %s เข้าตู้นิรภัย (ยึดจาก %s)'):format(xPlayer.job.name, (ESX.GetConfig().Accounts[itemName] or itemName), ESX.Math.GroupDigits(itemCount), xTarget.name),
+		content = ('หน่วยงาน %s ฝาก %s จำนวน %s เข้าตู้นิรภัย (ยึดจาก %s)'):format(xPlayer.job.name, ESX.GetConfig().Accounts[itemName].label, ESX.Math.GroupDigits(itemCount), xTarget.name),
 		source = xPlayer.source,
 		color = 2,
 		options = {
@@ -415,7 +415,7 @@ if xPlayer.job.name == 'police' then -- ตำรวจ
 				})
 			end)
 		elseif itemType == 'account' then
-			local label = (ESX.GetConfig().Accounts[itemName] or itemName)
+			local label = ESX.GetConfig().Accounts[itemName].label
 			local count = ESX.Math.GroupDigits(itemCount)
 
 			pcall(function()
@@ -484,7 +484,7 @@ if xPlayer.job.name == 'police' then -- ตำรวจ
 				})
 			end)
 		elseif itemType == 'account' then
-			local label = (ESX.GetConfig().Accounts[itemName] or itemName)
+			local label = ESX.GetConfig().Accounts[itemName].label
 			local count = ESX.Math.GroupDigits(itemCount)
 
 			pcall(function()
@@ -555,7 +555,7 @@ elseif xPlayer.job.name == 'council' then -- สภา
 				})
 			end)
 		elseif itemType == 'account' then
-			local label = (ESX.GetConfig().Accounts[itemName] or itemName)
+			local label = ESX.GetConfig().Accounts[itemName].label
 			local count = ESX.Math.GroupDigits(itemCount)
 
 			pcall(function()
@@ -624,7 +624,7 @@ elseif xPlayer.job.name == 'council' then -- สภา
 				})
 			end)
 		elseif itemType == 'account' then
-			local label = (ESX.GetConfig().Accounts[itemName] or itemName)
+			local label = ESX.GetConfig().Accounts[itemName].label
 			local count = ESX.Math.GroupDigits(itemCount)
 
 			pcall(function()
@@ -695,7 +695,7 @@ else -- ประชาชน (ปล้น)
 				})
 			end)
 		elseif itemType == 'account' then
-			local label = (ESX.GetConfig().Accounts[itemName] or itemName)
+			local label = ESX.GetConfig().Accounts[itemName].label
 			local count = ESX.Math.GroupDigits(itemCount)
 
 			pcall(function()
@@ -764,7 +764,7 @@ else -- ประชาชน (ปล้น)
 				})
 			end)
 		elseif itemType == 'account' then
-			local label = (ESX.GetConfig().Accounts[itemName] or itemName)
+			local label = ESX.GetConfig().Accounts[itemName].label
 			local count = ESX.Math.GroupDigits(itemCount)
 
 			pcall(function()
