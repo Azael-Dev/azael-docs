@@ -187,12 +187,12 @@ end)
 
 | Event                                  | Label
 |----------------------------------------|----------------------------------------
-| `NC_VaultGetWeapon`                    | ทั่วไป-ไอเทม-ออกเซฟ
-| `NC_VaultGetWeaponPolice`              | ตำรวจ-ไอเทม-ออกเซฟ
-| `NC_VaultGetWeaponAmbulance`           | หมอ-ไอเทม-ออกเซฟ
-| `NC_VaultGetWeaponMechanic`            | ช่าง-ไอเทม-ออกเซฟ
-| `NC_VaultGetWeaponCouncil`             | สภา-ไอเทม-ออกเซฟ
-| `NC_VaultGetWeaponGang`                | แก๊ง-ไอเทม-ออกเซฟ
+| `NC_VaultGetWeapon`                    | ทั่วไป-อาวุธ-ออกเซฟ
+| `NC_VaultGetWeaponPolice`              | ตำรวจ-อาวุธ-ออกเซฟ
+| `NC_VaultGetWeaponAmbulance`           | หมอ-อาวุธ-ออกเซฟ
+| `NC_VaultGetWeaponMechanic`            | ช่าง-อาวุธ-ออกเซฟ
+| `NC_VaultGetWeaponCouncil`             | สภา-อาวุธ-ออกเซฟ
+| `NC_VaultGetWeaponGang`                | แก๊ง-อาวุธ-ออกเซฟ
 
 วางรหัสด้านล่างนี้ภายใน `Config.ServerPlayerTookWeapon = function`
 
