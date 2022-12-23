@@ -15,6 +15,43 @@
 - **[skinchanger](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx%5D/skinchanger)**
 - **[oxmysql](https://github.com/overextended/oxmysql)** (แก้ไขได้ที่ไฟล์ **[database.config.lua](./config/database)**)
 
+<details>
+    <summary>หากใช้งาน ox_appearance แทน skinchanger ให้ดำเนินการแก้ไขตามขั้นตอนนี้</summary>
+
+1. ไปที่ไฟล์ **[fxmanifest.lua](https://docs.fivem.net/docs/scripting-reference/resource-manifest/resource-manifest/)** ค้นหา **[dependencies](https://docs.fivem.net/docs/scripting-reference/resource-manifest/resource-manifest/#dependency)** และทำการแก้ไข `skinchanger` เป็น `ox_appearance`
+
+```lua title="บรรทัดที่ 30"
+dependencies {
+    '/server:4664',
+    '/onesync',
+    'oxmysql',
+    'es_extended',
+    'skinchanger' -- แก้ไขเป็น ox_appearance
+}
+```
+
+2. ไปที่ไฟล์ **[ox_appearance/client/esx.lua](https://github.com/overextended/ox_appearance/blob/main/client/esx.lua)**
+3. วางรหัสด้านล่างนี้ต่อจากบรรทัดที่ **[6](https://github.com/overextended/ox_appearance/blob/main/client/esx.lua#L6)** (`exp:setPlayerModel`)
+
+```lua title="บรรทัดที่ 7"
+TriggerEvent('skinchanger:modelLoaded')
+```
+
+4. วางรหัสด้านล่างนี้ต่อจากบรรทัดที่ **[14](https://github.com/overextended/ox_appearance/blob/main/client/esx.lua#L14)** (`exp:setPlayerAppearance`)
+
+```lua title="บรรทัดที่ 15"
+TriggerEvent('skinchanger:modelLoaded')
+```
+
+5. ไปที่ไฟล์ **[ox_appearance/client/outfits.lua](https://github.com/overextended/ox_appearance/blob/main/client/outfits.lua)**
+6. วางรหัสด้านล่างนี้ต่อจากบรรทัดที่ **[138](https://github.com/overextended/ox_appearance/blob/main/client/outfits.lua#L138)** (`exports['fivem-appearance']:setPlayerAppearance`)
+
+```lua title="บรรทัดที่ 139"
+TriggerEvent('skinchanger:modelLoaded')
+```
+
+</details>
+
 ## ติดตั้งและใช้งาน
 
 1. ดาวน์โหลดและแตกไฟล์ลงในโฟลเดอร์ `resources` ของคุณ
