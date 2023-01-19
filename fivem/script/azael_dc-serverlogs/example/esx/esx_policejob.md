@@ -4,7 +4,7 @@ sidebar_label: esx_policejob
 
 # esx_policejob
 
-ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากร **[esx_policejob](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_policejob)** เพื่อส่งข้อมูลมายัง **[azael_dc-serverlogs](../../)**
+ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากร **[esx_policejob](https://github.com/esx-framework/esx_policejob)** เพื่อส่งข้อมูลมายัง **[azael_dc-serverlogs](../../)**
 
 :::danger
 
@@ -14,7 +14,7 @@ sidebar_label: esx_policejob
 
 ## main.lua (Server)
 
-ไปยังโฟลเดอร์ **[server](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_policejob/server)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_policejob/server/main.lua)**
+ไปยังโฟลเดอร์ **[server](https://github.com/esx-framework/esx_policejob/tree/main/server)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx_policejob/blob/main/server/main.lua)**
 
 ### ตำรวจ-ยึด (ไอเทม, เงิน, อาวุธ)
 
@@ -31,7 +31,7 @@ sidebar_label: esx_policejob
 |----------------------------------------|----------------------------------------
 | `PoliceTakeItem`                       | ตำรวจ-ยึด-ไอเทม
 
-วางรหัสด้านล่างนี้ต่อจาก `sourceXPlayer.addInventoryItem(itemName, amount)` บรรทัดที่ **[31](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_policejob/server/main.lua#L31)**
+วางรหัสด้านล่างนี้ต่อจาก `sourceXPlayer.addInventoryItem(itemName, amount)` บรรทัดที่ **[31](https://github.com/esx-framework/esx_policejob/blob/main/server/main.lua#L31)**
 
 ```lua
 pcall(function()
@@ -64,7 +64,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `PoliceTakeMoney`                      | ตำรวจ-ยึด-เงิน
 
-วางรหัสด้านล่างนี้ต่อจาก `sourceXPlayer.addAccountMoney(itemName, amount, "Confiscated")` บรรทัดที่ **[47](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_policejob/server/main.lua#L47)**
+วางรหัสด้านล่างนี้ต่อจาก `sourceXPlayer.addAccountMoney(itemName, amount, "Confiscated")` บรรทัดที่ **[47](https://github.com/esx-framework/esx_policejob/blob/main/server/main.lua#L47)**
 
 ```lua
 pcall(function()
@@ -97,7 +97,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `PoliceTakeWeapon`                     | ตำรวจ-ยึด-อาวุธ
 
-วางรหัสด้านล่างนี้ต่อจาก `sourceXPlayer.addWeapon(itemName, amount)` บรรทัดที่ **[61](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_policejob/server/main.lua#L61)**
+วางรหัสด้านล่างนี้ต่อจาก `sourceXPlayer.addWeapon(itemName, amount)` บรรทัดที่ **[61](https://github.com/esx-framework/esx_policejob/blob/main/server/main.lua#L61)**
 
 ```lua
 pcall(function()
@@ -126,7 +126,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `PoliceGetStockItem`                   | ตำรวจ-ไอเทม-ออกจากคลัง
 
-วางรหัสด้านล่างนี้ต่อจาก `xPlayer.addInventoryItem(itemName, count)` บรรทัดที่ **[129](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_policejob/server/main.lua#L129)**
+วางรหัสด้านล่างนี้ต่อจาก `xPlayer.addInventoryItem(itemName, count)` บรรทัดที่ **[129](https://github.com/esx-framework/esx_policejob/blob/main/server/main.lua#L129)**
 
 ```lua
 pcall(function()
@@ -148,7 +148,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `PolicePutStockItem`                   | ตำรวจ-ไอเทม-เก็บเข้าคลัง
 
-วางรหัสด้านล่างนี้ต่อจาก `inventory.addItem(itemName, count)` บรรทัดที่ **[151](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_policejob/server/main.lua#L151)**
+วางรหัสด้านล่างนี้ต่อจาก `inventory.addItem(itemName, count)` บรรทัดที่ **[151](https://github.com/esx-framework/esx_policejob/blob/main/server/main.lua#L151)**
 
 ```lua
 pcall(function()
@@ -170,7 +170,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `PolicePutArmoryWeapon`                | ตำรวจ-อาวุธ-เก็บเข้าคลัง
 
-วางรหัสด้านล่างนี้ต่อจาก `xPlayer.removeWeapon(weaponName)` บรรทัดที่ **[249](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_policejob/server/main.lua#L249)**
+วางรหัสด้านล่างนี้ต่อจาก `xPlayer.removeWeapon(weaponName)` บรรทัดที่ **[249](https://github.com/esx-framework/esx_policejob/blob/main/server/main.lua#L249)**
 
 ```lua
 pcall(function()
@@ -189,7 +189,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `PoliceGetArmoryWeapon`                | ตำรวจ-อาวุธ-ออกจากคลัง
 
-วางรหัสด้านล่างนี้ต่อจาก `xPlayer.addWeapon(weaponName, 500)` บรรทัดที่ **[278](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_policejob/server/main.lua#L278)**
+วางรหัสด้านล่างนี้ต่อจาก `xPlayer.addWeapon(weaponName, 500)` บรรทัดที่ **[278](https://github.com/esx-framework/esx_policejob/blob/main/server/main.lua#L278)**
 
 ```lua
 pcall(function()
@@ -208,7 +208,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `PoliceBuyWeapon`                      | ตำรวจ-ซื้ออาวุธ
 
-1. วางรหัสด้านล่างนี้ต่อจาก `xPlayer.addWeapon(weaponName, 100)` บรรทัดที่ **[324](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_policejob/server/main.lua#L324)**
+1. วางรหัสด้านล่างนี้ต่อจาก `xPlayer.addWeapon(weaponName, 100)` บรรทัดที่ **[324](https://github.com/esx-framework/esx_policejob/blob/main/server/main.lua#L324)**
 
 ```lua
 pcall(function()
@@ -221,7 +221,7 @@ pcall(function()
 end)
 ```
 
-2. วางรหัสด้านล่างนี้ต่อจาก `xPlayer.addWeaponComponent(weaponName, component.name)` บรรทัดที่ **[340](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_policejob/server/main.lua#L340)**
+2. วางรหัสด้านล่างนี้ต่อจาก `xPlayer.addWeaponComponent(weaponName, component.name)` บรรทัดที่ **[340](https://github.com/esx-framework/esx_policejob/blob/main/server/main.lua#L340)**
 
 ```lua
 pcall(function()
@@ -240,7 +240,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `PoliceBuyVehicle`                     | ตำรวจ-ซื้อรถ
 
-วางรหัสด้านล่างนี้ต่อจาก `function(rowsChanged)` บรรทัดที่ **[367](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_policejob/server/main.lua#L367)**
+วางรหัสด้านล่างนี้ต่อจาก `function(rowsChanged)` บรรทัดที่ **[367](https://github.com/esx-framework/esx_policejob/blob/main/server/main.lua#L367)**
 
 ```lua
 pcall(function()
@@ -255,7 +255,7 @@ end)
 
 ## main.lua (Client)
 
-ไปยังโฟลเดอร์ **[client](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_policejob/client)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_policejob/client/main.lua)**
+ไปยังโฟลเดอร์ **[client](https://github.com/esx-framework/esx_policejob/tree/main/client)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx_policejob/blob/main/client/main.lua)**
 
 ### ตำรวจ-งัดรถ
 
@@ -263,7 +263,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `PoliceHijack`                         | ตำรวจ-งัดรถ
 
-วางรหัสด้านล่างนี้ต่อจาก `ESX.ShowNotification(TranslateCap('vehicle_unlocked'))` บรรทัดที่ **[350](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_policejob/client/main.lua#L350)**
+วางรหัสด้านล่างนี้ต่อจาก `ESX.ShowNotification(TranslateCap('vehicle_unlocked'))` บรรทัดที่ **[354](https://github.com/esx-framework/esx_policejob/blob/main/client/main.lua#L354)**
 
 ```lua
 pcall(function()
@@ -281,7 +281,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `PoliceImPound`                         | ตำรวจ-พาวท์รถ
 
-วางรหัสด้านล่างนี้ต่อจาก `function ImpoundVehicle(vehicle)` บรรทัดที่ **[1582](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_policejob/client/main.lua#L1582)**
+วางรหัสด้านล่างนี้ต่อจาก `function ImpoundVehicle(vehicle)` บรรทัดที่ **[1554](https://github.com/esx-framework/esx_policejob/blob/main/client/main.lua#L1554)**
 
 ```lua
 pcall(function()
