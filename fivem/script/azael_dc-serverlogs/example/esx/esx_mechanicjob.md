@@ -4,7 +4,7 @@ sidebar_label: esx_mechanicjob
 
 # esx_mechanicjob
 
-ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากร **[esx_mechanicjob](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_mechanicjob)** เพื่อส่งข้อมูลมายัง **[azael_dc-serverlogs](../../)**
+ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากร **[esx_mechanicjob](https://github.com/esx-framework/esx_mechanicjob)** เพื่อส่งข้อมูลมายัง **[azael_dc-serverlogs](../../)**
 
 :::danger
 
@@ -14,7 +14,7 @@ sidebar_label: esx_mechanicjob
 
 ## main.lua (Server)
 
-ไปยังโฟลเดอร์ **[server](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_mechanicjob/server)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_mechanicjob/server/main.lua)**
+ไปยังโฟลเดอร์ **[server](https://github.com/esx-framework/esx_mechanicjob/tree/main/server)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx_mechanicjob/blob/main/server/main.lua)**
 
 ### ช่าง-เบิกไอเทม
 
@@ -22,7 +22,7 @@ sidebar_label: esx_mechanicjob
 |----------------------------------------|----------------------------------------
 | `MechanicHarvestItem`                  | ช่าง-เบิกไอเทม
 
-1. วางรหัสด้านล่างนี้ต่อจาก `Harvest(source)` บรรทัดที่ **[21](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_mechanicjob/server/main.lua#L21)**
+1. วางรหัสด้านล่างนี้ต่อจาก `Harvest(source)` บรรทัดที่ **[21](https://github.com/esx-framework/esx_mechanicjob/blob/main/server/main.lua#L21)**
 
 ```lua
 pcall(function()
@@ -35,7 +35,7 @@ pcall(function()
 end)
 ```
 
-2. วางรหัสด้านล่างนี้ต่อจาก `Harvest2(source)` บรรทัดที่ **[53](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_mechanicjob/server/main.lua#L53)**
+2. วางรหัสด้านล่างนี้ต่อจาก `Harvest2(source)` บรรทัดที่ **[53](https://github.com/esx-framework/esx_mechanicjob/blob/main/server/main.lua#L53)**
 
 ```lua
 pcall(function()
@@ -48,7 +48,7 @@ pcall(function()
 end)
 ```
 
-3. วางรหัสด้านล่างนี้ต่อจาก `Harvest3(source)` บรรทัดที่ **[84](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_mechanicjob/server/main.lua#L84)**
+3. วางรหัสด้านล่างนี้ต่อจาก `Harvest3(source)` บรรทัดที่ **[84](https://github.com/esx-framework/esx_mechanicjob/blob/main/server/main.lua#L84)**
 
 ```lua
 pcall(function()
@@ -67,7 +67,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `MechanicCraftItem`                    | ช่าง-คราฟไอเทม
 
-1. วางรหัสด้านล่างนี้ต่อจาก `Craft(source)` บรรทัดที่ **[117](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_mechanicjob/server/main.lua#L117)**
+1. วางรหัสด้านล่างนี้ต่อจาก `Craft(source)` บรรทัดที่ **[117](https://github.com/esx-framework/esx_mechanicjob/blob/main/server/main.lua#L117)**
 
 ```lua
 pcall(function()
@@ -80,7 +80,7 @@ pcall(function()
 end)
 ```
 
-2. วางรหัสด้านล่างนี้ต่อจาก `Craft2(source)` บรรทัดที่ **[150](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_mechanicjob/server/main.lua#L150)**
+2. วางรหัสด้านล่างนี้ต่อจาก `Craft2(source)` บรรทัดที่ **[150](https://github.com/esx-framework/esx_mechanicjob/blob/main/server/main.lua#L150)**
 
 ```lua
 pcall(function()
@@ -93,7 +93,7 @@ pcall(function()
 end)
 ```
 
-3. วางรหัสด้านล่างนี้ต่อจาก `Craft3(source)` บรรทัดที่ **[183](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_mechanicjob/server/main.lua#L183)**
+3. วางรหัสด้านล่างนี้ต่อจาก `Craft3(source)` บรรทัดที่ **[183](https://github.com/esx-framework/esx_mechanicjob/blob/main/server/main.lua#L183)**
 
 ```lua
 pcall(function()
@@ -112,7 +112,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `MechanicUseItem`                      | ช่าง-ใช้งานไอเทม
 
-1. วางรหัสด้านล่างนี้ต่อจาก `xPlayer.removeInventoryItem('blowpipe', 1)` บรรทัดที่ **[225](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_mechanicjob/server/main.lua#L225)**
+1. วางรหัสด้านล่างนี้ต่อจาก `xPlayer.removeInventoryItem('blowpipe', 1)` บรรทัดที่ **[225](https://github.com/esx-framework/esx_mechanicjob/blob/main/server/main.lua#L225)**
 
 ```lua
 pcall(function()
@@ -125,7 +125,7 @@ pcall(function()
 end)
 ```
 
-2. วางรหัสด้านล่างนี้ต่อจาก `xPlayer.removeInventoryItem('fixkit', 1)` บรรทัดที่ **[235](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_mechanicjob/server/main.lua#L235)**
+2. วางรหัสด้านล่างนี้ต่อจาก `xPlayer.removeInventoryItem('fixkit', 1)` บรรทัดที่ **[235](https://github.com/esx-framework/esx_mechanicjob/blob/main/server/main.lua#L235)**
 
 ```lua
 pcall(function()
@@ -138,7 +138,7 @@ pcall(function()
 end)
 ```
 
-3. วางรหัสด้านล่างนี้ต่อจาก `xPlayer.removeInventoryItem('carokit', 1)` บรรทัดที่ **[245](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_mechanicjob/server/main.lua#L245)**
+3. วางรหัสด้านล่างนี้ต่อจาก `xPlayer.removeInventoryItem('carokit', 1)` บรรทัดที่ **[245](https://github.com/esx-framework/esx_mechanicjob/blob/main/server/main.lua#L245)**
 
 ```lua
 pcall(function()
@@ -157,7 +157,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `MechanicGetStockItem`                 | ช่าง-ไอเทม-ออกจากคลัง
 
-วางรหัสด้านล่างนี้ต่อจาก `xPlayer.showNotification(TranslateCap('have_withdrawn', count, item.label))` บรรทัดที่ **[265](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_mechanicjob/server/main.lua#L265)**
+วางรหัสด้านล่างนี้ต่อจาก `xPlayer.showNotification(TranslateCap('have_withdrawn', count, item.label))` บรรทัดที่ **[265](https://github.com/esx-framework/esx_mechanicjob/blob/main/server/main.lua#L265)**
 
 ```lua
 pcall(function()
@@ -179,7 +179,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `MechanicPutStockItem`                 | ช่าง-ไอเทม-เก็บเข้าคลัง
 
-วางรหัสด้านล่างนี้ต่อจาก `inventory.addItem(itemName, count)` บรรทัดที่ **[291](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_mechanicjob/server/main.lua#L291)**
+วางรหัสด้านล่างนี้ต่อจาก `inventory.addItem(itemName, count)` บรรทัดที่ **[291](https://github.com/esx-framework/esx_mechanicjob/blob/main/server/main.lua#L291)**
 
 ```lua
 pcall(function()
@@ -197,7 +197,7 @@ end)
 
 ## main.lua (Client)
 
-ไปยังโฟลเดอร์ **[client](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_mechanicjob/client)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_mechanicjob/client/main.lua)**
+ไปยังโฟลเดอร์ **[client](https://github.com/esx-framework/esx_mechanicjob/tree/main/client)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx_mechanicjob/blob/main/client/main.lua)**
 
 ### ช่าง-เบิกรถ
 
@@ -205,7 +205,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `MechanicCarSpawner`                   | ช่าง-เบิกรถ
 
-1. วางรหัสด้านล่างนี้ต่อจาก `TaskWarpPedIntoVehicle(playerPed, vehicle,  -1)` บรรทัดที่ **[99](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_mechanicjob/client/main.lua#L99)**
+1. วางรหัสด้านล่างนี้ต่อจาก `TaskWarpPedIntoVehicle(playerPed, vehicle,  -1)` บรรทัดที่ **[96](https://github.com/esx-framework/esx_mechanicjob/blob/main/client/main.lua#L96)**
 
 ```lua
 pcall(function()
@@ -217,7 +217,7 @@ pcall(function()
 end)
 ```
 
-2. วางรหัสด้านล่างนี้ต่อจาก `TaskWarpPedIntoVehicle(playerPed, vehicle, -1)` บรรทัดที่ **[129](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_mechanicjob/client/main.lua#L129)**
+2. วางรหัสด้านล่างนี้ต่อจาก `TaskWarpPedIntoVehicle(playerPed, vehicle, -1)` บรรทัดที่ **[122](https://github.com/esx-framework/esx_mechanicjob/blob/main/client/main.lua#L122)**
 
 ```lua
 pcall(function()
@@ -229,7 +229,7 @@ pcall(function()
 end)
 ```
 
-3. วางรหัสด้านล่างนี้ต่อจาก `TaskWarpPedIntoVehicle(playerPed, vehicle, -1)` บรรทัดที่ **[136](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_mechanicjob/client/main.lua#L136)**
+3. วางรหัสด้านล่างนี้ต่อจาก `TaskWarpPedIntoVehicle(playerPed, vehicle, -1)` บรรทัดที่ **[130](https://github.com/esx-framework/esx_mechanicjob/blob/main/client/main.lua#L130)**
 
 ```lua
 pcall(function()
@@ -247,7 +247,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `MechanicHijack`                       | ช่าง-งัดรถ
 
-วางรหัสด้านล่างนี้ต่อจาก `isBusy = false` บรรทัดที่ **[316](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_mechanicjob/client/main.lua#L316)**
+วางรหัสด้านล่างนี้ต่อจาก `isBusy = false` บรรทัดที่ **[284](https://github.com/esx-framework/esx_mechanicjob/blob/main/client/main.lua#L284)**
 
 ```lua
 pcall(function()
@@ -265,7 +265,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `MechanicRepair`                       | ช่าง-ซ่อมรถ
 
-วางรหัสด้านล่างนี้ต่อจาก `isBusy = false` บรรทัดที่ **[344](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_mechanicjob/client/main.lua#L344)**
+วางรหัสด้านล่างนี้ต่อจาก `isBusy = false` บรรทัดที่ **[312](https://github.com/esx-framework/esx_mechanicjob/blob/main/client/main.lua#L312)**
 
 ```lua
 pcall(function()
@@ -283,7 +283,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `MechanicClean`                        | ช่าง-ล้างรถ
 
-วางรหัสด้านล่างนี้ต่อจาก `isBusy = false` บรรทัดที่ **[369](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_mechanicjob/client/main.lua#L369)**
+วางรหัสด้านล่างนี้ต่อจาก `isBusy = false` บรรทัดที่ **[337](https://github.com/esx-framework/esx_mechanicjob/blob/main/client/main.lua#L337)**
 
 ```lua
 pcall(function()
@@ -301,7 +301,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `MechanicImpVeh`                       | ช่าง-พาวท์รถ
 
-1. วางรหัสด้านล่างนี้ต่อจาก `ESX.ShowNotification(TranslateCap('vehicle_impounded'))` บรรทัดที่ **[381](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_mechanicjob/client/main.lua#L381)**
+1. วางรหัสด้านล่างนี้ต่อจาก `ESX.ShowNotification(TranslateCap('vehicle_impounded'))` บรรทัดที่ **[349](https://github.com/esx-framework/esx_mechanicjob/blob/main/client/main.lua#L349)**
 
 ```lua
 pcall(function()
@@ -313,7 +313,7 @@ pcall(function()
 end)
 ```
 
-2. วางรหัสด้านล่างนี้ต่อจาก `ESX.ShowNotification(TranslateCap('vehicle_impounded'))` บรรทัดที่ **[390](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_mechanicjob/client/main.lua#L390)**
+2. วางรหัสด้านล่างนี้ต่อจาก `ESX.ShowNotification(TranslateCap('vehicle_impounded'))` บรรทัดที่ **[385](https://github.com/esx-framework/esx_mechanicjob/blob/main/client/main.lua#L358)**
 
 ```lua
 pcall(function()
