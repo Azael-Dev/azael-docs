@@ -4,7 +4,7 @@ sidebar_label: es_extended
 
 # es_extended
 
-ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากร **[es_extended](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx%5D/es_extended)** เพื่อส่งข้อมูลมายัง **[azael_dc-serverlogs](../../)**
+ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากร **[es_extended](https://github.com/esx-framework/esx_core/tree/main/%5Bcore%5D/es_extended)** เพื่อส่งข้อมูลมายัง **[azael_dc-serverlogs](../../)**
 
 :::danger
 
@@ -14,7 +14,7 @@ sidebar_label: es_extended
 
 ## commands.lua (Server)
 
-ไปยังโฟลเดอร์ **[server](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx%5D/es_extended/server)** แล้วดำเนินการเปิดไฟล์ **[commands.lua](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx%5D/es_extended/server/commands.lua)**
+ไปยังโฟลเดอร์ **[server](https://github.com/esx-framework/esx_core/tree/main/%5Bcore%5D/es_extended/server)** แล้วดำเนินการเปิดไฟล์ **[commands.lua](https://github.com/esx-framework/esx_core/blob/main/%5Bcore%5D/es_extended/server/commands.lua)**
 
 ### ใช้คำสั่ง-แอดมิน
 
@@ -22,9 +22,9 @@ sidebar_label: es_extended
 |----------------------------------------|----------------------------------------
 | `AdminCommands`                        | ใช้คำสั่ง-แอดมิน
 
-#### [SETJOB](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx%5D/es_extended/server/commands.lua#L9)
+#### [SETJOB](https://github.com/esx-framework/esx_core/blob/main/%5Bcore%5D/es_extended/server/commands.lua#L9)
 
-วางรหัสด้านล่างนี้ต่อจาก `args.playerId.setJob(args.job, args.grade)` บรรทัดที่ **[11](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx%5D/es_extended/server/commands.lua#L11)**
+วางรหัสด้านล่างนี้ต่อจาก `args.playerId.setJob(args.job, args.grade)` บรรทัดที่ **[11](https://github.com/esx-framework/esx_core/blob/main/%5Bcore%5D/es_extended/server/commands.lua#L11)**
 
 ```lua
 pcall(function()
@@ -53,9 +53,9 @@ pcall(function()
 end)
 ```
 
-#### [SETACCOUNTMONEY](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx%5D/es_extended/server/commands.lua#L70)
+#### [SETACCOUNTMONEY](https://github.com/esx-framework/esx_core/blob/main/%5Bcore%5D/es_extended/server/commands.lua#L70)
 
-วางรหัสด้านล่างนี้ต่อจาก `args.playerId.setAccountMoney(args.account, args.amount, "Government Grant")` บรรทัดที่ **[72](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx%5D/es_extended/server/commands.lua#L72)**
+วางรหัสด้านล่างนี้ต่อจาก `args.playerId.setAccountMoney(args.account, args.amount, "Government Grant")` บรรทัดที่ **[72](https://github.com/esx-framework/esx_core/blob/main/%5Bcore%5D/es_extended/server/commands.lua#L72)**
 
 ```lua
 pcall(function()
@@ -93,9 +93,9 @@ pcall(function()
 end)
 ```
 
-#### [GIVEACCOUNTMONEY](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx%5D/es_extended/server/commands.lua#L82)
+#### [GIVEACCOUNTMONEY](https://github.com/esx-framework/esx_core/blob/main/%5Bcore%5D/es_extended/server/commands.lua#L82)
 
-วางรหัสด้านล่างนี้ต่อจาก `args.playerId.addAccountMoney(args.account, args.amount, "Government Grant")` บรรทัดที่ **[84](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx%5D/es_extended/server/commands.lua#L84)**
+วางรหัสด้านล่างนี้ต่อจาก `args.playerId.addAccountMoney(args.account, args.amount, "Government Grant")` บรรทัดที่ **[84](https://github.com/esx-framework/esx_core/blob/main/%5Bcore%5D/es_extended/server/commands.lua#L84)**
 
 ```lua
 pcall(function()
@@ -133,9 +133,9 @@ pcall(function()
 end)
 ```
 
-#### [GIVEITEM](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx%5D/es_extended/server/commands.lua#L95)
+#### [GIVEITEM](https://github.com/esx-framework/esx_core/blob/main/%5Bcore%5D/es_extended/server/commands.lua#L95)
 
-วางรหัสด้านล่างนี้ต่อจาก `args.playerId.addInventoryItem(args.item, args.count)` บรรทัดที่ **[96](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx%5D/es_extended/server/commands.lua#L96)**
+วางรหัสด้านล่างนี้ต่อจาก `args.playerId.addInventoryItem(args.item, args.count)` บรรทัดที่ **[96](https://github.com/esx-framework/esx_core/blob/main/%5Bcore%5D/es_extended/server/commands.lua#L96)**
 
 ```lua
 pcall(function()
@@ -173,9 +173,9 @@ pcall(function()
 end)
 ```
 
-#### [GIVEWEAPON](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx%5D/es_extended/server/commands.lua#L103)
+#### [GIVEWEAPON](https://github.com/esx-framework/esx_core/blob/main/%5Bcore%5D/es_extended/server/commands.lua#L103)
 
-วางรหัสด้านล่างนี้ต่อจาก `args.playerId.addWeapon(args.weapon, args.ammo)` บรรทัดที่ **[107](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx%5D/es_extended/server/commands.lua#L107)**
+วางรหัสด้านล่างนี้ต่อจาก `args.playerId.addWeapon(args.weapon, args.ammo)` บรรทัดที่ **[107](https://github.com/esx-framework/esx_core/blob/main/%5Bcore%5D/es_extended/server/commands.lua#L107)**
 
 ```lua
 pcall(function()
@@ -204,9 +204,9 @@ pcall(function()
 end)
 ```
 
-#### [GIVEAMMO](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx%5D/es_extended/server/commands.lua#L115)
+#### [GIVEAMMO](https://github.com/esx-framework/esx_core/blob/main/%5Bcore%5D/es_extended/server/commands.lua#L115)
 
-วางรหัสด้านล่างนี้ต่อจาก `args.playerId.addWeaponAmmo(args.weapon, args.ammo)` บรรทัดที่ **[117](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx%5D/es_extended/server/commands.lua#L117)**
+วางรหัสด้านล่างนี้ต่อจาก `args.playerId.addWeaponAmmo(args.weapon, args.ammo)` บรรทัดที่ **[117](https://github.com/esx-framework/esx_core/blob/main/%5Bcore%5D/es_extended/server/commands.lua#L117)**
 
 ```lua
 pcall(function()
@@ -235,9 +235,9 @@ pcall(function()
 end)
 ```
 
-#### [GIVEWEAPONCOMPONENT](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx%5D/es_extended/server/commands.lua#L127)
+#### [GIVEWEAPONCOMPONENT](https://github.com/esx-framework/esx_core/blob/main/%5Bcore%5D/es_extended/server/commands.lua#L127)
 
-วางรหัสด้านล่างนี้ต่อจาก `args.playerId.addWeaponComponent(args.weaponName, args.componentName)` บรรทัดที่ **[135](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx%5D/es_extended/server/commands.lua#L135)**
+วางรหัสด้านล่างนี้ต่อจาก `args.playerId.addWeaponComponent(args.weaponName, args.componentName)` บรรทัดที่ **[135](https://github.com/esx-framework/esx_core/blob/main/%5Bcore%5D/es_extended/server/commands.lua#L135)**
 
 ```lua
 pcall(function()
@@ -268,11 +268,11 @@ end)
 
 ## main.lua (Server)
 
-ไปยังโฟลเดอร์ **[server](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx%5D/es_extended/server)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx%5D/es_extended/server/main.lua)**
+ไปยังโฟลเดอร์ **[server](https://github.com/esx-framework/esx_core/tree/main/%5Bcore%5D/es_extended/server)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx_core/blob/main/%5Bcore%5D/es_extended/server/main.lua)**
 
 :::caution
 
-หากคุณใช้งานทรัพยากร **[nc_inventory](https://fivem.nc-developer.com/product/61e3d296e287e)** ไม่ต้องติดตั้งรหัสสำหรับเหตุการณ์ **ส่ง**, **ทิ้ง** ที่ทรัพยากร **[es_extended](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx%5D/es_extended)** เนื่องจาก **[nc_inventory](https://fivem.nc-developer.com/product/61e3d296e287e)** จะใช้งานรหัสภายในตัวทรัพยากร (ไม่ได้พึ่งพา **[es_extended](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx%5D/es_extended)**)
+หากคุณใช้งานทรัพยากร **[nc_inventory](https://fivem.nc-developer.com/product/61e3d296e287e)** ไม่ต้องติดตั้งรหัสสำหรับเหตุการณ์ **ส่ง**, **ทิ้ง** ที่ทรัพยากร **[es_extended](https://github.com/esx-framework/esx_core/tree/main/%5Bcore%5D/es_extended)** เนื่องจาก **[nc_inventory](https://fivem.nc-developer.com/product/61e3d296e287e)** จะใช้งานรหัสภายในตัวทรัพยากร (ไม่ได้พึ่งพา **[es_extended](https://github.com/esx-framework/esx_core/tree/main/%5Bcore%5D/es_extended)**)
 
 :::
 
@@ -282,7 +282,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `GiveItem`                             | ส่ง-ไอเทม
 
-วางรหัสด้านล่างนี้ต่อจาก `targetXPlayer.addInventoryItem(itemName, itemCount)` บรรทัดที่ **[399](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx%5D/es_extended/server/main.lua#L399)**
+วางรหัสด้านล่างนี้ต่อจาก `targetXPlayer.addInventoryItem(itemName, itemCount)` บรรทัดที่ **[399](https://github.com/esx-framework/esx_core/blob/main/%5Bcore%5D/es_extended/server/main.lua#L399)**
 
 ```lua
 pcall(function()
@@ -315,7 +315,7 @@ end)
 | `GiveMoney`                            | ส่ง-เงินเขียว
 | `GiveDirtyMoney`                       | ส่ง-เงินแดง
 
-วางรหัสด้านล่างนี้ต่อจาก `targetXPlayer.addAccountMoney(itemName, itemCount, "Received from " .. sourceXPlayer.name)` บรรทัดที่ **[412](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx%5D/es_extended/server/main.lua#L412)**
+วางรหัสด้านล่างนี้ต่อจาก `targetXPlayer.addAccountMoney(itemName, itemCount, "Received from " .. sourceXPlayer.name)` บรรทัดที่ **[412](https://github.com/esx-framework/esx_core/blob/main/%5Bcore%5D/es_extended/server/main.lua#L412)**
 
 ```lua
 pcall(function()
@@ -349,7 +349,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `GiveWeapon`                           | ส่ง-อาวุธ
 
-วางรหัสด้านล่างนี้ต่อจาก `targetXPlayer.addWeapon(itemName, itemCount)` บรรทัดที่ **[438](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx%5D/es_extended/server/main.lua#L438)**
+วางรหัสด้านล่างนี้ต่อจาก `targetXPlayer.addWeapon(itemName, itemCount)` บรรทัดที่ **[438](https://github.com/esx-framework/esx_core/blob/main/%5Bcore%5D/es_extended/server/main.lua#L438)**
 
 ```lua
 pcall(function()
@@ -375,7 +375,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `GiveAmmo`                             | ส่ง-กระสุน
 
-วางรหัสด้านล่างนี้ต่อจาก `targetXPlayer.addWeaponAmmo(itemName, itemCount)` บรรทัดที่ **[465](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx%5D/es_extended/server/main.lua#L465)**
+วางรหัสด้านล่างนี้ต่อจาก `targetXPlayer.addWeaponAmmo(itemName, itemCount)` บรรทัดที่ **[465](https://github.com/esx-framework/esx_core/blob/main/%5Bcore%5D/es_extended/server/main.lua#L465)**
 
 ```lua
 pcall(function()
@@ -401,7 +401,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `RemoveItem`                           | ทิ้ง-ไอเทม
 
-วางรหัสด้านล่างนี้ต่อจาก `xPlayer.removeInventoryItem(itemName, itemCount)` บรรทัดที่ **[493](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx%5D/es_extended/server/main.lua#L493)**
+วางรหัสด้านล่างนี้ต่อจาก `xPlayer.removeInventoryItem(itemName, itemCount)` บรรทัดที่ **[493](https://github.com/esx-framework/esx_core/blob/main/%5Bcore%5D/es_extended/server/main.lua#L493)**
 
 ```lua
 pcall(function()
@@ -424,7 +424,7 @@ end)
 | `RemoveMoney`                          | ทิ้ง-เงินเขียว
 | `RemoveDirtyMoney`                     | ทิ้ง-เงินแดง
 
-วางรหัสด้านล่างนี้ต่อจาก `xPlayer.removeAccountMoney(itemName, itemCount, "Threw away")` บรรทัดที่ **[508](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx%5D/es_extended/server/main.lua#L508)**
+วางรหัสด้านล่างนี้ต่อจาก `xPlayer.removeAccountMoney(itemName, itemCount, "Threw away")` บรรทัดที่ **[508](https://github.com/esx-framework/esx_core/blob/main/%5Bcore%5D/es_extended/server/main.lua#L508)**
 
 ```lua
 pcall(function()
@@ -446,7 +446,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `RemoveWeapon`                         | ทิ้ง-อาวุธ
 
-วางรหัสด้านล่างนี้ต่อจาก `xPlayer.removeWeapon(itemName)` บรรทัดที่ **[521](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx%5D/es_extended/server/main.lua#L521)**
+วางรหัสด้านล่างนี้ต่อจาก `xPlayer.removeWeapon(itemName)` บรรทัดที่ **[521](https://github.com/esx-framework/esx_core/blob/main/%5Bcore%5D/es_extended/server/main.lua#L521)**
 
 ```lua
 pcall(function()
@@ -465,7 +465,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `UseItem`                              | ใช้งาน-ไอเทม
 
-วางรหัสด้านล่างนี้ต่อจาก `ESX.UseItem(source, itemName)` บรรทัดที่ **[544](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx%5D/es_extended/server/main.lua#L544)**
+วางรหัสด้านล่างนี้ต่อจาก `ESX.UseItem(source, itemName)` บรรทัดที่ **[544](https://github.com/esx-framework/esx_core/blob/main/%5Bcore%5D/es_extended/server/main.lua#L544)**
 
 ```lua
 pcall(function()
@@ -484,7 +484,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `PickupItem`                           | เก็บ-ไอเทม
 
-วางรหัสด้านล่างนี้ต่อจาก `xPlayer.addInventoryItem(pickup.name, pickup.count)` บรรทัดที่ **[557](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx%5D/es_extended/server/main.lua#L557)**
+วางรหัสด้านล่างนี้ต่อจาก `xPlayer.addInventoryItem(pickup.name, pickup.count)` บรรทัดที่ **[557](https://github.com/esx-framework/esx_core/blob/main/%5Bcore%5D/es_extended/server/main.lua#L557)**
 
 ```lua
 pcall(function()
@@ -507,7 +507,7 @@ end)
 | `PickupMoney`                          | เก็บ-เงินเขียว
 | `PickupDirtyMoney`                     | เก็บ-เงินแดง
 
-วางรหัสด้านล่างนี้ต่อจาก `xPlayer.addAccountMoney(pickup.name, pickup.count, "Picked up")` บรรทัดที่ **[564](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx%5D/es_extended/server/main.lua#L564)**
+วางรหัสด้านล่างนี้ต่อจาก `xPlayer.addAccountMoney(pickup.name, pickup.count, "Picked up")` บรรทัดที่ **[564](https://github.com/esx-framework/esx_core/blob/main/%5Bcore%5D/es_extended/server/main.lua#L564)**
 
 ```lua
 pcall(function()
@@ -529,7 +529,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `PickupWeapon`                         | เก็บ-อาวุธ
 
-วางรหัสด้านล่างนี้ต่อจาก `xPlayer.setWeaponTint(pickup.name, pickup.tintIndex)` บรรทัดที่ **[571](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx%5D/es_extended/server/main.lua#L571)**
+วางรหัสด้านล่างนี้ต่อจาก `xPlayer.setWeaponTint(pickup.name, pickup.tintIndex)` บรรทัดที่ **[571](https://github.com/esx-framework/esx_core/blob/main/%5Bcore%5D/es_extended/server/main.lua#L571)**
 
 ```lua
 pcall(function()
