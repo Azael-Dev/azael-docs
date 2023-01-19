@@ -4,7 +4,7 @@ sidebar_label: esx_society
 
 # esx_society
 
-ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากร **[esx_society](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_society)** เพื่อส่งข้อมูลมายัง **[azael_dc-serverlogs](../../)**
+ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากร **[esx_society](https://github.com/esx-framework/esx_society)** เพื่อส่งข้อมูลมายัง **[azael_dc-serverlogs](../../)**
 
 :::danger
 
@@ -14,7 +14,7 @@ sidebar_label: esx_society
 
 ## main.lua (Server)
 
-ไปยังโฟลเดอร์ **[server](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_society/server)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_society/server/main.lua)**
+ไปยังโฟลเดอร์ **[server](https://github.com/esx-framework/esx_society/tree/main/server)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx_society/blob/main/server/main.lua)**
 
 ### หน่วยงาน-ถอนเงินกองกลาง
 
@@ -22,7 +22,7 @@ sidebar_label: esx_society
 |----------------------------------------|----------------------------------------
 | `SocietyWithdrawMoney`                 | หน่วยงาน-ถอนเงินกองกลาง
 
-วางรหัสด้านล่างนี้ต่อจาก `xPlayer.addMoney(amount, "Society Withdraw")` บรรทัดที่ **[60](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_society/server/main.lua#L90)**
+วางรหัสด้านล่างนี้ต่อจาก `xPlayer.addMoney(amount, "Society Withdraw")` บรรทัดที่ **[74](https://github.com/esx-framework/esx_society/blob/main/server/main.lua#L74)**
 
 ```lua
 pcall(function()
@@ -44,7 +44,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `SocietyDepositMoney`                  | หน่วยงาน-ฝากเงินกองกลาง
 
-วางรหัสด้านล่างนี้ต่อจาก `account.addMoney(amount)` บรรทัดที่ **[117](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_society/server/main.lua#L117)**
+วางรหัสด้านล่างนี้ต่อจาก `account.addMoney(amount)` บรรทัดที่ **[98](https://github.com/esx-framework/esx_society/blob/main/server/main.lua#L98)**
 
 ```lua
 pcall(function()
@@ -66,7 +66,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `SocietyWashMoney`                     | หน่วยงาน-ฝากเงินแดง
 
-วางรหัสด้านล่างนี้ต่อจาก `xPlayer.showNotification(TranslateCap('you_have', ESX.Math.GroupDigits(amount)))` บรรทัดที่ **[140](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_society/server/main.lua#L140)**
+วางรหัสด้านล่างนี้ต่อจาก `xPlayer.showNotification(TranslateCap('you_have', ESX.Math.GroupDigits(amount)))` บรรทัดที่ **[122](https://github.com/esx-framework/esx_society/blob/main/server/main.lua#L122)**
 
 ```lua
 pcall(function()
