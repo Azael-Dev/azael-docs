@@ -4,7 +4,7 @@ sidebar_label: esx_billing
 
 # esx_billing
 
-ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากร **[esx_billing](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_society)** เพื่อส่งข้อมูลมายัง **[azael_dc-serverlogs](../../)**
+ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากร **[esx_billing](https://github.com/esx-framework/esx_billing)** เพื่อส่งข้อมูลมายัง **[azael_dc-serverlogs](../../)**
 
 :::danger
 
@@ -14,7 +14,7 @@ sidebar_label: esx_billing
 
 ## main.lua (Server)
 
-ไปยังโฟลเดอร์ **[server](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_billing/server)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_billing/server/main.lua)**
+ไปยังโฟลเดอร์ **[server](https://github.com/esx-framework/esx_billing/tree/main/server)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx_billing/blob/main/server/main.lua)**
 
 ### ส่ง-บิล
 
@@ -22,7 +22,7 @@ sidebar_label: esx_billing
 |----------------------------------------|----------------------------------------
 | `SendBill`                             | ส่ง-บิล
 
-1. วางรหัสด้านล่างนี้ต่อจาก `xTarget.showNotification(TranslateCap('received_invoice'))` บรรทัดที่ **[12](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_billing/server/main.lua#L12)**
+1. วางรหัสด้านล่างนี้ต่อจาก `xTarget.showNotification(TranslateCap('received_invoice'))` บรรทัดที่ **[12](https://github.com/esx-framework/esx_billing/blob/main/server/main.lua#L12)**
 
 ```lua
 pcall(function()
@@ -42,7 +42,7 @@ pcall(function()
 end)
 ```
 
-2. วางรหัสด้านล่างนี้ต่อจาก `xTarget.showNotification(TranslateCap('received_invoice'))` บรรทัดที่ **[17](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_billing/server/main.lua#L17)**
+2. วางรหัสด้านล่างนี้ต่อจาก `xTarget.showNotification(TranslateCap('received_invoice'))` บรรทัดที่ **[17](https://github.com/esx-framework/esx_billing/blob/main/server/main.lua#L17)**
 
 ```lua
 pcall(function()
@@ -68,7 +68,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `PayBill`                              | จ่าย-บิล
 
-1. วางรหัสด้านล่างนี้ต่อจาก `xTarget.addMoney(amount, "Paid bill")` บรรทัดที่ **[62](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_billing/server/main.lua#L62)**
+1. วางรหัสด้านล่างนี้ต่อจาก `xTarget.addMoney(amount, "Paid bill")` บรรทัดที่ **[62](https://github.com/esx-framework/esx_billing/blob/main/server/main.lua#L62)**
 
 ```lua
 pcall(function()
@@ -88,7 +88,7 @@ pcall(function()
 end)
 ```
 
-2. วางรหัสด้านล่างนี้ต่อจาก `xTarget.addAccountMoney('bank', amount, "Paid bill")` บรรทัดที่ **[75](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_billing/server/main.lua#L75)**
+2. วางรหัสด้านล่างนี้ต่อจาก `xTarget.addAccountMoney('bank', amount, "Paid bill")` บรรทัดที่ **[75](https://github.com/esx-framework/esx_billing/blob/main/server/main.lua#L75)**
 
 ```lua
 pcall(function()
@@ -108,7 +108,7 @@ pcall(function()
 end)
 ```
 
-3. วางรหัสด้านล่างนี้ต่อจาก `account.addMoney(amount)` บรรทัดที่ **[99](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_billing/server/main.lua#L99)**
+3. วางรหัสด้านล่างนี้ต่อจาก `account.addMoney(amount)` บรรทัดที่ **[99](https://github.com/esx-framework/esx_billing/blob/main/server/main.lua#L99)**
 
 ```lua
 pcall(function()
@@ -128,7 +128,7 @@ pcall(function()
 end)
 ```
 
-4. วางรหัสด้านล่างนี้ต่อจาก `account.addMoney(amount)` บรรทัดที่ **[114](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_billing/server/main.lua#L114)**
+4. วางรหัสด้านล่างนี้ต่อจาก `account.addMoney(amount)` บรรทัดที่ **[114](https://github.com/esx-framework/esx_billing/blob/main/server/main.lua#L114)**
 
 ```lua
 pcall(function()
