@@ -4,7 +4,7 @@ sidebar_label: esx_shops
 
 # esx_shops
 
-ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากร **[esx_shops](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_shops)** เพื่อส่งข้อมูลมายัง **[azael_dc-serverlogs](../../)**
+ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากร **[esx_shops](https://github.com/esx-framework/esx_shops)** เพื่อส่งข้อมูลมายัง **[azael_dc-serverlogs](../../)**
 
 :::danger
 
@@ -14,7 +14,7 @@ sidebar_label: esx_shops
 
 ## main.lua (Server)
 
-ไปยังโฟลเดอร์ **[server](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_shops/server)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_shops/server/main.lua)**
+ไปยังโฟลเดอร์ **[server](https://github.com/esx-framework/esx_shops/tree/main/server)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx_shops/blob/main/server/main.lua)**
 
 ### ซื้อ-ไอเทม
 
@@ -22,7 +22,7 @@ sidebar_label: esx_shops
 |----------------------------------------|----------------------------------------
 | `ShopBuyItem`                          | ซื้อ-ไอเทม
 
-วางรหัสด้านล่างนี้ต่อจาก `xPlayer.showNotification(TranslateCap('bought', amount, label, ESX.Math.GroupDigits(price)))` บรรทัดที่ **[48](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_shops/server/main.lua#L48)**
+วางรหัสด้านล่างนี้ต่อจาก `xPlayer.showNotification(TranslateCap('bought', amount, label, ESX.Math.GroupDigits(price)))` บรรทัดที่ **[48](https://github.com/esx-framework/esx_shops/blob/main/server/main.lua#L48)**
 
 ```lua
 pcall(function()
