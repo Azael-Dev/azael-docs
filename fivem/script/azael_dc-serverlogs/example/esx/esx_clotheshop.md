@@ -4,7 +4,7 @@ sidebar_label: esx_clotheshop
 
 # esx_clotheshop
 
-ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากร **[esx_clotheshop](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_clotheshop)** เพื่อส่งข้อมูลมายัง **[azael_dc-serverlogs](../../)**
+ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากร **[esx_clotheshop](https://github.com/esx-framework/esx_clotheshop)** เพื่อส่งข้อมูลมายัง **[azael_dc-serverlogs](../../)**
 
 :::danger
 
@@ -14,7 +14,7 @@ sidebar_label: esx_clotheshop
 
 ## main.lua (Server)
 
-ไปยังโฟลเดอร์ **[server](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_clotheshop/server)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_clotheshop/server/main.lua)**
+ไปยังโฟลเดอร์ **[server](https://github.com/esx-framework/esx_clotheshop/tree/main/server)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx_clotheshop/blob/main/server/main.lua)**
 
 ### ร้าน-เสื้อผ้า
 
@@ -22,7 +22,7 @@ sidebar_label: esx_clotheshop
 |----------------------------------------|----------------------------------------
 | `ClotheShop`                           | ร้าน-เสื้อผ้า
 
-วางรหัสด้านล่างนี้ต่อจาก `xPlayer.removeMoney(Config.Price, "Outfit Purchase")` บรรทัดที่ **[26](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_clotheshop/server/main.lua#L26)**
+วางรหัสด้านล่างนี้ต่อจาก `xPlayer.removeMoney(Config.Price, "Outfit Purchase")` บรรทัดที่ **[26](https://github.com/esx-framework/esx_clotheshop/blob/main/server/main.lua#L26)**
 
 ```lua
 pcall(function()
