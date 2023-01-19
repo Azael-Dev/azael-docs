@@ -4,7 +4,7 @@ sidebar_label: esx_ambulancejob
 
 # esx_ambulancejob
 
-ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากร **[esx_ambulancejob](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_ambulancejob)** เพื่อส่งข้อมูลมายัง **[azael_dc-serverlogs](../../)**
+ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากร **[esx_ambulancejob](https://github.com/esx-framework/esx_ambulancejob)** เพื่อส่งข้อมูลมายัง **[azael_dc-serverlogs](../../)**
 
 :::danger
 
@@ -14,7 +14,7 @@ sidebar_label: esx_ambulancejob
 
 ## main.lua (Server)
 
-ไปยังโฟลเดอร์ **[server](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_ambulancejob/server)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_ambulancejob/server/main.lua)**
+ไปยังโฟลเดอร์ **[server](https://github.com/esx-framework/esx_ambulancejob/tree/main/server)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx_ambulancejob/blob/main/server/main.lua)**
 
 ### หมอ-ชุบชีวิต
 
@@ -22,7 +22,7 @@ sidebar_label: esx_ambulancejob
 |----------------------------------------|----------------------------------------
 | `DocRevive`                            | หมอ-ชุบชีวิต
 
-1. วางรหัสด้านล่างนี้ต่อจาก `xTarget.triggerEvent('esx_ambulancejob:revive')` บรรทัดที่ **[23](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_ambulancejob/server/main.lua#L23)**
+1. วางรหัสด้านล่างนี้ต่อจาก `xTarget.triggerEvent('esx_ambulancejob:revive')` บรรทัดที่ **[23](https://github.com/esx-framework/esx_ambulancejob/blob/main/server/main.lua#L23)**
 
 ```lua
 pcall(function()
@@ -35,7 +35,7 @@ pcall(function()
 end)
 ```
 
-2. วางรหัสด้านล่างนี้ต่อจาก `xTarget.triggerEvent('esx_ambulancejob:revive')` บรรทัดที่ **[26](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_ambulancejob/server/main.lua#L26)**
+2. วางรหัสด้านล่างนี้ต่อจาก `xTarget.triggerEvent('esx_ambulancejob:revive')` บรรทัดที่ **[26](https://github.com/esx-framework/esx_ambulancejob/blob/main/server/main.lua#L26)**
 
 ```lua
 pcall(function()
@@ -48,7 +48,7 @@ pcall(function()
 end)
 ```
 
-3. วางรหัสด้านล่างนี้ต่อจาก `end` บรรทัดที่ **[27](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_ambulancejob/server/main.lua#L27)**
+3. วางรหัสด้านล่างนี้ต่อจาก `end` บรรทัดที่ **[27](https://github.com/esx-framework/esx_ambulancejob/blob/main/server/main.lua#L27)**
 
 ```lua
 pcall(function()
@@ -61,7 +61,7 @@ pcall(function()
 end)
 ```
 
-4. วางรหัสด้านล่างนี้ต่อจาก `TriggerClientEvent('esx_ambulancejob:revive', eventData.id)` บรรทัดที่ **[50](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_ambulancejob/server/main.lua#L50)**
+4. วางรหัสด้านล่างนี้ต่อจาก `TriggerClientEvent('esx_ambulancejob:revive', eventData.id)` บรรทัดที่ **[50](https://github.com/esx-framework/esx_ambulancejob/blob/main/server/main.lua#L50)**
 
 ```lua
 pcall(function()
@@ -80,7 +80,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `DocHeal`                              | หมอ-รักษา
 
-วางรหัสด้านล่างนี้ต่อจาก `TriggerClientEvent('esx_ambulancejob:heal', target, type)` บรรทัดที่ **[122](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_ambulancejob/server/main.lua#L122)**
+วางรหัสด้านล่างนี้ต่อจาก `TriggerClientEvent('esx_ambulancejob:heal', target, type)` บรรทัดที่ **[122](https://github.com/esx-framework/esx_ambulancejob/blob/main/server/main.lua#L122)**
 
 ```lua
 pcall(function()
@@ -108,7 +108,7 @@ end)
 | `DocRPDeathReItem`                     | เสียชีวิต-ลบไอเทม
 | `DocRPDeathReWeapon`                   | เสียชีวิต-ลบอาวุธ
 
-1. วางรหัสด้านล่างนี้ต่อจาก `if Config.RemoveCashAfterRPDeath then` บรรทัดที่ **[143](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_ambulancejob/server/main.lua#L143)**
+1. วางรหัสด้านล่างนี้ต่อจาก `if Config.RemoveCashAfterRPDeath then` บรรทัดที่ **[143](https://github.com/esx-framework/esx_ambulancejob/blob/main/server/main.lua#L143)**
 
 ```lua
 pcall(function()
@@ -121,19 +121,19 @@ pcall(function()
 end)
 ```
 
-2. วางรหัสด้านล่างนี้ต่อจาก `if Config.RemoveItemsAfterRPDeath then` บรรทัดที่ **[153](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_ambulancejob/server/main.lua#L153)**
+2. วางรหัสด้านล่างนี้ต่อจาก `if Config.RemoveItemsAfterRPDeath then` บรรทัดที่ **[153](https://github.com/esx-framework/esx_ambulancejob/blob/main/server/main.lua#L153)**
 
 ```lua
 local content = 'เสียชีวิต ถูกลบ'
 ```
 
-3. วางรหัสด้านล่างนี้ต่อจาก `xPlayer.setInventoryItem(xPlayer.inventory[i].name, 0)` บรรทัดที่ **[156](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_ambulancejob/server/main.lua#L156)**
+3. วางรหัสด้านล่างนี้ต่อจาก `xPlayer.setInventoryItem(xPlayer.inventory[i].name, 0)` บรรทัดที่ **[156](https://github.com/esx-framework/esx_ambulancejob/blob/main/server/main.lua#L156)**
 
 ```lua
 content = ('%s %s x%s,'):format(content, ESX.GetItemLabel(xPlayer.inventory[i].name), xPlayer.inventory[i].count)
 ```
 
-4. วางรหัสด้านล่างนี้ต่อจาก `end` บรรทัดที่ **[158](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_ambulancejob/server/main.lua#L158)**
+4. วางรหัสด้านล่างนี้ต่อจาก `end` บรรทัดที่ **[158](https://github.com/esx-framework/esx_ambulancejob/blob/main/server/main.lua#L158)**
 
 ```lua
 pcall(function()
@@ -146,19 +146,19 @@ pcall(function()
 end)
 ```
 
-5. วางรหัสด้านล่างนี้ต่อจาก `if Config.RemoveWeaponsAfterRPDeath then` บรรทัดที่ **[164](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_ambulancejob/server/main.lua#L164)**
+5. วางรหัสด้านล่างนี้ต่อจาก `if Config.RemoveWeaponsAfterRPDeath then` บรรทัดที่ **[164](https://github.com/esx-framework/esx_ambulancejob/blob/main/server/main.lua#L164)**
 
 ```lua
 local content = 'เสียชีวิต ถูกลบ'
 ```
 
-6. วางรหัสด้านล่างนี้ต่อจาก `xPlayer.removeWeapon(xPlayer.loadout[i].name)` บรรทัดที่ **[166](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_ambulancejob/server/main.lua#L166)**
+6. วางรหัสด้านล่างนี้ต่อจาก `xPlayer.removeWeapon(xPlayer.loadout[i].name)` บรรทัดที่ **[166](https://github.com/esx-framework/esx_ambulancejob/blob/main/server/main.lua#L166)**
 
 ```lua
 content = ('%s %s,'):format(content, ESX.GetWeaponLabel(xPlayer.loadout[i].name))
 ```
 
-7. วางรหัสด้านล่างนี้ต่อจาก `end` บรรทัดที่ **[167](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_ambulancejob/server/main.lua#L167)**
+7. วางรหัสด้านล่างนี้ต่อจาก `end` บรรทัดที่ **[167](https://github.com/esx-framework/esx_ambulancejob/blob/main/server/main.lua#L167)**
 
 ```lua
 pcall(function()
@@ -177,7 +177,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `DocBuyVehicle`                        | หมอ-ซื้อรถ
 
-วางรหัสด้านล่างนี้ต่อจาก `function(rowsChanged)` บรรทัดที่ **[224](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_ambulancejob/server/main.lua#L224)**
+วางรหัสด้านล่างนี้ต่อจาก `function(rowsChanged)` บรรทัดที่ **[224](https://github.com/esx-framework/esx_ambulancejob/blob/main/server/main.lua#L224)**
 
 ```lua
 pcall(function()
@@ -196,7 +196,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `DocRemoveItem`                        | หมอ-ใช้งานไอเทม
 
-วางรหัสด้านล่างนี้ต่อจาก `xPlayer.removeInventoryItem(item, 1)` บรรทัดที่ **[268](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_ambulancejob/server/main.lua#L268)**
+วางรหัสด้านล่างนี้ต่อจาก `xPlayer.removeInventoryItem(item, 1)` บรรทัดที่ **[268](https://github.com/esx-framework/esx_ambulancejob/blob/main/server/main.lua#L268)**
 
 ```lua
 pcall(function()
@@ -215,7 +215,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `DocGiveItem`                          | หมอ-เบิกไอเทม
 
-วางรหัสด้านล่างนี้ต่อจาก `xPlayer.addInventoryItem(itemName, amount)` บรรทัดที่ **[290](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_ambulancejob/server/main.lua#L290)**
+วางรหัสด้านล่างนี้ต่อจาก `xPlayer.addInventoryItem(itemName, amount)` บรรทัดที่ **[290](https://github.com/esx-framework/esx_ambulancejob/blob/main/server/main.lua#L290)**
 
 ```lua
 pcall(function()
@@ -234,7 +234,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `ReviveCommands`                    | ใช้คำสั่ง-ชุบชีวิต
 
-1. วางรหัสด้านล่างนี้ต่อจาก `args.playerId.triggerEvent('esx_ambulancejob:revive')` บรรทัดที่ **[297](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_ambulancejob/server/main.lua#L297)**
+1. วางรหัสด้านล่างนี้ต่อจาก `args.playerId.triggerEvent('esx_ambulancejob:revive')` บรรทัดที่ **[297](https://github.com/esx-framework/esx_ambulancejob/blob/main/server/main.lua#L297)**
 
 ```lua
 pcall(function()
@@ -263,7 +263,7 @@ pcall(function()
 end)
 ```
 
-2. วางรหัสด้านล่างนี้ต่อจาก `TriggerClientEvent('esx_ambulancejob:revive', -1)` บรรทัดที่ **[303](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_ambulancejob/server/main.lua#L303)**
+2. วางรหัสด้านล่างนี้ต่อจาก `TriggerClientEvent('esx_ambulancejob:revive', -1)` บรรทัดที่ **[303](https://github.com/esx-framework/esx_ambulancejob/blob/main/server/main.lua#L303)**
 
 ```lua
 pcall(function()
