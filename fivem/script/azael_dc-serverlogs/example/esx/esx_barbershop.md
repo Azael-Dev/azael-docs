@@ -4,7 +4,7 @@ sidebar_label: esx_barbershop
 
 # esx_barbershop
 
-ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากร **[esx_barbershop](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_barbershop)** เพื่อส่งข้อมูลมายัง **[azael_dc-serverlogs](../../)**
+ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากร **[esx_barbershop](https://github.com/esx-framework/esx_barbershop)** เพื่อส่งข้อมูลมายัง **[azael_dc-serverlogs](../../)**
 
 :::danger
 
@@ -14,7 +14,7 @@ sidebar_label: esx_barbershop
 
 ## main.lua (Server)
 
-ไปยังโฟลเดอร์ **[server](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_barbershop/server)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_barbershop/server/main.lua)**
+ไปยังโฟลเดอร์ **[server](https://github.com/esx-framework/esx_barbershop/tree/main/server)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx_barbershop/blob/main/server/main.lua)**
 
 ### ร้าน-ตัดผม
 
@@ -22,7 +22,7 @@ sidebar_label: esx_barbershop
 |----------------------------------------|----------------------------------------
 | `BarberShop`                           | ร้าน-ตัดผม
 
-วางรหัสด้านล่างนี้ต่อจาก `xPlayer.removeMoney(Config.Price, "Haircut")` บรรทัดที่ **[6](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_barbershop/server/main.lua#L6)**
+วางรหัสด้านล่างนี้ต่อจาก `xPlayer.removeMoney(Config.Price, "Haircut")` บรรทัดที่ **[6](https://github.com/esx-framework/esx_barbershop/blob/main/server/main.lua#L6)**
 
 ```lua
 pcall(function()
