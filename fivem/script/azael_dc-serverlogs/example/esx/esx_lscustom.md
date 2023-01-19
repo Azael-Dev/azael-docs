@@ -4,7 +4,7 @@ sidebar_label: esx_lscustom
 
 # esx_lscustom
 
-ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากร **[esx_lscustom](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_lscustom)** เพื่อส่งข้อมูลมายัง **[azael_dc-serverlogs](../../)**
+ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากร **[esx_lscustom](https://github.com/esx-framework/esx_lscustom)** เพื่อส่งข้อมูลมายัง **[azael_dc-serverlogs](../../)**
 
 :::danger
 
@@ -20,7 +20,7 @@ sidebar_label: esx_lscustom
 |----------------------------------------|----------------------------------------
 | `LsCustom`                             | ร้าน-แต่งรถ
 
-1. ไปยังโฟลเดอร์ **[server](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_lscustom/server)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_lscustom/server/main.lua)**
+1. ไปยังโฟลเดอร์ **[server](https://github.com/esx-framework/esx_lscustom/tree/main/server)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx_lscustom/blob/main/server/main.lua)**
 
 ```lua title="ค้นหา"
 TriggerClientEvent('esx_lscustom:installMod', source)
@@ -30,7 +30,7 @@ TriggerClientEvent('esx_lscustom:installMod', source)
 TriggerClientEvent('esx_lscustom:installMod', source, price)
 ```
 
-2. ไปยังโฟลเดอร์ **[client](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_lscustom/client)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_lscustom/client/main.lua)**
+2. ไปยังโฟลเดอร์ **[client](https://github.com/esx-framework/esx_lscustom/tree/main/client)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx_lscustom/blob/main/client/main.lua)**
 
 ```lua title="ค้นหา"
 AddEventHandler('esx_lscustom:installMod', function()
@@ -40,7 +40,7 @@ AddEventHandler('esx_lscustom:installMod', function()
 AddEventHandler('esx_lscustom:installMod', function(price)
 ```
 
-3. วางรหัสด้านล่างนี้ต่อจาก `TriggerServerEvent('esx_lscustom:refreshOwnedVehicle', myCar)` บรรทัดที่ **[17](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_lscustom/client/main.lua#L17)**
+3. วางรหัสด้านล่างนี้ต่อจาก `TriggerServerEvent('esx_lscustom:refreshOwnedVehicle', myCar)` บรรทัดที่ **[16](https://github.com/esx-framework/esx_lscustom/blob/main/client/main.lua#L16)**
 
 ```lua
 pcall(function()
