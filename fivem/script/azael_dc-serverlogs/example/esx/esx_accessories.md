@@ -4,7 +4,7 @@ sidebar_label: esx_accessories
 
 # esx_accessories
 
-ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากร **[esx_accessories](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_accessories)** เพื่อส่งข้อมูลมายัง **[azael_dc-serverlogs](../../)**
+ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากร **[esx_accessories](https://github.com/esx-framework/esx_accessories)** เพื่อส่งข้อมูลมายัง **[azael_dc-serverlogs](../../)**
 
 :::danger
 
@@ -14,7 +14,7 @@ sidebar_label: esx_accessories
 
 ## main.lua (Server)
 
-ไปยังโฟลเดอร์ **[server](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_accessories/server)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_accessories/server/main.lua)**
+ไปยังโฟลเดอร์ **[server](https://github.com/esx-framework/esx_accessories/tree/main/server)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx_accessories/blob/main/server/main.lua)**
 
 ### ร้าน-เครื่องประดับ
 
@@ -22,7 +22,7 @@ sidebar_label: esx_accessories
 |----------------------------------------|----------------------------------------
 | `AccessoriesShop`                      | ร้าน-เครื่องประดับ
 
-วางรหัสด้านล่างนี้ต่อจาก `xPlayer.removeMoney(Config.Price, "Accessory Purchase")` บรรทัดที่ **[5](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_accessories/server/main.lua#L5)**
+วางรหัสด้านล่างนี้ต่อจาก `xPlayer.removeMoney(Config.Price, "Accessory Purchase")` บรรทัดที่ **[5](https://github.com/esx-framework/esx_accessories/blob/main/server/main.lua#L5)**
 
 ```lua
 pcall(function()
