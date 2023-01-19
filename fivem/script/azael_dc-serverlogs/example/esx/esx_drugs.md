@@ -4,7 +4,7 @@ sidebar_label: esx_drugs
 
 # esx_drugs
 
-ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากร **[esx_drugs](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_drugs)** เพื่อส่งข้อมูลมายัง **[azael_dc-serverlogs](../../)**
+ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากร **[esx_drugs](https://github.com/esx-framework/esx_drugs)** เพื่อส่งข้อมูลมายัง **[azael_dc-serverlogs](../../)**
 
 :::danger
 
@@ -14,7 +14,7 @@ sidebar_label: esx_drugs
 
 ## main.lua (Server)
 
-ไปยังโฟลเดอร์ **[server](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_drugs/server)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_drugs/server/main.lua)**
+ไปยังโฟลเดอร์ **[server](https://github.com/esx-framework/esx_drugs/tree/main/server)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx_drugs/blob/main/server/main.lua)**
 
 ### ขาย-กัญชา
 
@@ -22,7 +22,7 @@ sidebar_label: esx_drugs
 |----------------------------------------|----------------------------------------
 | `SellCannabis`                         | ขาย-กัญชา
 
-วางรหัสด้านล่างนี้ต่อจาก `xPlayer.showNotification(TranslateCap('dealer_sold', amount, xItem.label, ESX.Math.GroupDigits(price)))` บรรทัดที่ **[30](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_drugs/server/main.lua#L30)**
+วางรหัสด้านล่างนี้ต่อจาก `xPlayer.showNotification(TranslateCap('dealer_sold', amount, xItem.label, ESX.Math.GroupDigits(price)))` บรรทัดที่ **[30](https://github.com/esx-framework/esx_drugs/blob/main/server/main.lua#L30)**
 
 ```lua
 pcall(function()
@@ -44,7 +44,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `BuyLicenseCannabis`                   | ซื้อ-ใบอนุญาต
 
-วางรหัสด้านล่างนี้ต่อจาก `TriggerEvent('esx_license:addLicense', source, licenseName, function()` บรรทัดที่ **[41](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_drugs/server/main.lua#L41)**
+วางรหัสด้านล่างนี้ต่อจาก `TriggerEvent('esx_license:addLicense', source, licenseName, function()` บรรทัดที่ **[41](https://github.com/esx-framework/esx_drugs/blob/main/server/main.lua#L41)**
 
 ```lua
 pcall(function()
@@ -63,7 +63,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `JobCannabis`                          | งาน-กัญชา
 
-วางรหัสด้านล่างนี้ต่อจาก `xPlayer.addInventoryItem('cannabis', cime)` บรรทัดที่ **[59](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_drugs/server/main.lua#L59)**
+วางรหัสด้านล่างนี้ต่อจาก `xPlayer.addInventoryItem('cannabis', cime)` บรรทัดที่ **[59](https://github.com/esx-framework/esx_drugs/blob/main/server/main.lua#L59)**
 
 ```lua
 pcall(function()
@@ -82,7 +82,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `ProcessCannabis`                      | แปรรูป-กัญชา
 
-1. วางรหัสด้านล่างนี้ต่อจาก `xPlayer.showNotification(TranslateCap('weed_processed'))` บรรทัดที่ **[97](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_drugs/server/main.lua#L97)**
+1. วางรหัสด้านล่างนี้ต่อจาก `xPlayer.showNotification(TranslateCap('weed_processed'))` บรรทัดที่ **[97](https://github.com/esx-framework/esx_drugs/blob/main/server/main.lua#L97)**
 
 ```lua
 pcall(function()
@@ -95,7 +95,7 @@ pcall(function()
 end)
 ```
 
-2. วางรหัสด้านล่างนี้ต่อจาก `print(('esx_drugs: %s attempted to exploit weed processing!'):format(GetPlayerIdentifiers(source)[1]))` บรรทัดที่ **[121](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_drugs/server/main.lua#L121)**
+2. วางรหัสด้านล่างนี้ต่อจาก `print(('esx_drugs: %s attempted to exploit weed processing!'):format(GetPlayerIdentifiers(source)[1]))` บรรทัดที่ **[121](https://github.com/esx-framework/esx_drugs/blob/main/server/main.lua#L121)**
 
 ```lua
 pcall(function()
