@@ -12,9 +12,9 @@ sidebar_label: nc_stealjobs
 
 :::
 
-## config.notifications.lua
+## config.functions.lua
 
-ไปยัง **`config.notifications.lua`** แล้วดำเนินการเปิดไฟล์
+ไปยัง **`config.functions.lua`** แล้วดำเนินการเปิดไฟล์
 
 ### งาน-ขโมยรวม
 
