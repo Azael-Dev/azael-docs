@@ -12,9 +12,87 @@ sidebar_label: nc_inventory
 
 :::
 
-## config.functions.lua
+## config.functions.server.lua
 
-ไปยัง **`config.functions.lua`** แล้วดำเนินการเปิดไฟล์
+ไปยัง **`config.functions.server.lua`** แล้วดำเนินการเปิดไฟล์
+
+### ผู้เล่น-ทิ้ง
+
+| Event                                  | Label
+|----------------------------------------|----------------------------------------
+| `NC_RemoveItem`                        | ทิ้ง-ไอเทม
+| `NC_RemoveMoney`                       | ทิ้ง-เงินเขียว
+| `NC_RemoveDirtyMoney`                  | ทิ้ง-เงินแดง
+| `NC_RemoveWeapon`                      | ทิ้ง-อาวุธ
+| `NC_RemoveAccessory`                   | ทิ้ง-เครื่องประดับ
+| `NC_RemoveKeyCar`                      | ทิ้ง-กุญแจรถ
+| `NC_RemoveKeyHouse`                    | ทิ้ง-กุญแจบ้าน
+
+วางรหัสด้านล่างนี้ภายใน `Config.ServerDroppedItem = function`
+
+```lua
+if itemType == 'item' then
+	pcall(function()
+		exports['azael_dc-serverlogs']:insertData({
+			event = 'NC_RemoveItem',
+			content = ('ทิ้ง %s จำนวน %s'):format(ESX.GetItemLabel(itemName), itemCount),
+			source = xPlayer.source,
+			color = 1,
+			options = {
+				important = (itemCount >= 500 and true)
+			}
+		})
+	end)
+elseif itemType == 'account' then
+	pcall(function()
+		exports['azael_dc-serverlogs']:insertData({
+			event = (itemName == 'money' and 'NC_RemoveMoney' or 'NC_RemoveDirtyMoney'),
+			content = ('ทิ้ง %s จำนวน $%s'):format(ESX.GetConfig().Accounts[itemName].label, ESX.Math.GroupDigits(itemCount)),
+			source = xPlayer.source,
+			color = 1,
+			options = {
+				important = (itemCount >= 100000 and true)
+			}
+		})
+	end)
+elseif itemType == 'weapon' then
+	pcall(function()
+		exports['azael_dc-serverlogs']:insertData({
+			event = 'NC_RemoveWeapon',
+			content = ('ทิ้ง %s และ กระสุน จำนวน %s'):format(ESX.GetWeaponLabel(itemName), itemCount),
+			source = xPlayer.source,
+			color = 1
+		})
+	end)
+elseif itemType == 'accessory' then
+	pcall(function()
+		exports['azael_dc-serverlogs']:insertData({
+			event = 'NC_RemoveAccessory',
+			content = ('ทิ้ง %s'):format(itemName),
+			source = xPlayer.source,
+			color = 1
+		})
+	end)
+elseif itemType == 'vehicle_key' then
+	pcall(function()
+		exports['azael_dc-serverlogs']:insertData({
+			event = 'NC_RemoveKeyCar',
+			content = ('ทิ้ง กุญแจยานพาหนะ ทะเบียน %s'):format(itemName),
+			source = xPlayer.source,
+			color = 1
+		})
+	end)
+elseif itemType == 'house_key' then
+	pcall(function()
+		exports['azael_dc-serverlogs']:insertData({
+			event = 'NC_RemoveKeyHouse',
+			content = ('ทิ้ง กุญแจบ้าน %s'):format(itemName),
+			source = xPlayer.source,
+			color = 1
+		})
+	end)
+end
+```
 
 ### ผู้เล่น-ส่ง
 
@@ -151,84 +229,6 @@ elseif itemType == 'house_key' then
 end
 ```
 
-### ผู้เล่น-ทิ้ง
-
-| Event                                  | Label
-|----------------------------------------|----------------------------------------
-| `NC_RemoveItem`                        | ทิ้ง-ไอเทม
-| `NC_RemoveMoney`                       | ทิ้ง-เงินเขียว
-| `NC_RemoveDirtyMoney`                  | ทิ้ง-เงินแดง
-| `NC_RemoveWeapon`                      | ทิ้ง-อาวุธ
-| `NC_RemoveAccessory`                   | ทิ้ง-เครื่องประดับ
-| `NC_RemoveKeyCar`                      | ทิ้ง-กุญแจรถ
-| `NC_RemoveKeyHouse`                    | ทิ้ง-กุญแจบ้าน
-
-วางรหัสด้านล่างนี้ภายใน `Config.ServerDroppedItem = function`
-
-```lua
-if itemType == 'item' then
-	pcall(function()
-		exports['azael_dc-serverlogs']:insertData({
-			event = 'NC_RemoveItem',
-			content = ('ทิ้ง %s จำนวน %s'):format(ESX.GetItemLabel(itemName), itemCount),
-			source = xPlayer.source,
-			color = 1,
-			options = {
-				important = (itemCount >= 500 and true)
-			}
-		})
-	end)
-elseif itemType == 'account' then
-	pcall(function()
-		exports['azael_dc-serverlogs']:insertData({
-			event = (itemName == 'money' and 'NC_RemoveMoney' or 'NC_RemoveDirtyMoney'),
-			content = ('ทิ้ง %s จำนวน $%s'):format(ESX.GetConfig().Accounts[itemName].label, ESX.Math.GroupDigits(itemCount)),
-			source = xPlayer.source,
-			color = 1,
-			options = {
-				important = (itemCount >= 100000 and true)
-			}
-		})
-	end)
-elseif itemType == 'weapon' then
-	pcall(function()
-		exports['azael_dc-serverlogs']:insertData({
-			event = 'NC_RemoveWeapon',
-			content = ('ทิ้ง %s และ กระสุน จำนวน %s'):format(ESX.GetWeaponLabel(itemName), itemCount),
-			source = xPlayer.source,
-			color = 1
-		})
-	end)
-elseif itemType == 'accessory' then
-	pcall(function()
-		exports['azael_dc-serverlogs']:insertData({
-			event = 'NC_RemoveAccessory',
-			content = ('ทิ้ง %s'):format(itemName),
-			source = xPlayer.source,
-			color = 1
-		})
-	end)
-elseif itemType == 'vehicle_key' then
-	pcall(function()
-		exports['azael_dc-serverlogs']:insertData({
-			event = 'NC_RemoveKeyCar',
-			content = ('ทิ้ง กุญแจยานพาหนะ ทะเบียน %s'):format(itemName),
-			source = xPlayer.source,
-			color = 1
-		})
-	end)
-elseif itemType == 'house_key' then
-	pcall(function()
-		exports['azael_dc-serverlogs']:insertData({
-			event = 'NC_RemoveKeyHouse',
-			content = ('ทิ้ง กุญแจบ้าน %s'):format(itemName),
-			source = xPlayer.source,
-			color = 1
-		})
-	end)
-end
-```
-
 ### ตำรวจ-ยึดเข้าตู้เซฟ
 
 <Tabs>
@@ -240,7 +240,7 @@ end
 | `NC_VaultPutMoneyPolice`               | ตำรวจ-เงิน-เข้าเซฟ
 | `NC_VaultPutWeaponPolice`              | ตำรวจ-อาวุธ-เข้าเซฟ
 
-วางรหัสด้านล่างนี้ภายใน `Config.ServerSearchActionValidation = function`
+วางรหัสด้านล่างนี้ภายใน `Config.ServerWillSearchInventoryAction = function`
 
 1. วางรหัสด้านล่างนี้ต่อจาก `xTarget[RemoveFunc](itemName, itemCount)`
 
@@ -294,7 +294,7 @@ end)
 | `VaultPutMoneyPolice`                  | ตำรวจ-เงิน-เข้าเซฟ
 | `VaultPutWeaponPolice`                 | ตำรวจ-อาวุธ-เข้าเซฟ
 
-วางรหัสด้านล่างนี้ภายใน `Config.ServerSearchActionValidation = function`
+วางรหัสด้านล่างนี้ภายใน `Config.ServerWillSearchInventoryAction = function`
 
 1. วางรหัสด้านล่างนี้ต่อจาก `storage.addMoney(itemCount)`
 
@@ -385,7 +385,7 @@ end)
 </TabItem>
 </Tabs>
 
-วางรหัสด้านล่างนี้ภายใน `Config.ServerOnSearchAction = function`
+วางรหัสด้านล่างนี้ภายใน `Config.ServerSearchedInventoryAction = function`
 
 ```lua
 if xPlayer.job.name == 'police' then -- ตำรวจ
