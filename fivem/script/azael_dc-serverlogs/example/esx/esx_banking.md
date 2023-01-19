@@ -4,7 +4,7 @@ sidebar_label: esx_banking
 
 # esx_banking
 
-ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากร **[esx_banking](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_banking)** เพื่อส่งข้อมูลมายัง **[azael_dc-serverlogs](../../)**
+ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากร **[esx_banking](https://github.com/esx-framework/esx_banking)** เพื่อส่งข้อมูลมายัง **[azael_dc-serverlogs](../../)**
 
 :::danger
 
@@ -14,7 +14,7 @@ sidebar_label: esx_banking
 
 ## main.lua (Server)
 
-ไปยังโฟลเดอร์ **[server](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_banking/server)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_banking/server/main.lua)**
+ไปยังโฟลเดอร์ **[server](https://github.com/esx-framework/esx_banking/tree/main/server)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx_banking/blob/main/server/main.lua)**
 
 ### ถอนเงิน-ธนาคาร
 
@@ -22,7 +22,7 @@ sidebar_label: esx_banking
 |----------------------------------------|----------------------------------------
 | `BankWithdraw`                         | ถอนเงิน-ธนาคาร
 
-วางรหัสด้านล่างนี้ต่อจาก `xPlayer.removeAccountMoney('bank', amount)` บรรทัดที่ **[121](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_banking/server/main.lua#L121)**
+วางรหัสด้านล่างนี้ต่อจาก `xPlayer.removeAccountMoney('bank', amount)` บรรทัดที่ **[178](https://github.com/esx-framework/esx_banking/blob/main/server/main.lua#L178)**
 
 ```lua
 pcall(function()
@@ -44,7 +44,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `BankDeposit`                          | ฝากเงิน-ธนาคาร
 
-วางรหัสด้านล่างนี้ต่อจาก `xPlayer.addAccountMoney('bank', amount)` บรรทัดที่ **[125](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_banking/server/main.lua#L125)**
+วางรหัสด้านล่างนี้ต่อจาก `xPlayer.addAccountMoney('bank', amount)` บรรทัดที่ **[182](https://github.com/esx-framework/esx_banking/blob/main/server/main.lua#L182)**
 
 ```lua
 pcall(function()
@@ -66,7 +66,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `BankTransfer`                         | โอนเงิน-ธนาคาร
 
-วางรหัสด้านล่างนี้ต่อจาก `TriggerClientEvent("esx:showNotification", xTarget.source, TranslateCap('receive_transfer', amount, xPlayer.source), "success")` บรรทัดที่ **[137](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_banking/server/main.lua#L137)**
+วางรหัสด้านล่างนี้ต่อจาก `xTarget.addAccountMoney('bank', amount)` บรรทัดที่ **[191](https://github.com/esx-framework/esx_banking/blob/main/server/main.lua#L191)**
 
 ```lua
 pcall(function()
