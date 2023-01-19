@@ -4,7 +4,7 @@ sidebar_label: esx_boat
 
 # esx_boat
 
-ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากร **[esx_boat](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_boat)** เพื่อส่งข้อมูลมายัง **[azael_dc-serverlogs](../../)**
+ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากร **[esx_boat](https://github.com/esx-framework/esx_boat)** เพื่อส่งข้อมูลมายัง **[azael_dc-serverlogs](../../)**
 
 :::danger
 
@@ -14,7 +14,7 @@ sidebar_label: esx_boat
 
 ## main.lua (Client)
 
-ไปยังโฟลเดอร์ **[client](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_boat/client)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_boat/client/main.lua)**
+ไปยังโฟลเดอร์ **[client](https://github.com/esx-framework/esx_boat/tree/main/client)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx_boat/blob/main/client/main.lua)**
 
 ### ซื้อเรือ-จากร้าน
 
@@ -22,7 +22,7 @@ sidebar_label: esx_boat
 |----------------------------------------|----------------------------------------
 | `BuyBoat`                              | ซื้อเรือ-จากร้าน
 
-วางรหัสด้านล่างนี้ต่อจาก `SetEntityCoords(playerPed, shop.Outside.x, shop.Outside.y, shop.Outside.z)` บรรทัดที่ **[51](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_boat/client/main.lua#L51)**
+วางรหัสด้านล่างนี้ต่อจาก `SetEntityCoords(playerPed, shop.Outside.x, shop.Outside.y, shop.Outside.z)` บรรทัดที่ **[68](https://github.com/esx-framework/esx_boat/blob/main/client/main.lua#L68)**
 
 ```lua
 pcall(function()
@@ -40,7 +40,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `GetBoatGarage`                        | เบิกเรือ-การาจ
 
-วางรหัสด้านล่างนี้ต่อจาก `ESX.Game.SetVehicleProperties(vehicle, vehicleProps)` บรรทัดที่ **[133](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_boat/client/main.lua#L133)**
+วางรหัสด้านล่างนี้ต่อจาก `ESX.Game.SetVehicleProperties(vehicle, vehicleProps)` บรรทัดที่ **[130](https://github.com/esx-framework/esx_boat/blob/main/client/main.lua#L130)**
 
 ```lua
 pcall(function()
@@ -58,7 +58,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `PutBoatGarage`                        | เก็บเรือ-การาจ
 
-วางรหัสด้านล่างนี้ต่อจาก `if rowsChanged > 0 then` บรรทัดที่ **[185](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_boat/client/main.lua#L185)**
+วางรหัสด้านล่างนี้ต่อจาก `if rowsChanged > 0 then` บรรทัดที่ **[183](https://github.com/esx-framework/esx_boat/blob/main/client/main.lua#L183)**
 
 ```lua
 pcall(function()
