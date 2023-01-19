@@ -4,7 +4,7 @@ sidebar_label: esx_garage
 
 # esx_garage
 
-ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากร **[esx_garage](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_garage)** เพื่อส่งข้อมูลมายัง **[azael_dc-serverlogs](../../)**
+ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากร **[esx_garage](https://github.com/esx-framework/esx_garage)** เพื่อส่งข้อมูลมายัง **[azael_dc-serverlogs](../../)**
 
 :::danger
 
@@ -14,7 +14,7 @@ sidebar_label: esx_garage
 
 ## main.lua (Client)
 
-ไปยังโฟลเดอร์ **[client](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_garage/client)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_garage/client/main.lua)**
+ไปยังโฟลเดอร์ **[client](https://github.com/esx-framework/esx_garage/tree/main/client)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx_garage/blob/main/client/main.lua)**
 
 ### เบิกรถ-การาจ
 
@@ -22,7 +22,7 @@ sidebar_label: esx_garage
 |----------------------------------------|----------------------------------------
 | `GetVehicleGarage`                     | เบิกรถ-การาจ
 
-วางรหัสด้านล่างนี้ต่อจาก `ESX.ShowNotification(TranslateCap('veh_released'))` บรรทัดที่ **[38](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_garage/client/main.lua#L38)**
+วางรหัสด้านล่างนี้ต่อจาก `ESX.ShowNotification(TranslateCap('veh_released'))` บรรทัดที่ **[38](https://github.com/esx-framework/esx_garage/blob/main/client/main.lua#L38)**
 
 ```lua
 pcall(function()
@@ -40,7 +40,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `GetVehiclePound`                      | เบิกรถ-พาวท์
 
-วางรหัสด้านล่างนี้ต่อจาก `TriggerEvent('esx_garage:closemenu')` บรรทัดที่ **[53](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_garage/client/main.lua#L53)**
+วางรหัสด้านล่างนี้ต่อจาก `TriggerEvent('esx_garage:closemenu')` บรรทัดที่ **[53](https://github.com/esx-framework/esx_garage/blob/main/client/main.lua#L53)**
 
 ```lua
 pcall(function()
@@ -58,7 +58,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `PutVehicleGarage`                     | เก็บรถ-การาจ
 
-วางรหัสด้านล่างนี้ต่อจาก `TriggerServerEvent('esx_garage:updateOwnedVehicle', true, currentMarker, nil, {vehicleProps = vehicleProps})` บรรทัดที่ **[351](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_garage/client/main.lua#L351)**
+วางรหัสด้านล่างนี้ต่อจาก `TriggerServerEvent('esx_garage:updateOwnedVehicle', true, currentMarker, nil, {vehicleProps = vehicleProps})` บรรทัดที่ **[351](https://github.com/esx-framework/esx_garage/blob/main/client/main.lua#L351)**
 
 ```lua
 pcall(function()
