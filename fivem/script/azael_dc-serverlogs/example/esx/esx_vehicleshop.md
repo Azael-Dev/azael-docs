@@ -4,7 +4,7 @@ sidebar_label: esx_vehicleshop
 
 # esx_vehicleshop
 
-ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากร **[esx_vehicleshop](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_vehicleshop)** เพื่อส่งข้อมูลมายัง **[azael_dc-serverlogs](../../)**
+ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากร **[esx_vehicleshop](https://github.com/esx-framework/esx_vehicleshop)** เพื่อส่งข้อมูลมายัง **[azael_dc-serverlogs](../../)**
 
 :::danger
 
@@ -14,7 +14,7 @@ sidebar_label: esx_vehicleshop
 
 ## main.lua (Client)
 
-ไปยังโฟลเดอร์ **[client](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_vehicleshop/client)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_vehicleshop/client/main.lua)**
+ไปยังโฟลเดอร์ **[client](https://github.com/esx-framework/esx_vehicleshop/tree/main/client)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx_vehicleshop/blob/main/client/main.lua)**
 
 ### ซื้อรถ-จากร้าน
 
@@ -22,7 +22,7 @@ sidebar_label: esx_vehicleshop
 |----------------------------------------|----------------------------------------
 | `BuyVehicle`                           | ซื้อรถ-จากร้าน
 
-วางรหัสด้านล่างนี้ต่อจาก `SetEntityVisible(playerPed, true)` บรรทัดที่ **[234](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_vehicleshop/client/main.lua#L234)**
+วางรหัสด้านล่างนี้ต่อจาก `SetEntityVisible(playerPed, true)` บรรทัดที่ **[215](https://github.com/esx-framework/esx_vehicleshop/blob/main/client/main.lua#L215)**
 
 ```lua
 pcall(function()
@@ -40,7 +40,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `ResellVehicle`                           | ขายรถ-คืนร้าน
 
-วางรหัสด้านล่างนี้ต่อจาก `ESX.Game.DeleteVehicle(CurrentActionData.vehicle)` บรรทัดที่ **[829](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx_addons%5D/esx_vehicleshop/client/main.lua#L829)**
+วางรหัสด้านล่างนี้ต่อจาก `ESX.Game.DeleteVehicle(CurrentActionData.vehicle)` บรรทัดที่ **[807](https://github.com/esx-framework/esx_vehicleshop/blob/main/client/main.lua#L807)**
 
 ```lua
 pcall(function()
