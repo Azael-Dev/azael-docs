@@ -9,12 +9,48 @@
 ```lua title="บรรทัดที่ 11"
 CONFIG.Death = {} -- [[ table ]]
 ```
+### Custom.Enable
+
+เปิดใช้งาน กำหนดเหตุการณ์สาเหตุการตายภายในโซนที่กำหนดใน **[Custom.Zones](./client#customzones)**
+
+```lua title="บรรทัดที่ 13"
+CONFIG.Death.Custom.Enable = false -- [[ boolean ]]
+```
+
+:::info
+
+`true` เท่ากับ เปิดใช้งาน | `false` เท่ากับ ปิดใช้งาน
+
+:::
+
+### Custom.Zones
+
+โซนที่ต้องการกำหนดเอง (**สามารถเพิ่มโซนได้**)
+
+```lua title="บรรทัดที่ 15"
+CONFIG.Death.Custom.Zones = { -- [[ table ]]
+    --[[ Boxing - Los Santos International Airport ]]
+    {
+        Event = 'DeathPunch', --[[ string ]]
+        Coords = vector3(-1096.59, -3007.87, 13.94), --[[ vector3 ]]
+        Radius = 170 --[[ number ]]
+    }
+}
+```
+
+:::info
+
+- `Event` หมายถึง ชื่อเหตุการณ์ (หากใช้งาน **[Discord API](../config/server#discord-api)** จะต้องกำหนดชื่อเหตุการณ์นี้ใน **"[CONFIG.Discord.Webhooks](../config/server#webhooks)"**)<br/>
+- `Coords` หมายถึง พิกัดของโซนที่กำหนด (`X`, `Y`, `Z`) ในรูปแบบ **[vector3](https://docs.fivem.net/docs/scripting-reference/runtimes/lua/functions/vector3/)**<br/>
+- `Radius` หมายถึง รัศมี หรือ ขอบเขต โดยอ้างอิงจากจุดศูนย์กลางของพิกัดที่กำหนดใน `Coords`
+
+:::
 
 ### Ignore.Enable
 
-เปิดใช้งาน ละเว้นสาเหตุการตายภายโซนที่กำหนดใน **[Ignore.Zones](./client#ignorezones)**
+เปิดใช้งาน ละเว้นสาเหตุการตายภายในโซนที่กำหนดใน **[Ignore.Zones](./client#ignorezones)**
 
-```lua title="บรรทัดที่ 13"
+```lua title="บรรทัดที่ 26"
 CONFIG.Death.Ignore.Enable = false -- [[ boolean ]]
 ```
 
@@ -28,12 +64,12 @@ CONFIG.Death.Ignore.Enable = false -- [[ boolean ]]
 
 รายการโซนที่ต้องการละเว้น (**สามารถเพิ่มโซนได้**)
 
-```lua title="บรรทัดที่ 15"
+```lua title="บรรทัดที่ 28"
 CONFIG.Death.Ignore.Zones = { -- [[ table ]]
     --[[ Boxing - Los Santos International Airport ]]
     {
-        Coords = vector3(-1096.59, -3007.87, 13.94),-- พิกัด X, Y, Z (รูปแบบ vector3)
-        Radius = 170                                -- รัศมี (ขอบเขต)
+        Coords = vector3(-1096.59, -3007.87, 13.94), --[[ vector3 ]]
+        Radius = 170 --[[ number ]]
     }
 }
 ```
@@ -49,7 +85,7 @@ CONFIG.Death.Ignore.Zones = { -- [[ table ]]
 
 เหตุผลสาเหตุการตาย
 
-```lua title="บรรทัดที่ 24"
+```lua title="บรรทัดที่ 37"
 CONFIG.Death.Reason = { -- [[ table ]]
     Default = 'เสียชีวิต โดย %s',
     Suicide = 'ฆ่าตัวตาย โดย %s',
@@ -73,7 +109,7 @@ CONFIG.Death.Reason = { -- [[ table ]]
 
 รับข้อมูลสถานะ **อาหาร** และ **น้ำ** จากทรัพยากร **[esx_status](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_status)**
 
-```lua title="บรรทัดที่ 44"
+```lua title="บรรทัดที่ 57"
 GetBasicNeeds = function()
     local cause
     local hunger, thirst = false, false
@@ -142,7 +178,7 @@ end
 
 </details>
 
-```lua title="บรรทัดที่ 68"
+```lua title="บรรทัดที่ 81"
 CONFIG.Death.Causes = { -- [[ table ]]
     --[[ MELEE - ระยะประชิด ]]
     ['WEAPON_DAGGER'] = {                                   -- ชื่อ หรือ แฮช

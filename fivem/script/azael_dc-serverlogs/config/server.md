@@ -356,7 +356,7 @@ CONFIG.Discord.Webhooks = { -- [[ table ]]
 ```
 
 - `event` หมายถึง ชื่อเหตุการณ์ ที่กำหนดในรหัสส่งข้อมูลที่เพิ่มไปยังทรัพยากรอื่น<br/>
-- `webhook_url` หมายถึง **[URL](https://en.wikipedia.org/wiki/URL)** สำหรับ **[Webhook](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)** ที่คุณสร้างภายในชุมชนของคุณ บนแอปพลิเคชัน **[Discord](https://discord.com/)**
+- `webhook_url` หมายถึง **[URL](https://en.wikipedia.org/wiki/URL)** สำหรับ **[Webhook](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)** ที่คุณสร้างบนแอปพลิเคชัน **[Discord](https://discord.com/)** ภายในชุมชนของคุณ
 
 :::
 
@@ -364,6 +364,6 @@ CONFIG.Discord.Webhooks = { -- [[ table ]]
 :::caution
 
 - ไม่ต้องกำหนดค่าในส่วนนี้ หากคุณไม่ได้ใช้งานตัวเลือก **`DISCORD`** ในการตั้งค่า **[Option.Type](./server#optiontype)**
-- เหตุการณ์ **`Login`**, **`Logout`**, **`Chat`**, **`Dead`** คือค่าเริ่มต้นของทรัพยากร (เหตุการณ์มาจากภายในทรัพยากรนี้)
+- เหตุการณ์ **`Login`**, **`Logout`**, **`Chat`**, **`Dead`** คือค่าเริ่มต้นของทรัพยากร (เหตุการณ์มาจากรหัสภายในทรัพยากรนี้)
 
 :::

@@ -18,6 +18,7 @@ exports['azael_dc-serverlogs']:insertData({
     event = 'ชื่อเหตุการณ์',
     content = 'ข้อความ',
     source = serverId,
+    coords = GetEntityCoords(PlayerPedId()),
     color = 7,
     options = {
         public = false,
@@ -34,6 +35,7 @@ exports['azael_dc-serverlogs']['insertData']({
     event: 'ชื่อเหตุการณ์',
     content: 'ข้อความ',
     source: serverId,
+    coords: GetEntityCoords(PlayerPedId()),
     color: 7,
     options: {
         public: false,
@@ -47,15 +49,16 @@ exports['azael_dc-serverlogs']['insertData']({
 
 ### Argument
 
-| Name                    | Type               | Optional           | Default                                      | Description                                                
+| Name                    | Type               | Required           | Default                                      | Description                                                
 |-------------------------|--------------------|--------------------|----------------------------------------------|--------------------------------------------------
-| `event`                 | `string`           | ❌                 |                                              | ชื่อเหตุการณ์เพื่อแยกประเภทข้อมูล (หากใช้งาน **[Discord API](../config/server#discord-api)** จะอ้างอิงจากการกำหนดค่า **[Webhooks](../config/server#webhooks)**)
-| `content`               | `string`           | ❌                 |                                              | เนื้อหาของข้อความที่ต้องการส่ง
-| `source`                | `number`           | ✔️                 | `nil`                                        | ID อ้างอิงผู้เล่น หรือที่รู้จักกันในอีกชื่อคือ **[Server ID](https://docs.fivem.net/docs/scripting-manual/networking/ids/#server-id)** (ไม่ต้องกำหนดสำหรับผู้เล่นปัจจุบัน **[ดูรายละเอียดเพิ่มเติม](../tutorial#ติดตั้งฝั่ง-client)**)
-| `color`                 | `number`           | ✔️                 | `nil`                                        | รหัสสีที่กำหนดเอาไว้ที่การตั้งค่า **[Color](../config/server#color)**
-| `options`               | `table`            | ✔️                 | `nil`                                        | ตัวเลือกการใช้งาน `public` หรือ `important`
-| `options.public`        | `boolean`          | ✔️                 | `nil`                                        | ปิดการเเสดงข้อมูลส่วนตัวของผู้เล่นบนแอปพลิเคชัน **[Discord](https://discord.com/)**
-| `options.important`     | `boolean`          | ✔️                 | `nil`                                        | ข้อมูลสำคัญ (หากใช้งาน **[Discord API](../config/server#discord-api)** ระบบจะดำเนินการ **Ping** ไปยัง `@everyone`)
+| `event`                 | `string`           | ✔️                 |                                              | ชื่อเหตุการณ์เพื่อแยกประเภทข้อมูล (หากใช้งาน **[Discord API](../config/server#discord-api)** จะอ้างอิงจากการกำหนดค่า **[Webhooks](../config/server#webhooks)**)
+| `content`               | `string`           | ✔️                 |                                              | เนื้อหาของข้อความที่ต้องการส่ง
+| `source`                | `number`           | ❌                 | `nil`                                        | ID อ้างอิงผู้เล่น หรือที่รู้จักกันในอีกชื่อคือ **[Server ID](https://docs.fivem.net/docs/scripting-manual/networking/ids/#server-id)** (ไม่ต้องกำหนดสำหรับผู้เล่นปัจจุบัน **[อ่านรายละเอียดเพิ่มเติม](../tutorial#ติดตั้งฝั่ง-client)**)
+| `coords`                | `vector3`          | ❌                 | `nil`                                        | พิกัดปัจจุบันของผู้เล่น (อ้างอิงจาก **[GET_ENTITY_COORDS](https://docs.fivem.net/natives/?_0x3FEF770D40960D5A)**)
+| `color`                 | `number`           | ❌                 | `nil`                                        | รหัสสีที่กำหนดเอาไว้ที่การตั้งค่า **[Color](../config/server#color)**
+| `options`               | `table`            | ❌                 | `nil`                                        | ตัวเลือกการใช้งาน `public` หรือ `important`
+| `options.public`        | `boolean`          | ❌                 | `nil`                                        | ปิดการเเสดงข้อมูลส่วนตัวของผู้เล่นบนแอปพลิเคชัน **[Discord](https://discord.com/)**
+| `options.important`     | `boolean`          | ❌                 | `nil`                                        | ข้อมูลสำคัญ (หากใช้งาน **[Discord API](../config/server#discord-api)** ระบบจะดำเนินการ **Ping** ไปยัง `@everyone`)
 
 :::tip
 

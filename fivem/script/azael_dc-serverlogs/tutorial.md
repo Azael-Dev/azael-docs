@@ -240,30 +240,31 @@ Authorization: <method> <token>
 
 #### JSON Fields
 
-| Name                                         | Type               | Stable             | Default                                      | Description                                                
-|----------------------------------------------|--------------------|--------------------|----------------------------------------------|--------------------------------------------------
-| `event`                                      | `string`           | ✔️                 |                                              | ชื่อเหตุการณ์เพื่อแยกประเภทข้อมูล
-| `content`                                    | `string`           | ✔️                 |                                              | เนื้อหาของข้อความที่ต้องการส่ง
-| `source`                                     | `number`           | ✔️                 |                                              | ID อ้างอิงผู้เล่น หรือที่รู้จักกันในอีกชื่อคือ **[Net ID](https://docs.fivem.net/docs/scripting-manual/networking/ids/#server-id)** หรือ  **[Server ID](https://docs.fivem.net/docs/scripting-manual/networking/ids/#server-id)**
-| `color`                                      | `string`           | ❌                 | `null`                                       | รหัสสีในรูปแบบ **[Hexadecimal](https://en.wikipedia.org/wiki/Web_colors)**
-| `options`                                    | `object`           | ❌                 | `null`                                       | ตัวเลือกการใช้งาน `public` หรือ `important`
-| `options.public`                             | `boolean`          | ❌                 | `null`                                       | ปิดการเเสดงข้อมูลส่วนตัวของผู้เล่น
-| `options.important`                          | `boolean`          | ❌                 | `null`                                       | ข้อมูลสำคัญ
-| `image`                                      | `string`           | ❌                 | `null`                                       | รูปภาพหน้าจอตามเหตุการณ์ที่กำหนด **[Screenshot.Webhooks](./config/server#screenshotwebhooks)**
-| `timestamp`                                  | `string`           | ✔️                 | ISO8601 timestamp                            | วันและเวลาที่ผู้เล่นดำเนินการ ในรูปแบบ [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) (มาตรฐานสากลสำหรับรูปแบบวันที่และเวลา)
-| `player`                                     | `object`           | ✔️                 |                                              | ข้อมูลผู้เล่น (`name`, `identifiers`, `steam`)
-| `player.name`                                | `string`           | ✔️                 |                                              | ชื่อผู้เล่น (อ้างอิงจาก Native: **[GET_PLAYER_NAME](https://docs.fivem.net/natives/?_0x406B4B20)**)
-| `player.identifiers`                         | `object`           | ✔️                 |                                              | ข้อมูลตัวระบุผู้เล่น (`ip`, `steam`, `discord`, `license`, `license2`)
-| `player.identifiers.ip`                      | `string`           | ✔️                 |                                              | ที่อยู่ **IP** ผู้เล่น
-| `player.identifiers.steam`                   | `string`           | ❌                 | `null`                                       | ตัวระบุ **[Steam](https://store.steampowered.com/) (Hex)** ผู้เล่น
-| `player.identifiers.discord`                 | `string`           | ❌                 | `null`                                       | ตัวระบุ **[Discord](https://discord.com/)** ผู้เล่น
-| `player.identifiers.license`                 | `string`           | ✔️                 |                                              | ตัวระบุ **License** ผู้เล่น
-| `player.identifiers.license2`                | `string`           | ✔️                 |                                              | ตัวระบุ **License 2** ผู้เล่น
-| `player.steam`                               | `object`           | ❌                 | `null`                                       | ข้อมูลบัญชี **[Steam](https://store.steampowered.com/)** ผู้เล่น (`id`, `avatar`, `url`)
-| `player.steam.id`                            | `number`           | ✔️                 |                                              | **ID** บัญชี **[Steam](https://store.steampowered.com/)** ผู้เล่น
-| `player.steam.avatar`                        | `string`           | ✔️                 | Image URL                                    | ที่อยู่รูปภาพอวทาร์ บัญชี **[Steam](https://store.steampowered.com/)** ผู้เล่น
-| `player.steam.url`                           | `string`           | ✔️                 | Profile URL                                  | ที่อยู่โปรไฟล์ บัญชี **[Steam](https://store.steampowered.com/)** ผู้เล่น
-| `hardware`                                   | `array`            | ❌                 | `null`                                       | ข้อมูล **[Hardware Tokens](./config/server#hardwareenable)** ของอุปกรณ์คอมพิวเตอร์ที่ผู้เล่นใช้งาน (สำหรับเหตุการณ์ **`Login`** เท่านั้น)
+| Name                                         | Type                | Stable             | Default                                      | Description                                                
+|----------------------------------------------|---------------------|--------------------|----------------------------------------------|--------------------------------------------------
+| `event`                                      | `string`            | ✔️                 |                                              | ชื่อเหตุการณ์เพื่อแยกประเภทข้อมูล
+| `content`                                    | `string`            | ✔️                 |                                              | เนื้อหาของข้อความที่ต้องการส่ง
+| `source`                                     | `number`            | ✔️                 |                                              | ID อ้างอิงผู้เล่น หรือที่รู้จักกันในอีกชื่อคือ **[Net ID](https://docs.fivem.net/docs/)**
+| `coords`                                     | `object` / `string` | ❌                 | `null`                                       | พิกัดปัจจุบันของผู้เล่น (`x`, `y`, `z`)
+| `color`                                      | `string`            | ❌                 | `null`                                       | รหัสสีในรูปแบบ **[Hexadecimal](https://en.wikipedia.org/wiki/Web_colors)**
+| `options`                                    | `object`            | ❌                 | `null`                                       | ตัวเลือกการใช้งาน `public` หรือ `important`
+| `options.public`                             | `boolean`           | ❌                 | `null`                                       | ปิดการเเสดงข้อมูลส่วนตัวของผู้เล่น
+| `options.important`                          | `boolean`           | ❌                 | `null`                                       | ข้อมูลสำคัญ
+| `image`                                      | `string`            | ❌                 | `null`                                       | รูปภาพหน้าจอตามเหตุการณ์ที่กำหนด **[Screenshot.Webhooks](./config/server#screenshotwebhooks)**
+| `timestamp`                                  | `string`            | ✔️                 | ISO8601 timestamp                            | วันและเวลาที่ผู้เล่นดำเนินการ ในรูปแบบ [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) (มาตรฐานสากลสำหรับรูปแบบวันที่และเวลา)
+| `player`                                     | `object`            | ✔️                 |                                              | ข้อมูลผู้เล่น (`name`, `identifiers`, `steam`)
+| `player.name`                                | `string`            | ✔️                 |                                              | ชื่อผู้เล่น (อ้างอิงจาก Native: **[GET_PLAYER_NAME](https://docs.fivem.net/natives/?_0x406B4B20)**)
+| `player.identifiers`                         | `object`            | ✔️                 |                                              | ข้อมูลตัวระบุผู้เล่น (`ip`, `steam`, `discord`, `license`, `license2`)
+| `player.identifiers.ip`                      | `string`            | ✔️                 |                                              | ที่อยู่ **IP** ผู้เล่น
+| `player.identifiers.steam`                   | `string`            | ❌                 | `null`                                       | ตัวระบุ **[Steam](https://store.steampowered.com/) (Hex)** ผู้เล่น
+| `player.identifiers.discord`                 | `string`            | ❌                 | `null`                                       | ตัวระบุ **[Discord](https://discord.com/)** ผู้เล่น
+| `player.identifiers.license`                 | `string`            | ✔️                 |                                              | ตัวระบุ **License** ผู้เล่น
+| `player.identifiers.license2`                | `string`            | ✔️                 |                                              | ตัวระบุ **License 2** ผู้เล่น
+| `player.steam`                               | `object`            | ❌                 | `null`                                       | ข้อมูลบัญชี **[Steam](https://store.steampowered.com/)** ผู้เล่น (`id`, `avatar`, `url`)
+| `player.steam.id`                            | `number`            | ✔️                 |                                              | **ID** บัญชี **[Steam](https://store.steampowered.com/)** ผู้เล่น
+| `player.steam.avatar`                        | `string`            | ✔️                 | Image URL                                    | ที่อยู่รูปภาพอวทาร์ บัญชี **[Steam](https://store.steampowered.com/)** ผู้เล่น
+| `player.steam.url`                           | `string`            | ✔️                 | Profile URL                                  | ที่อยู่โปรไฟล์ บัญชี **[Steam](https://store.steampowered.com/)** ผู้เล่น
+| `hardware`                                   | `array` / `string`  | ❌                 | `null`                                       | ข้อมูล **[Hardware Tokens](./config/server#hardwareenable)** ของอุปกรณ์คอมพิวเตอร์ที่ผู้เล่นใช้งาน (สำหรับเหตุการณ์ **`Login`** เท่านั้น)
 
 ### REST API (PHP & MongoDB)
 
@@ -336,20 +337,24 @@ function isValidDataTypes($data) {
     $event = gettype($data->event);
     $content = gettype($data->content);
     $source = gettype($data->source);
+    $coords = gettype($data->coords);
     $color = gettype($data->color);
     $image = gettype($data->image);
     $timestamp = gettype($data->timestamp);
     $options = gettype($data->options);
     $player = gettype($data->player);
+    $hardware = gettype($data->hardware);
 
     if ($event !== 'string'
         || $content !== 'string'
         || $source !== 'integer'
+        || $coords !== 'NULL' && ($coords !== 'object' || $coords !== 'string')
         || $color !== 'NULL' && $color !== 'string'
         || $image !== 'NULL' && $image !== 'string'
         || $timestamp !== 'string'
         || $options !== 'NULL' && $options !== 'object'
         || $player !== 'object'
+        || $hardware !== 'NULL' && ($hardware !== 'array' || $hardware !== 'string')
     ) return false;
 
     if ($options === 'object') {

@@ -18,6 +18,7 @@ exports['azael_dc-serverlogs']:insertData({
     event = 'ชื่อเหตุการณ์',
     content = 'ข้อความ',
     source = netId,
+    coords = GetEntityCoords(GetPlayerPed(netId)),
     color = 7,
     options = {
         public = false,
@@ -34,6 +35,7 @@ exports['azael_dc-serverlogs']['insertData']({
     event: 'ชื่อเหตุการณ์',
     content: 'ข้อความ',
     source: netId,
+    coords: GetEntityCoords(GetPlayerPed(netId)),
     color: 7,
     options: {
         public: false,
@@ -47,15 +49,16 @@ exports['azael_dc-serverlogs']['insertData']({
 
 ### Argument
 
-| Name                    | Type               | Optional           | Default                                      | Description                                                
+| Name                    | Type               | Required           | Default                                      | Description                                                
 |-------------------------|--------------------|--------------------|----------------------------------------------|--------------------------------------------------
-| `event`                 | `string`           | ❌                 |                                              | ชื่อเหตุการณ์เพื่อแยกประเภทข้อมูล (หากใช้งาน **[Discord API](../config/server#discord-api)** จะอ้างอิงจากการกำหนดค่า **[Webhooks](../config/server#webhooks)**)
-| `content`               | `string`           | ❌                 |                                              | เนื้อหาของข้อความที่ต้องการส่ง
-| `source`                | `number`           | ❌                 |                                              | ID อ้างอิงผู้เล่น หรือที่รู้จักกันในอีกชื่อคือ **[Net ID](https://docs.fivem.net/docs/scripting-manual/networking/ids/#server-id)** (`source`)
-| `color`                 | `number`           | ✔️                 | `nil`                                        | รหัสสีที่กำหนดเอาไว้ที่การตั้งค่า **[Color](../config/server#color)**
-| `options`               | `table`            | ✔️                 | `nil`                                        | ตัวเลือกการใช้งาน `public` หรือ `important`
-| `options.public`        | `boolean`          | ✔️                 | `nil`                                        | ปิดการเเสดงข้อมูลส่วนตัวของผู้เล่นบนแอปพลิเคชัน **[Discord](https://discord.com/)**
-| `options.important`     | `boolean`          | ✔️                 | `nil`                                        | ข้อมูลสำคัญ (หากใช้งาน **[Discord API](../config/server#discord-api)** ระบบจะดำเนินการ **Ping** ไปยัง `@everyone`)
+| `event`                 | `string`           | ✔️                 |                                              | ชื่อเหตุการณ์เพื่อแยกประเภทข้อมูล (หากใช้งาน **[Discord API](../config/server#discord-api)** จะอ้างอิงจากการกำหนดค่า **[Webhooks](../config/server#webhooks)**)
+| `content`               | `string`           | ✔️                 |                                              | เนื้อหาของข้อความที่ต้องการส่ง
+| `source`                | `number`           | ✔️                 |                                              | ID อ้างอิงผู้เล่น หรือที่รู้จักกันในอีกชื่อคือ **[Net ID](https://docs.fivem.net/docs/scripting-manual/networking/ids/#server-id)** (`source`)
+| `coords`                | `vector3`          | ❌                 | `nil`                                        | พิกัดปัจจุบันของผู้เล่น (อ้างอิงจาก **[GET_ENTITY_COORDS](https://docs.fivem.net/natives/?_0x1647F1CB)**)
+| `color`                 | `number`           | ❌                 | `nil`                                        | รหัสสีที่กำหนดเอาไว้ที่การตั้งค่า **[Color](../config/server#color)**
+| `options`               | `table`            | ❌                 | `nil`                                        | ตัวเลือกการใช้งาน `public` หรือ `important`
+| `options.public`        | `boolean`          | ❌                 | `nil`                                        | ปิดการเเสดงข้อมูลส่วนตัวของผู้เล่นบนแอปพลิเคชัน **[Discord](https://discord.com/)**
+| `options.important`     | `boolean`          | ❌                 | `nil`                                        | ข้อมูลสำคัญ (หากใช้งาน **[Discord API](../config/server#discord-api)** ระบบจะดำเนินการ **Ping** ไปยัง `@everyone`)
 
 :::tip
 
