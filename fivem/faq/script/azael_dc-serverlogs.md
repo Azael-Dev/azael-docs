@@ -19,7 +19,7 @@
 **สามารถใช้งาน API ได้ตามปกติ**
 
 ```json
-{"code": 0,"message": "404: Not Found"}
+{"code": 404,"message": "404: Not Found"}
 ```
 
 **กำลังติดสถานะ [429 - Global Rate Limit](https://discord.com/developers/docs/topics/rate-limits#global-rate-limit)**
