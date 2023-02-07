@@ -108,7 +108,7 @@ pcall(function()
 
 	exports['azael_dc-serverlogs']:insertData({
 		event = eventName,
-		content = ('ฝาก %s จำนวน $%s เข้าตู้นิรภัย (ID: %s | GROUP: %s | OWNER: %s)'):format(ESX.GetItemLabel(itemName), itemCount, vaultId, vaultGroup, (isOwner and 'YES' or 'NO')),
+		content = ('ฝาก %s จำนวน %s เข้าตู้นิรภัย (ID: %s | GROUP: %s | OWNER: %s)'):format(ESX.GetItemLabel(itemName), itemCount, vaultId, vaultGroup, (isOwner and 'YES' or 'NO')),
 		source = xPlayer.source,
 		color = 2,
 		options = {
@@ -142,7 +142,7 @@ pcall(function()
 
 	exports['azael_dc-serverlogs']:insertData({
 		event = eventName,
-		content = ('นำ %s จำนวน $%s ออกจากตู้นิรภัย (ID: %s | GROUP: %s | OWNER: %s)'):format(ESX.GetItemLabel(itemName), itemCount, vaultId, vaultGroup, (isOwner and 'YES' or 'NO')),
+		content = ('นำ %s จำนวน %s ออกจากตู้นิรภัย (ID: %s | GROUP: %s | OWNER: %s)'):format(ESX.GetItemLabel(itemName), itemCount, vaultId, vaultGroup, (isOwner and 'YES' or 'NO')),
 		source = xPlayer.source,
 		color = 1,
 		options = {
@@ -176,7 +176,7 @@ pcall(function()
 
 	exports['azael_dc-serverlogs']:insertData({
 		event = eventName,
-		content = ('ฝาก %s และ กระสุน จำนวน $%s เข้าตู้นิรภัย (ID: %s | GROUP: %s | OWNER: %s)'):format(ESX.GetWeaponLabel(weaponName), (weaponAmmo or 0), vaultId, vaultGroup, (isOwner and 'YES' or 'NO')),
+		content = ('ฝาก %s และ กระสุน จำนวน %s เข้าตู้นิรภัย (ID: %s | GROUP: %s | OWNER: %s)'):format(ESX.GetWeaponLabel(weaponName), (weaponAmmo or 0), vaultId, vaultGroup, (isOwner and 'YES' or 'NO')),
 		source = xPlayer.source,
 		color = 2
 	})
@@ -207,7 +207,7 @@ pcall(function()
 
 	exports['azael_dc-serverlogs']:insertData({
 		event = eventName,
-		content = ('นำ %s และ กระสุน จำนวน $%s ออกจากตู้นิรภัย (ID: %s | GROUP: %s | OWNER: %s)'):format(ESX.GetWeaponLabel(weaponName), (weaponAmmo or 0), vaultId, vaultGroup, (isOwner and 'YES' or 'NO')),
+		content = ('นำ %s และ กระสุน จำนวน %s ออกจากตู้นิรภัย (ID: %s | GROUP: %s | OWNER: %s)'):format(ESX.GetWeaponLabel(weaponName), (weaponAmmo or 0), vaultId, vaultGroup, (isOwner and 'YES' or 'NO')),
 		source = xPlayer.source,
 		color = 1
 	})
