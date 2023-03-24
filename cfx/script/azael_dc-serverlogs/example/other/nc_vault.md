@@ -78,7 +78,7 @@ pcall(function()
 		source = xPlayer.source,
 		color = 1,
 		options = {
-			important = (accountCount >= 100000 and true)
+			important = (accountAmount >= 100000 and true)
 		}
 	})
 end)
