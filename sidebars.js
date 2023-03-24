@@ -229,7 +229,7 @@ const sidebars = {
       link: {
         type: 'generated-index',
         title: 'FAQs',
-        description: 'คำถามที่พบบ่อย (FAQs) เกียวกับวิธีแก้ไขปัญหาทรัพยากร FiveM ที่ถูกพัฒนาโดย Azael Dev',
+        description: 'คำถามที่พบบ่อย (FAQs) เกียวกับวิธีแก้ไขปัญหาทรัพยากรที่ใช้งานบนแพลตฟอร์ม Cfx.re (FiveM, RedM) ที่ถูกพัฒนาโดย Azael Dev',
         keywords: ['faqs'],
       },
       items: [
