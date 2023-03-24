@@ -45,5 +45,5 @@ export default function Home() {
 import { Redirect } from '@docusaurus/router';
 
 export default function Home() {
-  return <Redirect to='/fivem' />;
+  return <Redirect to='/cfx' />;
 }

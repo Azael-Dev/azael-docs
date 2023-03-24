@@ -33,8 +33,8 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          path: 'fivem',
-          routeBasePath: 'fivem',
+          path: 'cfx',
+          routeBasePath: 'cfx',
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
           sidebarPath: require.resolve('./sidebars.js'),
@@ -101,8 +101,8 @@ const config = {
         require.resolve('@easyops-cn/docusaurus-search-local'),
         {
           hashed: true,
-          docsDir: ['fivem'],
-          docsRouteBasePath: ['fivem'],
+          docsDir: ['cfx'],
+          docsRouteBasePath: ['cfx'],
           language: ['en']
         },
       ],
