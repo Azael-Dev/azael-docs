@@ -262,11 +262,25 @@ CONFIG.Discord.Rate.Limit = 30 -- [[ number ]]
 CONFIG.Discord.Avatar.URL = 'https://i.imgur.com/GxQpZzJ.png' -- [[ string ]]
 ```
 
+### Important.Content
+
+ข้อความที่ดำเนินการ Ping ไปยังบทบาทที่กำหนด หากรหัสส่งข้อมูลมีการกำหนดค่า `options = { important = true }`
+
+```lua title="บรรทัดที่ 88"
+CONFIG.Discord.Important.Content = '__**⚠️ IMPORTANT ― || @everyone || Please Read!! ⚠️**__' -- [[ string ]]
+```
+
+:::info
+
+ค่าเริ่มต้นจะ Ping ไปยัง `@everyone` คุณสามารถ Ping ไปเฉพาะบทบาทได้โดยการแก้ไข `@everyone` เป็น `<@&RoleID>`
+
+:::
+
 ### Command.Save
 
 คำสั่ง บันทึกข้อมูลทั้งหมด ไปยังโฟลเดอร์ **`azael_data/azael_dc-serverlogs/logs`** ในรูปแบบไฟล์ **[JSON](https://www.wikidata.org/wiki/Q2063)**
 
-```lua title="บรรทัดที่ 88"
+```lua title="บรรทัดที่ 92"
 CONFIG.Discord.Command.Save = 'logsave' -- [[ string ]]
 ```
 
@@ -286,8 +300,8 @@ CONFIG.Discord.Command.Save = 'logsave' -- [[ string ]]
 
 ตรวจสอบคิวที่ยังรอดำเนินการส่งคำขอไปยัง **[Discord API](https://discord.com/developers/docs/resources/webhook#create-webhook)** สำหรับ **[Webhook](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)**
 
-```lua title="บรรทัดที่ 89"
-CONFIG.Discord.Command.Queue = 'logsave' -- [[ string ]]
+```lua title="บรรทัดที่ 93"
+CONFIG.Discord.Command.Queue = 'logqueue' -- [[ string ]]
 ```
 
 :::caution
@@ -300,7 +314,7 @@ CONFIG.Discord.Command.Queue = 'logsave' -- [[ string ]]
 
 เปิดใช้งาน บันทึกข้อมูลทั้งหมดไปยังโฟลเดอร์ **`azael_data/azael_dc-serverlogs/logs`** ในรูปแบบไฟล์ **[JSON](https://www.wikidata.org/wiki/Q2063)** สำหรับเหตุการณ์ **กำลังปิดเซิร์ฟเวอร์** โดย **[txAdmin](https://txadm.in/)** (**ป้องกันข้อมูลสูญหาย**)
 
-```lua title="บรรทัดที่ 93"
+```lua title="บรรทัดที่ 97"
 CONFIG.Discord.txAdmin.Enable = true -- [[ boolean ]]
 ```
 
@@ -320,7 +334,7 @@ CONFIG.Discord.txAdmin.Enable = true -- [[ boolean ]]
 
 ชื่อเหตุการณ์ กำลังปิดเซิร์ฟเวอร์ โดย ผู้ดูแลระบบ หรือ ตามกำหนดการรีสตาร์ท
 
-```lua title="บรรทัดที่ 96"
+```lua title="บรรทัดที่ 100"
 CONFIG.Discord.Shutting.Event = 'txAdmin:events:serverShuttingDown' -- [[ string ]]
 ```
 
@@ -340,7 +354,7 @@ CONFIG.Discord.Shutting.Event = 'txAdmin:events:serverShuttingDown' -- [[ string
 
 กำหนด **[Webhooks](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)** สำหรับ เหตุการณ์ ทั้งหมด
 
-```lua title="บรรทัดที่ 101"
+```lua title="บรรทัดที่ 105"
 CONFIG.Discord.Webhooks = { -- [[ table ]]
     ['Login'] = 'webhook_url',                              -- เข้าสู่เซิร์ฟเวอร์
     ['Logout'] = 'webhook_url',                             -- ออกจากเซิร์ฟเวอร์
@@ -365,5 +379,11 @@ CONFIG.Discord.Webhooks = { -- [[ table ]]
 
 - ไม่ต้องกำหนดค่าในส่วนนี้ หากคุณไม่ได้ใช้งานตัวเลือก **`DISCORD`** ในการตั้งค่า **[Option.Type](./server#optiontype)**
 - เหตุการณ์ **`Login`**, **`Logout`**, **`Chat`**, **`Dead`** คือค่าเริ่มต้นของทรัพยากร (เหตุการณ์มาจากรหัสภายในทรัพยากรนี้)
+
+:::
+
+:::danger
+
+- เเนะนำให้กำหนดค่า **1** เหตุการณ์ ต่อ **1** ช่อง ต่อ **1 [Webhook URL](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)** เพื่อป้องกันสถานะ **[429 (You are being rate limited)](https://discord.com/developers/docs/topics/opcodes-and-status-codes#http-http-response-codes)** เนื่องจากระบบคิวในการส่งออกคำขอไปยัง **[Discord API](https://discord.com/developers/docs/resources/webhook#create-webhook)** จะอ้างอิงจากชื่อเหตุการณ์ (**`event`**)
 
 :::

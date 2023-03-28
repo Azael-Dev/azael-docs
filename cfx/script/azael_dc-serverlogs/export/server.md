@@ -20,9 +20,17 @@ exports['azael_dc-serverlogs']:insertData({
     source = netId,
     coords = GetEntityCoords(GetPlayerPed(netId)),
     color = 7,
+    fields = {
+        { name = 'name 1', value = 'value 1', inline = false },
+        { name = 'name 2', value = 'value 2', inline = true },
+        { name = 'name 3', value = 'value 3', inline = true },
+        { name = 'name 4', value = 'value 4', inline = true },
+        { name = 'name 5', value = 'value 5', inline = false }
+    },
     options = {
         public = false,
-        important = false
+        important = false,
+        codeblock = true
     }
 })
 ```
@@ -37,9 +45,17 @@ exports['azael_dc-serverlogs']['insertData']({
     source: netId,
     coords: GetEntityCoords(GetPlayerPed(netId)),
     color: 7,
+    fields: {
+        { name: 'name 1', value: 'value 1', inline: false },
+        { name: 'name 2', value: 'value 2', inline: true },
+        { name: 'name 3', value: 'value 3', inline: true },
+        { name: 'name 4', value: 'value 4', inline: true },
+        { name: 'name 5', value: 'value 5', inline: false }
+    },
     options: {
         public: false,
-        important: false
+        important: false,
+        codeblock: true
     }
 });
 ```
@@ -55,10 +71,12 @@ exports['azael_dc-serverlogs']['insertData']({
 | `content`               | `string`           | ✔️                 |                                              | เนื้อหาของข้อความที่ต้องการส่ง
 | `source`                | `number`           | ✔️                 |                                              | ID อ้างอิงผู้เล่น หรือที่รู้จักกันในอีกชื่อคือ **[Net ID](https://docs.fivem.net/docs/scripting-manual/networking/ids/#server-id)** (`source`)
 | `coords`                | `vector3`          | ❌                 | `nil`                                        | พิกัดปัจจุบันของผู้เล่น (อ้างอิงจาก **[GET_ENTITY_COORDS](https://docs.fivem.net/natives/?_0x1647F1CB)**)
-| `color`                 | `number`           | ❌                 | `nil`                                        | รหัสสีที่กำหนดเอาไว้ที่การตั้งค่า **[Color](../config/server#color)**
+| `color`                 | `number`           | ❌                 | `nil`                                        | รหัสสีที่กำหนดเอาไว้ในการตั้งค่า **[Color](../config/server#color)**
+| `fields`                | `table`            | ❌                 | `nil`                                        | **[Fields](https://discordjs.guide/popular-topics/embeds.html#embed-preview)** ถูกจำกัดไว้ที่ **20** รายการ (รองรับการใช้งาน **[Discord API](../config/server#discord-api)** เท่านั้น)
 | `options`               | `table`            | ❌                 | `nil`                                        | ตัวเลือกการใช้งาน `public` หรือ `important`
 | `options.public`        | `boolean`          | ❌                 | `nil`                                        | ปิดการเเสดงข้อมูลส่วนตัวของผู้เล่นบนแอปพลิเคชัน **[Discord](https://discord.com/)**
-| `options.important`     | `boolean`          | ❌                 | `nil`                                        | ข้อมูลสำคัญ (หากใช้งาน **[Discord API](../config/server#discord-api)** ระบบจะดำเนินการ **Ping** ไปยัง `@everyone`)
+| `options.important`     | `boolean`          | ❌                 | `nil`                                        | ข้อมูลสำคัญ (หากใช้งาน **[Discord API](../config/server#discord-api)** ระบบจะดำเนินการ **Ping** ไปยังบทบาทที่กำหนดในการตั้งค่า **[Important.Content](../config/server#importantcontent)**)
+| `options.codeblock`     | `boolean`          | ❌                 | `true`                                       | เปิด / ปิด การใช้งาน **[Code Blocks](https://support.discord.com/hc/en-us/articles/210298617-Markdown-Text-101-Chat-Formatting-Bold-Italic-Underline-)** สำหรับ `content` (รองรับการใช้งาน **[Discord API](../config/server#discord-api)** เท่านั้น)
 
 :::tip
 
