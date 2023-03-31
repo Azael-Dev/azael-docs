@@ -18,6 +18,7 @@ exports['azael_dc-serverlogs']:insertData({
     event = 'ชื่อเหตุการณ์',
     content = 'ข้อความ',
     source = serverId,
+    image = 'URL รูปภาพ',
     coords = GetEntityCoords(PlayerPedId()),
     color = 7,
     fields = {
@@ -43,6 +44,7 @@ exports['azael_dc-serverlogs']['insertData']({
     event: 'ชื่อเหตุการณ์',
     content: 'ข้อความ',
     source: serverId,
+    image: 'URL รูปภาพ',
     coords: GetEntityCoords(PlayerPedId()),
     color: 7,
     fields: {
@@ -70,6 +72,7 @@ exports['azael_dc-serverlogs']['insertData']({
 | `event`                 | `string`           | ✔️                 |                                              | ชื่อเหตุการณ์เพื่อแยกประเภทข้อมูล (หากใช้งาน **[Discord API](../config/server#discord-api)** จะอ้างอิงจากการกำหนดค่า **[Webhooks](../config/server#webhooks)**)
 | `content`               | `string`           | ✔️                 |                                              | เนื้อหาของข้อความที่ต้องการส่ง
 | `source`                | `number`           | ❌                 | `nil`                                        | ID อ้างอิงผู้เล่น หรือที่รู้จักกันในอีกชื่อคือ **[Server ID](https://docs.fivem.net/docs/scripting-manual/networking/ids/#server-id)** (ไม่ต้องกำหนดสำหรับผู้เล่นปัจจุบัน **[อ่านรายละเอียดเพิ่มเติม](../tutorial#ติดตั้งฝั่ง-client)**)
+| `image`                | `string`            | ❌                 | `nil`                                        | URL รูปภาพแบบกำหนดเอง (หากใช้งานห้ามกำหนด `event` นี้ที่ **[Screenshot.Webhooks](../config/server#screenshotwebhooks)** โดยเด็ดขาด)
 | `coords`                | `vector3`          | ❌                 | `nil`                                        | พิกัดปัจจุบันของผู้เล่น (อ้างอิงจาก **[GET_ENTITY_COORDS](https://docs.fivem.net/natives/?_0x3FEF770D40960D5A)**)
 | `color`                 | `number`           | ❌                 | `nil`                                        | รหัสสีที่กำหนดเอาไว้ที่การตั้งค่า **[Color](../config/server#color)**
 | `fields`                | `table`            | ❌                 | `nil`                                        | **[Fields](https://discordjs.guide/popular-topics/embeds.html#embed-preview)** ถูกจำกัดไว้ที่ **20** รายการ (รองรับการใช้งาน **[Discord API](../config/server#discord-api)** เท่านั้น)
