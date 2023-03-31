@@ -64,7 +64,8 @@ end)
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'TwitterPosts',
-        content = ('ข้อความ: %s\nรูปภาพ: %s'):format((message or a), (image or b)),
+        content = ('ข้อความ: %s'):format((message or a)),
+        image = (image or b),
         source = (sourcePlayer or c),
         color = 5
     })
