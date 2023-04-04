@@ -122,6 +122,7 @@ const sidebars = {
                   items: [
                     'script/azael_dc-serverlogs/example/other/nc_inventory',
                     'script/azael_dc-serverlogs/example/other/nc_vault',
+                    'script/azael_dc-serverlogs/example/other/nc_economy',
                     'script/azael_dc-serverlogs/example/other/nc_booth',
                     'script/azael_dc-serverlogs/example/other/nc_stealjobs',
                     'script/azael_dc-serverlogs/example/other/nc_tradingjobs',
