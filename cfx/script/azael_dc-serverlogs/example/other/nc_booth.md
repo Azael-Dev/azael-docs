@@ -60,7 +60,7 @@ pcall(function()
 	exports['azael_dc-serverlogs']:insertData({
 		event = 'NC_BoothIBuyItem',
 		content = content,
-		source = xPlayer.source,
+		source = xBuyer.source,
 		color = 3
 	})
 
