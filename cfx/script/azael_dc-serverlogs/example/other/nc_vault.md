@@ -40,11 +40,11 @@ pcall(function()
 
 	exports['azael_dc-serverlogs']:insertData({
 		event = eventName,
-		content = ('ฝาก %s จำนวน $%s เข้าตู้นิรภัย (ID: %s | GROUP: %s | OWNER: %s)'):format(accountName, ESX.Math.GroupDigits(accountCount), vaultId, vaultGroup, (isOwner and 'YES' or 'NO')),
+		content = ('ฝาก %s จำนวน $%s เข้าตู้นิรภัย (ID: %s | GROUP: %s | OWNER: %s)'):format(accountName, ESX.Math.GroupDigits(accountAmount), vaultId, vaultGroup, (isOwner and 'YES' or 'NO')),
 		source = xPlayer.source,
 		color = 2,
 		options = {
-			important = (accountCount >= 100000 and true)
+			important = (accountAmount >= 100000 and true)
 		}
 	})
 end)
