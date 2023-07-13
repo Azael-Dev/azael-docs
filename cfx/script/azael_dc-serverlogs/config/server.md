@@ -335,7 +335,7 @@ CONFIG.Discord.txAdmin.Enable = true -- [[ boolean ]]
 ชื่อเหตุการณ์ กำลังปิดเซิร์ฟเวอร์ โดย ผู้ดูแลระบบ หรือ ตามกำหนดการรีสตาร์ท
 
 ```lua title="บรรทัดที่ 100"
-CONFIG.Discord.Shutting.Event = 'txAdmin:events:serverShuttingDown' -- [[ string ]]
+CONFIG.Discord.txAdmin.Shutting.Event = 'txAdmin:events:serverShuttingDown' -- [[ string ]]
 ```
 
 :::info
