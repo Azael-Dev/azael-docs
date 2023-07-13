@@ -53,8 +53,8 @@ CONFIG.Framework.Resource.Name = 'es_extended' -- [[ string ]]
 ```lua title="บรรทัดที่ 23"
 if IsDuplicityVersion() then                                -- Server
     CONFIG.Framework.Events = {                             -- Framework Events
-        [1] = 'esx:playerLoaded',
-        [2] = 'esx:playerDropped'
+        [1] = 'esx:playerDropped',
+        [2] = 'esx:onRemoveInventoryItem'
     }
 else                                                        -- Client
     CONFIG.Framework.Events = {                             -- Framework Events

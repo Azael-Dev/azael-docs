@@ -56,9 +56,7 @@ dependencies {
 
 ```lua title="บรรทัดที่ 16"
 function CONFIG.Database.FetchPlayerOxygenTank(identifier)
-    local result = MySQL.single.await('SELECT oxygen_tank FROM users WHERE identifier = ?', { identifier })
-
-    return result.oxygen_tank
+    return MySQL.prepare.await('SELECT oxygen_tank FROM users WHERE identifier = ? LIMIT 1', { identifier })
 end
 ```
 
@@ -96,9 +94,9 @@ end
 <Tabs>
 <TabItem value="oxmysql" label="oxmysql">
 
-```lua title="บรรทัดที่ 25"
+```lua title="บรรทัดที่ 24"
 function CONFIG.Database.UpdatePlayerOxygenTank(identifier, oxygen)
-    MySQL.update('UPDATE users SET oxygen_tank = ? WHERE identifier = ?', { oxygen, identifier }, function(affectedRows)
+    MySQL.prepare('UPDATE users SET oxygen_tank = ? WHERE identifier = ?', { oxygen, identifier }, function(affectedRows)
         -- print(affectedRows)
     end)
 end
@@ -107,7 +105,7 @@ end
 </TabItem>
 <TabItem value="mysql-async" label="mysql-async">
 
-```lua title="บรรทัดที่ 25"
+```lua title="บรรทัดที่ 24"
 function CONFIG.Database.UpdatePlayerOxygenTank(identifier, oxygen)
     MySQL.Async.execute('UPDATE users SET oxygen_tank = @oxygen_tank WHERE identifier = @identifier', { ['@oxygen_tank'] = oxygen, ['@identifier'] = identifier }, function(affectedRows)
         -- print(affectedRows)
