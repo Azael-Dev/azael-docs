@@ -79,7 +79,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `NC_MoveVehicleGarage`                 | ย้ายรถ-การาจ
 
-วางรหัสด้านล่างนี้ภายใน `Config.ClientStoredVehicle = function`
+วางรหัสด้านล่างนี้ภายใน `Config.ClientSentVehicleToGarage = function`
 
 ```lua
 pcall(function()
