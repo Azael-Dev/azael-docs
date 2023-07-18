@@ -270,9 +270,10 @@ end)
 
 ไปยังโฟลเดอร์ **[server](https://github.com/esx-framework/esx_core/tree/main/%5Bcore%5D/es_extended/server)** แล้วดำเนินการเปิดไฟล์ **[main.lua](https://github.com/esx-framework/esx_core/blob/main/%5Bcore%5D/es_extended/server/main.lua)**
 
-:::caution
+:::tip
 
-หากคุณใช้งานทรัพยากร **[nc_inventory](https://fivem.nc-developer.com/product/61e3d296e287e)** ไม่ต้องติดตั้งรหัสสำหรับเหตุการณ์ **ส่ง**, **ทิ้ง** ที่ทรัพยากร **[es_extended](https://github.com/esx-framework/esx_core/tree/main/%5Bcore%5D/es_extended)** เนื่องจาก **[nc_inventory](https://fivem.nc-developer.com/product/61e3d296e287e)** จะใช้งานรหัสภายในตัวทรัพยากร (ไม่ได้พึ่งพา **[es_extended](https://github.com/esx-framework/esx_core/tree/main/%5Bcore%5D/es_extended)**)
+1. หากคุณใช้งานทรัพยากร **[ox_inventory](https://github.com/overextended/ox_inventory)** ไม่ต้องติดตั้งรหัสสำหรับเหตุการณ์ **ส่ง**, **ทิ้ง**, **เก็บ** ที่ทรัพยากร **[es_extended](https://github.com/esx-framework/esx_core/tree/main/%5Bcore%5D/es_extended)**
+2. หากคุณใช้งานทรัพยากร **[nc_inventory](https://fivem.nc-developer.com/product/61e3d296e287e)** ไม่ต้องติดตั้งรหัสสำหรับเหตุการณ์ **ส่ง**, **ทิ้ง** ที่ทรัพยากร **[es_extended](https://github.com/esx-framework/esx_core/tree/main/%5Bcore%5D/es_extended)**
 
 :::
 
