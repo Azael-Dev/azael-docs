@@ -22,13 +22,13 @@ sidebar_label: esx_clotheshop
 |----------------------------------------|----------------------------------------
 | `ClotheShop`                           | ร้าน-เสื้อผ้า
 
-วางรหัสด้านล่างนี้ต่อจาก `xPlayer.removeMoney(Config.Price, "Outfit Purchase")` บรรทัดที่ **[26](https://github.com/esx-framework/esx_clotheshop/blob/main/server/main.lua#L26)**
+วางรหัสด้านล่างนี้ต่อจาก `xPlayer.removeMoney(purchaseCost, "Outfit Purchase")` บรรทัดที่ **[37](https://github.com/esx-framework/esx_clotheshop/blob/main/server/main.lua#L37)**
 
 ```lua
 pcall(function()
     exports['azael_dc-serverlogs']:insertData({
         event = 'ClotheShop',
-        content = ('ซื้อ เสื้อผ้า เสียค่าใช้จ่าย Cash จำนวน $%s'):format(ESX.Math.GroupDigits(Config.Price)),
+        content = ('ซื้อ เสื้อผ้า เสียค่าใช้จ่าย Cash จำนวน $%s'):format(ESX.Math.GroupDigits(purchaseCost)),
         source = xPlayer.source,
         color = 2
     })
