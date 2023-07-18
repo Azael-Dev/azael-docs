@@ -58,7 +58,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `PutBoatGarage`                        | เก็บเรือ-การาจ
 
-วางรหัสด้านล่างนี้ต่อจาก `if rowsChanged > 0 then` บรรทัดที่ **[183](https://github.com/esx-framework/esx_boat/blob/main/client/main.lua#L183)**
+วางรหัสด้านล่างนี้ต่อจาก `ESX.Game.Teleport(playerPed, teleportCoords, function()` บรรทัดที่ **[193](https://github.com/esx-framework/esx_boat/blob/main/client/main.lua#L193)**
 
 ```lua
 pcall(function()
