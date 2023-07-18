@@ -22,7 +22,7 @@ sidebar_label: esx_shops
 |----------------------------------------|----------------------------------------
 | `ShopBuyItem`                          | ซื้อ-ไอเทม
 
-วางรหัสด้านล่างนี้ต่อจาก `xPlayer.showNotification(TranslateCap('bought', amount, label, ESX.Math.GroupDigits(price)))` บรรทัดที่ **[48](https://github.com/esx-framework/esx_shops/blob/main/server/main.lua#L48)**
+วางรหัสด้านล่างนี้ต่อจาก `xPlayer.addInventoryItem(itemName, amount)` บรรทัดที่ **[43](https://github.com/esx-framework/esx_shops/blob/main/server/main.lua#L43)**
 
 ```lua
 pcall(function()
