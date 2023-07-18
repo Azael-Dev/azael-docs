@@ -22,7 +22,7 @@ sidebar_label: esx_society
 |----------------------------------------|----------------------------------------
 | `SocietyWithdrawMoney`                 | หน่วยงาน-ถอนเงินกองกลาง
 
-วางรหัสด้านล่างนี้ต่อจาก `xPlayer.addMoney(amount, "Society Withdraw")` บรรทัดที่ **[74](https://github.com/esx-framework/esx_society/blob/main/server/main.lua#L74)**
+วางรหัสด้านล่างนี้ต่อจาก `xPlayer.addMoney(amount, TranslateCap('money_add_reason'))` บรรทัดที่ **[74](https://github.com/esx-framework/esx_society/blob/main/server/main.lua#L74)**
 
 ```lua
 pcall(function()
@@ -44,7 +44,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `SocietyDepositMoney`                  | หน่วยงาน-ฝากเงินกองกลาง
 
-วางรหัสด้านล่างนี้ต่อจาก `account.addMoney(amount)` บรรทัดที่ **[98](https://github.com/esx-framework/esx_society/blob/main/server/main.lua#L98)**
+วางรหัสด้านล่างนี้ต่อจาก `account.addMoney(amount)` บรรทัดที่ **[100](https://github.com/esx-framework/esx_society/blob/main/server/main.lua#L100)**
 
 ```lua
 pcall(function()
@@ -66,7 +66,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `SocietyWashMoney`                     | หน่วยงาน-ฝากเงินแดง
 
-วางรหัสด้านล่างนี้ต่อจาก `xPlayer.showNotification(TranslateCap('you_have', ESX.Math.GroupDigits(amount)))` บรรทัดที่ **[122](https://github.com/esx-framework/esx_society/blob/main/server/main.lua#L122)**
+วางรหัสด้านล่างนี้ต่อจาก `function(rowsChanged)` บรรทัดที่ **[121](https://github.com/esx-framework/esx_society/blob/main/server/main.lua#L121)**
 
 ```lua
 pcall(function()
