@@ -301,7 +301,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `MechanicImpVeh`                       | ช่าง-พาวท์รถ
 
-1. วางรหัสด้านล่างนี้ต่อจาก `ESX.ShowNotification(TranslateCap('vehicle_impounded'))` บรรทัดที่ **[349](https://github.com/esx-framework/esx_mechanicjob/blob/main/client/main.lua#L349)**
+1. วางรหัสด้านล่างนี้ต่อจาก `ESX.Game.DeleteVehicle(vehicle)` บรรทัดที่ **[350](https://github.com/esx-framework/esx_mechanicjob/blob/main/client/main.lua#L350)**
 
 ```lua
 pcall(function()
@@ -313,7 +313,7 @@ pcall(function()
 end)
 ```
 
-2. วางรหัสด้านล่างนี้ต่อจาก `ESX.ShowNotification(TranslateCap('vehicle_impounded'))` บรรทัดที่ **[385](https://github.com/esx-framework/esx_mechanicjob/blob/main/client/main.lua#L358)**
+2. วางรหัสด้านล่างนี้ต่อจาก `ESX.Game.DeleteVehicle(vehicle)` บรรทัดที่ **[359](https://github.com/esx-framework/esx_mechanicjob/blob/main/client/main.lua#L359)**
 
 ```lua
 pcall(function()
