@@ -22,7 +22,7 @@ sidebar_label: esx_banking
 |----------------------------------------|----------------------------------------
 | `BankWithdraw`                         | ถอนเงิน-ธนาคาร
 
-วางรหัสด้านล่างนี้ต่อจาก `xPlayer.removeAccountMoney('bank', amount)` บรรทัดที่ **[178](https://github.com/esx-framework/esx_banking/blob/main/server/main.lua#L178)**
+วางรหัสด้านล่างนี้ต่อจาก `xPlayer.removeAccountMoney('bank', amount)` บรรทัดที่ **[195](https://github.com/esx-framework/esx_banking/blob/main/server/main.lua#L195)**
 
 ```lua
 pcall(function()
@@ -44,7 +44,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `BankDeposit`                          | ฝากเงิน-ธนาคาร
 
-วางรหัสด้านล่างนี้ต่อจาก `xPlayer.addAccountMoney('bank', amount)` บรรทัดที่ **[182](https://github.com/esx-framework/esx_banking/blob/main/server/main.lua#L182)**
+วางรหัสด้านล่างนี้ต่อจาก `xPlayer.addAccountMoney('bank', amount)` บรรทัดที่ **[199](https://github.com/esx-framework/esx_banking/blob/main/server/main.lua#L199)**
 
 ```lua
 pcall(function()
@@ -66,7 +66,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `BankTransfer`                         | โอนเงิน-ธนาคาร
 
-วางรหัสด้านล่างนี้ต่อจาก `xTarget.addAccountMoney('bank', amount)` บรรทัดที่ **[191](https://github.com/esx-framework/esx_banking/blob/main/server/main.lua#L191)**
+วางรหัสด้านล่างนี้ต่อจาก `xTarget.addAccountMoney('bank', amount)` บรรทัดที่ **[208](https://github.com/esx-framework/esx_banking/blob/main/server/main.lua#L208)**
 
 ```lua
 pcall(function()
