@@ -263,7 +263,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `PoliceHijack`                         | ตำรวจ-งัดรถ
 
-วางรหัสด้านล่างนี้ต่อจาก `ESX.ShowNotification(TranslateCap('vehicle_unlocked'))` บรรทัดที่ **[354](https://github.com/esx-framework/esx_policejob/blob/main/client/main.lua#L354)**
+วางรหัสด้านล่างนี้ต่อจาก `SetVehicleDoorsLockedForAllPlayers(vehicle, false)` บรรทัดที่ **[351](https://github.com/esx-framework/esx_policejob/blob/main/client/main.lua#L351)**
 
 ```lua
 pcall(function()
@@ -281,7 +281,7 @@ end)
 |----------------------------------------|----------------------------------------
 | `PoliceImPound`                         | ตำรวจ-พาวท์รถ
 
-วางรหัสด้านล่างนี้ต่อจาก `function ImpoundVehicle(vehicle)` บรรทัดที่ **[1554](https://github.com/esx-framework/esx_policejob/blob/main/client/main.lua#L1554)**
+วางรหัสด้านล่างนี้ต่อจาก `currentTask.busy = false` ภายใน `function ImpoundVehicle(vehicle)` บรรทัดที่ **[1557](https://github.com/esx-framework/esx_policejob/blob/main/client/main.lua#L1557)**
 
 ```lua
 pcall(function()
