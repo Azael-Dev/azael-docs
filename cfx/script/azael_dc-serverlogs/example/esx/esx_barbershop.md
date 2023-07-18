@@ -22,7 +22,7 @@ sidebar_label: esx_barbershop
 |----------------------------------------|----------------------------------------
 | `BarberShop`                           | ร้าน-ตัดผม
 
-วางรหัสด้านล่างนี้ต่อจาก `xPlayer.removeMoney(Config.Price, "Haircut")` บรรทัดที่ **[6](https://github.com/esx-framework/esx_barbershop/blob/main/server/main.lua#L6)**
+วางรหัสด้านล่างนี้ต่อจาก `xPlayer.removeMoney(Config.Price, "Haircut")` บรรทัดที่ **[7](https://github.com/esx-framework/esx_barbershop/blob/main/server/main.lua#L7)**
 
 ```lua
 pcall(function()
