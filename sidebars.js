@@ -120,6 +120,7 @@ const sidebars = {
                     keywords: ['other-scripts'],
                   },
                   items: [
+                    'script/azael_dc-serverlogs/example/other/ox_inventory',
                     'script/azael_dc-serverlogs/example/other/nc_inventory',
                     'script/azael_dc-serverlogs/example/other/nc_vault',
                     'script/azael_dc-serverlogs/example/other/nc_economy',
