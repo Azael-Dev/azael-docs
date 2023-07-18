@@ -22,7 +22,7 @@ sidebar_label: esx_drugs
 |----------------------------------------|----------------------------------------
 | `SellCannabis`                         | ขาย-กัญชา
 
-วางรหัสด้านล่างนี้ต่อจาก `xPlayer.showNotification(TranslateCap('dealer_sold', amount, xItem.label, ESX.Math.GroupDigits(price)))` บรรทัดที่ **[30](https://github.com/esx-framework/esx_drugs/blob/main/server/main.lua#L30)**
+วางรหัสด้านล่างนี้ต่อจาก `xPlayer.removeInventoryItem(xItem.name, amount)` บรรทัดที่ **[29](https://github.com/esx-framework/esx_drugs/blob/main/server/main.lua#L29)**
 
 ```lua
 pcall(function()
