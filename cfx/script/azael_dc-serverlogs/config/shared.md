@@ -24,80 +24,45 @@ CONFIG.Resource.Name = GetCurrentResourceName() -- [[ string ]]
 
 :::
 
-## Framework
+## Frameworks
 
-รองรับ **[ESX Framework](https://github.com/esx-framework)** สำหรับ **สาเหตุการตาย** โดย **อาวุธเสริม** และ **ขาดน้ำ** หรือ **ขาดอาหาร**
+การกำหนดค่า **[Framework](https://en.wikipedia.org/wiki/Framework)** เพื่อเรียกใช้งานรหัสภายใน **[public/framework](../public/framework)/dir** เมื่อทรัพยากรเริ่มต้น
 
 ```lua title="บรรทัดที่ 17"
-CONFIG.Framework = {} -- [[ table ]]
-```
+CONFIG.Frameworks = { -- [[ table ]]
+    --[[ ESX Framework ]]
+    {
+        Resource = 'es_extended', -- [[ string ]]
+        Directory = 'esx' -- [[ string ]]
+    },
 
-### Resource.Name
-
-ชื่อทรัพยากรของ **Framework** ที่ใช้งาน
-
-```lua title="บรรทัดที่ 19"
-CONFIG.Framework.Resource.Name = 'es_extended' -- [[ string ]]
+    --[[ QBCore Framework ]]
+    {
+        Resource = 'qb-core', -- [[ string ]]
+        Directory = 'qb' -- [[ string ]]
+    }
+}
 ```
 
 :::info
 
-ค่าเริ่มต้น **[es_extended](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx%5D/es_extended)**
+- สามารถเพิ่ม **[Framework](https://en.wikipedia.org/wiki/Framework)** ได้
+- `Resource` คือ ชื่อทรัพยากร ของ **[Framework](https://en.wikipedia.org/wiki/Framework)**
+- `Directory` คือ ชื่อไดเรกทอรี ของ **[Framework](https://en.wikipedia.org/wiki/Framework)** ภายใน **[public/framework](../public/framework)/dir**
 
 :::
 
-## Wrapper
+:::tip
 
-รองรับรหัสการส่งข้อมูล **[azael_dc-serverlogs](../)** เวอร์ชันที่ล้าสมัยในรูปแบบ **[Trigger Events](https://docs.fivem.net/docs/scripting-manual/working-with-events/triggering-events/)**
+ระบบจะทำการตรวจสอบ **[Framework](https://en.wikipedia.org/wiki/Framework)** ที่คุณใช้งานโดยอัตโนมัติ
 
-```lua title="บรรทัดที่ 24"
-CONFIG.Wrapper = {} -- [[ table ]]
-```
-
-### Events
-
-รายชื่อเหตุการณ์ทั้งหมดของ **[azael_dc-serverlogs](../)** เวอร์ชันที่ล้าสมัย
-
-```lua title="บรรทัดที่ 25"
-CONFIG.Wrapper.Events = { -- [[ table ]]
-    'azael_discordlogs:sendToDiscord',
-    'azael_dc-serverlogs:sendToDiscord',
-    'azael_dc-serverlogs:insertData'
-}
-```
-
-<details>
-    <summary>ตัวอย่างรหัสส่งข้อมูลในเวอร์ชันที่ล้าสมัย</summary>
-
-```lua title="azael_discordlogs:sendToDiscord"
-local sendToDiscord = 'เนื้อหาของข้อความที่ต้องการส่ง'
-TriggerEvent('azael_discordlogs:sendToDiscord', 'eventName', sendToDiscord, source, '^7')
-```
-
-```lua title="azael_dc-serverlogs:sendToDiscord"
-local sendToDiscord = 'เนื้อหาของข้อความที่ต้องการส่ง'
-TriggerEvent('azael_dc-serverlogs:sendToDiscord', 'eventName', sendToDiscord, source, '^7')
-```
-
-```lua title="azael_dc-serverlogs:insertData"
-local content = 'เนื้อหาของข้อความที่ต้องการส่ง'
-TriggerEvent('azael_dc-serverlogs:insertData', 'eventName', content, source, 7, false)
-```
-
-- `Args[1]` ชื่อเหตุการณ์ที่ลงทะเบียนโดย **[azael_dc-serverlogs](../)** เพื่อรับข้อมูลจากทรัพยากรอื่น
-- `Args[2]` ชื่อเหตุการณ์เพื่อแยกประเภทของข้อมูล
-- `Args[3]` เนื้อหาของข้อความที่ต้องการส่ง
-- `Args[4]` แหล่งที่มาของผู้เล่น (**[NetID](https://docs.fivem.net/docs/scripting-manual/networking/ids/#players)**)
-- `Args[5]` รหัสสีที่กำหนดภายในไฟล์การตั้งค่า (**0**, **9**)
-- `Args[6]` ปิดการเเสดงข้อมูลของผู้เล่นบนแอปพลิเคชัน **[Discord](https://discord.com/)**
-
-</details>
+:::
 
 ## Debug
 
 แสดง **Debug** เพื่อตรวจสอบสถานะการทำงานต่างๆ
 
-```lua title="บรรทัดที่ 33"
+```lua title="บรรทัดที่ 29"
 CONFIG.Debug = {} -- [[ table ]]
 ```
 
@@ -105,7 +70,7 @@ CONFIG.Debug = {} -- [[ table ]]
 
 เปิดใช้งาน แสดง **Debug** ไปยัง **[Server Console](https://docs.fivem.net/docs/server-manual/server-commands)** หรือ **[Client Console](https://docs.fivem.net/docs/client-manual/console-commands)** <kbd>F8</kbd>
 
-```lua title="บรรทัดที่ 34"
+```lua title="บรรทัดที่ 30"
 CONFIG.Debug.Enable = false -- [[ boolean ]]
 ```
 

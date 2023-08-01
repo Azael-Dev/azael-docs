@@ -172,11 +172,71 @@ CONFIG.General.Color = { -- [[ table ]]
 }
 ```
 
+### EventHandler.Enable
+
+เปิดใช้งาน **เพิ่มตัวจัดการเหตุการณ์** ให้รองรับรหัสการส่งข้อมูล **[azael_dc-serverlogs](../)** เวอร์ชันที่ล้าสมัยในรูปแบบ **[TriggerEvent](https://docs.fivem.net/docs/scripting-manual/working-with-events/triggering-events/)** ทางฝั่ง **[Server](https://en.wikipedia.org/wiki/Server-side)**
+
+```lua title="บรรทัดที่ 67"
+CONFIG.General.EventHandler.Enable = true -- [[ boolean ]]
+```
+
+:::info
+
+`true` เท่ากับ เปิดใช้งาน | `false` เท่ากับ ปิดใช้งาน
+
+:::
+
+:::caution
+
+- หากคุณใช้งาน **`TriggerServerEvent`** ทางฝั่ง **[Client](https://en.wikipedia.org/wiki/Client-side)** คุณจะได้รับข้อผิดพลาด **`event was not safe for net`** ที่ **[Server Console](https://docs.fivem.net/docs/server-manual/server-commands)**
+- มีความจำเป็นที่จะต้องใช้งาน **[รหัสส่งข้อมูลในรูปแบบใหม่](../export/client)** ทางฝั่ง **[Client](https://en.wikipedia.org/wiki/Client-side)**
+
+:::
+
+### EventHandler.Events
+
+รายชื่อเหตุการณ์ทั้งหมดของ **[azael_dc-serverlogs](../)** ในเวอร์ชันที่ล้าสมัย
+
+```lua title="บรรทัดที่ 69"
+CONFIG.General.EventHandler.Events = { -- [[ table ]]
+    'azael_discordlogs:sendToDiscord',
+    'azael_dc-serverlogs:sendToDiscord',
+    'azael_dc-serverlogs:insertData'
+}
+```
+
+<details>
+    <summary>ตัวอย่างรหัสส่งข้อมูลในเวอร์ชันที่ล้าสมัย</summary>
+
+```lua title="azael_discordlogs:sendToDiscord"
+local sendToDiscord = 'เนื้อหาของข้อความที่ต้องการส่ง'
+TriggerEvent('azael_discordlogs:sendToDiscord', 'eventName', sendToDiscord, source, '^7')
+```
+
+```lua title="azael_dc-serverlogs:sendToDiscord"
+local sendToDiscord = 'เนื้อหาของข้อความที่ต้องการส่ง'
+TriggerEvent('azael_dc-serverlogs:sendToDiscord', 'eventName', sendToDiscord, source, '^7')
+```
+
+```lua title="azael_dc-serverlogs:insertData"
+local content = 'เนื้อหาของข้อความที่ต้องการส่ง'
+TriggerEvent('azael_dc-serverlogs:insertData', 'eventName', content, source, 7, false)
+```
+
+- `Args[1]` ชื่อเหตุการณ์ที่ลงทะเบียนโดย **[azael_dc-serverlogs](../)** เพื่อรับข้อมูลจากทรัพยากรอื่น
+- `Args[2]` ชื่อเหตุการณ์เพื่อแยกประเภทของข้อมูล
+- `Args[3]` เนื้อหาของข้อความที่ต้องการส่ง
+- `Args[4]` แหล่งที่มาของผู้เล่น (**[NetID](https://docs.fivem.net/docs/scripting-manual/networking/ids/#players)**)
+- `Args[5]` รหัสสีที่กำหนดภายในไฟล์การตั้งค่า (**0**, **9**)
+- `Args[6]` ปิดการเเสดงข้อมูลของผู้เล่นบนแอปพลิเคชัน **[Discord](https://discord.com/)**
+
+</details>
+
 ## Custom API
 
 ส่งคำขอไปยัง **[Server API](https://en.wikipedia.org/wiki/Web_API)** ที่กำหนดเองแบบเรียลไทม์
 
-```lua title="บรรทัดที่ 67"
+```lua title="บรรทัดที่ 77"
 CONFIG.Custom = {} -- [[ table ]]
 ```
 
@@ -184,7 +244,7 @@ CONFIG.Custom = {} -- [[ table ]]
 
 **[Base URL](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)** ของ **[Server API](https://en.wikipedia.org/wiki/Web_API)** สำหรับ รับข้อมูลจากฟอร์มคำขอ (**[HTTP Requests](https://en.wikipedia.org/wiki/POST_(HTTP))**)
 
-```lua title="บรรทัดที่ 69"
+```lua title="บรรทัดที่ 79"
 CONFIG.Custom.API.BaseURL = 'http://localhost/api/azael_logs/' -- [[ string ]]
 ```
 
@@ -198,7 +258,7 @@ CONFIG.Custom.API.BaseURL = 'http://localhost/api/azael_logs/' -- [[ string ]]
 
 **Method** สำหรับ **[Authorization](https://en.wikipedia.org/wiki/HTTP_authentication)** ที่ใช้งาน (จะถูกกำหนดภายใน **[HTTP Headers](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields)** ของคำขอ)
 
-```lua title="บรรทัดที่ 72"
+```lua title="บรรทัดที่ 82"
 CONFIG.Custom.API.Authorization.Method = 'Log' -- [[ string ]]
 ```
 
@@ -217,7 +277,7 @@ CONFIG.Custom.API.Authorization.Method = 'Log' -- [[ string ]]
 
 **Token** สำหรับ **[Authorization](https://en.wikipedia.org/wiki/HTTP_authentication)** ที่ใช้งาน (จะถูกกำหนดภายใน **[HTTP Headers](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields)** ของคำขอ)
 
-```lua title="บรรทัดที่ 73"
+```lua title="บรรทัดที่ 83"
 CONFIG.Custom.API.Authorization.Token = 'security_token' -- [[ string ]]
 ```
 
@@ -236,7 +296,7 @@ CONFIG.Custom.API.Authorization.Token = 'security_token' -- [[ string ]]
 
 ส่งคำขอไปยัง **[Discord API](https://discord.com/developers/docs/resources/webhook#create-webhook)** โดยใช้ **[Webhook URL](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)** ตามขีดจำกัดอัตราการใช้งาน **[Discord API](https://discord.com/developers/docs/resources/webhook#create-webhook)** สำหรับ **[Webhooks](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)**
 
-```lua title="บรรทัดที่ 78"
+```lua title="บรรทัดที่ 88"
 CONFIG.Discord = {} -- [[ table ]]
 ```
 
@@ -244,7 +304,7 @@ CONFIG.Discord = {} -- [[ table ]]
 
 กำหนดการส่งคำขอไปยัง **[Discord API](https://discord.com/developers/docs/resources/webhook#create-webhook)** ภายใน **1** นาที ต่อ **1** ช่อง
 
-```lua title="บรรทัดที่ 80"
+```lua title="บรรทัดที่ 90"
 CONFIG.Discord.Rate.Limit = 30 -- [[ number ]]
 ```
 
@@ -258,7 +318,7 @@ CONFIG.Discord.Rate.Limit = 30 -- [[ number ]]
 
 ที่อยู่รูปภาพอวทาร์ สำหรับ **[Webhooks](https://discord.com/developers/docs/resources/webhook#create-webhook-json-params)**
 
-```lua title="บรรทัดที่ 84"
+```lua title="บรรทัดที่ 94"
 CONFIG.Discord.Avatar.URL = 'https://i.imgur.com/GxQpZzJ.png' -- [[ string ]]
 ```
 
@@ -266,7 +326,7 @@ CONFIG.Discord.Avatar.URL = 'https://i.imgur.com/GxQpZzJ.png' -- [[ string ]]
 
 ข้อความที่ดำเนินการ Ping ไปยังบทบาทที่กำหนด หากรหัสส่งข้อมูลมีการกำหนดค่า `options = { important = true }`
 
-```lua title="บรรทัดที่ 88"
+```lua title="บรรทัดที่ 98"
 CONFIG.Discord.Important.Content = '__**⚠️ IMPORTANT ― || @everyone || Please Read!! ⚠️**__' -- [[ string ]]
 ```
 
@@ -280,7 +340,7 @@ CONFIG.Discord.Important.Content = '__**⚠️ IMPORTANT ― || @everyone || Ple
 
 คำสั่ง บันทึกข้อมูลทั้งหมด ไปยังโฟลเดอร์ **`azael_data/azael_dc-serverlogs/logs`** ในรูปแบบไฟล์ **[JSON](https://www.wikidata.org/wiki/Q2063)**
 
-```lua title="บรรทัดที่ 92"
+```lua title="บรรทัดที่ 102"
 CONFIG.Discord.Command.Save = 'logsave' -- [[ string ]]
 ```
 
@@ -300,7 +360,7 @@ CONFIG.Discord.Command.Save = 'logsave' -- [[ string ]]
 
 ตรวจสอบคิวที่ยังรอดำเนินการส่งคำขอไปยัง **[Discord API](https://discord.com/developers/docs/resources/webhook#create-webhook)** สำหรับ **[Webhook](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)**
 
-```lua title="บรรทัดที่ 93"
+```lua title="บรรทัดที่ 103"
 CONFIG.Discord.Command.Queue = 'logqueue' -- [[ string ]]
 ```
 
@@ -314,7 +374,7 @@ CONFIG.Discord.Command.Queue = 'logqueue' -- [[ string ]]
 
 เปิดใช้งาน บันทึกข้อมูลทั้งหมดไปยังโฟลเดอร์ **`azael_data/azael_dc-serverlogs/logs`** ในรูปแบบไฟล์ **[JSON](https://www.wikidata.org/wiki/Q2063)** สำหรับเหตุการณ์ **กำลังปิดเซิร์ฟเวอร์** โดย **[txAdmin](https://txadm.in/)** (**ป้องกันข้อมูลสูญหาย**)
 
-```lua title="บรรทัดที่ 97"
+```lua title="บรรทัดที่ 107"
 CONFIG.Discord.txAdmin.Enable = true -- [[ boolean ]]
 ```
 
@@ -334,7 +394,7 @@ CONFIG.Discord.txAdmin.Enable = true -- [[ boolean ]]
 
 ชื่อเหตุการณ์ กำลังปิดเซิร์ฟเวอร์ โดย ผู้ดูแลระบบ หรือ ตามกำหนดการรีสตาร์ท
 
-```lua title="บรรทัดที่ 100"
+```lua title="บรรทัดที่ 110"
 CONFIG.Discord.txAdmin.Shutting.Event = 'txAdmin:events:serverShuttingDown' -- [[ string ]]
 ```
 
@@ -350,11 +410,46 @@ CONFIG.Discord.txAdmin.Shutting.Event = 'txAdmin:events:serverShuttingDown' -- [
 
 :::
 
+### Filter.Enable
+
+เปิดใช้งาน ตรวจจับตัวระบุที่กำหนด และดำเนินการย้ายไปยังเหตุการณ์ใหม่
+
+```lua title="บรรทัดที่ 115"
+CONFIG.Discord.Filter.Enable = false -- [[ boolean ]]
+```
+
+:::info
+
+`true` เท่ากับ เปิดใช้งาน | `false` เท่ากับ ปิดใช้งาน
+
+:::
+
+### Filter.Identifiers
+
+รายการตัวระบุทั้งหมดที่ต้องการตรวจจับ และดำเนินการย้ายไปยังเหตุการณ์ใหม่ (รองรับตัวระบุ `steam`, `discord`, `license`, `license2`, `ip`)
+
+```lua title="บรรทัดที่ 117"
+CONFIG.Discord.Filter.Identifiers = { -- [[ table ]]
+    ['steam:xxxxxxxxxxxxxxx'] = 'Player_A'
+}
+```
+
+:::info
+
+```lua
+['identifier'] = 'new_event'
+```
+
+- `identifier` หมายถึง ตัวระบุของผู้เล่นที่ต้องการตรวจจับ และดำเนินการย้ายไปยังเหตุการณ์ใหม่<br/>
+- `new_event` หมายถึง ชื่อเหตุการณ์ใหม่ โดยอ้างอิงจาก ชื่อเหตุการณ์ ที่กำหนดใน **[CONFIG.Discord.Webhooks](./server#webhooks)**
+
+:::
+
 ### Webhooks
 
 กำหนด **[Webhooks](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)** สำหรับ เหตุการณ์ ทั้งหมด
 
-```lua title="บรรทัดที่ 105"
+```lua title="บรรทัดที่ 123"
 CONFIG.Discord.Webhooks = { -- [[ table ]]
     ['Login'] = 'webhook_url',                              -- เข้าสู่เซิร์ฟเวอร์
     ['Logout'] = 'webhook_url',                             -- ออกจากเซิร์ฟเวอร์

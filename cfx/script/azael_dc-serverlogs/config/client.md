@@ -99,51 +99,12 @@ CONFIG.Death.Reason = { -- [[ table ]]
         Gas = 'แก๊สพิษ',
         Burn = 'ไฟคลอก',
         Vehicle = 'ยานพาหนะ',
-        Addon = 'อาวุธเสริม'
+        Addon = 'อาวุธเสริม',
+        Hunger = 'ขาดอาหาร',
+        Thirst = 'ขาดน้ำ'
     }
 }
 ```
-
-### GetBasicNeeds (function)
-
-รับข้อมูลสถานะ **อาหาร** และ **น้ำ** จากทรัพยากร **[esx_status](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_status)**
-
-```lua title="บรรทัดที่ 56"
-GetBasicNeeds = function()
-    local cause
-    local hunger, thirst = false, false
-
-    TriggerEvent('esx_status:getStatus', 'hunger', function(status)
-        hunger = (status.val <= 0 and true or false)
-    end)
-
-    TriggerEvent('esx_status:getStatus', 'thirst', function(status)
-        thirst = (status.val <= 0 and true or false)
-    end)
-
-    if hunger and thirst then
-        cause = 'ขาดอาหาร & ขาดน้ำ'
-    elseif hunger then
-        cause = 'ขาดอาหาร'
-    elseif thirst then
-        cause = 'ขาดน้ำ'
-    end
-
-    return cause
-end
-```
-
-#### Return
-
-| Name                         | Type                         | Default                      | Description                                                
-|------------------------------|------------------------------|------------------------------|--------------------------------------------------
-| `cause`                      | `string` หรือ `nil`           | `nil`                        | สาเหตุการตายโดย ขาดอาหาร, ขาดน้ำ หรือ ไม่มีค่า
-
-:::tip
-
-หากคุณไม่ได้ใช้งานทรัพยากร **[esx_status](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx_addons%5D/esx_status)** คุณสามารถแก้ไขรหัสให้มีความเข้ากันได้กับทรัพยากรที่คุณกำลังใช้งานได้ฟังก์ชันนี้
-
-:::
 
 ### Causes
 
@@ -174,11 +135,11 @@ end
 - `ANIMAL` สัตว์
 - `DROWN` จมน้ำ
 - `GENERAL` ทั่วไป
-- `ADDONS` อาวุธเสริม (อ้างอิงจากการตั้งค่า **[config.weapons.lua](https://github.com/esx-framework/esx-legacy/blob/main/%5Besx%5D/es_extended/config.weapons.lua)** ของ **[es_extended](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx%5D/es_extended)** โดยอัตโนมัติ)
+- `ADDONS` อาวุธเสริม (ระบบจะดำเนินการโหลดรายการ **อาวุธ** ใน **Framework** ที่คุณใช้งานโดยอัตโนมัติ)
 
 </details>
 
-```lua title="บรรทัดที่ 80"
+```lua title="บรรทัดที่ 57"
 CONFIG.Death.Causes = { -- [[ table ]]
     --[[ MELEE - ระยะประชิด ]]
     [`WEAPON_DAGGER`] = {                                   -- ชื่อ หรือ แฮช

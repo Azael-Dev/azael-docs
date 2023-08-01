@@ -63,6 +63,13 @@ const sidebars = {
             },
             {
               type: 'category',
+              label: 'public',
+              items: [
+                'script/azael_dc-serverlogs/public/framework',
+              ],
+            },
+            {
+              type: 'category',
               label: 'exports',
               items: [
                 'script/azael_dc-serverlogs/export/server',
