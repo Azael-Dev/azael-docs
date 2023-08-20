@@ -169,7 +169,14 @@ const sidebars = {
                 'script/azael_db-health&armor/config/server',
                 'script/azael_db-health&armor/config/client',
                 'script/azael_db-health&armor/config/shared',
-                'script/azael_db-health&armor/config/database',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'public',
+              items: [
+                'script/azael_db-health&armor/public/database',
+                'script/azael_db-health&armor/public/framework',
               ],
             },
             {

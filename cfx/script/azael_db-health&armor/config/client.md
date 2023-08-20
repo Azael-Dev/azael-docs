@@ -138,23 +138,36 @@ CONFIG.Status.Armour.Maximum = 100 -- [[ number ]]
 
 ```lua title="บรรทัดที่ 49"
 CONFIG.Notification = function(status)
-    local playerId = PlayerId()
-    local serverId = GetPlayerServerId(playerId)
-    local playerName = GetPlayerName(playerId)
-    local mugshot, mugshotStr = ESX.Game.GetPedMugshot(PlayerPedId())
-    local message
+    local pedId = PlayerPedId()
     
-    if status.health and status.armour then
-        message = ('Your ~g~Health~s~ %s%s (%s)\nYour ~b~Armour~s~ %s%s (%s)'):format(status.health.percent, '%', status.health.value, status.armour.percent, '%', status.armour.value)
-    elseif status.health then
-        message = ('Your ~g~Health~s~ %s%s (%s)'):format(status.health.percent, '%', status.health.value)
-    elseif status.armour then
-        message = ('Your ~b~Armour~s~ %s%s (%s)'):format(status.armour.percent, '%', status.armour.value)
-    end
+    if DoesEntityExist(pedId) then
+        local mugshot = RegisterPedheadshot(pedId)
 
-    ESX.ShowAdvancedNotification('PLAYER INFO', ('%s #%s'):format(playerName, serverId), message, mugshotStr, 8)
-    
-    UnregisterPedheadshot(mugshot)
+        while not IsPedheadshotReady(mugshot) do
+            Citizen.Wait(100)
+        end
+
+        local mugshotStr = GetPedheadshotTxdString(mugshot)
+        local message
+
+        if status.health and status.armour then
+            message = ('Your ~g~Health~s~ %s%s (%s)\nYour ~b~Armour~s~ %s%s (%s)'):format(status.health.percent, '%', status.health.value, status.armour.percent, '%', status.armour.value)
+        elseif status.health then
+            message = ('Your ~g~Health~s~ %s%s (%s)'):format(status.health.percent, '%', status.health.value)
+        elseif status.armour then
+            message = ('Your ~b~Armour~s~ %s%s (%s)'):format(status.armour.percent, '%', status.armour.value)
+        end
+
+        local playerId = PlayerId()
+        local serverId = GetPlayerServerId(playerId)
+        local playerName = GetPlayerName(playerId)
+
+        AddTextEntry('playerNotification', message)
+        BeginTextCommandThefeedPost('playerNotification')
+        EndTextCommandThefeedPostMessagetext(mugshotStr, mugshotStr, false, 8, 'PLAYER INFO', ('%s #%s'):format(playerName, serverId))
+
+        UnregisterPedheadshot(mugshot)
+    end
 end
 ```
 
@@ -163,9 +176,9 @@ end
 | Name                         | Type               | Default                                | Description                                                
 |------------------------------|--------------------|----------------------------------------|----------------------------------------------------------------------
 | `status`                     | `table`            | `{ health, armour }`                   | ตารางข้อมูลสถานะ "พลังชีวิต" และ "เกราะ"
-| `status.health`              | `table` หรือ `nil`  | `{ value, percent }`                   | ตารางข้อมูลสถานะ "พลังชีวิต" หรือ ไม่มีค่า ([Health.Enable](#healthenable))
+| `status.health`              | `table` / `nil`  | `{ value, percent }`                     | ตารางข้อมูลสถานะ "พลังชีวิต" หรือ ไม่มีค่า ([Health.Enable](#healthenable))
 | `status.health.value`        | `number`           | Health Value                           | ค่าสถานะ "พลังชีวิต"
 | `status.health.percent`      | `number`           | Health Percentage                      | เปอร์เซ็นต์สถานะ "พลังชีวิต"
-| `status.armour`              | `table` หรือ `nil`  | `{ value, percent }`                   | ตารางข้อมูลสถานะ "เกราะ" หรือ ไม่มีค่า ([Armour.Enable](#armourenable))
+| `status.armour`              | `table` / `nil`  | `{ value, percent }`                     | ตารางข้อมูลสถานะ "เกราะ" หรือ ไม่มีค่า ([Armour.Enable](#armourenable))
 | `status.armour.value`        | `number`           | Armour Value                           | ค่าสถานะ "เกราะ"
 | `status.armour.percent`      | `number`           | Armour Percentage                      | เปอร์เซ็นต์สถานะ "เกราะ"

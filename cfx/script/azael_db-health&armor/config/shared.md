@@ -24,52 +24,51 @@ CONFIG.Resource.Name = GetCurrentResourceName() -- [[ string ]]
 
 :::
 
-## Framework
+## Frameworks
 
-ทรัพยากรนี้มีความต้องการ **[ESX Framework](https://github.com/esx-framework)**
+การกำหนดค่า **[Framework](https://en.wikipedia.org/wiki/Framework)** เพื่อเรียกใช้งานรหัสภายใน **[public/framework](../public/framework)/dir** เมื่อทรัพยากรเริ่มต้น
 
 ```lua title="บรรทัดที่ 17"
-CONFIG.Framework = {} -- [[ table ]]
-```
-
-### Resource.Name
-
-ชื่อทรัพยากรของ **Framework** ที่ใช้งาน
-
-```lua title="บรรทัดที่ 19"
-CONFIG.Framework.Resource.Name = 'es_extended' -- [[ string ]]
+CONFIG.Frameworks = { -- [[ table ]]
+    --[[ ESX Framework ]]
+    {
+        Resource = 'es_extended', -- [[ string ]]
+        Directory = 'esx', -- [[ string ]]
+        Dependencies = { -- [[ table ]]
+            'skinchanger' -- [[ string ]]
+        }
+    },
+    --[[ QBCore Framework ]]
+    {
+        Resource = 'qb-core', -- [[ string ]]
+        Directory = 'qb', -- [[ string ]]
+        Dependencies = { -- [[ table ]]
+            'qb-clothing' -- [[ string ]]
+        }
+    }
+}
 ```
 
 :::info
 
-ค่าเริ่มต้น **[es_extended](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx%5D/es_extended)**
+- สามารถเพิ่ม **[Framework](https://en.wikipedia.org/wiki/Framework)** ได้ (คุณสามารถดูรายละเอียดได้ที่ **[public/database](../public/framework)**)
+- `Resource` คือ ชื่อทรัพยากร ของ **[Framework](https://en.wikipedia.org/wiki/Framework)**
+- `Directory` คือ ชื่อไดเรกทอรี ของ **[Framework](https://en.wikipedia.org/wiki/Framework)** ภายใน **[public/framework](../public/framework)/dir**
+- `Dependencies` คือ การพึ่งพาทรัพยากร (**ความต้องการ**)
 
 :::
 
-### Events
+:::tip
 
-เหตุการณ์ทั้งหมดของ **Framework** ที่ใช้งาน
+ระบบจะทำการตรวจสอบ **[Framework](https://en.wikipedia.org/wiki/Framework)** ที่คุณใช้งานโดยอัตโนมัติ
 
-```lua title="บรรทัดที่ 23"
-if IsDuplicityVersion() then                                -- Server
-    CONFIG.Framework.Events = {                             -- Framework Events
-        [1] = 'esx:playerLoaded',
-        [2] = 'esx:playerDropped'
-    }
-else                                                        -- Client
-    CONFIG.Framework.Events = {                             -- Framework Events
-        [1] = 'esx:playerLoaded',
-        [2] = 'esx:onPlayerLogout',
-        [3] = 'skinchanger:modelLoaded'
-    }
-end
-```
+:::
 
 ## Debug
 
 แสดง **Debug** เพื่อตรวจสอบสถานะการทำงานต่างๆ
 
-```lua title="บรรทัดที่ 36"
+```lua title="บรรทัดที่ 35"
 CONFIG.Debug = {} -- [[ table ]]
 ```
 
@@ -77,7 +76,7 @@ CONFIG.Debug = {} -- [[ table ]]
 
 เปิดใช้งาน แสดง **Debug** ไปยัง **[Server Console](https://docs.fivem.net/docs/server-manual/server-commands)** หรือ **[Client Console](https://docs.fivem.net/docs/client-manual/console-commands)** <kbd>F8</kbd>
 
-```lua title="บรรทัดที่ 37"
+```lua title="บรรทัดที่ 36"
 CONFIG.Debug.Enable = false -- [[ boolean ]]
 ```
 
