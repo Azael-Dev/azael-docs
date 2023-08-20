@@ -80,7 +80,7 @@ end
 
 :::note
 
-สถานะ **"พลังชีวิต"** หรือ **"เกราะ"** หากไม่มีค่า (`nil`) รหัสจะอ้างอิงจากการกำหนดค่าเริ่มต้น **[Health.Default](./client#healthdefault)** สำหรับ **พลังชีวิต** หรือ **[Armour.Default](./client#armourdefault)** สำหรับ **เกราะ**
+สถานะ **"พลังชีวิต"** หรือ **"เกราะ"** หากไม่มีค่า (`nil`) รหัสจะอ้างอิงจากการกำหนดค่าเริ่มต้น **[Health.Default](../config/client#healthdefault)** สำหรับ **พลังชีวิต** หรือ **[Armour.Default](../config/client#armourdefault)** สำหรับ **เกราะ**
 
 :::
 
@@ -107,7 +107,7 @@ end
 
 ## UpdateAllPlayerStatus (function)
 
-อัพเดทข้อมูลสถานะ "พลังชีวิต" และ "เกราะ" ตามเวลาที่กำหนดใน **[Save.Time](./server#savetime)** เพื่อป้องกันข้อมูล **[Rollback](https://en.wikipedia.org/wiki/Rollback_(data_management))**
+อัพเดทข้อมูลสถานะ "พลังชีวิต" และ "เกราะ" ตามเวลาที่กำหนดใน **[Save.Time](../config/server#savetime)** เพื่อป้องกันข้อมูล **[Rollback](https://en.wikipedia.org/wiki/Rollback_(data_management))**
 
 ```lua title="บรรทัดที่ 48"
 function DATABASE.UpdateAllPlayerStatus(data)
