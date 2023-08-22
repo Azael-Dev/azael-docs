@@ -41,6 +41,7 @@ const sidebars = {
         description: 'เอกสารประกอบการใช้งานสำหรับ FiveM Scripts ที่ถูกพัฒนาโดย Azael Dev',
         keywords: ['scripts'],
       },
+      collapsed: false,
       items: [
         /* azael_dc-serverlogs */
         {
@@ -253,6 +254,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Scripts',
+          collapsed: false,
           items: [
             'faq/script/azael_dc-serverlogs',
             'faq/script/azael_db-health&armor',

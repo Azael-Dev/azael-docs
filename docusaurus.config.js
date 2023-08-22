@@ -54,6 +54,12 @@ const config = {
       colorMode: {
         defaultMode: 'dark'
       },
+      docs: {
+        sidebar: {
+          hideable: true,
+          autoCollapseCategories: true,
+        },
+      },
       navbar: {
         title: 'Azael Docs',
         logo: {
