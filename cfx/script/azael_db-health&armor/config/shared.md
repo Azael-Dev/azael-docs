@@ -51,7 +51,7 @@ CONFIG.Frameworks = { -- [[ table ]]
 
 :::info
 
-- สามารถเพิ่ม **[Framework](https://en.wikipedia.org/wiki/Framework)** ได้ (คุณสามารถดูรายละเอียดได้ที่ **[public/database](../public/framework)**)
+- สามารถเพิ่ม **[Framework](https://en.wikipedia.org/wiki/Framework)** ได้ (คุณสามารถดูรายละเอียดได้ที่ **[public/framework](../public/framework)**)
 - `Resource` คือ ชื่อทรัพยากร ของ **[Framework](https://en.wikipedia.org/wiki/Framework)**
 - `Directory` คือ ชื่อไดเรกทอรี ของ **[Framework](https://en.wikipedia.org/wiki/Framework)** ภายใน **[public/framework](../public/framework)/dir**
 - `Dependencies` คือ การพึ่งพาทรัพยากร (**ความต้องการ**)
