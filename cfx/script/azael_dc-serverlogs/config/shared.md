@@ -33,7 +33,10 @@ CONFIG.Frameworks = { -- [[ table ]]
     --[[ ESX Framework ]]
     {
         Resource = 'es_extended', -- [[ string ]]
-        Directory = 'esx' -- [[ string ]]
+        Directory = 'esx', -- [[ string ]]
+        Dependencies = { -- [[ table ]]
+            'esx_status' -- [[ string ]]
+        }
     },
 
     --[[ QBCore Framework ]]
@@ -46,9 +49,10 @@ CONFIG.Frameworks = { -- [[ table ]]
 
 :::info
 
-- สามารถเพิ่ม **[Framework](https://en.wikipedia.org/wiki/Framework)** ได้
+- สามารถเพิ่ม **[Framework](https://en.wikipedia.org/wiki/Framework)** ได้ (คุณสามารถดูรายละเอียดได้ที่ **[public/database](../public/framework)**)
 - `Resource` คือ ชื่อทรัพยากร ของ **[Framework](https://en.wikipedia.org/wiki/Framework)**
 - `Directory` คือ ชื่อไดเรกทอรี ของ **[Framework](https://en.wikipedia.org/wiki/Framework)** ภายใน **[public/framework](../public/framework)/dir**
+- `Dependencies` คือ การพึ่งพาทรัพยากร (**ความต้องการ**)
 
 :::
 
@@ -62,7 +66,7 @@ CONFIG.Frameworks = { -- [[ table ]]
 
 แสดง **Debug** เพื่อตรวจสอบสถานะการทำงานต่างๆ
 
-```lua title="บรรทัดที่ 29"
+```lua title="บรรทัดที่ 32"
 CONFIG.Debug = {} -- [[ table ]]
 ```
 
@@ -70,7 +74,7 @@ CONFIG.Debug = {} -- [[ table ]]
 
 เปิดใช้งาน แสดง **Debug** ไปยัง **[Server Console](https://docs.fivem.net/docs/server-manual/server-commands)** หรือ **[Client Console](https://docs.fivem.net/docs/client-manual/console-commands)** <kbd>F8</kbd>
 
-```lua title="บรรทัดที่ 30"
+```lua title="บรรทัดที่ 33"
 CONFIG.Debug.Enable = false -- [[ boolean ]]
 ```
 

@@ -14,7 +14,7 @@
 
 คุณสามารถตรวจสอบว่าเซิร์ฟเวอร์ของคุณกำลังติดสถานะ **[429 - Global Rate Limit](https://discord.com/developers/docs/topics/rate-limits#global-rate-limit)** อยู่หรือไม่ได้ดังนี้
 1. เปิด **[Web Browser](https://en.wikipedia.org/wiki/Web_browser)** ผ่านเครื่องเซิร์ฟเวอร์ที่คุณใช้งาน
-2. ไปยัง **https://discord.com/api/v10** เพื่อดำเนินการตรวจสอบ
+2. ไปยัง **https://discord.com/api/** เพื่อดำเนินการตรวจสอบ
 
 **สามารถใช้งาน API ได้ตามปกติ**
 

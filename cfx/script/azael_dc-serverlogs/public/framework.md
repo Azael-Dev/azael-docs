@@ -11,10 +11,9 @@
 3. ดำเนินการแก้ไขรหัสไฟล์ภายในโฟลเดอร์ ให้มีความเข้ากันได้กับ **[Framework](https://en.wikipedia.org/wiki/Framework)** ที่คุณกำลังใช้งานอยู่
 4. ไปที่ `config/shared.config.lua` การกำหนดค่า **[CONFIG.Frameworks](../config/shared#frameworks)** และดำเนินการเพิ่มข้อมูลเพื่อเรียกใช้งาน
 
-### ไฟล์ที่รองรับ
+### รายละเอียดไฟล์
 
-| File               | Description                                                
-|--------------------|--------------------------------------------------
-| `server.lua`       | ไฟล์จะถูกโหลดทางฝั่ง **[Server](https://docs.fivem.net/docs/scripting-reference/resource-manifest/resource-manifest/#server_script)**
-| `client.lua`       | ไฟล์จะถูกโหลดทางฝั่ง **[Client](https://docs.fivem.net/docs/scripting-reference/resource-manifest/resource-manifest/#client_script)**
-| `shared.lua`       | ไฟล์จะถูกโหลดทางฝั่ง **[Server](https://docs.fivem.net/docs/scripting-reference/resource-manifest/resource-manifest/#server_script)** และ **[Client](https://docs.fivem.net/docs/scripting-reference/resource-manifest/resource-manifest/#client_script)** (**[Shared](https://docs.fivem.net/docs/scripting-reference/resource-manifest/resource-manifest/#shared_script)**)
+| File                     | Description                                                
+|--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------
+| `server.framework.lua`   | ไฟล์จะถูกโหลดทางฝั่ง **[Server](https://docs.fivem.net/docs/scripting-reference/resource-manifest/resource-manifest/#server_script)**
+| `client.framework.lua`   | ไฟล์จะถูกโหลดทางฝั่ง **[Client](https://docs.fivem.net/docs/scripting-reference/resource-manifest/resource-manifest/#client_script)**
