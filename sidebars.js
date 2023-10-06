@@ -43,6 +43,12 @@ const sidebars = {
       },
       collapsed: false,
       items: [
+        /* azael_dc-whitelisted */
+        {
+          type: 'link',
+          label: 'azael_dc-whitelisted',
+          href: 'https://docs-old.azael.dev/docs/azael_dc-whitelisted/',
+        },
         /* azael_dc-serverlogs */
         {
           type: 'category',
@@ -153,6 +159,12 @@ const sidebars = {
             },
           ],
         },
+        /* azael_ui-itemnotify */
+        {
+          type: 'link',
+          label: 'azael_ui-itemnotify',
+          href: 'https://docs-old.azael.dev/docs/azael_ui-itemnotify/',
+        },
         /* azael_db-health&armor */
         {
           type: 'category',
@@ -218,6 +230,18 @@ const sidebars = {
             },
           ],
         },
+        /* azael_give-objects */
+        {
+          type: 'link',
+          label: 'azael_give-objects',
+          href: 'https://docs-old.azael.dev/docs/azael_give-objects/',
+        },
+        /* azael_ui-acceptitems */
+        {
+          type: 'link',
+          label: 'azael_ui-acceptitems',
+          href: 'https://docs-old.azael.dev/docs/azael_ui-acceptitems/',
+        },
         /* azael_active-identifiers */
         {
           type: 'category',
@@ -256,6 +280,11 @@ const sidebars = {
           label: 'Scripts',
           collapsed: false,
           items: [
+            {
+              type: 'link',
+              label: 'azael_dc-whitelisted',
+              href: 'https://docs-old.azael.dev/docs/faq/azael_dc-whitelisted/',
+            },
             'faq/script/azael_dc-serverlogs',
             'faq/script/azael_db-health&armor',
           ],
