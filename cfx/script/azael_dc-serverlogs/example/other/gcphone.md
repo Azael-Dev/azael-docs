@@ -62,10 +62,12 @@ end)
 
 ```lua
 pcall(function()
+    local img = (image or b)
+
     exports['azael_dc-serverlogs']:insertData({
         event = 'TwitterPosts',
         content = ('ข้อความ: %s'):format((message or a)),
-        image = (image or b),
+        image = (type(img) == 'string' and img ~= '') and img or nil,
         source = (sourcePlayer or c),
         color = 5
     })
