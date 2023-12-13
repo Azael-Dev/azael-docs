@@ -21,7 +21,7 @@ sidebar_label: บทช่วยสอน
 
 :::tip
 
-รองรับรหัสการส่งข้อมูล **[azael_dc-serverlogs](./)** เวอร์ชันที่ล้าสมัยในรูปแบบ **[Trigger Events](https://docs.fivem.net/docs/scripting-manual/working-with-events/triggering-events/)** คุณสามารถดูรายละเอียดเพิ่มเติมได้ที่ **[Wrapper.Events](./config/shared#events-1)**
+รองรับรหัสการส่งข้อมูล **[azael_dc-serverlogs](./)** เวอร์ชันที่ล้าสมัยในรูปแบบ **[Trigger Events](https://docs.fivem.net/docs/scripting-manual/working-with-events/triggering-events/)** คุณสามารถดูรายละเอียดเพิ่มเติมได้ที่ **[EventHandler.Events](./config/server#eventhandlerenable)**
 
 :::
 
@@ -72,7 +72,7 @@ options = {
 }
 ```
 
-- หากใช้งาน **[Discord API](./config/server#discord-api)** ระบบจะดำเนินการ **Ping** ไปยัง `@everyone`
+- หากใช้งาน **[Discord API](./config/server#discord-api)** ระบบจะดำเนินการ **Ping** ไปยังบทบาทตามการกำหนด [**Important.Content**](./config/server#importantcontent)
 
 :::
 
