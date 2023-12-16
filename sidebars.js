@@ -60,7 +60,7 @@ const sidebars = {
           items: [
             {
               type: 'category',
-              label: 'config',
+              label: 'Config',
               items: [
                 'script/azael_dc-serverlogs/config/auth',
                 'script/azael_dc-serverlogs/config/server',
@@ -70,14 +70,14 @@ const sidebars = {
             },
             {
               type: 'category',
-              label: 'public',
+              label: 'Public',
               items: [
                 'script/azael_dc-serverlogs/public/framework',
               ],
             },
             {
               type: 'category',
-              label: 'exports',
+              label: 'Exports',
               items: [
                 'script/azael_dc-serverlogs/export/server',
                 'script/azael_dc-serverlogs/export/client',
@@ -86,10 +86,10 @@ const sidebars = {
             'script/azael_dc-serverlogs/tutorial',
             {
               type: 'category',
-              label: 'รหัสส่งข้อมูล',
+              label: 'Examples',
               link: {
                 type: 'generated-index',
-                title: 'ตัวอย่างรหัสส่งข้อมูล',
+                title: 'Code Examples',
                 description: 'ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากรอื่นๆเพื่อส่งข้อมูลมายัง azael_dc-serverlogs',
                 keywords: ['code-examples'],
                 slug: 'script/azael_dc-serverlogs/examples',

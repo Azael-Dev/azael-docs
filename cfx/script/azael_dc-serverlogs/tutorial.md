@@ -1,10 +1,10 @@
 ---
-sidebar_label: บทช่วยสอน
+sidebar_label: Tutorials
 ---
 
-# บทช่วยสอน
+# Tutorials and Guides
 
-บทช่วยสอนที่เกี่ยวข้องกับทรัพยากร **[azael_dc-serverlogs](./)**
+บทช่วยสอนและคำแนะนำที่เกี่ยวข้องกับทรัพยากร **[azael_dc-serverlogs](./)**
 
 ## ติดตั้งรหัสส่งข้อมูล
 
@@ -244,7 +244,7 @@ Authorization: <method> <token>
 |----------------------------------------------|---------------------|--------------------|----------------------------------------------|--------------------------------------------------
 | `event`                                      | `string`            | ✔️                 |                                              | ชื่อเหตุการณ์เพื่อแยกประเภทข้อมูล
 | `content`                                    | `string`            | ✔️                 |                                              | เนื้อหาของข้อความที่ต้องการส่ง
-| `source`                                     | `number`            | ✔️                 |                                              | ID อ้างอิงผู้เล่น หรือที่รู้จักกันในอีกชื่อคือ **[Net ID](https://docs.fivem.net/docs/)**
+| `source`                                     | `number`            | ✔️                 |                                              | ID อ้างอิงผู้เล่น หรือที่รู้จักกันในอีกชื่อคือ **[Net ID](https://docs.fivem.net/docs/scripting-manual/networking/ids/#server-id)** (`source`) หรือ ระบุ `0` หากเป็น **บันทึกของระบบ**
 | `coords`                                     | `object` / `string` | ❌                 | `null`                                       | พิกัดปัจจุบันของผู้เล่น (`x`, `y`, `z`)
 | `color`                                      | `string`            | ❌                 | `null`                                       | รหัสสีในรูปแบบ **[Hexadecimal](https://en.wikipedia.org/wiki/Web_colors)**
 | `options`                                    | `object`            | ❌                 | `null`                                       | ตัวเลือกการใช้งาน `public` หรือ `important`

@@ -1,4 +1,8 @@
-# client.config.lua
+---
+sidebar_label: Client
+---
+
+# client.config
 
 ไฟล์การกำหนดค่าของทรัพยากรทางฝั่ง **[Client](https://en.wikipedia.org/wiki/Client-side)**
 

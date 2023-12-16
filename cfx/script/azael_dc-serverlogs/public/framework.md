@@ -1,4 +1,4 @@
-# framework
+# Framework
 
 รหัสเริ่มต้นรองรับ **[ESX Framework](https://github.com/esx-framework)** และ **[QBCore Framework](https://github.com/qbcore-framework)** หากคุณกำลังใช้งาน **[Framework](https://en.wikipedia.org/wiki/Framework)** อื่นๆ คุณสามารถดูรายละเอียดได้ที่นี่
 

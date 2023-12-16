@@ -1,5 +1,5 @@
 ---
-sidebar_label: server
+sidebar_label: Server
 ---
 
 # Export Functions (Server-Side)
