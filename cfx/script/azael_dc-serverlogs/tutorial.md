@@ -2,7 +2,7 @@
 sidebar_label: Tutorials
 ---
 
-# Tutorials and Guides
+# Tutorials & Guides
 
 บทช่วยสอนและคำแนะนำที่เกี่ยวข้องกับทรัพยากร **[azael_dc-serverlogs](./)**
 
