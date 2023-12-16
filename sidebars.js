@@ -253,7 +253,7 @@ const sidebars = {
           items: [
             {
               type: 'category',
-              label: 'config',
+              label: 'Config',
               items: [
                 'script/azael_active-identifiers/config/auth',
                 'script/azael_active-identifiers/config/server',
