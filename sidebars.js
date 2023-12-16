@@ -176,7 +176,7 @@ const sidebars = {
           items: [
             {
               type: 'category',
-              label: 'config',
+              label: 'Config',
               items: [
                 'script/azael_db-health&armor/config/auth',
                 'script/azael_db-health&armor/config/server',
@@ -186,7 +186,7 @@ const sidebars = {
             },
             {
               type: 'category',
-              label: 'public',
+              label: 'Public',
               items: [
                 'script/azael_db-health&armor/public/database',
                 'script/azael_db-health&armor/public/framework',
@@ -194,7 +194,7 @@ const sidebars = {
             },
             {
               type: 'category',
-              label: 'exports',
+              label: 'Exports',
               items: [
                 'script/azael_db-health&armor/export/client',
               ],

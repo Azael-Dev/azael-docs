@@ -1,4 +1,8 @@
-# auth.config.lua
+---
+sidebar_label: Auth
+---
+
+# auth.config
 
 ไฟล์การกำหนดค่าของทรัพยากรทางฝั่ง **[Server](https://en.wikipedia.org/wiki/Server-side)**
 

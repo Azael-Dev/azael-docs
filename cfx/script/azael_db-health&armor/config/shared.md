@@ -1,4 +1,8 @@
-# shared.config.lua
+---
+sidebar_label: Shared
+---
+
+# shared.config
 
 ไฟล์การกำหนดค่าของทรัพยากรทางฝั่ง **[Server](https://en.wikipedia.org/wiki/Server-side)** และ **[Client](https://en.wikipedia.org/wiki/Client-side)**
 

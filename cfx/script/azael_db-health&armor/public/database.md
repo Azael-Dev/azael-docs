@@ -1,6 +1,6 @@
-# database
+# Database
 
-รหัสเริ่มต้นรองรับ **[oxmysql](https://github.com/overextended/oxmysql)** หากคุณไม่ได้ใช้งาน คุณสามารถแก้ไขรหัสให้มีความเข้ากันได้กับทรัพยากรที่คุณใช้งานได้ที่นี่
+รหัสเริ่มต้นรองรับ **[oxmysql](https://github.com/overextended/oxmysql)** คุณสามารถแก้ไขรหัสให้มีความเข้ากันได้กับทรัพยากรที่คุณใช้งานได้ที่ไฟล์ **`server.database.lua`**
 
 :::caution
 
