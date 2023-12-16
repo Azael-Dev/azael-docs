@@ -100,7 +100,20 @@ const config = {
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.vsDark,
-        additionalLanguages: ['http', 'lua', 'mongodb', 'php']
+        additionalLanguages: [
+          'lua',
+          'javascript',
+          'js-extras',
+          'php',
+          'php-extras',
+          'sql',
+          'mongodb',
+          'powershell',
+          'bash',
+          'json',
+          'diff',
+          'uri',
+        ]
       },
     }),
 
