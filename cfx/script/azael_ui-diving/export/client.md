@@ -1,5 +1,5 @@
 ---
-sidebar_label: client
+sidebar_label: Client
 ---
 
 # Export Functions (Client-Side)

@@ -1,4 +1,8 @@
-# database.config.lua
+---
+sidebar_label: Database
+---
+
+# database.config
 
 ไฟล์การกำหนดค่าของทรัพยากรทางฝั่ง **[Server](https://en.wikipedia.org/wiki/Server-side)**
 

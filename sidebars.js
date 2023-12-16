@@ -212,7 +212,7 @@ const sidebars = {
           items: [
             {
               type: 'category',
-              label: 'config',
+              label: 'Config',
               items: [
                 'script/azael_ui-diving/config/auth',
                 'script/azael_ui-diving/config/server',
@@ -223,7 +223,7 @@ const sidebars = {
             },
             {
               type: 'category',
-              label: 'exports',
+              label: 'Exports',
               items: [
                 'script/azael_ui-diving/export/client',
               ],
