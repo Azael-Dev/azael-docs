@@ -262,6 +262,43 @@ const sidebars = {
             },
           ],
         },
+        /* azael_db-guardian */
+        {
+          type: 'category',
+          label: 'azael_db-guardian',
+          link: {
+            type: 'doc',
+            id: 'script/azael_db-guardian/index',
+          },
+          items: [
+            {
+              type: 'category',
+              label: 'Config',
+              items: [
+                'script/azael_db-guardian/config/auth',
+                'script/azael_db-guardian/config/server',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Public',
+              items: [
+                'script/azael_db-guardian/public/database',
+                'script/azael_db-guardian/public/framework',
+                'script/azael_db-guardian/public/fileupload',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Exports',
+              items: [
+                'script/azael_db-guardian/export/server',
+              ],
+            },
+            'script/azael_db-guardian/command',
+            'script/azael_db-guardian/tutorial',
+          ],
+        },
       ],
     },
     /* FAQs */
