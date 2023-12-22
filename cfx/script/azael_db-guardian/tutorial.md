@@ -6,9 +6,73 @@ sidebar_label: Tutorials
 
 บทช่วยสอนและคำแนะนำที่เกี่ยวข้องกับทรัพยากร **[azael_db-guardian](./)**
 
-## Import Database
+## Configuration
 
-บทช่วยสอนและคำแนะนำที่เกี่ยวกับ **การนำเข้าฐานข้อมูล**
+บทช่วยสอนและคำแนะนำที่เกี่ยวกับ **การกำหนดค่า**
+
+### การกำหนดค่าเริ่มต้นที่จำเป็น
+
+หากคุณใช้งานทรัพยากรนี้ในครั้งแรก โปรดดู **การกำหนดค่าเริ่มต้นที่จำเป็น** ตามลำดับด้านล่างนี้ได้
+
+#### 1. ลบข้อมูลผู้เล่นออกจากฐานข้อมูลเซิร์ฟเวอร์
+
+- [**UserIdle.LimitDays**](./config/server#useridlelimitdays)
+- [**AutoDelete.Enable**](./config/server#autodeleteenable)
+- [**IgnoreDelete.Enable**](./config/server#ignoredeleteenable)
+- [**IgnoreDelete.Identifiers**](./config/server#ignoredeleteidentifiers)
+
+#### 2. อัพเดทข้อมูลการเชื่อมต่อครั้งล่าสุดผู้เล่น
+
+- [**LastSeen.MustBeOnline.Minutes**](./config/server#lastseenmustbeonlineminutes)
+- [**LastSeen.PlayerDropped.Enable**](./config/server#lastseenplayerdroppedenable)
+
+#### 3. สำรองฐานข้อมูลเซิร์ฟเวอร์
+
+- [**Backup.ServerData.Enable**](./config/server#backupserverdataenable)
+- [**Backup.ServerData.HourDist**](./config/server#backupserverdatahourdist)
+- [**Backup.ServerData.DeleteOldFiles.Enable**](./config/server#backupserverdatadeleteoldfilesenable)
+- [**Backup.ServerData.DeleteOldFiles.Days**](./config/server#backupserverdatadeleteoldfilesdays)
+
+#### 4. สำรองข้อมูลผู้เล่นเมื่อถูกลบข้อมูล
+
+- [**Backup.PlayerData.Enable**](./config/server#backupplayerdataenable)
+
+#### 5. ไฟล์สำรองข้อมูล
+
+- [**Backup.File.Extension**](./config/server#backupfileextension)
+- [**Backup.File.GZIPCompression.Enable**](./config/server#backupfilegzipcompressionenable)
+
+#### 5. ฐานข้อมูลเฟรมเวิร์กที่ใช้งาน
+
+- [**Frameworks**](./config/server#frameworks-1)
+
+#### 6. อัปโหลดไฟล์สำรองข้อมูล
+
+- [**Option.Type**](./config/server#optiontype)
+    - **Google Drive API (GCP)**
+        - [**GoogleDriveAPI.DeleteOldFiles.Enable**](./config/server#googledriveapideleteoldfilesenable)
+        - [**GoogleDriveAPI.DeleteOldFiles.Days**](./config/server#googledriveapideleteoldfilesdays)
+        - [**GoogleDriveAPI.ServiceAccountKey**](./config/server#googledriveapiserviceaccountkey)
+        - [**GoogleDriveAPI.SharedUsers**](./config/server#googledriveapisharedusers)
+    - **Discord API (Webhook)**
+        - [**DiscordAPI.MaxFileSize**](./config/server#discordapimaxfilesize)
+        - [**DiscordAPI.ServerData.WebhookURL**](./config/server#discordapiserverdatawebhookurl)
+        - [**DiscordAPI.PlayerData.WebhookURL**](./config/server#discordapiplayerdatawebhookurl)
+    - **Custom API**
+        - [**uploadFile (function)**](./public/fileupload)
+
+#### 7. บันทึกที่กำหนดเอง (Logs)
+
+- [**Enable.ExecuteCommand**](./config/server#enableexecutecommand)
+- [**Enable.ServerBackup**](./config/server#enableserverbackup)
+- [**Enable.DeletePlayerData**](./config/server#enabledeleteplayerdata)
+- [**ExecuteCommand (function)**](./config/server#executecommand-function)
+- [**ServerBackup (function)**](./config/server#serverbackup-function)
+- [**DeletePlayerData (function)**](./config/server#deleteplayerdata-function)
+
+## Database
+
+บทช่วยสอนและคำแนะนำที่เกี่ยวกับ **ฐานข้อมูล**
 
 ### วิธีการนำเข้าฐานข้อมูลขั้นพื้นฐาน
 
