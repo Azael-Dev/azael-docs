@@ -14,8 +14,6 @@
 
 ```js
 const uploadFile = async(fileName, filePath, isFullBackup) => {
-    // Add your code here...
-
     /**
      * SUCCESS
      */
@@ -24,9 +22,9 @@ const uploadFile = async(fileName, filePath, isFullBackup) => {
     /**
      * ERROR
      */
-    console.error('[Custom API] Please check code in file "public/fileupload/custom.fileupload.js"');
+    console.error('[Custom API] Please edit code in file "public/fileupload/custom.fileupload.js"');
     
-    return { success: false, error: `Custom API Error: Please check code in file "public/fileupload/custom.fileupload.js"` };
+    return { success: false, error: `Custom API Error: Please edit code in file "public/fileupload/custom.fileupload.js"` };
 };
 ```
 
