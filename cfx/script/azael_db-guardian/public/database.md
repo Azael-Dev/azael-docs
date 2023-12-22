@@ -318,7 +318,7 @@ end
 
 ## GetForeignCharIds (function)
 
-รับรายการตัวระบุที่ถูกสร้างโดย Framework เพื่อใช้ในการ สำรองข้อมูล และ ลบข้อมูล ของผู้เล่น
+รับรายการตัวระบุที่ถูกสร้างโดย Framework เพื่อใช้ในการ ลบข้อมูล และ สำรองข้อมูล ของผู้เล่น
 
 ```lua title="บรรทัดที่ 163"
 function DATABASE.GetForeignCharIds(identifier)
@@ -358,7 +358,7 @@ end
 
 | Name                          | Type               | Description                                                
 |-------------------------------|--------------------|--------------------------------------------------
-| `frameworkIds`                | `string` / `nil`   | รายการตัวระบุ Framework ของผู้เล่นทั้งหมด (ตัวอย่าง: `id_a, id_b, id_c`)
+| `frameworkIds`                | `string` / `nil`   | รายการตัวระบุ Framework ของผู้เล่นทั้งหมด (ตัวอย่าง: `"'ID_1', 'ID_2', 'ID_3'"`)
 
 ## DoesRowExist (function)
 
