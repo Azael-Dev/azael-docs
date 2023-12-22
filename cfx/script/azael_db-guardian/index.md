@@ -1,6 +1,6 @@
 # azael_db-guardian
 
-[**สำรองฐานข้อมูลเซิร์ฟเวอร์**](./config/server#backupserverdataenable) เมื่อทรัพยากรนี้เริ่มต้น (จะไม่สำรองข้อมูลภายใน [**เวลาที่กำหนด**](./config/server#backupserverdatahourdist)) และ [**ลบข้อมูลผู้เล่นที่ไม่ได้ใช้งาน**](./config/server#autodeleteenable) ออกจากฐานข้อมูลของเซิร์ฟเวอร์ พร้อมการ [**สำรองข้อมูลผู้เล่นที่ถูกลบ**](./config/server#backupplayerdataenable) รายบุคคล ระบบรองรับการอัปโหลดไฟล์สำรองข้อมูลไปยัง [**Google Drive API (GCP)**](https://console.cloud.google.com/apis/library/drive.googleapis.com), [**Discord API (Webhook)**](https://discord.com/developers/docs/resources/webhook) และ [**Custom API**](./public/fileupload)
+[**สำรองฐานข้อมูลเซิร์ฟเวอร์**](./config/server#backupserverdataenable) และ [**ลบข้อมูลผู้เล่นที่ไม่ได้ใช้งาน**](./config/server#autodeleteenable) ออกจากฐานข้อมูลของเซิร์ฟเวอร์ พร้อมการ [**สำรองข้อมูลผู้เล่นที่ถูกลบ**](./config/server#backupplayerdataenable) รายบุคคล และยังสามารถอัปโหลดไฟล์สำรองข้อมูลไปยัง [**Google Drive API (GCP)**](https://console.cloud.google.com/apis/library/drive.googleapis.com), [**Discord API (Webhook)**](https://discord.com/developers/docs/resources/webhook) หรือ [**Custom API**](./public/fileupload) ได้
 
 ## ความต้องการ
 
@@ -35,9 +35,10 @@ ensure azael_db-guardian
 
 :::tip
 
-- ระบบจะดำเนินการตรวจสอบและติดตั้งฐานข้อมูล (**SQL**) ของทรัพยากรโดยอัตโนมัติ
-- ระบบจะดำเนินการคัดลอกข้อมูล ตัวระบุ และ วันที่เชื่อมต่อครั้งล่าสุด ของผู้เล่น จากตารางของเฟรมเวิร์กที่ใช้งาน หากเฟรมเวิร์กไม่ได้จัดเก็บข้อมูลการเชื่อมต่อเอาของผู้เล่นเอาไว้ ระบบจะคัดลอกข้อมูลเฉพาะ ตัวระบุ และ กำหนดวันที่เชื่อมต่อครั้งล่าสุดเป็น วันเวลาปัจจุบัน
-- สามารถดูรายละเอียดของรหัสได้ที่ **[public/database](./public/database)** ฟังก์ชัน **[InitDatabase (function)](./public/database#initdatabase-function)**
+- หากคุณใช้งานทรัพยากรนี้ในครั้งแรก เราขอแนะนำให้คุณดู [**บทช่วยสอนและคำแนะนำ**](./tutorial)
+- ระบบจะดำเนินการตรวจสอบและติดตั้งฐานข้อมูล (**SQL**) ของทรัพยากรนี้โดยอัตโนมัติ
+    - คัดลอกข้อมูล ตัวระบุ และ วันที่เชื่อมต่อครั้งล่าสุด ของผู้เล่น จากตารางของเฟรมเวิร์กที่ใช้งาน หากเฟรมเวิร์กไม่ได้จัดเก็บข้อมูลการเชื่อมต่อของผู้เล่น จะคัดลอกเฉพาะข้อมูล ตัวระบุ และ กำหนดวันที่เชื่อมต่อครั้งล่าสุดเป็น วันเวลาปัจจุบัน
+    - ดูรายละเอียดของรหัสได้ที่ **[public/database](./public/database)** ฟังก์ชัน **[InitDatabase (function)](./public/database#initdatabase-function)**
 
 :::
 
