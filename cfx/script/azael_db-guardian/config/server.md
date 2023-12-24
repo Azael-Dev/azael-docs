@@ -859,23 +859,27 @@ end
 CONFIG.CustomLog.DeletePlayerData = function(data)
     local fields, chunks = {}, {}
     local tableCount = #data.tables
+    local index = 0
 
     fields[1] = { name = '**IDENTIFIER**', value = ('```%s```'):format(data.identifier), inline = false }
     fields[2] = { name = '**LAST SEEN**', value = (type(data.lastseen) == 'number' and ('- <t:%s:F> (<t:%s:R>)'):format(data.lastseen, data.lastseen) or ('- ใช้คำสั่ง `%s` ลบข้อมูลโดยไม่ตรวจสอบวันที่เชื่อมต่อ'):format(CONFIG.General.Command.DeleteUserData)), inline = false }
     
     for i = 1, tableCount, 1 do
         local tableData = data.tables[i]
+        index += 1
 
-        chunks[i] = ('- `%s` | `%s` | `%s` | `%s`'):format(tableData.name, (tableData.rows or 0), (tableData.delete and '✔️' or '❌'), (tableData.backup and '✔️' or '❌'))
+        chunks[index] = ('- `%s` | `%s` | `%s` | `%s`'):format(tableData.name, (tableData.rows or 0), (tableData.delete and '✔️' or '❌'), (tableData.backup and '✔️' or '❌'))
         
-        if (i % 15) == 0 or i == tableCount then    -- ดำเนินการแยก field ต่อ 15 รายการ เนื่องจาก value ถูกจำกัดเอาไว้ที่ 1,024 ตัวอักษร ต่อ 1 field 
+        if (index % 15) == 0 or i == tableCount then    -- ดำเนินการแยก field ต่อ 15 รายการ เนื่องจาก value ถูกจำกัดเอาไว้ที่ 1,024 ตัวอักษร ต่อ 1 field 
             fields[#fields + 1] = { name = '**TABLE | ROWS | DELETE | BACKUP**', value = table.concat(chunks, '\n'), inline = false }
+
+            index = 0
             chunks = {}
         end
     end
 
     if data.file then
-        local index = #fields
+        index = #fields
 
         fields[index + 1] = { name = '**FILE NAME**', value = ('```%s```'):format(data.file.name), inline = false }
         fields[index + 2] = { name = '**FILE SIZE**', value = ('```%s```'):format(data.file.size), inline = false }
