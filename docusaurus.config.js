@@ -12,18 +12,24 @@ const config = {
   tagline: 'เอกสารประกอบการใช้งานสำหรับทรัพยากรที่ถูกพัฒนาโดย Azael Dev',
   url: 'https://docs.azael.dev',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
   favicon: 'img/logo.ico',
+  trailingSlash: false,
+  onBrokenLinks: 'throw',
+  // onBrokenAnchors: 'throw',
+  onBrokenMarkdownLinks: 'warn',
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'Azael-Dev', // Usually your GitHub org/user name.
-  projectName: 'azael-docs', // Usually your repo name.
+  /**
+   * GitHub pages deployment config.
+   * If you aren't using GitHub pages, you don't need these.
+   */
+  organizationName: 'Azael-Dev',
+  projectName: 'azael-docs',
 
-  // Even if you don't use internalization, you can use this field to set useful
-  // metadata like html lang. For example, if your site is Chinese, you may want
-  // to replace "en" with "zh-Hans".
+  /**
+   * Even if you don't use internalization, you can use this field to set useful
+   * metadata like html lang. For example, if your site is Chinese, you may want
+   * to replace "en" with "zh-Hans".
+   */
   i18n: {
     defaultLocale: 'th',
     locales: ['th'],
