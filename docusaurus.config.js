@@ -13,7 +13,7 @@ const config = {
   url: 'https://docs.azael.dev',
   baseUrl: '/',
   favicon: 'img/logo.ico',
-  trailingSlash: false,
+  // trailingSlash: false,
   onBrokenLinks: 'throw',
   // onBrokenAnchors: 'throw',
   onBrokenMarkdownLinks: 'warn',
