@@ -273,8 +273,8 @@ end
 | Name                         | Type               | Description                                                
 |------------------------------|--------------------|----------------------------------------------------------------------
 | `delStatus`                  | `boolean`          | สถานะ ลบข้อมูลผู้เล่น
-| `dayLimit`                   | `number`           | จำนวน วันที่ไม่เชื่อมต่อกับเซิร์ฟเวอร์ (ตามการกำหนดค่า [**UserIdle.LimitDays**](../config/server#useridlelimitdays))
-| `ignoreIds`                  | `table` / `nil`    | ตารางข้อมูล ตัวระบุผู้เล่นที่ละเว้น (ตามการกำหนดค่า [**IgnoreDelete.Identifiers**](../config/server#ignoredeleteidentifiers))
+| `dayLimit`                   | `number`           | จำนวน วันที่ไม่เชื่อมต่อกับเซิร์ฟเวอร์ (ตามการกำหนดค่า [**UserIdle.LimitDays**](../config/server.md#useridlelimitdays))
+| `ignoreIds`                  | `table` / `nil`    | ตารางข้อมูล ตัวระบุผู้เล่นที่ละเว้น (ตามการกำหนดค่า [**IgnoreDelete.Identifiers**](../config/server.md#ignoredeleteidentifiers))
 | `ignoreIds[index]`           | `string`           | ตัวระบุผู้เล่นที่ละเว้น
 
 ### Return

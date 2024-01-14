@@ -30,7 +30,7 @@ CONFIG.Resource.Name = GetCurrentResourceName() -- [[ string ]]
 
 ## Frameworks
 
-การกำหนดค่า **[Framework](https://en.wikipedia.org/wiki/Framework)** เพื่อเรียกใช้งานรหัสภายใน **[public/framework](../public/framework)/dir** เมื่อทรัพยากรเริ่มต้น
+การกำหนดค่า **[Framework](https://en.wikipedia.org/wiki/Framework)** เพื่อเรียกใช้งานรหัสภายใน **[public/framework](../public/framework.md)/dir** เมื่อทรัพยากรเริ่มต้น
 
 ```lua title="บรรทัดที่ 17"
 CONFIG.Frameworks = { -- [[ table ]]
@@ -56,9 +56,9 @@ CONFIG.Frameworks = { -- [[ table ]]
 
 :::info
 
-- สามารถเพิ่ม **[Framework](https://en.wikipedia.org/wiki/Framework)** ได้ (คุณสามารถดูรายละเอียดได้ที่ **[public/framework](../public/framework)**)
+- สามารถเพิ่ม **[Framework](https://en.wikipedia.org/wiki/Framework)** ได้ (คุณสามารถดูรายละเอียดได้ที่ **[public/framework](../public/framework.md)**)
 - `Resource` คือ ชื่อทรัพยากร ของ **[Framework](https://en.wikipedia.org/wiki/Framework)**
-- `Directory` คือ ชื่อไดเรกทอรี ของ **[Framework](https://en.wikipedia.org/wiki/Framework)** ภายใน **[public/framework](../public/framework)/dir**
+- `Directory` คือ ชื่อไดเรกทอรี ของ **[Framework](https://en.wikipedia.org/wiki/Framework)** ภายใน **[public/framework](../public/framework.md)/dir**
 - `Dependencies` คือ การพึ่งพาทรัพยากร (**ความต้องการ**)
 
 :::
@@ -115,7 +115,7 @@ CONFIG.General.UserIdle.LimitDays = 90 -- [[ number ]]
 
 ### AutoDelete.Enable
 
-เปิดใช้งาน ตรวจสอบ และ ลบข้อมูล ผู้เล่นที่ไม่เชื่อมต่อกับเซิร์ฟเวอร์ตามการกำหนดค่า [**UserIdle.LimitDays**](./server#useridlelimitdays) โดยอัตโนมัติ เมื่อทรัพยากรนี้เรื่มต้น
+เปิดใช้งาน ตรวจสอบ และ ลบข้อมูล ผู้เล่นที่ไม่เชื่อมต่อกับเซิร์ฟเวอร์ตามการกำหนดค่า [**UserIdle.LimitDays**](./server.md#useridlelimitdays) โดยอัตโนมัติ เมื่อทรัพยากรนี้เรื่มต้น
 
 ```lua title="บรรทัดที่ 43"
 CONFIG.General.AutoDelete.Enable = true -- [[ boolean ]]
@@ -222,7 +222,7 @@ CONFIG.General.Backup.ServerData.HourDist = 8 -- [[ number ]]
 
 ### Backup.ServerData.DeleteOldFiles.Enable
 
-เปิดใช้งาน ลบไฟล์ สำรองข้อมูลของเซิร์ฟเวอร์ หากไฟล์เก่ากว่า **`X`** วัน ตามการกำหนดค่า [**Backup.ServerData.DeleteOldFiles.Days**](./server#backupserverdatadeleteoldfilesdays)
+เปิดใช้งาน ลบไฟล์ สำรองข้อมูลของเซิร์ฟเวอร์ หากไฟล์เก่ากว่า **`X`** วัน ตามการกำหนดค่า [**Backup.ServerData.DeleteOldFiles.Days**](./server.md#backupserverdatadeleteoldfilesdays)
 
 ```lua title="บรรทัดที่ 72"
 CONFIG.General.Backup.ServerData.DeleteOldFiles.Enable = true -- [[ boolean ]]
@@ -237,7 +237,7 @@ CONFIG.General.Backup.ServerData.DeleteOldFiles.Enable = true -- [[ boolean ]]
 
 ### Backup.ServerData.DeleteOldFiles.Days
 
-จำนวนวันที่ต้องการจัดเก็บไฟล์ สำรองข้อมูลของเซิร์ฟเวอร์ หากไฟล์เก่ากว่า **`X`** วัน ระบบจำดำเนินการลบไฟล์ทิ้ง (ต้องเปิดใช้งาน [**Backup.ServerData.DeleteOldFiles.Enable**](./server#backupserverdatadeleteoldfilesenable))
+จำนวนวันที่ต้องการจัดเก็บไฟล์ สำรองข้อมูลของเซิร์ฟเวอร์ หากไฟล์เก่ากว่า **`X`** วัน ระบบจำดำเนินการลบไฟล์ทิ้ง (ต้องเปิดใช้งาน [**Backup.ServerData.DeleteOldFiles.Enable**](./server.md#backupserverdatadeleteoldfilesenable))
 
 ```lua title="บรรทัดที่ 73"
 CONFIG.General.Backup.ServerData.DeleteOldFiles.Days = 30 -- [[ number ]]
@@ -303,7 +303,7 @@ CONFIG.General.Command.DatabaseBackup = 'dbbackup' -- [[ string ]]
 
 ### Command.DeleteUserIdle
 
-คำสั่ง ตรวจสอบ และ ลบข้อมูลผู้เล่น ที่ไม่เชื่อมต่อกับเซิร์ฟเวอร์มากกว่าวันที่กำหนด ตามการกำหนดค่า [**UserIdle.LimitDays**](./server#useridlelimitdays)
+คำสั่ง ตรวจสอบ และ ลบข้อมูลผู้เล่น ที่ไม่เชื่อมต่อกับเซิร์ฟเวอร์มากกว่าวันที่กำหนด ตามการกำหนดค่า [**UserIdle.LimitDays**](./server.md#useridlelimitdays)
 
 ```lua title="บรรทัดที่ 92"
 CONFIG.General.Command.DeleteUserIdle = 'dbdelidle' -- [[ string ]]
@@ -389,13 +389,13 @@ CONFIG.Database.GetConVarName = 'mysql_connection_string' -- [[ string ]]
 
 :::tip
 
-ระบบจะรับข้อมูลกการกำหนดค่าการเชื่อมต่อกับฐานข้อมูลที่ฟังก์ชัน [**DATABASE.GetDBConnection**](../public/database#getdbconnection-function) โดยอัตโนมัติ
+ระบบจะรับข้อมูลกการกำหนดค่าการเชื่อมต่อกับฐานข้อมูลที่ฟังก์ชัน [**DATABASE.GetDBConnection**](../public/database.md#getdbconnection-function) โดยอัตโนมัติ
 
 :::
 
 ### Frameworks
 
-กำหนด ตาราง และ คอลัมน์ จากฐานข้อมูลของ Framework ที่ใช้งาน ตามการกำหนดค่าใน [**Frameworks**](./server#frameworks)
+กำหนด ตาราง และ คอลัมน์ จากฐานข้อมูลของ Framework ที่ใช้งาน ตามการกำหนดค่าใน [**Frameworks**](./server.md#frameworks)
 
 ```lua title="บรรทัดที่ 104"
 CONFIG.Database.Frameworks = { -- [[ table ]]
@@ -417,7 +417,7 @@ CONFIG.Database.Frameworks = { -- [[ table ]]
 
 :::info
 
-- **`framework_dir`** คือ ชื่อ **Directory** ของ **Framework** ที่กำหนดค่าใน [**Frameworks**](./server#frameworks)
+- **`framework_dir`** คือ ชื่อ **Directory** ของ **Framework** ที่กำหนดค่าใน [**Frameworks**](./server.md#frameworks)
 - **`FilterColumns`** คือ ชื่อ คอลัมน์ ตัวระบุของผู้เล่น ใช้ในการอ้างอิงเพื่อดำเนินการ ลบข้อมูล และ สำรองข้อมูล ของผู้เล่น
 - **`IgnoreColumns`** คือ ชื่อ คอลัมน์ ที่ต้องการละเว้นการตรวจสอบจากชื่อ ตาราง ที่กำหนด ในกรณีภายใน ตาราง มีชื่อ คอลัมน์ ที่ตรงกับการกำหนดค่าใน **FilterColumns** และไม่ใช่ คอลัมน์ สำหรับจัดเก็บ ตัวระบุของผู้เล่น (**key** เท่ากับ ชื่อตาราง และ **value** เท่ากับ ชื่อคอลัมน์)
 - **`IgnoreTables`** คือ ชื่อ ตาราง ที่ต้องการละเว้น และ ไม่ลบข้อมูล ของผู้เล่น
@@ -501,7 +501,7 @@ CONFIG.Database.Frameworks = { -- [[ table ]]
 
 :::tip
 
-สามารถเพิ่ม **Framework** ตามการกำหนดค่าใน [**Frameworks**](./server#frameworks) ได้
+สามารถเพิ่ม **Framework** ตามการกำหนดค่าใน [**Frameworks**](./server.md#frameworks) ได้
 
 :::
 
@@ -536,7 +536,7 @@ CONFIG.FileUpload.Option.Type = 0 -- [[ number ]]
 
 ### GoogleDriveAPI.DeleteOldFiles.Enable
 
-เปิดใช้งาน ลบไฟล์ สำรองข้อมูลของเซิร์ฟเวอร์ หากไฟล์เก่ากว่า **`X`** วัน ตามการกำหนดค่า [**GoogleDriveAPI.DeleteOldFiles.Days**](./server#googledriveapideleteoldfilesdays)
+เปิดใช้งาน ลบไฟล์ สำรองข้อมูลของเซิร์ฟเวอร์ หากไฟล์เก่ากว่า **`X`** วัน ตามการกำหนดค่า [**GoogleDriveAPI.DeleteOldFiles.Days**](./server.md#googledriveapideleteoldfilesdays)
 
 ```lua title="บรรทัดที่ 171"
 CONFIG.FileUpload.GoogleDriveAPI.DeleteOldFiles.Enable = true -- [[ boolean ]]
@@ -551,7 +551,7 @@ CONFIG.FileUpload.GoogleDriveAPI.DeleteOldFiles.Enable = true -- [[ boolean ]]
 
 ### GoogleDriveAPI.DeleteOldFiles.Days
 
-จำนวนวันที่ต้องการจัดเก็บไฟล์ สำรองข้อมูลของเซิร์ฟเวอร์ หากไฟล์เก่ากว่า **`X`** วัน ระบบจำดำเนินการลบไฟล์ทิ้ง (ต้องเปิดใช้งาน [**GoogleDriveAPI.DeleteOldFiles.Enable**](./server#googledriveapideleteoldfilesenable))
+จำนวนวันที่ต้องการจัดเก็บไฟล์ สำรองข้อมูลของเซิร์ฟเวอร์ หากไฟล์เก่ากว่า **`X`** วัน ระบบจำดำเนินการลบไฟล์ทิ้ง (ต้องเปิดใช้งาน [**GoogleDriveAPI.DeleteOldFiles.Enable**](./server.md#googledriveapideleteoldfilesenable))
 
 ```lua title="บรรทัดที่ 172"
 CONFIG.FileUpload.GoogleDriveAPI.DeleteOldFiles.Days = 60 -- [[ number ]]
@@ -576,7 +576,7 @@ CONFIG.FileUpload.GoogleDriveAPI.ServiceAccountKey = { --[[ table ]]
 
 :::tip
 
-โปรดดู [**บทช่วยสอนและคำแนะนำที่เกี่ยวกับ Google Cloud Platform (GCP)**](../tutorial#google-cloud-platform-gcp)
+โปรดดู [**บทช่วยสอนและคำแนะนำที่เกี่ยวกับ Google Cloud Platform (GCP)**](../tutorial.md#google-cloud-platform-gcp)
 
 :::
 
@@ -711,7 +711,7 @@ CONFIG.CustomLog = {} --[[ table ]]
 
 ### Enable.ExecuteCommand
 
-เปิดใช้งาน ฟังก์ชัน บันทึกการใช้งาน คำสั่ง หรือ ฟังก์ชันส่งออก ([**ExecuteCommand (function)**](./server#executecommand-function))
+เปิดใช้งาน ฟังก์ชัน บันทึกการใช้งาน คำสั่ง หรือ ฟังก์ชันส่งออก ([**ExecuteCommand (function)**](./server.md#executecommand-function))
 
 ```lua title="บรรทัดที่ 226"
 CONFIG.CustomLog.Enable.ExecuteCommand = true -- [[ boolean ]]
@@ -726,7 +726,7 @@ CONFIG.CustomLog.Enable.ExecuteCommand = true -- [[ boolean ]]
 
 ### Enable.ServerBackup
 
-เปิดใช้งาน ฟังก์ชัน บันทึกสำรองฐานข้อมูลเซิร์ฟเวอร์ ([**ServerBackup (function)**](./server#serverbackup-function))
+เปิดใช้งาน ฟังก์ชัน บันทึกสำรองฐานข้อมูลเซิร์ฟเวอร์ ([**ServerBackup (function)**](./server.md#serverbackup-function))
 
 ```lua title="บรรทัดที่ 226"
 CONFIG.CustomLog.Enable.ServerBackup = true -- [[ boolean ]]
@@ -741,7 +741,7 @@ CONFIG.CustomLog.Enable.ServerBackup = true -- [[ boolean ]]
 
 ### Enable.DeletePlayerData
 
-เปิดใช้งาน ฟังก์ชัน บันทึกลบข้อมูลผู้เล่นออกจากฐานข้อมูลของเซิร์ฟเวอร์ ([**DeletePlayerData (function)**](./server#deleteplayerdata-function))
+เปิดใช้งาน ฟังก์ชัน บันทึกลบข้อมูลผู้เล่นออกจากฐานข้อมูลของเซิร์ฟเวอร์ ([**DeletePlayerData (function)**](./server.md#deleteplayerdata-function))
 
 ```lua title="บรรทัดที่ 228"
 CONFIG.CustomLog.Enable.DeletePlayerData = true -- [[ boolean ]]
@@ -795,7 +795,7 @@ end
 
 :::caution
 
-- หากใช้งาน [**azael_dc-serverlogs**](../../azael_dc-serverlogs/) จะรองรับตั้งแต่เวอร์ชัน **`1.7.4`** ขึ้นไป
+- หากใช้งาน [**azael_dc-serverlogs**](../../azael_dc-serverlogs/index.md) จะรองรับตั้งแต่เวอร์ชัน **`1.7.4`** ขึ้นไป
 
 :::
 
@@ -847,7 +847,7 @@ end
 
 :::caution
 
-- หากใช้งาน [**azael_dc-serverlogs**](../../azael_dc-serverlogs/) จะรองรับตั้งแต่เวอร์ชัน **`1.7.4`** ขึ้นไป
+- หากใช้งาน [**azael_dc-serverlogs**](../../azael_dc-serverlogs/index.md) จะรองรับตั้งแต่เวอร์ชัน **`1.7.4`** ขึ้นไป
 
 :::
 
@@ -931,6 +931,6 @@ end
 
 :::caution
 
-- หากใช้งาน [**azael_dc-serverlogs**](../../azael_dc-serverlogs/) จะรองรับตั้งแต่เวอร์ชัน **`1.7.4`** ขึ้นไป
+- หากใช้งาน [**azael_dc-serverlogs**](../../azael_dc-serverlogs/index.md) จะรองรับตั้งแต่เวอร์ชัน **`1.7.4`** ขึ้นไป
 
 :::

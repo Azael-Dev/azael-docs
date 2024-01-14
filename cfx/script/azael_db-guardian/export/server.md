@@ -29,7 +29,7 @@ end)
 
 ## executeCommand
 
-เรียกใช้งาน [**คำสั่งเริ่มต้น**](../command#default-commands) ของทรัพยากร **[azael_db-guardian](../)**
+เรียกใช้งาน [**คำสั่งเริ่มต้น**](../command.md#default-commands) ของทรัพยากร **[azael_db-guardian](../index.md)**
 
 ```lua
 exports['azael_db-guardian']:executeCommand(command, identifier, days)
@@ -39,9 +39,9 @@ exports['azael_db-guardian']:executeCommand(command, identifier, days)
 
 | Name                    | Type               | Required           | Default                                      | Description                                                
 |-------------------------|--------------------|--------------------|----------------------------------------------|--------------------------------------------------
-| `command`               | `string`           | ✔️                 | `nil`                                        | ชื่อคำสั่ง (ดูรายการคำสั่งที่สามารถใช้งานได้ที่ [**คำสั่งเริ่มต้น**](../command#default-commands))
-| `identifier`            | `string`           | ➖                 | `nil`                                        | ตัวระบุผู้เล่น **จำเป็นที่จะต้องระบุ** สำหรับคำสั่งดังต่อไปนี้ <br />• [**ลบข้อมูลเฉพาะผู้เล่น**](../command#ลบข้อมูลเฉพาะผู้เล่น) <br />• [**ยกเลิกสถานะถูกลบข้อมูลผู้เล่น**](../command#ยกเลิกสถานะถูกลบข้อมูลผู้เล่น) <br />• [**ตรวจสอบข้อมูลผู้เล่น**](../command#ตรวจสอบข้อมูลผู้เล่น) <br />• [**เพิ่มจำนวนวันให้ผู้เล่น (ในกรณีเเจ้งลาหยุดต่างๆ)**](../command#เพิ่มจำนวนวันให้ผู้เล่น-ในกรณีเเจ้งลาหยุดต่างๆ)
-| `days`                  | `number`           | ➖                 | `nil`                                        | จำนวนวันลา **จำเป็นที่จะต้องระบุ** สำหรับคำสั่งดังต่อไปนี้ <br />• [**เพิ่มจำนวนวันให้ผู้เล่น (ในกรณีเเจ้งลาหยุดต่างๆ)**](../command#เพิ่มจำนวนวันให้ผู้เล่น-ในกรณีเเจ้งลาหยุดต่างๆ)
+| `command`               | `string`           | ✔️                 | `nil`                                        | ชื่อคำสั่ง (ดูรายการคำสั่งที่สามารถใช้งานได้ที่ [**คำสั่งเริ่มต้น**](../command.md#default-commands))
+| `identifier`            | `string`           | ➖                 | `nil`                                        | ตัวระบุผู้เล่น **จำเป็นที่จะต้องระบุ** สำหรับคำสั่งดังต่อไปนี้ <br />• [**ลบข้อมูลเฉพาะผู้เล่น**](../command.md#ลบข้อมูลเฉพาะผู้เล่น) <br />• [**ยกเลิกสถานะถูกลบข้อมูลผู้เล่น**](../command.md#ยกเลิกสถานะถูกลบข้อมูลผู้เล่น) <br />• [**ตรวจสอบข้อมูลผู้เล่น**](../command.md#ตรวจสอบข้อมูลผู้เล่น) <br />• [**เพิ่มจำนวนวันให้ผู้เล่น (ในกรณีเเจ้งลาหยุดต่างๆ)**](../command.md#เพิ่มจำนวนวันให้ผู้เล่น-ในกรณีเเจ้งลาหยุดต่างๆ)
+| `days`                  | `number`           | ➖                 | `nil`                                        | จำนวนวันลา **จำเป็นที่จะต้องระบุ** สำหรับคำสั่งดังต่อไปนี้ <br />• [**เพิ่มจำนวนวันให้ผู้เล่น (ในกรณีเเจ้งลาหยุดต่างๆ)**](../command.md#เพิ่มจำนวนวันให้ผู้เล่น-ในกรณีเเจ้งลาหยุดต่างๆ)
 
 :::note
 
@@ -60,7 +60,7 @@ exports['azael_db-guardian']:executeCommand(command, identifier, days)
 
 ### Examples
 
-#### ตัวอย่าง: [สำรองฐานข้อมูลเซิร์ฟเวอร์](../command#สำรองฐานข้อมูลเซิร์ฟเวอร์)
+#### ตัวอย่าง: [สำรองฐานข้อมูลเซิร์ฟเวอร์](../command.md#สำรองฐานข้อมูลเซิร์ฟเวอร์)
 
 ```lua
 local success, response = exports['azael_db-guardian']:executeCommand('dbbackup')
@@ -68,7 +68,7 @@ local success, response = exports['azael_db-guardian']:executeCommand('dbbackup'
 print(success, response)  -- true | false, response message
 ```
 
-#### ตัวอย่าง: [ตรวจสอบและลบข้อมูลผู้เล่น](../command#ตรวจสอบและลบข้อมูลผู้เล่น)
+#### ตัวอย่าง: [ตรวจสอบและลบข้อมูลผู้เล่น](../command.md#ตรวจสอบและลบข้อมูลผู้เล่น)
 
 ```lua
 local success, response = exports['azael_db-guardian']:executeCommand('dbdelidle')
@@ -76,7 +76,7 @@ local success, response = exports['azael_db-guardian']:executeCommand('dbdelidle
 print(success, response)  -- true | false, response message
 ```
 
-#### ตัวอย่าง: [ลบข้อมูลเฉพาะผู้เล่น](../command#ลบข้อมูลเฉพาะผู้เล่น)
+#### ตัวอย่าง: [ลบข้อมูลเฉพาะผู้เล่น](../command.md#ลบข้อมูลเฉพาะผู้เล่น)
 
 ```lua
 local success, response = exports['azael_db-guardian']:executeCommand('dbdeluser', 'steam:xxxxxxxxxxxxxxx')
@@ -84,7 +84,7 @@ local success, response = exports['azael_db-guardian']:executeCommand('dbdeluser
 print(success, response)  -- true | false, response message
 ```
 
-#### ตัวอย่าง: [ยกเลิกสถานะถูกลบข้อมูลผู้เล่น](../command#ยกเลิกสถานะถูกลบข้อมูลผู้เล่น)
+#### ตัวอย่าง: [ยกเลิกสถานะถูกลบข้อมูลผู้เล่น](../command.md#ยกเลิกสถานะถูกลบข้อมูลผู้เล่น)
 
 ```lua
 local success, response = exports['azael_db-guardian']:executeCommand('dbundeluser', 'steam:xxxxxxxxxxxxxxx')
@@ -92,7 +92,7 @@ local success, response = exports['azael_db-guardian']:executeCommand('dbundelus
 print(success, response)  -- true | false, response message
 ```
 
-#### ตัวอย่าง: [ตรวจสอบข้อมูลผู้เล่น](../command#ตรวจสอบข้อมูลผู้เล่น)
+#### ตัวอย่าง: [ตรวจสอบข้อมูลผู้เล่น](../command.md#ตรวจสอบข้อมูลผู้เล่น)
 
 ```lua
 local success, response = exports['azael_db-guardian']:executeCommand('dbuserinfo', 'steam:xxxxxxxxxxxxxxx')
@@ -100,7 +100,7 @@ local success, response = exports['azael_db-guardian']:executeCommand('dbuserinf
 print(success, response)  -- true | false, response message
 ```
 
-#### ตัวอย่าง: [เพิ่มจำนวนวันให้ผู้เล่น (ในกรณีเเจ้งลาหยุดต่างๆ)](../command#เพิ่มจำนวนวันให้ผู้เล่น-ในกรณีเเจ้งลาหยุดต่างๆ)
+#### ตัวอย่าง: [เพิ่มจำนวนวันให้ผู้เล่น (ในกรณีเเจ้งลาหยุดต่างๆ)](../command.md#เพิ่มจำนวนวันให้ผู้เล่น-ในกรณีเเจ้งลาหยุดต่างๆ)
 
 ```lua
 local success, response = exports['azael_db-guardian']:executeCommand('dbaddleave', 'steam:xxxxxxxxxxxxxxx', 30)

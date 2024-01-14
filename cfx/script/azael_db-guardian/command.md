@@ -1,15 +1,15 @@
 # Commands
 
-คำสั่งที่สามารถใช้งานได้ของทรัพยากร **[azael_db-guardian](./)**
+คำสั่งที่สามารถใช้งานได้ของทรัพยากร **[azael_db-guardian](./index.md)**
 
 ## Default Commands
 
-คำสั่งเริ่มต้นของทรัพยากร **[azael_db-guardian](./)**
+คำสั่งเริ่มต้นของทรัพยากร **[azael_db-guardian](./index.md)**
 
 ### สำรองฐานข้อมูลเซิร์ฟเวอร์
 
 - คำสั่ง สำรองฐานข้อมูลเซิร์ฟเวอร์
-- ชื่อคำสั่งเริ่มต้นคือ **`dbbackup`** (อ้างอิงจากการกำหนดค่า [**Command.DatabaseBackup**](./config/server#commanddatabasebackup))
+- ชื่อคำสั่งเริ่มต้นคือ **`dbbackup`** (อ้างอิงจากการกำหนดค่า [**Command.DatabaseBackup**](./config/server.md#commanddatabasebackup))
 
 ```sh
 dbbackup
@@ -23,8 +23,8 @@ dbbackup
 
 ### ตรวจสอบและลบข้อมูลผู้เล่น
 
-- คำสั่ง ตรวจสอบ และ ลบข้อมูลผู้เล่น ที่ไม่เชื่อมต่อกับเซิร์ฟเวอร์มากกว่าวันที่กำหนด ตามการกำหนดค่า [**UserIdle.LimitDays**](./config/server#useridlelimitdays)
-- ชื่อคำสั่งเริ่มต้นคือ **`dbdelidle`** (อ้างอิงจากการกำหนดค่า [**Command.DatabaseBackup**](./config/server#commanddeleteuseridle))
+- คำสั่ง ตรวจสอบ และ ลบข้อมูลผู้เล่น ที่ไม่เชื่อมต่อกับเซิร์ฟเวอร์มากกว่าวันที่กำหนด ตามการกำหนดค่า [**UserIdle.LimitDays**](./config/server.md#useridlelimitdays)
+- ชื่อคำสั่งเริ่มต้นคือ **`dbdelidle`** (อ้างอิงจากการกำหนดค่า [**Command.DatabaseBackup**](./config/server.md#commanddeleteuseridle))
 
 ```sh
 dbdelidle
@@ -39,7 +39,7 @@ dbdelidle
 ### ลบข้อมูลเฉพาะผู้เล่น
 
 - คำสั่ง ลบข้อมูลเฉพาะผู้เล่น โดยจะไม่ตรวจสอบวันที่เชื่อมต่อครั้งล่าสุดของผู้เล่น
-- ชื่อคำสั่งเริ่มต้นคือ **`dbdeluser`** (อ้างอิงจากการกำหนดค่า [**Command.DeleteUserData**](./config/server#commanddeleteuserdata))
+- ชื่อคำสั่งเริ่มต้นคือ **`dbdeluser`** (อ้างอิงจากการกำหนดค่า [**Command.DeleteUserData**](./config/server.md#commanddeleteuserdata))
 
 ```sh
 dbdeluser [identifier]
@@ -49,7 +49,7 @@ dbdeluser [identifier]
 
 | Name                    | Type               | Required           | Default                                      | Description                                                
 |-------------------------|--------------------|--------------------|----------------------------------------------|--------------------------------------------------
-| `identifier`            | `string`           | ✔️                 | `nil`                                        | ตัวระบุผู้เล่น โดยอ้างอิงจากฐานข้อมูลของ [**Framework**](./config/server#frameworks) ที่ใช้งาน
+| `identifier`            | `string`           | ✔️                 | `nil`                                        | ตัวระบุผู้เล่น โดยอ้างอิงจากฐานข้อมูลของ [**Framework**](./config/server.md#frameworks) ที่ใช้งาน
 
 :::note
 
@@ -68,7 +68,7 @@ dbdeluser [identifier]
 ### ยกเลิกสถานะถูกลบข้อมูลผู้เล่น
 
 - คำสั่ง ยกเลิกสถานะถูกลบข้อมูล ให้ผู้เล่น
-- ชื่อคำสั่งเริ่มต้นคือ **`dbundeluser`** (อ้างอิงจากการกำหนดค่า [**Command.UndeleteUser**](./config/server#commandundeleteuser))
+- ชื่อคำสั่งเริ่มต้นคือ **`dbundeluser`** (อ้างอิงจากการกำหนดค่า [**Command.UndeleteUser**](./config/server.md#commandundeleteuser))
 
 ```sh
 dbundeluser [identifier]
@@ -78,7 +78,7 @@ dbundeluser [identifier]
 
 | Name                    | Type               | Required           | Default                                      | Description                                                
 |-------------------------|--------------------|--------------------|----------------------------------------------|--------------------------------------------------
-| `identifier`            | `string`           | ✔️                 | `nil`                                        | ตัวระบุผู้เล่น โดยอ้างอิงจากฐานข้อมูลของ [**Framework**](./config/server#frameworks) ที่ใช้งาน
+| `identifier`            | `string`           | ✔️                 | `nil`                                        | ตัวระบุผู้เล่น โดยอ้างอิงจากฐานข้อมูลของ [**Framework**](./config/server.md#frameworks) ที่ใช้งาน
 
 :::note
 
@@ -97,7 +97,7 @@ dbundeluser [identifier]
 ### ตรวจสอบข้อมูลผู้เล่น
 
 - คำสั่ง แสดงข้อมูลผู้เล่น จากตาราง **`azael_db_guardian`**
-- ชื่อคำสั่งเริ่มต้นคือ **`dbuserinfo`** (อ้างอิงจากการกำหนดค่า [**Command.GetUserInfo**](./config/server#commandgetuserinfo))
+- ชื่อคำสั่งเริ่มต้นคือ **`dbuserinfo`** (อ้างอิงจากการกำหนดค่า [**Command.GetUserInfo**](./config/server.md#commandgetuserinfo))
 
 ```sh
 dbuserinfo [identifier]
@@ -107,7 +107,7 @@ dbuserinfo [identifier]
 
 | Name                    | Type               | Required           | Default                                      | Description                                                
 |-------------------------|--------------------|--------------------|----------------------------------------------|--------------------------------------------------
-| `identifier`            | `string`           | ✔️                 | `nil`                                        | ตัวระบุผู้เล่น โดยอ้างอิงจากฐานข้อมูลของ [**Framework**](./config/server#frameworks) ที่ใช้งาน
+| `identifier`            | `string`           | ✔️                 | `nil`                                        | ตัวระบุผู้เล่น โดยอ้างอิงจากฐานข้อมูลของ [**Framework**](./config/server.md#frameworks) ที่ใช้งาน
 
 :::note
 
@@ -126,7 +126,7 @@ dbuserinfo [identifier]
 ### เพิ่มจำนวนวันให้ผู้เล่น (ในกรณีเเจ้งลาหยุดต่างๆ)
 
 - คำสั่ง เพิ่มจำนวนวันให้ผู้เล่น ในกรณีผู้เล่นเเจ้งลาหยุดต่างๆ เพื่อไม่ให้เข้าเงื่อนไขการถูกลบข้อมูล
-- ชื่อคำสั่งเริ่มต้นคือ **`dbaddleave`** (อ้างอิงจากการกำหนดค่า [**Command.AddLeaveDays**](./config/server#commandaddleavedays))
+- ชื่อคำสั่งเริ่มต้นคือ **`dbaddleave`** (อ้างอิงจากการกำหนดค่า [**Command.AddLeaveDays**](./config/server.md#commandaddleavedays))
 
 ```sh
 dbaddleave [identifier] [days]
@@ -136,7 +136,7 @@ dbaddleave [identifier] [days]
 
 | Name                    | Type               | Required           | Default                                      | Description                                                
 |-------------------------|--------------------|--------------------|----------------------------------------------|--------------------------------------------------
-| `identifier`            | `string`           | ✔️                 | `nil`                                        | ตัวระบุผู้เล่น โดยอ้างอิงจากฐานข้อมูลของ [**Framework**](./config/server#frameworks) ที่ใช้งาน
+| `identifier`            | `string`           | ✔️                 | `nil`                                        | ตัวระบุผู้เล่น โดยอ้างอิงจากฐานข้อมูลของ [**Framework**](./config/server.md#frameworks) ที่ใช้งาน
 | `days`                  | `number`           | ✔️                 | `nil`                                        | จำนวนวันลา (อ้างอิงจากวันเวลาที่ใช้งานคำสั่ง และเพิ่มจำนวนวันให้ตามที่กำหนด)
 
 :::note
@@ -161,12 +161,12 @@ dbaddleave [identifier] [days]
 
 ## Google Drive Commands
 
-คำสั่ง [**Google Drive**](https://drive.google.com) เมื่อกำหนด [**Option.Type**](./config/server#optiontype) เป็น **`1`** (อัปโหลดไฟล์ไปยัง [**Google Drive API (GCP)**](https://console.cloud.google.com/apis/library/drive.googleapis.com))
+คำสั่ง [**Google Drive**](https://drive.google.com) เมื่อกำหนด [**Option.Type**](./config/server.md#optiontype) เป็น **`1`** (อัปโหลดไฟล์ไปยัง [**Google Drive API (GCP)**](https://console.cloud.google.com/apis/library/drive.googleapis.com))
 
 ### รับรายชื่อไฟล์ สำรองข้อมูลเซิร์ฟเวอร์
 
 - คำสั่ง รับรายชื่อไฟล์ สำรองข้อมูลของเซิร์ฟเวอร์
-- ชื่อคำสั่งเริ่มต้นคือ **`gdserverlist`** (อ้างอิงจากการกำหนดค่า [**GoogleDriveAPI.Command.ServerBackups.FileList**](./config/server#googledriveapicommandserverbackups))
+- ชื่อคำสั่งเริ่มต้นคือ **`gdserverlist`** (อ้างอิงจากการกำหนดค่า [**GoogleDriveAPI.Command.ServerBackups.FileList**](./config/server.md#googledriveapicommandserverbackups))
 
 ```sh
 gdserverlist
@@ -181,7 +181,7 @@ gdserverlist
 ### ลบไฟล์ สำรองข้อมูลเซิร์ฟเวอร์ (ระบุชื่อไฟล์)
 
 - คำสั่ง ลบไฟล์ สำรองข้อมูลของเซิร์ฟเวอร์ โดยอ้างอิงจาก ชื่อไฟล์
-- ชื่อคำสั่งเริ่มต้นคือ **`gdserverdel`** (อ้างอิงจากการกำหนดค่า [**GoogleDriveAPI.Command.ServerBackups.FileDelete**](./config/server#googledriveapicommandserverbackups))
+- ชื่อคำสั่งเริ่มต้นคือ **`gdserverdel`** (อ้างอิงจากการกำหนดค่า [**GoogleDriveAPI.Command.ServerBackups.FileDelete**](./config/server.md#googledriveapicommandserverbackups))
 
 ```sh
 gdserverdel [filename]
@@ -202,7 +202,7 @@ gdserverdel [filename]
 ### ลบไฟล์ สำรองข้อมูลเซิร์ฟเวอร์ (ทั้งหมด)
 
 - คำสั่ง ลบไฟล์ สำรองข้อมูลของเซิร์ฟเวอร์ ทั้งหมด
-- ชื่อคำสั่งเริ่มต้นคือ **`gdserverpurge`** (อ้างอิงจากการกำหนดค่า [**GoogleDriveAPI.Command.ServerBackups.FilePurge**](./config/server#googledriveapicommandserverbackups))
+- ชื่อคำสั่งเริ่มต้นคือ **`gdserverpurge`** (อ้างอิงจากการกำหนดค่า [**GoogleDriveAPI.Command.ServerBackups.FilePurge**](./config/server.md#googledriveapicommandserverbackups))
 
 ```sh
 gdserverpurge
@@ -223,7 +223,7 @@ gdserverpurge
 ### รับรายชื่อไฟล์ สำรองข้อมูลผู้เล่น
 
 - คำสั่ง รับรายชื่อไฟล์ สำรองข้อมูลของผู้เล่น ที่ถูกลบข้อมูล
-- ชื่อคำสั่งเริ่มต้นคือ **`gdplayerlist`** (อ้างอิงจากการกำหนดค่า [**GoogleDriveAPI.Command.PlayerBackups.FileList**](./config/server#googledriveapicommandplayerbackups))
+- ชื่อคำสั่งเริ่มต้นคือ **`gdplayerlist`** (อ้างอิงจากการกำหนดค่า [**GoogleDriveAPI.Command.PlayerBackups.FileList**](./config/server.md#googledriveapicommandplayerbackups))
 
 ```sh
 gdplayerlist
@@ -238,7 +238,7 @@ gdplayerlist
 ### ลบไฟล์ สำรองข้อมูลผู้เล่น (ระบุชื่อไฟล์)
 
 - คำสั่ง ลบไฟล์ สำรองข้อมูลของผู้เล่น ที่ถูกลบข้อมูล โดยอ้างอิงจาก ชื่อไฟล์
-- ชื่อคำสั่งเริ่มต้นคือ **`gdplayerdel`** (อ้างอิงจากการกำหนดค่า [**GoogleDriveAPI.Command.PlayerBackups.FileDelete**](./config/server#googledriveapicommandplayerbackups))
+- ชื่อคำสั่งเริ่มต้นคือ **`gdplayerdel`** (อ้างอิงจากการกำหนดค่า [**GoogleDriveAPI.Command.PlayerBackups.FileDelete**](./config/server.md#googledriveapicommandplayerbackups))
 
 ```sh
 gdplayerdel [filename]
@@ -259,7 +259,7 @@ gdplayerdel [filename]
 ### ลบไฟล์ สำรองข้อมูลผู้เล่น (ทั้งหมด)
 
 - คำสั่ง ลบไฟล์ สำรองข้อมูลของผู้เล่น ที่ถูกลบข้อมูล ทั้งหมด
-- ชื่อคำสั่งเริ่มต้นคือ **`gdplayerpurge`** (อ้างอิงจากการกำหนดค่า [**GoogleDriveAPI.Command.PlayerBackups.FilePurge**](./config/server#googledriveapicommandplayerbackups))
+- ชื่อคำสั่งเริ่มต้นคือ **`gdplayerpurge`** (อ้างอิงจากการกำหนดค่า [**GoogleDriveAPI.Command.PlayerBackups.FilePurge**](./config/server.md#googledriveapicommandplayerbackups))
 
 ```sh
 gdplayerpurge

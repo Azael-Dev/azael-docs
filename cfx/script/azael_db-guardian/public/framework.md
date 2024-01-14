@@ -9,7 +9,7 @@
 1. ดำเนินการคัดลอกโฟลเดอร์ `esx`, `qb` หรือ `vorp` ตามที่คุณต้องการ
 2. เปลี่ยนชื่อโฟลเดอร์ที่คุณคัดลอกเป็นชื่อโฟลเดอร์ที่คุณต้องการ
 3. ดำเนินการแก้ไขรหัสไฟล์ภายในโฟลเดอร์ ให้มีความเข้ากันได้กับ **[Framework](https://en.wikipedia.org/wiki/Framework)** ที่คุณกำลังใช้งานอยู่
-4. ไปที่ `config/server.config.lua` การกำหนดค่า **[CONFIG.Frameworks](../config/server#frameworks)** และดำเนินการเพิ่มข้อมูลเพื่อเรียกใช้งาน
+4. ไปที่ `config/server.config.lua` การกำหนดค่า **[CONFIG.Frameworks](../config/server.md#frameworks)** และดำเนินการเพิ่มข้อมูลเพื่อเรียกใช้งาน
 
 ### รายละเอียดไฟล์
 

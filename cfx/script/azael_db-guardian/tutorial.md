@@ -4,7 +4,7 @@ sidebar_label: Tutorials
 
 # Tutorials & Guides
 
-บทช่วยสอนและคำแนะนำที่เกี่ยวข้องกับทรัพยากร **[azael_db-guardian](./)**
+บทช่วยสอนและคำแนะนำที่เกี่ยวข้องกับทรัพยากร **[azael_db-guardian](./index.md)**
 
 ## Configuration
 
@@ -16,59 +16,59 @@ sidebar_label: Tutorials
 
 #### 1. ลบข้อมูลผู้เล่นออกจากฐานข้อมูลเซิร์ฟเวอร์
 
-- [**UserIdle.LimitDays**](./config/server#useridlelimitdays)
-- [**AutoDelete.Enable**](./config/server#autodeleteenable)
-- [**IgnoreDelete.Enable**](./config/server#ignoredeleteenable)
-- [**IgnoreDelete.Identifiers**](./config/server#ignoredeleteidentifiers)
+- [**UserIdle.LimitDays**](./config/server.md#useridlelimitdays)
+- [**AutoDelete.Enable**](./config/server.md#autodeleteenable)
+- [**IgnoreDelete.Enable**](./config/server.md#ignoredeleteenable)
+- [**IgnoreDelete.Identifiers**](./config/server.md#ignoredeleteidentifiers)
 
 #### 2. อัพเดทข้อมูลการเชื่อมต่อครั้งล่าสุดผู้เล่น
 
-- [**LastSeen.MustBeOnline.Minutes**](./config/server#lastseenmustbeonlineminutes)
-- [**LastSeen.PlayerDropped.Enable**](./config/server#lastseenplayerdroppedenable)
+- [**LastSeen.MustBeOnline.Minutes**](./config/server.md#lastseenmustbeonlineminutes)
+- [**LastSeen.PlayerDropped.Enable**](./config/server.md#lastseenplayerdroppedenable)
 
 #### 3. สำรองฐานข้อมูลเซิร์ฟเวอร์
 
-- [**Backup.ServerData.Enable**](./config/server#backupserverdataenable)
-- [**Backup.ServerData.HourDist**](./config/server#backupserverdatahourdist)
-- [**Backup.ServerData.DeleteOldFiles.Enable**](./config/server#backupserverdatadeleteoldfilesenable)
-- [**Backup.ServerData.DeleteOldFiles.Days**](./config/server#backupserverdatadeleteoldfilesdays)
+- [**Backup.ServerData.Enable**](./config/server.md#backupserverdataenable)
+- [**Backup.ServerData.HourDist**](./config/server.md#backupserverdatahourdist)
+- [**Backup.ServerData.DeleteOldFiles.Enable**](./config/server.md#backupserverdatadeleteoldfilesenable)
+- [**Backup.ServerData.DeleteOldFiles.Days**](./config/server.md#backupserverdatadeleteoldfilesdays)
 
 #### 4. สำรองข้อมูลผู้เล่นเมื่อถูกลบข้อมูล
 
-- [**Backup.PlayerData.Enable**](./config/server#backupplayerdataenable)
+- [**Backup.PlayerData.Enable**](./config/server.md#backupplayerdataenable)
 
 #### 5. ไฟล์สำรองข้อมูล
 
-- [**Backup.File.Extension**](./config/server#backupfileextension)
-- [**Backup.File.GZIPCompression.Enable**](./config/server#backupfilegzipcompressionenable)
+- [**Backup.File.Extension**](./config/server.md#backupfileextension)
+- [**Backup.File.GZIPCompression.Enable**](./config/server.md#backupfilegzipcompressionenable)
 
 #### 5. ฐานข้อมูลเฟรมเวิร์กที่ใช้งาน
 
-- [**Frameworks**](./config/server#frameworks-1)
+- [**Frameworks**](./config/server.md#frameworks-1)
 
 #### 6. อัปโหลดไฟล์สำรองข้อมูล
 
-- [**Option.Type**](./config/server#optiontype)
+- [**Option.Type**](./config/server.md#optiontype)
     - **Google Drive API (GCP)**
-        - [**GoogleDriveAPI.DeleteOldFiles.Enable**](./config/server#googledriveapideleteoldfilesenable)
-        - [**GoogleDriveAPI.DeleteOldFiles.Days**](./config/server#googledriveapideleteoldfilesdays)
-        - [**GoogleDriveAPI.ServiceAccountKey**](./config/server#googledriveapiserviceaccountkey)
-        - [**GoogleDriveAPI.SharedUsers**](./config/server#googledriveapisharedusers)
+        - [**GoogleDriveAPI.DeleteOldFiles.Enable**](./config/server.md#googledriveapideleteoldfilesenable)
+        - [**GoogleDriveAPI.DeleteOldFiles.Days**](./config/server.md#googledriveapideleteoldfilesdays)
+        - [**GoogleDriveAPI.ServiceAccountKey**](./config/server.md#googledriveapiserviceaccountkey)
+        - [**GoogleDriveAPI.SharedUsers**](./config/server.md#googledriveapisharedusers)
     - **Discord API (Webhook)**
-        - [**DiscordAPI.MaxFileSize**](./config/server#discordapimaxfilesize)
-        - [**DiscordAPI.ServerData.WebhookURL**](./config/server#discordapiserverdatawebhookurl)
-        - [**DiscordAPI.PlayerData.WebhookURL**](./config/server#discordapiplayerdatawebhookurl)
+        - [**DiscordAPI.MaxFileSize**](./config/server.md#discordapimaxfilesize)
+        - [**DiscordAPI.ServerData.WebhookURL**](./config/server.md#discordapiserverdatawebhookurl)
+        - [**DiscordAPI.PlayerData.WebhookURL**](./config/server.md#discordapiplayerdatawebhookurl)
     - **Custom API**
-        - [**uploadFile (function)**](./public/fileupload)
+        - [**uploadFile (function)**](./public/fileupload.md)
 
 #### 7. บันทึกที่กำหนดเอง (Logs)
 
-- [**Enable.ExecuteCommand**](./config/server#enableexecutecommand)
-- [**Enable.ServerBackup**](./config/server#enableserverbackup)
-- [**Enable.DeletePlayerData**](./config/server#enabledeleteplayerdata)
-- [**ExecuteCommand (function)**](./config/server#executecommand-function)
-- [**ServerBackup (function)**](./config/server#serverbackup-function)
-- [**DeletePlayerData (function)**](./config/server#deleteplayerdata-function)
+- [**Enable.ExecuteCommand**](./config/server.md#enableexecutecommand)
+- [**Enable.ServerBackup**](./config/server.md#enableserverbackup)
+- [**Enable.DeletePlayerData**](./config/server.md#enabledeleteplayerdata)
+- [**ExecuteCommand (function)**](./config/server.md#executecommand-function)
+- [**ServerBackup (function)**](./config/server.md#serverbackup-function)
+- [**DeletePlayerData (function)**](./config/server.md#deleteplayerdata-function)
 
 ## Operation Testing
 
@@ -85,16 +85,16 @@ sidebar_label: Tutorials
 :::
 
 1. ดำเนินการ **สำรองฐานข้อมูลของเซิร์ฟเวอร์** ด้วยตนเอง (**สำรองข้อมูลเอาไว้เพื่อป้องกันการทำงานที่ผิดพลาด**)
-2. ดำเนินการ **เริ่มต้นเซิร์ฟเวอร์ (FXServer)** และ [**`ensure azael_db-guardian`**](./) เพื่อให้ทรัพยากรนี้ **ติดตั้งฐานข้อมูลของทรัพยากรนี้** และดำเนินการ **คัดลอกข้อมูลของผู้เล่น** จากตารางของเฟรมเวิร์กที่ใช้งาน บนฐานข้อมูล
-3. ดำเนินการ **ปิดเซิร์ฟเวอร์ (FXServer)** หาก [**azael_db-guardian**](./) ได้ **ติดตั้งฐานข้อมูลของทรัพยากรนี้** และ **คัดลอกข้อมูลของผู้เล่น** เสร็จสิ้นแล้ว (คุณสามารถตรวจสอบได้บน **ฐานข้อมูลของเซิร์ฟเวอร์** ตาราง **`azael_db_guardian`**)
+2. ดำเนินการ **เริ่มต้นเซิร์ฟเวอร์ (FXServer)** และ [**`ensure azael_db-guardian`**](./index.md) เพื่อให้ทรัพยากรนี้ **ติดตั้งฐานข้อมูลของทรัพยากรนี้** และดำเนินการ **คัดลอกข้อมูลของผู้เล่น** จากตารางของเฟรมเวิร์กที่ใช้งาน บนฐานข้อมูล
+3. ดำเนินการ **ปิดเซิร์ฟเวอร์ (FXServer)** หาก [**azael_db-guardian**](./index.md) ได้ **ติดตั้งฐานข้อมูลของทรัพยากรนี้** และ **คัดลอกข้อมูลของผู้เล่น** เสร็จสิ้นแล้ว (คุณสามารถตรวจสอบได้บน **ฐานข้อมูลของเซิร์ฟเวอร์** ตาราง **`azael_db_guardian`**)
 4. ดำเนินการ นำเข้ารหัสด้านล่างนี้ไปยัง **ฐานข้อมูล** เพื่อ **ลดจำนวนวันลง 100 วัน** และ **จำกัดการอัปเดทจำนวน 100 แถว**
 
 ```sql title="Run SQL Query"
 UPDATE azael_db_guardian SET lastseen = DATE_SUB(lastseen, INTERVAL 100 DAY) LIMIT 100;
 ```
 
-5. ไปยังโฟลเดอร์ **`azael_data`** (ที่อยู่เดียวกันกับไฟล์ [**`server.cfg`**](https://docs.fivem.net/docs/server-manual/setting-up-a-server-vanilla/#servercfg)) และดำเนินการ ลบโฟลเดอร์ [**`azael_db-guardian`**](./)
-6. ดำเนินการ **เริ่มต้นเซิร์ฟเวอร์ (FXServer)** และ [**`ensure azael_db-guardian`**](./) อีกครั้ง **เพือทดสอบการทำงาน** ของทรัพยากรนี้
+5. ไปยังโฟลเดอร์ **`azael_data`** (ที่อยู่เดียวกันกับไฟล์ [**`server.cfg`**](https://docs.fivem.net/docs/server-manual/setting-up-a-server-vanilla/#servercfg)) และดำเนินการ ลบโฟลเดอร์ [**`azael_db-guardian`**](./index.md)
+6. ดำเนินการ **เริ่มต้นเซิร์ฟเวอร์ (FXServer)** และ [**`ensure azael_db-guardian`**](./index.md) อีกครั้ง **เพือทดสอบการทำงาน** ของทรัพยากรนี้
 
 :::tip
 
@@ -145,7 +145,7 @@ UPDATE azael_db_guardian SET lastseen = DATE_SUB(lastseen, INTERVAL 100 DAY) LIM
 
 1. ดำเนินการ **ปิดเซิร์ฟเวอร์ (FXServer)**
 2. นำเข้าไฟล์ **สำรองข้อมูลผู้เล่นที่ถูกลบ** ไปยังฐานข้อมูล
-3. ใช้งานคำสั่ง [**ยกเลิกสถานะถูกลบข้อมูลผู้เล่น**](./command#ยกเลิกสถานะถูกลบข้อมูลผู้เล่น) เพื่อให้ผู้เล่นสามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้ตามปกติ
+3. ใช้งานคำสั่ง [**ยกเลิกสถานะถูกลบข้อมูลผู้เล่น**](./command.md#ยกเลิกสถานะถูกลบข้อมูลผู้เล่น) เพื่อให้ผู้เล่นสามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้ตามปกติ
 
 | Folder Name            | Folder Path
 |------------------------|----------------------------------------------------
@@ -183,8 +183,8 @@ UPDATE azael_db_guardian SET lastseen = DATE_SUB(lastseen, INTERVAL 100 DAY) LIM
 
 :::caution
 
-หากคุณยังไม่ได้ดำเนินการตามรายการด้านล่างนี้ โปรดดำเนินการก่อน [**เปิดใช้งาน Google Drive API**](./tutorial#วิธีการเปิดใช้งาน-google-drive-api)
-- [**สร้างโครงการ GCP**](./tutorial#วิธีการสร้างโครงการ-gcp)
+หากคุณยังไม่ได้ดำเนินการตามรายการด้านล่างนี้ โปรดดำเนินการก่อน [**เปิดใช้งาน Google Drive API**](./tutorial.md#วิธีการเปิดใช้งาน-google-drive-api)
+- [**สร้างโครงการ GCP**](./tutorial.md#วิธีการสร้างโครงการ-gcp)
 
 :::
 
@@ -202,9 +202,9 @@ UPDATE azael_db_guardian SET lastseen = DATE_SUB(lastseen, INTERVAL 100 DAY) LIM
 
 :::caution
 
-หากคุณยังไม่ได้ดำเนินการตามรายการด้านล่างนี้ โปรดดำเนินการก่อน [**สร้างบัญชีบริการ (Service Accounts)**](./tutorial#วิธีการสร้างบัญชีบริการ-service-accounts)
-- [**สร้างโครงการ GCP**](./tutorial#วิธีการสร้างโครงการ-gcp)
-- [**เปิดใช้งาน Google Drive API**](./tutorial#วิธีการเปิดใช้งาน-google-drive-api)
+หากคุณยังไม่ได้ดำเนินการตามรายการด้านล่างนี้ โปรดดำเนินการก่อน [**สร้างบัญชีบริการ (Service Accounts)**](./tutorial.md#วิธีการสร้างบัญชีบริการ-service-accounts)
+- [**สร้างโครงการ GCP**](./tutorial.md#วิธีการสร้างโครงการ-gcp)
+- [**เปิดใช้งาน Google Drive API**](./tutorial.md#วิธีการเปิดใช้งาน-google-drive-api)
 
 :::
 
@@ -223,14 +223,14 @@ UPDATE azael_db_guardian SET lastseen = DATE_SUB(lastseen, INTERVAL 100 DAY) LIM
 5. คลิก **Add Key** เลือก **Create New Key**
 6. เลือก **Key Type** เป็น **JSON** แล้วดำเนินการคลิก **Create**
 7. ดาวน์โหลดไฟล์ **`service_account_key.json`** ลงในอุปกรณ์ของคุณ
-8. นำข้อมูล **`client_email`** และ **`private_key`** ที่ได้จากไฟล์ ไปกำหนดยัง [**GoogleDriveAPI.ServiceAccountKey**](./config/server#googledriveapiserviceaccountkey)
+8. นำข้อมูล **`client_email`** และ **`private_key`** ที่ได้จากไฟล์ ไปกำหนดยัง [**GoogleDriveAPI.ServiceAccountKey**](./config/server.md#googledriveapiserviceaccountkey)
 
 :::caution
 
-หากคุณยังไม่ได้ดำเนินการตามรายการด้านล่างนี้ โปรดดำเนินการก่อน [**สร้างกุญแจบัญชีบริการ**](./tutorial#วิธีการสร้างกุญแจบัญชีบริการ-service-account-key)
-- [**สร้างโครงการ GCP**](./tutorial#วิธีการสร้างโครงการ-gcp)
-- [**เปิดใช้งาน Google Drive API**](./tutorial#วิธีการเปิดใช้งาน-google-drive-api)
-- [**สร้างบัญชีบริการ (Service Accounts)**](./tutorial#วิธีการสร้างบัญชีบริการ-service-accounts)
+หากคุณยังไม่ได้ดำเนินการตามรายการด้านล่างนี้ โปรดดำเนินการก่อน [**สร้างกุญแจบัญชีบริการ**](./tutorial.md#วิธีการสร้างกุญแจบัญชีบริการ-service-account-key)
+- [**สร้างโครงการ GCP**](./tutorial.md#วิธีการสร้างโครงการ-gcp)
+- [**เปิดใช้งาน Google Drive API**](./tutorial.md#วิธีการเปิดใช้งาน-google-drive-api)
+- [**สร้างบัญชีบริการ (Service Accounts)**](./tutorial.md#วิธีการสร้างบัญชีบริการ-service-accounts)
 
 :::
 
@@ -244,11 +244,11 @@ UPDATE azael_db_guardian SET lastseen = DATE_SUB(lastseen, INTERVAL 100 DAY) LIM
 
 คุณสามารถดูวิธีการเพิ่มสิทธิ์เข้าถึง [**Google Drive**](https://drive.google.com/drive/shared-with-me) ตามขั้นตอนด้านล่างนี้ได้
 
-1. ไปที่ [**`config/server.config.lua`**](./config/server) การกำหนดค่า [**GoogleDriveAPI.SharedUsers**](./config/server#googledriveapisharedusers)
+1. ไปที่ [**`config/server.config.lua`**](./config/server.md) การกำหนดค่า [**GoogleDriveAPI.SharedUsers**](./config/server.md#googledriveapisharedusers)
 2. เพิ่มบัญชี [**Gmail**](https://myaccount.google.com) ที่คุณต้องการให้สิทธิ์เข้าถึงไดฟ์
 
 :::info
-    - จะมีผลก็ต่อเมื่อทรัพยากร [**azael_db-guardian**](./) เริ่มต้นใหม่
+    - จะมีผลก็ต่อเมื่อทรัพยากร [**azael_db-guardian**](./index.md) เริ่มต้นใหม่
     - สามารถดูไดฟ์ที่เเชร์ได้ที่ [**Google Drive (Shared)**](https://drive.google.com/drive/shared-with-me)
 :::
 
@@ -256,11 +256,11 @@ UPDATE azael_db_guardian SET lastseen = DATE_SUB(lastseen, INTERVAL 100 DAY) LIM
 
 คุณสามารถดูวิธีการเพิ่มสิทธิ์เข้าถึง [**Google Drive**](https://drive.google.com/drive/shared-with-me) ตามขั้นตอนด้านล่างนี้ได้
 
-1. ไปที่ [**`config/server.config.lua`**](./config/server) การกำหนดค่า [**GoogleDriveAPI.SharedUsers**](./config/server#googledriveapisharedusers)
+1. ไปที่ [**`config/server.config.lua`**](./config/server.md) การกำหนดค่า [**GoogleDriveAPI.SharedUsers**](./config/server.md#googledriveapisharedusers)
 2. ลบบัญชี [**Gmail**](https://myaccount.google.com) ที่คุณต้องการยกเลิกสิทธิ์เข้าถึงไดฟ์
 
 :::info
-    - จะมีผลก็ต่อเมื่อทรัพยากร [**azael_db-guardian**](./) เริ่มต้นใหม่
+    - จะมีผลก็ต่อเมื่อทรัพยากร [**azael_db-guardian**](./index.md) เริ่มต้นใหม่
     - สามารถดูไดฟ์ที่เเชร์ได้ที่ [**Google Drive (Shared)**](https://drive.google.com/drive/shared-with-me)
 :::
 
@@ -269,18 +269,18 @@ UPDATE azael_db_guardian SET lastseen = DATE_SUB(lastseen, INTERVAL 100 DAY) LIM
 คุณสามารถดูคำสั่ง [**Google Drive**](https://drive.google.com/drive/shared-with-me) ตามรายการด้านล่างนี้ได้
 
 #### Server Backups:
-- [**รับรายชื่อไฟล์ สำรองข้อมูลเซิร์ฟเวอร์**](./command#รับรายชื่อไฟล์-สำรองข้อมูลเซิร์ฟเวอร์)
-- [**ลบไฟล์ สำรองข้อมูลเซิร์ฟเวอร์ (ระบุชื่อไฟล์)**](./command#ลบไฟล์-สำรองข้อมูลเซิร์ฟเวอร์-ระบุชื่อไฟล์)
-- [**ลบไฟล์ สำรองข้อมูลเซิร์ฟเวอร์ (ทั้งหมด)**](./command#ลบไฟล์-สำรองข้อมูลเซิร์ฟเวอร์-ทั้งหมด)
+- [**รับรายชื่อไฟล์ สำรองข้อมูลเซิร์ฟเวอร์**](./command.md#รับรายชื่อไฟล์-สำรองข้อมูลเซิร์ฟเวอร์)
+- [**ลบไฟล์ สำรองข้อมูลเซิร์ฟเวอร์ (ระบุชื่อไฟล์)**](./command.md#ลบไฟล์-สำรองข้อมูลเซิร์ฟเวอร์-ระบุชื่อไฟล์)
+- [**ลบไฟล์ สำรองข้อมูลเซิร์ฟเวอร์ (ทั้งหมด)**](./command.md#ลบไฟล์-สำรองข้อมูลเซิร์ฟเวอร์-ทั้งหมด)
 
 #### Player Backups:
-- [**รับรายชื่อไฟล์ สำรองข้อมูลผู้เล่น**](./command#รับรายชื่อไฟล์-สำรองข้อมูลผู้เล่น)
-- [**ลบไฟล์ สำรองข้อมูลผู้เล่น (ระบุชื่อไฟล์)**](./command#ลบไฟล์-สำรองข้อมูลผู้เล่น-ระบุชื่อไฟล์)
-- [**ลบไฟล์ สำรองข้อมูลผู้เล่น (ทั้งหมด)**](./command#ลบไฟล์-สำรองข้อมูลผู้เล่น-ทั้งหมด)
+- [**รับรายชื่อไฟล์ สำรองข้อมูลผู้เล่น**](./command.md#รับรายชื่อไฟล์-สำรองข้อมูลผู้เล่น)
+- [**ลบไฟล์ สำรองข้อมูลผู้เล่น (ระบุชื่อไฟล์)**](./command.md#ลบไฟล์-สำรองข้อมูลผู้เล่น-ระบุชื่อไฟล์)
+- [**ลบไฟล์ สำรองข้อมูลผู้เล่น (ทั้งหมด)**](./command.md#ลบไฟล์-สำรองข้อมูลผู้เล่น-ทั้งหมด)
 
 :::caution
 
-- จำเป็นที่จะต้องกำหนด [**Option.Type**](./config/server#optiontype) เป็น **`1`** จึงจะสามารถใช้งานคำสั่งเหล่านี้ได้ (อัปโหลดไฟล์ไปยัง [**Google Drive API (GCP)**](https://console.cloud.google.com/apis/library/drive.googleapis.com))
+- จำเป็นที่จะต้องกำหนด [**Option.Type**](./config/server.md#optiontype) เป็น **`1`** จึงจะสามารถใช้งานคำสั่งเหล่านี้ได้ (อัปโหลดไฟล์ไปยัง [**Google Drive API (GCP)**](https://console.cloud.google.com/apis/library/drive.googleapis.com))
 - สามารถใช้งานคำสั่งเหล่านี้ได้ทางฝั่ง [**Server**](https://en.wikipedia.org/wiki/Server-side) เท่านั้น ไม่สามารถใช้งานทางฝั่ง [**Client**](https://en.wikipedia.org/wiki/Client-side) ได้
 
 :::

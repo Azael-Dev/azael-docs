@@ -1,16 +1,16 @@
 # File Upload (Custom API)
 
-การอัปโหลดไฟล์ไปยัง [**Custom API**](../config/server#optiontype) (**API ที่กำหนดเอง**) คุณสามารถแก้ไขรหัสได้ที่ไฟล์ **`custom.fileupload.js`**
+การอัปโหลดไฟล์ไปยัง [**Custom API**](../config/server.md#optiontype) (**API ที่กำหนดเอง**) คุณสามารถแก้ไขรหัสได้ที่ไฟล์ **`custom.fileupload.js`**
 
 :::tip
 
-กำหนด [**Option.Type**](../config/server#optiontype) เป็น **`3`** เพื่อเปิดใช้งานการอัปโหลดไฟล์ไปยัง [**Custom API**](../config/server#optiontype) (**API ที่กำหนดเอง**)
+กำหนด [**Option.Type**](../config/server#optiontype) เป็น **`3`** เพื่อเปิดใช้งานการอัปโหลดไฟล์ไปยัง [**Custom API**](../config/server.md#optiontype) (**API ที่กำหนดเอง**)
 
 :::
 
 ## uploadFile
 
-ฟังก์ชันอัปโหลดไฟล์ไปยัง [**Custom API**](../config/server#optiontype) (**API ที่กำหนดเอง**)
+ฟังก์ชันอัปโหลดไฟล์ไปยัง [**Custom API**](../config/server.md#optiontype) (**API ที่กำหนดเอง**)
 
 ```js
 const uploadFile = async(fileName, filePath, isFullBackup) => {
@@ -34,7 +34,7 @@ const uploadFile = async(fileName, filePath, isFullBackup) => {
 |--------------------------------------------------|----------------------------------------|-------------------------------------------------
 | `fileName`                                       | `string`                               | ชื่อของไฟล์ที่จะอัปโหลด
 | `filePath`                                       | `string`                               | เส้นทางของไฟล์ที่จะอัปโหลด
-| `isFullBackup`                                   | `boolean`                              | เป็นการ [**สำรองข้อมูลเซิร์ฟเวอร์**](../config/server#backupserverdataenable) หรือไม่ <br />• **`true`** เท่ากับ [**สำรองข้อมูลเซิร์ฟเวอร์**](../config/server#backupserverdataenable) <br />• **`false`** เท่ากับ [**สำรองข้อมูลผู้เล่นที่ถูกลบข้อมูล**](../config/server#backupplayerdataenable)
+| `isFullBackup`                                   | `boolean`                              | เป็นการ [**สำรองข้อมูลเซิร์ฟเวอร์**](../config/server.md#backupserverdataenable) หรือไม่ <br />• **`true`** เท่ากับ [**สำรองข้อมูลเซิร์ฟเวอร์**](../config/server.md#backupserverdataenable) <br />• **`false`** เท่ากับ [**สำรองข้อมูลผู้เล่นที่ถูกลบข้อมูล**](../config/server.md#backupplayerdataenable)
 
 ### Return
 
