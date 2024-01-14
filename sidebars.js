@@ -153,6 +153,7 @@ const sidebars = {
                     'script/azael_dc-serverlogs/example/other/esx_givevehicle',
                     'script/azael_dc-serverlogs/example/other/esx_advancedgarage',
                     'script/azael_dc-serverlogs/example/other/esx_jb_eden_garage2',
+                    'script/azael_dc-serverlogs/example/other/esx-qalle-jail',
                     'script/azael_dc-serverlogs/example/other/lls-mechanic',
                     'script/azael_dc-serverlogs/example/other/gcphone',
                     'script/azael_dc-serverlogs/example/other/dpemotes',
