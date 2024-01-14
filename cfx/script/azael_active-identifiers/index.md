@@ -16,7 +16,7 @@
 
 1. ดาวน์โหลดและแตกไฟล์ลงในโฟลเดอร์ `resources` ของคุณ
 2. ชื่อของทรัพยากรจะต้องเป็น `azael_active-identifiers` ห้ามแก้ไขโดยเด็ดขาด
-3. ไปยังโฟลเดอร์ `config` และดำเนินการเปิดไฟล์ **[auth.config.lua](./config/auth.md)** เพื่อระบุ **[Token](./config/auth#token)** ของสินค้า
+3. ไปยังโฟลเดอร์ `config` และดำเนินการเปิดไฟล์ **[auth.config.lua](./config/auth.md)** เพื่อระบุ **[Token](./config/auth.md#token)** ของสินค้า
 4. ไปยังไฟล์ `server.cfg` และทำการเพิ่ม `ensure azael_active-identifiers` (บรรทัดใดก็ได้)
 
 ```diff title="server.cfg"
