@@ -143,7 +143,7 @@ pcall(function()
 	exports['azael_dc-serverlogs']:insertData({
 		event = 'PrisonWorkReward',
 		content = ('ได้รับ Cash จำนวน $%s'):format(reward),
-		source = netId,
+		source = xPlayer.source,
 		color = 2
 	})
 end)
