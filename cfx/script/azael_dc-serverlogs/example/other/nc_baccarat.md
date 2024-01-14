@@ -66,27 +66,50 @@ end)
 |----------------------------------------|----------------------------------------
 | `NC_BaccaratGameResult`                | บาคาร่า-รายงานผล
 
-วางรหัสด้านล่างนี้ภายใน `Config.ServerGameResult = function` ต่อจาก `transaction[#transaction + 1]`
+วางรหัสด้านล่างนี้ภายใน `Config.ServerGameResult = function`
 
 ```lua
 Citizen.CreateThreadNow(function()
-    pcall(function()
-        exports['azael_dc-serverlogs']:insertData({
-            event = 'NC_BaccaratGameResult',
-            content = ('รายงานผลที่โต๊ะ %s ของผู้เล่นตัวระบุ %s'):format(tableKey, identifier),
-            fields = {
-                { name = '**IDENTIFIER**', value = ('```%s```'):format(identifier), inline = false },
-                { name = '**WINNER**', value = ('```%s```'):format((win and '✔️ ➔ YES' or '❌ ➔ NO')), inline = false },
-                { name = '**BET KEY**', value = ('```%s```'):format(betKey), inline = true },
-                { name = '**TOTAL BET**', value = ('```%s```'):format(total), inline = true },
-                { name = '**BET PROFIT**', value = ('```%s```'):format(profit), inline = true },
-                { name = '**ACCOUNTS**', value = ('```%s```'):format(json.encode(list.account, { indent = true })), inline = false },
-                { name = '**ITEMS**', value = ('```%s```'):format(json.encode(list.item, { indent = true })), inline = false },
-            },
-            source = 0,
-            color = (win and 2 or 1)
-        })
-    end)
+    local return_bet_when_tie in Config.BaccaratTables[tableKey]
+
+    for betKey, betResult in pairs(results) do
+        local win = winners[betKey]
+        local rewardRatio = Config.RewardRatio[betKey]
+
+        for identifier, data in pairs(betResult) do
+            local result, total in data
+            local list = { account = {}, item = {} }
+            local profit = 0
+
+            for i = 1, #result do
+                local type, name, count in result[i]
+
+                list[type][name] = count
+            end
+
+            if not (return_bet_when_tie and winners.tie and (betKey == 'player' or betKey == 'banker')) then
+                profit = (win and math.floor(total * rewardRatio) or -total)
+            end
+
+            pcall(function()
+                exports['azael_dc-serverlogs']:insertData({
+                    event = 'NC_BaccaratGameResult',
+                    content = ('รายงานผลที่โต๊ะ %s ของผู้เล่นตัวระบุ %s'):format(tableKey, identifier),
+                    fields = {
+                        { name = '**IDENTIFIER**', value = ('```%s```'):format(identifier), inline = false },
+                        { name = '**WINNER**', value = ('```%s```'):format((win and '✔️ ➔ YES' or '❌ ➔ NO')), inline = false },
+                        { name = '**BET KEY**', value = ('```%s```'):format(betKey), inline = true },
+                        { name = '**TOTAL BET**', value = ('```%s```'):format(total), inline = true },
+                        { name = '**BET PROFIT**', value = ('```%s```'):format(profit), inline = true },
+                        { name = '**ACCOUNTS**', value = ('```%s```'):format(json.encode(list.account, { indent = true })), inline = false },
+                        { name = '**ITEMS**', value = ('```%s```'):format(json.encode(list.item, { indent = true })), inline = false },
+                    },
+                    source = 0,
+                    color = (win and 2 or 1)
+                })
+            end)
+        end
+    end
 end)
 ```
 
