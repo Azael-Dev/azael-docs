@@ -30,7 +30,7 @@ CONFIG.Resource.Name = GetCurrentResourceName() -- [[ string ]]
 
 ## Frameworks
 
-การกำหนดค่า **[Framework](https://en.wikipedia.org/wiki/Framework)** เพื่อเรียกใช้งานรหัสภายใน **[public/framework](../public/framework)/dir** เมื่อทรัพยากรเริ่มต้น
+การกำหนดค่า **[Framework](https://en.wikipedia.org/wiki/Framework)** เพื่อเรียกใช้งานรหัสภายใน **[public/framework](../public/framework.md)/dir** เมื่อทรัพยากรเริ่มต้น
 
 ```lua title="บรรทัดที่ 17"
 CONFIG.Frameworks = { -- [[ table ]]
@@ -55,9 +55,9 @@ CONFIG.Frameworks = { -- [[ table ]]
 
 :::info
 
-- สามารถเพิ่ม **[Framework](https://en.wikipedia.org/wiki/Framework)** ได้ (คุณสามารถดูรายละเอียดได้ที่ **[public/framework](../public/framework)**)
+- สามารถเพิ่ม **[Framework](https://en.wikipedia.org/wiki/Framework)** ได้ (คุณสามารถดูรายละเอียดได้ที่ **[public/framework](../public/framework.md)**)
 - `Resource` คือ ชื่อทรัพยากร ของ **[Framework](https://en.wikipedia.org/wiki/Framework)**
-- `Directory` คือ ชื่อไดเรกทอรี ของ **[Framework](https://en.wikipedia.org/wiki/Framework)** ภายใน **[public/framework](../public/framework)/dir**
+- `Directory` คือ ชื่อไดเรกทอรี ของ **[Framework](https://en.wikipedia.org/wiki/Framework)** ภายใน **[public/framework](../public/framework.md)/dir**
 - `Dependencies` คือ การพึ่งพาทรัพยากร (**ความต้องการ**)
 
 :::

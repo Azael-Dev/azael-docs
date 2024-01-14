@@ -35,7 +35,7 @@ exports['azael_db-health&armor']['GetPlayerHealth']();
 
 :::caution
 
-หากคุณไม่ได้เปิดใช้งาน **[Health.Enable](../config/client#healthenable)** คุณจะไม่สามารถเรียกใช้งานฟังก์ชันนี้ได้
+หากคุณไม่ได้เปิดใช้งาน **[Health.Enable](../config/client.md#healthenable)** คุณจะไม่สามารถเรียกใช้งานฟังก์ชันนี้ได้
 
 :::
 
@@ -62,7 +62,7 @@ exports['azael_db-health&armor']['DisablePlayerHealth']();
 
 :::caution
 
-หากคุณไม่ได้เปิดใช้งาน **[Health.Enable](../config/client#healthenable)** คุณจะไม่สามารถเรียกใช้งานฟังก์ชันนี้ได้
+หากคุณไม่ได้เปิดใช้งาน **[Health.Enable](../config/client.md#healthenable)** คุณจะไม่สามารถเรียกใช้งานฟังก์ชันนี้ได้
 
 :::
 
@@ -89,7 +89,7 @@ exports['azael_db-health&armor']['EnablePlayerHealth']();
 
 :::caution
 
-หากคุณไม่ได้เปิดใช้งาน **[Health.Enable](../config/client#healthenable)** คุณจะไม่สามารถเรียกใช้งานฟังก์ชันนี้ได้
+หากคุณไม่ได้เปิดใช้งาน **[Health.Enable](../config/client.md#healthenable)** คุณจะไม่สามารถเรียกใช้งานฟังก์ชันนี้ได้
 
 :::
 
@@ -122,7 +122,7 @@ exports['azael_db-health&armor']['GetPlayerArmour']();
 
 :::caution
 
-หากคุณไม่ได้เปิดใช้งาน **[Armour.Enable](../config/client#armourenable)** คุณจะไม่สามารถเรียกใช้งานฟังก์ชันนี้ได้
+หากคุณไม่ได้เปิดใช้งาน **[Armour.Enable](../config/client.md#armourenable)** คุณจะไม่สามารถเรียกใช้งานฟังก์ชันนี้ได้
 
 :::
 
@@ -149,7 +149,7 @@ exports['azael_db-health&armor']['DisablePlayerArmour']();
 
 :::caution
 
-หากคุณไม่ได้เปิดใช้งาน **[Armour.Enable](../config/client#armourenable)** คุณจะไม่สามารถเรียกใช้งานฟังก์ชันนี้ได้
+หากคุณไม่ได้เปิดใช้งาน **[Armour.Enable](../config/client.md#armourenable)** คุณจะไม่สามารถเรียกใช้งานฟังก์ชันนี้ได้
 
 :::
 
@@ -176,7 +176,7 @@ exports['azael_db-health&armor']['EnablePlayerArmour']();
 
 :::caution
 
-หากคุณไม่ได้เปิดใช้งาน **[Armour.Enable](../config/client#armourenable)** คุณจะไม่สามารถเรียกใช้งานฟังก์ชันนี้ได้
+หากคุณไม่ได้เปิดใช้งาน **[Armour.Enable](../config/client.md#armourenable)** คุณจะไม่สามารถเรียกใช้งานฟังก์ชันนี้ได้
 
 :::
 
