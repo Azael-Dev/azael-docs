@@ -4,7 +4,7 @@ sidebar_label: Tutorials
 
 # Tutorials & Guides
 
-บทช่วยสอนและคำแนะนำที่เกี่ยวข้องกับทรัพยากร **[azael_dc-serverlogs](./)**
+บทช่วยสอนและคำแนะนำที่เกี่ยวข้องกับทรัพยากร **[azael_dc-serverlogs](./index.md)**
 
 ## ติดตั้งรหัสส่งข้อมูล
 
@@ -14,14 +14,14 @@ sidebar_label: Tutorials
 
 โปรดอ่านรายละเอียดจากตัวเลือกด้านล่างนี้ เพื่อให้มีความเข้าใจเกี่ยวกับรหัสที่ใช้ในการส่งข้อมูลทางฝั่ง **[Server](https://en.wikipedia.org/wiki/Server-side)** และ **[Client](https://en.wikipedia.org/wiki/Client-side)**
 
-- **[ฟังก์ชันที่ใช้สำหรับการส่งข้อมูลทางฝั่ง Server](./export/server)**
-- **[ฟังก์ชันที่ใช้สำหรับการส่งข้อมูลทางฝั่ง Client](./export/client)**
+- **[ฟังก์ชันที่ใช้สำหรับการส่งข้อมูลทางฝั่ง Server](./export/server.md)**
+- **[ฟังก์ชันที่ใช้สำหรับการส่งข้อมูลทางฝั่ง Client](./export/client.md)**
 
 :::
 
 :::tip
 
-รองรับรหัสการส่งข้อมูล **[azael_dc-serverlogs](./)** เวอร์ชันที่ล้าสมัยในรูปแบบ **[Trigger Events](https://docs.fivem.net/docs/scripting-manual/working-with-events/triggering-events/)** คุณสามารถดูรายละเอียดเพิ่มเติมได้ที่ **[EventHandler.Events](./config/server#eventhandlerenable)**
+รองรับรหัสการส่งข้อมูล **[azael_dc-serverlogs](./index.md)** เวอร์ชันที่ล้าสมัยในรูปแบบ **[Trigger Events](https://docs.fivem.net/docs/scripting-manual/working-with-events/triggering-events/)** คุณสามารถดูรายละเอียดเพิ่มเติมได้ที่ **[EventHandler.Events](./config/server.md#eventhandlerenable)**
 
 :::
 
@@ -72,7 +72,7 @@ options = {
 }
 ```
 
-- หากใช้งาน **[Discord API](./config/server#discord-api)** ระบบจะดำเนินการ **Ping** ไปยังบทบาทตามการกำหนด [**Important.Content**](./config/server#importantcontent)
+- หากใช้งาน **[Discord API](./config/server.md#discord-api)** ระบบจะดำเนินการ **Ping** ไปยังบทบาทตามการกำหนด [**Important.Content**](./config/server.md#importantcontent)
 
 :::
 
@@ -132,11 +132,11 @@ function OpenBodySearchMenu(player)
 
 ## ใช้งาน Custom API
 
-**[Custom API](./config/server#custom-api)** คือ การส่งคำขอไปยัง **[Server API](https://en.wikipedia.org/wiki/Web_API)** ที่กำหนดเองแบบเรียลไทม์ (อ้างอิงจากกำหนดค่า **[API.BaseURL](./config/server#apibaseurl)**)
+**[Custom API](./config/server.md#custom-api)** คือ การส่งคำขอไปยัง **[Server API](https://en.wikipedia.org/wiki/Web_API)** ที่กำหนดเองแบบเรียลไทม์ (อ้างอิงจากกำหนดค่า **[API.BaseURL](./config/server.md#apibaseurl)**)
 
 :::tip
 
-คุณสามารถเปิดใช้งานได้ที่การกำหนดค่า **[Option.Type](./config/server#optiontype)** โดยระบุเป็น **`CUSTOM`**
+คุณสามารถเปิดใช้งานได้ที่การกำหนดค่า **[Option.Type](./config/server.md#optiontype)** โดยระบุเป็น **`CUSTOM`**
 
 :::
 
@@ -181,7 +181,7 @@ function OpenBodySearchMenu(player)
 
 ### HTTP Authentication
 
-**[Authorization](https://en.wikipedia.org/wiki/HTTP_authentication)** จะถูกกำหนดภายในส่วนหัวของคำขอ **[HTTP](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields)** ตามกำหนดค่า **[Authorization.Method](./config/server#apiauthorizationmethod)** และ **[Authorization.Token](./config/server#apiauthorizationtoken)**
+**[Authorization](https://en.wikipedia.org/wiki/HTTP_authentication)** จะถูกกำหนดภายในส่วนหัวของคำขอ **[HTTP](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields)** ตามกำหนดค่า **[Authorization.Method](./config/server.md#apiauthorizationmethod)** และ **[Authorization.Token](./config/server.md#apiauthorizationtoken)**
 
 ```http
 Authorization: <method> <token>
@@ -250,7 +250,7 @@ Authorization: <method> <token>
 | `options`                                    | `object`            | ❌                 | `null`                                       | ตัวเลือกการใช้งาน `public` หรือ `important`
 | `options.public`                             | `boolean`           | ❌                 | `null`                                       | ปิดการเเสดงข้อมูลส่วนตัวของผู้เล่น
 | `options.important`                          | `boolean`           | ❌                 | `null`                                       | ข้อมูลสำคัญ
-| `image`                                      | `string`            | ❌                 | `null`                                       | รูปภาพหน้าจอตามเหตุการณ์ที่กำหนด **[Screenshot.Webhooks](./config/server#screenshotwebhooks)**
+| `image`                                      | `string`            | ❌                 | `null`                                       | รูปภาพหน้าจอตามเหตุการณ์ที่กำหนด **[Screenshot.Webhooks](./config/server.md#screenshotwebhooks)**
 | `timestamp`                                  | `string`            | ✔️                 | ISO8601 timestamp                            | วันและเวลาที่ผู้เล่นดำเนินการ ในรูปแบบ [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) (มาตรฐานสากลสำหรับรูปแบบวันที่และเวลา)
 | `player`                                     | `object`            | ✔️                 |                                              | ข้อมูลผู้เล่น (`name`, `identifiers`, `steam`)
 | `player.name`                                | `string`            | ✔️                 |                                              | ชื่อผู้เล่น (อ้างอิงจาก Native: **[GET_PLAYER_NAME](https://docs.fivem.net/natives/?_0x406B4B20)**)
@@ -264,7 +264,7 @@ Authorization: <method> <token>
 | `player.steam.id`                            | `number`            | ✔️                 |                                              | **ID** บัญชี **[Steam](https://store.steampowered.com/)** ผู้เล่น
 | `player.steam.avatar`                        | `string`            | ✔️                 | Image URL                                    | ที่อยู่รูปภาพอวทาร์ บัญชี **[Steam](https://store.steampowered.com/)** ผู้เล่น
 | `player.steam.url`                           | `string`            | ✔️                 | Profile URL                                  | ที่อยู่โปรไฟล์ บัญชี **[Steam](https://store.steampowered.com/)** ผู้เล่น
-| `hardware`                                   | `array` / `string`  | ❌                 | `null`                                       | ข้อมูล **[Hardware Tokens](./config/server#hardwareenable)** ของอุปกรณ์คอมพิวเตอร์ที่ผู้เล่นใช้งาน (สำหรับเหตุการณ์ **`Login`** เท่านั้น)
+| `hardware`                                   | `array` / `string`  | ❌                 | `null`                                       | ข้อมูล **[Hardware Tokens](./config/server.md#hardwareenable)** ของอุปกรณ์คอมพิวเตอร์ที่ผู้เล่นใช้งาน (สำหรับเหตุการณ์ **`Login`** เท่านั้น)
 
 ### REST API (PHP & MongoDB)
 

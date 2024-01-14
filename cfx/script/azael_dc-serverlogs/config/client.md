@@ -15,7 +15,7 @@ CONFIG.Death = {} -- [[ table ]]
 ```
 ### Custom.Enable
 
-เปิดใช้งาน กำหนดเหตุการณ์สาเหตุการตายภายในโซนที่กำหนดใน **[Custom.Zones](./client#customzones)**
+เปิดใช้งาน กำหนดเหตุการณ์สาเหตุการตายภายในโซนที่กำหนดใน **[Custom.Zones](./client.md#customzones)**
 
 ```lua title="บรรทัดที่ 13"
 CONFIG.Death.Custom.Enable = false -- [[ boolean ]]
@@ -44,7 +44,7 @@ CONFIG.Death.Custom.Zones = { -- [[ table ]]
 
 :::info
 
-- `Event` หมายถึง ชื่อเหตุการณ์ (หากใช้งาน **[Discord API](../config/server#discord-api)** จะต้องกำหนดชื่อเหตุการณ์นี้ใน **"[CONFIG.Discord.Webhooks](../config/server#webhooks)"**)<br/>
+- `Event` หมายถึง ชื่อเหตุการณ์ (หากใช้งาน **[Discord API](../config/server.md#discord-api)** จะต้องกำหนดชื่อเหตุการณ์นี้ใน **"[CONFIG.Discord.Webhooks](../config/server.md#webhooks)"**)<br/>
 - `Coords` หมายถึง พิกัดของโซนที่กำหนด (`X`, `Y`, `Z`) ในรูปแบบ **[vector3](https://docs.fivem.net/docs/scripting-reference/runtimes/lua/functions/vector3/)**<br/>
 - `Radius` หมายถึง รัศมี หรือ ขอบเขต โดยอ้างอิงจากจุดศูนย์กลางของพิกัดที่กำหนดใน `Coords`
 
@@ -52,7 +52,7 @@ CONFIG.Death.Custom.Zones = { -- [[ table ]]
 
 ### Ignore.Enable
 
-เปิดใช้งาน ละเว้นสาเหตุการตายภายในโซนที่กำหนดใน **[Ignore.Zones](./client#ignorezones)**
+เปิดใช้งาน ละเว้นสาเหตุการตายภายในโซนที่กำหนดใน **[Ignore.Zones](./client.md#ignorezones)**
 
 ```lua title="บรรทัดที่ 26"
 CONFIG.Death.Ignore.Enable = false -- [[ boolean ]]

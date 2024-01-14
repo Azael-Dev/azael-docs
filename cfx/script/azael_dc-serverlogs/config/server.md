@@ -24,8 +24,8 @@ CONFIG.General.Option.Type = 'DISCORD' -- [[ string ]]
 
 :::info
 
-- `DISCORD` เท่ากับ ส่งคำขอไปยัง **[Discord API](https://discord.com/developers/docs/resources/webhook#create-webhook)** โดยใช้ **[Webhook URL](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)** (อ้างอิงจากกำหนดค่า **[Webhooks](./server#webhooks)**)<br/>
-- `CUSTOM` เท่ากับ ส่งคำขอไปยัง **[Server API](https://en.wikipedia.org/wiki/Web_API)** ที่กำหนดเอง (อ้างอิงจากกำหนดค่า **[API.BaseURL](./server#apibaseurl)**)
+- `DISCORD` เท่ากับ ส่งคำขอไปยัง **[Discord API](https://discord.com/developers/docs/resources/webhook#create-webhook)** โดยใช้ **[Webhook URL](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)** (อ้างอิงจากกำหนดค่า **[Webhooks](./server.md#webhooks)**)<br/>
+- `CUSTOM` เท่ากับ ส่งคำขอไปยัง **[Server API](https://en.wikipedia.org/wiki/Web_API)** ที่กำหนดเอง (อ้างอิงจากกำหนดค่า **[API.BaseURL](./server.md#apibaseurl)**)
 
 :::
 
@@ -59,7 +59,7 @@ CONFIG.General.Crashes.Hardware = true -- [[ boolean ]]
 
 ### Screenshot.Enable
 
-เปิดใช้งาน บันทึกภาพหน้าจอตามเหตุการณ์ที่กำหนดใน **[Screenshot.Webhooks](./server#screenshotwebhooks)**
+เปิดใช้งาน บันทึกภาพหน้าจอตามเหตุการณ์ที่กำหนดใน **[Screenshot.Webhooks](./server.md#screenshotwebhooks)**
 
 ```lua title="บรรทัดที่ 25"
 CONFIG.General.Screenshot.Enable = true -- [[ boolean ]]
@@ -178,7 +178,7 @@ CONFIG.General.Color = { -- [[ table ]]
 
 ### EventHandler.Enable
 
-เปิดใช้งาน **เพิ่มตัวจัดการเหตุการณ์** ให้รองรับรหัสการส่งข้อมูล **[azael_dc-serverlogs](../)** เวอร์ชันที่ล้าสมัยในรูปแบบ **[TriggerEvent](https://docs.fivem.net/docs/scripting-manual/working-with-events/triggering-events/)** ทางฝั่ง **[Server](https://en.wikipedia.org/wiki/Server-side)**
+เปิดใช้งาน **เพิ่มตัวจัดการเหตุการณ์** ให้รองรับรหัสการส่งข้อมูล **[azael_dc-serverlogs](../index.md)** เวอร์ชันที่ล้าสมัยในรูปแบบ **[TriggerEvent](https://docs.fivem.net/docs/scripting-manual/working-with-events/triggering-events/)** ทางฝั่ง **[Server](https://en.wikipedia.org/wiki/Server-side)**
 
 ```lua title="บรรทัดที่ 67"
 CONFIG.General.EventHandler.Enable = true -- [[ boolean ]]
@@ -193,13 +193,13 @@ CONFIG.General.EventHandler.Enable = true -- [[ boolean ]]
 :::caution
 
 - หากคุณใช้งาน **`TriggerServerEvent`** ทางฝั่ง **[Client](https://en.wikipedia.org/wiki/Client-side)** คุณจะได้รับข้อผิดพลาด **`event was not safe for net`** ที่ **[Server Console](https://docs.fivem.net/docs/server-manual/server-commands)**
-- มีความจำเป็นที่จะต้องใช้งาน **[รหัสส่งข้อมูลในรูปแบบใหม่](../export/client)** ทางฝั่ง **[Client](https://en.wikipedia.org/wiki/Client-side)**
+- มีความจำเป็นที่จะต้องใช้งาน **[รหัสส่งข้อมูลในรูปแบบใหม่](../export/client.md)** ทางฝั่ง **[Client](https://en.wikipedia.org/wiki/Client-side)**
 
 :::
 
 ### EventHandler.Events
 
-รายชื่อเหตุการณ์ทั้งหมดของ **[azael_dc-serverlogs](../)** ในเวอร์ชันที่ล้าสมัย
+รายชื่อเหตุการณ์ทั้งหมดของ **[azael_dc-serverlogs](../index.md)** ในเวอร์ชันที่ล้าสมัย
 
 ```lua title="บรรทัดที่ 69"
 CONFIG.General.EventHandler.Events = { -- [[ table ]]
@@ -227,7 +227,7 @@ local content = 'เนื้อหาของข้อความที่ต
 TriggerEvent('azael_dc-serverlogs:insertData', 'eventName', content, source, 7, false)
 ```
 
-- `Args[1]` ชื่อเหตุการณ์ที่ลงทะเบียนโดย **[azael_dc-serverlogs](../)** เพื่อรับข้อมูลจากทรัพยากรอื่น
+- `Args[1]` ชื่อเหตุการณ์ที่ลงทะเบียนโดย **[azael_dc-serverlogs](../index.md)** เพื่อรับข้อมูลจากทรัพยากรอื่น
 - `Args[2]` ชื่อเหตุการณ์เพื่อแยกประเภทของข้อมูล
 - `Args[3]` เนื้อหาของข้อความที่ต้องการส่ง
 - `Args[4]` แหล่งที่มาของผู้เล่น (**[NetID](https://docs.fivem.net/docs/scripting-manual/networking/ids/#players)**)
@@ -445,7 +445,7 @@ CONFIG.Discord.Filter.Identifiers = { -- [[ table ]]
 ```
 
 - `identifier` หมายถึง ตัวระบุของผู้เล่นที่ต้องการตรวจจับ และดำเนินการย้ายไปยังเหตุการณ์ใหม่<br/>
-- `new_event` หมายถึง ชื่อเหตุการณ์ใหม่ โดยอ้างอิงจาก ชื่อเหตุการณ์ ที่กำหนดใน **[CONFIG.Discord.Webhooks](./server#webhooks)**
+- `new_event` หมายถึง ชื่อเหตุการณ์ใหม่ โดยอ้างอิงจาก ชื่อเหตุการณ์ ที่กำหนดใน **[CONFIG.Discord.Webhooks](./server.md#webhooks)**
 
 :::
 
@@ -476,7 +476,7 @@ CONFIG.Discord.Webhooks = { -- [[ table ]]
 
 :::caution
 
-- ไม่ต้องกำหนดค่าในส่วนนี้ หากคุณไม่ได้ใช้งานตัวเลือก **`DISCORD`** ในการตั้งค่า **[Option.Type](./server#optiontype)**
+- ไม่ต้องกำหนดค่าในส่วนนี้ หากคุณไม่ได้ใช้งานตัวเลือก **`DISCORD`** ในการตั้งค่า **[Option.Type](./server.md#optiontype)**
 - เหตุการณ์ **`Login`**, **`Logout`**, **`Chat`**, **`Dead`** คือค่าเริ่มต้นของทรัพยากร (เหตุการณ์มาจากรหัสภายในทรัพยากรนี้)
 
 :::

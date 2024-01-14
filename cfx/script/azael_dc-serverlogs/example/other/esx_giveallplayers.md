@@ -4,11 +4,11 @@ sidebar_label: esx_giveallplayers
 
 # esx_giveallplayers
 
-ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากร **[esx_giveallplayers](https://github.com/minobear/esx_giveallplayers/tree/master/esx_giveallplayers)** เพื่อส่งข้อมูลมายัง **[azael_dc-serverlogs](../../)**
+ตัวอย่างรหัสที่ใช้เพิ่มไปยังทรัพยากร **[esx_giveallplayers](https://github.com/minobear/esx_giveallplayers/tree/master/esx_giveallplayers)** เพื่อส่งข้อมูลมายัง **[azael_dc-serverlogs](../../index.md)**
 
 :::danger
 
-โปรดตรวจสอบตัวแปรของรหัสทุกครั้ง เนื่องจากเวอร์ชันของทรัพยากรในตัวอย่างอาจจะไม่มีความเข้ากันได้กับทรัพยากรในเวอร์ชันที่คุณกำลังใช้งานอยู่ และส่งผลให้ไม่มีการส่งข้อมูลไปยัง **[azael_dc-serverlogs](../../)** เนื่องจากมีข้อผิดพลาดเกิดขึ้นจากรหัสที่คุณดำเนินการเพิ่ม
+โปรดตรวจสอบตัวแปรของรหัสทุกครั้ง เนื่องจากเวอร์ชันของทรัพยากรในตัวอย่างอาจจะไม่มีความเข้ากันได้กับทรัพยากรในเวอร์ชันที่คุณกำลังใช้งานอยู่ และส่งผลให้ไม่มีการส่งข้อมูลไปยัง **[azael_dc-serverlogs](../../index.md)** เนื่องจากมีข้อผิดพลาดเกิดขึ้นจากรหัสที่คุณดำเนินการเพิ่ม
 
 :::
 

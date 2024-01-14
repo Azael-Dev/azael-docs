@@ -1,10 +1,10 @@
 # azael_dc-serverlogs
 
-คำถามที่พบบ่อยเกียวกับวิธีแก้ไขปัญหาของทรัพยากร **[azael_dc-serverlogs](../../script/azael_dc-serverlogs/)**
+คำถามที่พบบ่อยเกียวกับวิธีแก้ไขปัญหาของทรัพยากร **[azael_dc-serverlogs](../../script/azael_dc-serverlogs/index.md)**
 
 ## วิธีแก้ไข "event [name] was not safe for net"
 
-หาก **[Server Console](https://docs.fivem.net/docs/server-manual/server-commands)** แสดงข้อความ `event [name] was not safe for net` จาก **[azael_dc-serverlogs](../../script/azael_dc-serverlogs)** สาเหตุเกิดจาก มีการใช้งาน **[รหัสส่งข้อมูลในเวอร์เวอร์ที่ล้าสมัย](../../script/azael_dc-serverlogs/config/server#eventhandlerenable)** ทางฝั่ง **[Client](https://en.wikipedia.org/wiki/Client-side)** และ มีความจำเป็นที่จะต้องดำเนินการแก้ไขเป็น **[รหัสส่งข้อมูลในรูปแบบใหม่](../../script/azael_dc-serverlogs/export/client)**
+หาก **[Server Console](https://docs.fivem.net/docs/server-manual/server-commands)** แสดงข้อความ `event [name] was not safe for net` จาก **[azael_dc-serverlogs](../../script/azael_dc-serverlogs/index.md)** สาเหตุเกิดจาก มีการใช้งาน **[รหัสส่งข้อมูลในเวอร์เวอร์ที่ล้าสมัย](../../script/azael_dc-serverlogs/config/server.md#eventhandlerenable)** ทางฝั่ง **[Client](https://en.wikipedia.org/wiki/Client-side)** และ มีความจำเป็นที่จะต้องดำเนินการแก้ไขเป็น **[รหัสส่งข้อมูลในรูปแบบใหม่](../../script/azael_dc-serverlogs/export/client.md)**
 
 ```js title="Server Console"
 [script:azael_dc-serverlogs] event azael_dc-serverlogs:sendToDiscord was not safe for net
@@ -14,7 +14,7 @@
 
 #### วิธีการค้นหาและแก้ไข
 - เปิดโฟลเดอร์ [**`resources`**](https://github.com/citizenfx/cfx-server-data/tree/master/resources) ด้วยโปรแกรม [**VS Code**](https://code.visualstudio.com/)
-- ค้นหา **`TriggerServerEvent('azael_d`** จะพบรหัสที่ต้องดำเนินการแก้ไขเป็น [**รหัสส่งข้อมูลในรูปแบบใหม่**](../../script/azael_dc-serverlogs/export/client) ทางฝั่ง [**Client**](https://en.wikipedia.org/wiki/Client-side)
+- ค้นหา **`TriggerServerEvent('azael_d`** จะพบรหัสที่ต้องดำเนินการแก้ไขเป็น [**รหัสส่งข้อมูลในรูปแบบใหม่**](../../script/azael_dc-serverlogs/export/client.md) ทางฝั่ง [**Client**](https://en.wikipedia.org/wiki/Client-side)
 
 #### ตัวอย่างการแก้ไขรหัส
 
@@ -38,7 +38,7 @@ end)
 
 :::tip
 
-รหัสส่งข้อมูลทางฝั่ง **[Client](https://en.wikipedia.org/wiki/Client-side)** ไม่ต้องกำหนด **`source`** เพื่อรับ **ID** ของผู้เล่นปัจจุบัน ยกเว้นในกรณีที่ต้องการรับ **ID** ของผู้เล่นที่มีปฏิสัมพันธ์กับผู้เล่นปัจจุบัน ([**ดูข้อมูลเพิ่มเติม**](../../script/azael_dc-serverlogs/tutorial#ติดตั้งฝั่ง-client))
+รหัสส่งข้อมูลทางฝั่ง **[Client](https://en.wikipedia.org/wiki/Client-side)** ไม่ต้องกำหนด **`source`** เพื่อรับ **ID** ของผู้เล่นปัจจุบัน ยกเว้นในกรณีที่ต้องการรับ **ID** ของผู้เล่นที่มีปฏิสัมพันธ์กับผู้เล่นปัจจุบัน ([**ดูข้อมูลเพิ่มเติม**](../../script/azael_dc-serverlogs/tutorial.md#ติดตั้งฝั่ง-client))
 
 :::
 
