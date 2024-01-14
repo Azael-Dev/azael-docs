@@ -144,7 +144,7 @@ end
 
 ```lua title="บรรทัดที่ 93"
 function DATABASE.FormatServerBackupCommand(dbUser, dbPass, dbHost, dbPort, dbName, cmdName, backupPath)
-    return ('%s -u %s %s --single-transaction --quick --lock-tables=false %s > %s'):format(cmdName, dbUser, (dbPass and ('-p%s'):format(dbPass) or ''), dbName, backupPath)
+    return ('"%s" -u %s %s --single-transaction --quick --lock-tables=false %s > "%s"'):format(cmdName, dbUser, (dbPass and ('-p%s'):format(dbPass) or ''), dbName, backupPath)
 end
 ```
 
@@ -175,7 +175,7 @@ function DATABASE.FormatPlayerBackupCommand(dbUser, dbPass, dbHost, dbPort, dbNa
     local password = (dbPass and ('-p%s'):format(dbPass) or '')
     local where = FRAMEWORK.Database.WHERE_IDENTIFIER:format(columnName, identifier)
     
-    return ('%s -u %s %s --no-create-db --no-create-info --skip-triggers --insert-ignore --single-transaction --quick --lock-tables=false %s %s --where="%s" >> %s'):format(cmdName, dbUser, password, dbName, tableName, where, backupPath)
+    return ('"%s" -u %s %s --no-create-db --no-create-info --skip-triggers --insert-ignore --single-transaction --quick --lock-tables=false %s %s --where="%s" >> "%s"'):format(cmdName, dbUser, password, dbName, tableName, where, backupPath)
 end
 ```
 
