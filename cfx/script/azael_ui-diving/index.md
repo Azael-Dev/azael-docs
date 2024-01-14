@@ -14,13 +14,13 @@
 - **[es_extended](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx%5D/es_extended)**
 - **[skinchanger](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx%5D/skinchanger)**
 - **[esx_skin](https://github.com/esx-framework/esx-legacy/tree/main/%5Besx%5D/esx_skin)**
-- **[oxmysql](https://github.com/overextended/oxmysql)** (แก้ไขได้ที่ไฟล์ **[database.config.lua](./config/database)**)
+- **[oxmysql](https://github.com/overextended/oxmysql)** (แก้ไขได้ที่ไฟล์ **[database.config.lua](./config/database.md)**)
 
 ## ติดตั้งและใช้งาน
 
 1. ดาวน์โหลดและแตกไฟล์ลงในโฟลเดอร์ `resources` ของคุณ
 2. ชื่อของทรัพยากรจะต้องเป็น `azael_ui-diving` ห้ามแก้ไขโดยเด็ดขาด
-3. ไปยังโฟลเดอร์ `config` และดำเนินการเปิดไฟล์ **[auth.config.lua](./config/auth.md)** เพื่อระบุ **[Token](./config/auth#token)** ของสินค้า
+3. ไปยังโฟลเดอร์ `config` และดำเนินการเปิดไฟล์ **[auth.config.lua](./config/auth.md)** เพื่อระบุ **[Token](./config/auth.md#token)** ของสินค้า
 4. ไปยังโฟลเดอร์ `[SQL]` และดำเนินการนำเข้าไฟล์ `azael_ui-diving.sql` ไปยังฐานข้อมูลของคุณ
 
 <Tabs>
