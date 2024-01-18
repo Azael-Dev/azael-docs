@@ -28,8 +28,10 @@ sidebar_label: Tutorials
 
 #### 3. สำรองฐานข้อมูลเซิร์ฟเวอร์
 
-- [**Backup.ServerData.Enable**](./config/server.md#backupserverdataenable)
-- [**Backup.ServerData.HourDist**](./config/server.md#backupserverdatahourdist)
+- [**Backup.ServerData.ResourceStart.Enable**](./config/server.md#backupserverdataresourcestartenable)
+- [**Backup.ServerData.ResourceStart.HourDist**](./config/server.md#backupserverdataresourcestarthourdist)
+- [**Backup.ServerData.Schedule.Enable**](./config/server.md#backupserverdatascheduleenable)
+- [**Backup.ServerData.Schedule.Times**](./config/server.md#backupserverdatascheduletimes)
 - [**Backup.ServerData.DeleteOldFiles.Enable**](./config/server.md#backupserverdatadeleteoldfilesenable)
 - [**Backup.ServerData.DeleteOldFiles.Days**](./config/server.md#backupserverdatadeleteoldfilesdays)
 

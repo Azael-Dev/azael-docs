@@ -191,12 +191,12 @@ CONFIG.General.LastSeen.PlayerDropped.Enable = true -- [[ boolean ]]
 
 :::
 
-### Backup.ServerData.Enable
+### Backup.ServerData.ResourceStart.Enable
 
 เปิดใช้งาน สำรองข้อมูลของเซิร์ฟเวอร์ เมื่อทรัพยากรนี้เรื่มต้น (เส้นทางไฟล์: **`azael_data/azael_db-guardian/server-backups`**)
 
-```lua title="บรรทัดที่ 68"
-CONFIG.General.Backup.ServerData.Enable = true -- [[ boolean ]]
+```lua title="บรรทัดที่ 69"
+CONFIG.General.Backup.ServerData.ResourceStart.Enable = true -- [[ boolean ]]
 ```
 
 :::info
@@ -206,12 +206,12 @@ CONFIG.General.Backup.ServerData.Enable = true -- [[ boolean ]]
 
 :::
 
-### Backup.ServerData.HourDist
+### Backup.ServerData.ResourceStart.HourDist
 
-ระยะเวลาที่จะไม่สำรองข้อมูลอีกครั้งภายใน **`X`** ชั่วโมง หากมีการสำรองข้อมูลของเซิร์ฟเวอร์ไปแล้ว
+ระยะเวลาที่จะไม่สำรองข้อมูลอีกครั้งภายใน **`X`** ชั่วโมง หากมีการสำรองข้อมูลของเซิร์ฟเวอร์ไปแล้ว เมื่อทรัพยากรนี้เรื่มต้น
 
-```lua title="บรรทัดที่ 69"
-CONFIG.General.Backup.ServerData.HourDist = 8 -- [[ number ]]
+```lua title="บรรทัดที่ 70"
+CONFIG.General.Backup.ServerData.ResourceStart.HourDist = 8 -- [[ number ]]
 ```
 
 :::info
@@ -220,11 +220,65 @@ CONFIG.General.Backup.ServerData.HourDist = 8 -- [[ number ]]
 
 :::
 
+### Backup.ServerData.Schedule.Enable
+
+เปิดใช้งาน สำรองข้อมูลของเซิร์ฟเวอร์ ตามเวลาที่กำหนดใน [Backup.ServerData.Schedule.Times](./server.md#backupserverdatascheduletimes) ในขณะที่เซิร์ฟเวอร์ออนไลน์อยู่
+
+```lua title="บรรทัดที่ 74"
+CONFIG.General.Backup.ServerData.Schedule.Enable = true -- [[ boolean ]]
+```
+
+:::info
+
+- `true` เท่ากับ เปิดใช้งาน
+- `false` เท่ากับ ปิดใช้งาน
+
+:::
+
+### Backup.ServerData.Schedule.Times
+
+กำหนดเวลาที่ต้องการ สำรองข้อมูลของเซิร์ฟเวอร์ ในขณะที่เซิร์ฟเวอร์ออนไลน์อยู่
+
+```lua title="บรรทัดที่ 76"
+CONFIG.General.Backup.ServerData.Schedule.Times = { -- [[ table ]]
+    '00:00', -- [[ string ]]
+    '01:00',
+    '02:00',
+    '03:00',
+    '04:00',
+    '05:00',
+    '06:00',
+    '07:00',
+    '08:00',
+    '09:00',
+    '10:00',
+    '11:00',
+    '12:00',
+    '13:00',
+    '14:00',
+    '15:00',
+    '16:00',
+    '17:00',
+    '18:00',
+    '19:00',
+    '20:00',
+    '21:00',
+    '22:00',
+    '23:00',
+}
+```
+
+:::info
+
+รูปแบบเวลา **`00:00`** ถึง **`23:59`** และการกำหนดค่าเริ่มต้นจะดำเนินการ **สำรองข้อมูลของเซิร์ฟเวอร์** ทุก **1** ชั่วโมง
+
+:::
+
 ### Backup.ServerData.DeleteOldFiles.Enable
 
 เปิดใช้งาน ลบไฟล์ สำรองข้อมูลของเซิร์ฟเวอร์ หากไฟล์เก่ากว่า **`X`** วัน ตามการกำหนดค่า [**Backup.ServerData.DeleteOldFiles.Days**](./server.md#backupserverdatadeleteoldfilesdays)
 
-```lua title="บรรทัดที่ 72"
+```lua title="บรรทัดที่ 105"
 CONFIG.General.Backup.ServerData.DeleteOldFiles.Enable = true -- [[ boolean ]]
 ```
 
@@ -239,7 +293,7 @@ CONFIG.General.Backup.ServerData.DeleteOldFiles.Enable = true -- [[ boolean ]]
 
 จำนวนวันที่ต้องการจัดเก็บไฟล์ สำรองข้อมูลของเซิร์ฟเวอร์ หากไฟล์เก่ากว่า **`X`** วัน ระบบจำดำเนินการลบไฟล์ทิ้ง (ต้องเปิดใช้งาน [**Backup.ServerData.DeleteOldFiles.Enable**](./server.md#backupserverdatadeleteoldfilesenable))
 
-```lua title="บรรทัดที่ 73"
+```lua title="บรรทัดที่ 106"
 CONFIG.General.Backup.ServerData.DeleteOldFiles.Days = 30 -- [[ number ]]
 ```
 
@@ -253,7 +307,7 @@ CONFIG.General.Backup.ServerData.DeleteOldFiles.Days = 30 -- [[ number ]]
 
 เปิดใช้งาน สำรองข้อมูลของผู้เล่น เมื่อถูกลบข้อมูล (เส้นทางไฟล์: **`azael_data/azael_db-guardian/player-backups`**)
 
-```lua title="บรรทัดที่ 78"
+```lua title="บรรทัดที่ 111"
 CONFIG.General.Backup.PlayerData.Enable = true -- [[ boolean ]]
 ```
 
@@ -268,7 +322,7 @@ CONFIG.General.Backup.PlayerData.Enable = true -- [[ boolean ]]
 
 นามสกุลไฟล์ สำหรับ การสำรองข้อมูล
 
-```lua title="บรรทัดที่ 82"
+```lua title="บรรทัดที่ 115"
 CONFIG.General.Backup.File.Extension = 'sql' -- [[ string ]]
 ```
 
@@ -276,7 +330,7 @@ CONFIG.General.Backup.File.Extension = 'sql' -- [[ string ]]
 
 เปิดใช้งาน บีบอัดไฟล์ ในรูปแบบ [**GZIP**](https://en.wikipedia.org/wiki/Gzip) หลังจากสร้างไฟล์ สำรองข้อมูล (นามสกุลไฟล์ **`.gz`**)
 
-```lua title="บรรทัดที่ 85"
+```lua title="บรรทัดที่ 118"
 CONFIG.General.Backup.File.Extension.GZIPCompression.Enable = true -- [[ boolean ]]
 ```
 
@@ -291,7 +345,7 @@ CONFIG.General.Backup.File.Extension.GZIPCompression.Enable = true -- [[ boolean
 
 คำสั่ง สำรองฐานข้อมูลของเซิร์ฟเวอร์
 
-```lua title="บรรทัดที่ 91"
+```lua title="บรรทัดที่ 124"
 CONFIG.General.Command.DatabaseBackup = 'dbbackup' -- [[ string ]]
 ```
 
@@ -305,7 +359,7 @@ CONFIG.General.Command.DatabaseBackup = 'dbbackup' -- [[ string ]]
 
 คำสั่ง ตรวจสอบ และ ลบข้อมูลผู้เล่น ที่ไม่เชื่อมต่อกับเซิร์ฟเวอร์มากกว่าวันที่กำหนด ตามการกำหนดค่า [**UserIdle.LimitDays**](./server.md#useridlelimitdays)
 
-```lua title="บรรทัดที่ 92"
+```lua title="บรรทัดที่ 125"
 CONFIG.General.Command.DeleteUserIdle = 'dbdelidle' -- [[ string ]]
 ```
 
@@ -319,7 +373,7 @@ CONFIG.General.Command.DeleteUserIdle = 'dbdelidle' -- [[ string ]]
 
 คำสั่ง ลบข้อมูลผู้เล่น ที่ระบุ โดยไม่ตรวจสอบวันที่เชื่อมต่อครั้งล่าสุดของผู้เล่น
 
-```lua title="บรรทัดที่ 93"
+```lua title="บรรทัดที่ 126"
 CONFIG.General.Command.DeleteUserData = 'dbdeluser' -- [[ string ]]
 ```
 
@@ -333,7 +387,7 @@ CONFIG.General.Command.DeleteUserData = 'dbdeluser' -- [[ string ]]
 
 คำสั่ง ยกเลิกสถานะถูกลบข้อมูล ให้ผู้เล่น
 
-```lua title="บรรทัดที่ 94"
+```lua title="บรรทัดที่ 127"
 CONFIG.General.Command.UndeleteUser = 'dbundeluser' -- [[ string ]]
 ```
 
@@ -347,7 +401,7 @@ CONFIG.General.Command.UndeleteUser = 'dbundeluser' -- [[ string ]]
 
 คำสั่ง แสดงข้อมูลผู้เล่น จากตาราง **`azael_db_guardian`** บนฐานข้อมูล
 
-```lua title="บรรทัดที่ 95"
+```lua title="บรรทัดที่ 128"
 CONFIG.General.Command.GetUserInfo = 'dbuserinfo' -- [[ string ]]
 ```
 
@@ -361,7 +415,7 @@ CONFIG.General.Command.GetUserInfo = 'dbuserinfo' -- [[ string ]]
 
 คำสั่ง เพิ่มจำนวนวัน ให้ผู้เล่น ในกรณีผู้เล่นเเจ้งลาหยุด
 
-```lua title="บรรทัดที่ 96"
+```lua title="บรรทัดที่ 129"
 CONFIG.General.Command.AddLeaveDays = 'dbaddleave' -- [[ string ]]
 ```
 
@@ -375,7 +429,7 @@ CONFIG.General.Command.AddLeaveDays = 'dbaddleave' -- [[ string ]]
 
 ฐานข้อมูล
 
-```lua title="บรรทัดที่ 101"
+```lua title="บรรทัดที่ 134"
 CONFIG.Database = {} -- [[ table ]]
 ```
 
@@ -383,7 +437,7 @@ CONFIG.Database = {} -- [[ table ]]
 
 ชื่อ ตัวแปรการกำหนดค่าการเชื่อมต่อกับฐานข้อมูล ที่ไฟล์ [**`server.cfg`**](https://docs.fivem.net/docs/server-manual/setting-up-a-server-vanilla/#servercfg)
 
-```lua title="บรรทัดที่ 102"
+```lua title="บรรทัดที่ 135"
 CONFIG.Database.GetConVarName = 'mysql_connection_string' -- [[ string ]]
 ```
 
@@ -397,7 +451,7 @@ CONFIG.Database.GetConVarName = 'mysql_connection_string' -- [[ string ]]
 
 กำหนด ตาราง และ คอลัมน์ จากฐานข้อมูลของ Framework ที่ใช้งาน ตามการกำหนดค่าใน [**Frameworks**](./server.md#frameworks)
 
-```lua title="บรรทัดที่ 104"
+```lua title="บรรทัดที่ 137"
 CONFIG.Database.Frameworks = { -- [[ table ]]
     ['framework_dir'] = { -- [[ table ]]
         FilterColumns = { -- [[ table ]]
@@ -515,7 +569,7 @@ CONFIG.Database.Frameworks = { -- [[ table ]]
 
 อัปโหลดไฟล์ไปยัง [**Google Drive API (GCP)**](https://console.cloud.google.com/apis/library/drive.googleapis.com), [**Discord API (Webhook)**](https://discord.com/developers/docs/resources/webhook) หรือ [**Custom API**](https://en.wikipedia.org/wiki/API) (แก้ไขรหัสได้ที่ไฟล์ **`public/fileupload/custom.fileupload.js`**)
 
-```lua title="บรรทัดที่ 164"
+```lua title="บรรทัดที่ 197"
 CONFIG.FileUpload = {} -- [[ table ]]
 ```
 
@@ -523,7 +577,7 @@ CONFIG.FileUpload = {} -- [[ table ]]
 
 ประเภทตัวเลือกที่ต้องการใช้งานการอัปโหลดไฟล์
 
-```lua title="บรรทัดที่ 166"
+```lua title="บรรทัดที่ 199"
 CONFIG.FileUpload.Option.Type = 0 -- [[ number ]]
 ```
 
@@ -538,7 +592,7 @@ CONFIG.FileUpload.Option.Type = 0 -- [[ number ]]
 
 เปิดใช้งาน ลบไฟล์ สำรองข้อมูลของเซิร์ฟเวอร์ หากไฟล์เก่ากว่า **`X`** วัน ตามการกำหนดค่า [**GoogleDriveAPI.DeleteOldFiles.Days**](./server.md#googledriveapideleteoldfilesdays)
 
-```lua title="บรรทัดที่ 171"
+```lua title="บรรทัดที่ 204"
 CONFIG.FileUpload.GoogleDriveAPI.DeleteOldFiles.Enable = true -- [[ boolean ]]
 ```
 
@@ -553,7 +607,7 @@ CONFIG.FileUpload.GoogleDriveAPI.DeleteOldFiles.Enable = true -- [[ boolean ]]
 
 จำนวนวันที่ต้องการจัดเก็บไฟล์ สำรองข้อมูลของเซิร์ฟเวอร์ หากไฟล์เก่ากว่า **`X`** วัน ระบบจำดำเนินการลบไฟล์ทิ้ง (ต้องเปิดใช้งาน [**GoogleDriveAPI.DeleteOldFiles.Enable**](./server.md#googledriveapideleteoldfilesenable))
 
-```lua title="บรรทัดที่ 172"
+```lua title="บรรทัดที่ 205"
 CONFIG.FileUpload.GoogleDriveAPI.DeleteOldFiles.Days = 60 -- [[ number ]]
 ```
 
@@ -567,7 +621,7 @@ CONFIG.FileUpload.GoogleDriveAPI.DeleteOldFiles.Days = 60 -- [[ number ]]
 
 ข้อมูลรับรองเพื่อยืนยันสิทธิ์ในการเข้าถึง [**Google Drive API**](https://developers.google.com/drive/api/guides/about-sdk) โดยใช้งาน [**Service Accounts**](https://cloud.google.com/iam/docs/service-account-overview)
 
-```lua title="บรรทัดที่ 175"
+```lua title="บรรทัดที่ 208"
 CONFIG.FileUpload.GoogleDriveAPI.ServiceAccountKey = { --[[ table ]]
     client_email = 'service_account_email', --[[ string ]]
     private_key = 'service_account_private_key' --[[ string ]]
@@ -584,7 +638,7 @@ CONFIG.FileUpload.GoogleDriveAPI.ServiceAccountKey = { --[[ table ]]
 
 แชร์โฟลเดอร์ สำรองข้อมูลของเซิร์ฟเวอร์ และ สำรองข้อมูลของผู้เล่น ไปยังบัญชี [**Gmail**](https://myaccount.google.com/) ของผู้ใช้ที่ระบุ เพื่อให้สามารถเข้าถึงได้บน [**Google Drive (Shared)**](https://drive.google.com/drive/shared-with-me)
 
-```lua title="บรรทัดที่ 181"
+```lua title="บรรทัดที่ 213"
 CONFIG.FileUpload.GoogleDriveAPI.SharedUsers = { --[[ table ]]
     'example@gmail.com' --[[ string ]]
 }
@@ -600,7 +654,7 @@ CONFIG.FileUpload.GoogleDriveAPI.SharedUsers = { --[[ table ]]
 
 รายการ คำสั่ง เกี่ยวกับไฟล์ สำรองข้อมูลของเซิร์ฟเวอร์
 
-```lua title="บรรทัดที่ 185"
+```lua title="บรรทัดที่ 218"
 CONFIG.FileUpload.GoogleDriveAPI.Command.ServerBackups = { --[[ table ]]
     FileList = 'gdserverlist', --[[ string ]]
     FileDelete = 'gdserverdel', --[[ string ]]
@@ -624,7 +678,7 @@ CONFIG.FileUpload.GoogleDriveAPI.Command.ServerBackups = { --[[ table ]]
 
 รายการ คำสั่ง เกี่ยวกับไฟล์ สำรองข้อมูลของเซิร์ฟเวอร์
 
-```lua title="บรรทัดที่ 191"
+```lua title="บรรทัดที่ 224"
 CONFIG.FileUpload.GoogleDriveAPI.Command.PlayerBackups = { --[[ table ]]
     FileList = 'gdplayerlist', --[[ string ]]
     FileDelete = 'gdplayerdel', --[[ string ]]
@@ -648,7 +702,7 @@ CONFIG.FileUpload.GoogleDriveAPI.Command.PlayerBackups = { --[[ table ]]
 
 ขนาดไฟล์สูงสุดที่อนุญาตให้อัปโหลดไฟล์ได้ โดยหน่วยเป็น MB
 
-```lua title="บรรทัดที่ 200"
+```lua title="บรรทัดที่ 233"
 CONFIG.FileUpload.DiscordAPI.MaxFileSize = 25 --[[ number ]]
 ```
 
@@ -675,7 +729,7 @@ CONFIG.FileUpload.DiscordAPI.MaxFileSize = 25 --[[ number ]]
 
 อัปโหลดไฟล์ สำรองข้อมูลของเซิร์ฟเวอร์ ไปยัง [**Webhook URL**](https://discord.com/developers/docs/resources/webhook) ที่ระบุ
 
-```lua title="บรรทัดที่ 207"
+```lua title="บรรทัดที่ 240"
 CONFIG.FileUpload.DiscordAPI.ServerData.WebhookURL = 'webhook_url' --[[ string ]]
 ```
 
@@ -683,7 +737,7 @@ CONFIG.FileUpload.DiscordAPI.ServerData.WebhookURL = 'webhook_url' --[[ string ]
 
 อัปโหลดไฟล์ สำรองข้อมูลของผู้เล่น เมื่อถูกลบข้อมูล ไปยัง [**Webhook URL**](https://discord.com/developers/docs/resources/webhook) ที่ระบุ
 
-```lua title="บรรทัดที่ 210"
+```lua title="บรรทัดที่ 244"
 CONFIG.FileUpload.DiscordAPI.PlayerData.WebhookURL = 'webhook_url' --[[ string ]]
 ```
 
@@ -691,7 +745,7 @@ CONFIG.FileUpload.DiscordAPI.PlayerData.WebhookURL = 'webhook_url' --[[ string ]
 
 ภาษา
 
-```lua title="บรรทัดที่ 216"
+```lua title="บรรทัดที่ 249"
 CONFIG.Language = { --[[ table ]]
     CONN_DATABASE_UNAVAILABLE = 'ฐานข้อมูลเซิร์ฟเวอร์ไม่พร้อมใช้งาน โปรดรายงานข้อความนี้ไปยังผู้ดูแลระบบเซิร์ฟเวอร์นี้\nผู้ดูแลระบบเซิร์ฟเวอร์: โปรดตรวจสอบสถานะของทรัพยากรที่คุณกำลังใช้สื่อสารกับฐานข้อมูลของเซิร์ฟเวอร์ ว่าสามารถเชื่อมต่อกับฐานข้อมูลได้สำเร็จหรือไม่',
     CONN_MISSING_IDENTIFIER = 'ไม่พบตัวระบุของคุณ โปรดดำเนินการตรวจสอบและลองเชื่อมค่อใหม่อีกครั้ง',
@@ -705,7 +759,7 @@ CONFIG.Language = { --[[ table ]]
 
 บันทึกที่กำหนดเอง
 
-```lua title="บรรทัดที่ 224"
+```lua title="บรรทัดที่ 257"
 CONFIG.CustomLog = {} --[[ table ]]
 ```
 
@@ -713,7 +767,7 @@ CONFIG.CustomLog = {} --[[ table ]]
 
 เปิดใช้งาน ฟังก์ชัน บันทึกการใช้งาน คำสั่ง หรือ ฟังก์ชันส่งออก ([**ExecuteCommand (function)**](./server.md#executecommand-function))
 
-```lua title="บรรทัดที่ 226"
+```lua title="บรรทัดที่ 259"
 CONFIG.CustomLog.Enable.ExecuteCommand = true -- [[ boolean ]]
 ```
 
@@ -728,7 +782,7 @@ CONFIG.CustomLog.Enable.ExecuteCommand = true -- [[ boolean ]]
 
 เปิดใช้งาน ฟังก์ชัน บันทึกสำรองฐานข้อมูลเซิร์ฟเวอร์ ([**ServerBackup (function)**](./server.md#serverbackup-function))
 
-```lua title="บรรทัดที่ 226"
+```lua title="บรรทัดที่ 260"
 CONFIG.CustomLog.Enable.ServerBackup = true -- [[ boolean ]]
 ```
 
@@ -743,7 +797,7 @@ CONFIG.CustomLog.Enable.ServerBackup = true -- [[ boolean ]]
 
 เปิดใช้งาน ฟังก์ชัน บันทึกลบข้อมูลผู้เล่นออกจากฐานข้อมูลของเซิร์ฟเวอร์ ([**DeletePlayerData (function)**](./server.md#deleteplayerdata-function))
 
-```lua title="บรรทัดที่ 228"
+```lua title="บรรทัดที่ 261"
 CONFIG.CustomLog.Enable.DeletePlayerData = true -- [[ boolean ]]
 ```
 
@@ -758,7 +812,7 @@ CONFIG.CustomLog.Enable.DeletePlayerData = true -- [[ boolean ]]
 
 ฟังก์ชัน บันทึกการใช้งาน คำสั่ง หรือ ฟังก์ชันส่งออก
 
-```lua title="บรรทัดที่ 238"
+```lua title="บรรทัดที่ 271"
 CONFIG.CustomLog.ExecuteCommand = function(command, success, response, source)
     local fields = {
         { name = '**COMMAND**', value = ('```%s```'):format(command), inline = false },
@@ -803,7 +857,7 @@ end
 
 ฟังก์ชัน บันทึกการสำรองฐานข้อมูลเซิร์ฟเวอร์
 
-```lua title="บรรทัดที่ 270"
+```lua title="บรรทัดที่ 303"
 CONFIG.CustomLog.ServerBackup = function(dbName, fileName, fileSize, filePath, fileUpload)
     local fields = {
         { name = '**DATABASE NAME**', value = ('```%s```'):format(dbName), inline = false },
@@ -855,7 +909,7 @@ end
 
 ฟังก์ชัน บันทึกลบข้อมูลผู้เล่นออกจากฐานข้อมูลของเซิร์ฟเวอร์
 
-```lua title="บรรทัดที่ 301"
+```lua title="บรรทัดที่ 334"
 CONFIG.CustomLog.DeletePlayerData = function(data)
     local fields, chunks = {}, {}
     local tableCount = #data.tables
