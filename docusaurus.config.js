@@ -13,10 +13,9 @@ const config = {
   url: 'https://docs.azael.dev',
   baseUrl: '/',
   favicon: 'img/logo.ico',
-  // trailingSlash: false,
   onBrokenLinks: 'throw',
-  // onBrokenAnchors: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenAnchors: 'throw',
+  onBrokenMarkdownLinks: 'throw',
 
   /**
    * GitHub pages deployment config.
