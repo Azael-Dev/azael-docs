@@ -1,6 +1,6 @@
 # azael_db-guardian
 
-[**สำรองฐานข้อมูลเซิร์ฟเวอร์**](./config/server.md#backupserverdataenable) และ [**ลบข้อมูลผู้เล่นที่ไม่ได้ใช้งาน**](./config/server.md#autodeleteenable) ออกจากฐานข้อมูลของเซิร์ฟเวอร์ พร้อมการ [**สำรองข้อมูลผู้เล่นที่ถูกลบ**](./config/server.md#backupplayerdataenable) รายบุคคล และยังสามารถอัปโหลดไฟล์สำรองข้อมูลไปยัง [**Google Drive API (GCP)**](https://console.cloud.google.com/apis/library/drive.googleapis.com), [**Discord API (Webhook)**](https://discord.com/developers/docs/resources/webhook) หรือ [**Custom API**](./public/fileupload.md) ได้
+[**สำรองฐานข้อมูลเซิร์ฟเวอร์**](./config/server.md#backupserverdataresourcestartenable) และ [**ลบข้อมูลผู้เล่นที่ไม่ได้ใช้งาน**](./config/server.md#autodeleteenable) ออกจากฐานข้อมูลของเซิร์ฟเวอร์ พร้อมการ [**สำรองข้อมูลผู้เล่นที่ถูกลบ**](./config/server.md#backupplayerdataenable) รายบุคคล และยังสามารถอัปโหลดไฟล์สำรองข้อมูลไปยัง [**Google Drive API (GCP)**](https://console.cloud.google.com/apis/library/drive.googleapis.com), [**Discord API (Webhook)**](https://discord.com/developers/docs/resources/webhook) หรือ [**Custom API**](./public/fileupload.md) ได้
 
 ## ความต้องการ
 

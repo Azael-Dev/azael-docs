@@ -34,7 +34,7 @@ const uploadFile = async(fileName, filePath, isFullBackup) => {
 |--------------------------------------------------|----------------------------------------|-------------------------------------------------
 | `fileName`                                       | `string`                               | ชื่อของไฟล์ที่จะอัปโหลด
 | `filePath`                                       | `string`                               | เส้นทางของไฟล์ที่จะอัปโหลด
-| `isFullBackup`                                   | `boolean`                              | เป็นการ [**สำรองข้อมูลเซิร์ฟเวอร์**](../config/server.md#backupserverdataenable) หรือไม่ <br />• **`true`** เท่ากับ [**สำรองข้อมูลเซิร์ฟเวอร์**](../config/server.md#backupserverdataenable) <br />• **`false`** เท่ากับ [**สำรองข้อมูลผู้เล่นที่ถูกลบข้อมูล**](../config/server.md#backupplayerdataenable)
+| `isFullBackup`                                   | `boolean`                              | เป็นการ [**สำรองข้อมูลเซิร์ฟเวอร์**](../config/server.md#backupserverdataresourcestartenable) หรือไม่ <br />• **`true`** เท่ากับ [**สำรองข้อมูลเซิร์ฟเวอร์**](../config/server.md#backupserverdataresourcestartenable) <br />• **`false`** เท่ากับ [**สำรองข้อมูลผู้เล่นที่ถูกลบข้อมูล**](../config/server.md#backupplayerdataenable)
 
 ### Return
 
