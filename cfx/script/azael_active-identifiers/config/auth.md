@@ -24,6 +24,6 @@ CONFIG.Auth.Token = 'product_token' -- [[ string ]]
 
 :::info
 
-ตรวจสอบ Token สินค้าของคุณได้ที่หน้า **[สินค้าที่ซื้อ](https://fivem.azael.dev/dashboard/digishop/)**
+ตรวจสอบ Token สินค้าของคุณได้ที่หน้า **[สินค้าที่ซื้อ](https://cfx.azael.dev/dashboard/digishop/)**
 
 :::
