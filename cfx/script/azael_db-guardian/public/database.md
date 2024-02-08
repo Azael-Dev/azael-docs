@@ -111,7 +111,7 @@ end
 | `dbPort`                     | `string` / `nil`   | พอร์ต ฐานข้อมูล
 | `dbName`                     | `string` / `nil`   | ชื่อ ฐานข้อมูล
 
-## GetDBConnection (function)
+## GetDumpCommand (function)
 
 รับคำสั่งที่ใช้ในการสำรองฐานข้อมูล
 
