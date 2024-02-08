@@ -16,4 +16,3 @@
 | File                     | Description                                                
 |--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------
 | `server.framework.lua`   | ไฟล์จะถูกโหลดทางฝั่ง **[Server](https://docs.fivem.net/docs/scripting-reference/resource-manifest/resource-manifest/#server_script)**
-| `client.framework.lua`   | ไฟล์จะถูกโหลดทางฝั่ง **[Client](https://docs.fivem.net/docs/scripting-reference/resource-manifest/resource-manifest/#client_script)**

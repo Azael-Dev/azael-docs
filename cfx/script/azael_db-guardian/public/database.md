@@ -254,17 +254,58 @@ end
 
 รับข้อมูลผู้เล่นที่ไม่ได้ใช้งาน
 
-```lua title="บรรทัดที่ 135"
-function DATABASE.GetIdlePlayers(delStatus, dayLimit, ignoreIds)
+```lua title="บรรทัดที่ 136"
+function DATABASE.GetIdlePlayers(delStatus, dayLimit, delLimit, ignoreIds)
     local query = 'SELECT `identifier`, UNIX_TIMESTAMP(`lastseen`) AS `lastseen` FROM `azael_db_guardian` WHERE `deleted` = ? AND `lastseen` < DATE_SUB(NOW(), INTERVAL ? DAY)'
 
-    if (type(ignoreIds) == 'table' and #ignoreIds > 0) then
+    if (ignoreIds and ignoreIds[1]) then
         local idsStr = ("'%s'"):format(table.concat(ignoreIds, "','"))
 
         query = ('%s AND `identifier` NOT IN (%s)'):format(query, idsStr)
     end
 
+    query = ('%s ORDER BY `lastseen` ASC LIMIT %d'):format(query, delLimit)
+    
     return MySQL.query.await(query, { delStatus, dayLimit })
+end
+```
+
+### Parameter
+
+| Name                         | Type               | Description                                                
+|------------------------------|--------------------|----------------------------------------------------------------------
+| `delStatus`                  | `boolean`          | สถานะ ลบข้อมูลผู้เล่น
+| `dayLimit`                   | `number`           | จำนวน วันที่ไม่เชื่อมต่อกับเซิร์ฟเวอร์ (ตามการกำหนดค่า [**UserIdle.LimitDays**](../config/server.md#useridlelimitdays))
+| `delLimit`                   | `number`           | จำนวน จำกัดการลบข้อมูลของผู้เล่นสูงสุด (ตามการกำหนดค่า [**AutoDelete.Limit**](../config/server.md#autodeletelimit))
+| `ignoreIds`                  | `table` / `nil`    | ตารางข้อมูล ตัวระบุผู้เล่นที่ละเว้น (ตามการกำหนดค่า [**IgnoreDelete.Identifiers**](../config/server.md#ignoredeleteidentifiers))
+| `ignoreIds[index]`           | `string`           | ตัวระบุผู้เล่นที่ละเว้น
+
+### Return
+
+| Name                         | Type               | Description                                                
+|------------------------------|--------------------|--------------------------------------------------
+| `data`                       | `table`            | ตารางข้อมูล ผู้เล่นทั้งหมด ที่เข้าเงื่อนไขถูกลบข้อมูล
+| `data[index]`                | `table`            | ตารางข้อมูล ผู้เล่น ที่เข้าเงื่อนไขถูกลบข้อมูล
+| `data[index].identifier`     | `string`           | ตัวระบุผู้เล่น
+| `data[index].lastseen`       | `number`           | วันที่ผู้เล่นเชื่อมต่อครั้งล่าสุด
+
+## CountIdlePlayers (function)
+
+นับจำนวนผู้เล่นที่ไม่ได้ใช้งาน (ไม่เชื่อมต่อกับเซิร์ฟเวอร์มากกว่าวันที่กำหนด)
+
+```lua title="บรรทัดที่ 155"
+function DATABASE.CountIdlePlayers(delStatus, dayLimit, ignoreIds)
+    local query = 'SELECT COUNT(`identifier`) AS `count` FROM `azael_db_guardian` WHERE `deleted` = ? AND `lastseen` < DATE_SUB(NOW(), INTERVAL ? DAY)'
+
+    if (ignoreIds and ignoreIds[1]) then
+        local idsStr = ("'%s'"):format(table.concat(ignoreIds, "','"))
+
+        query = ('%s AND `identifier` NOT IN (%s)'):format(query, idsStr)
+    end
+
+    local rows = MySQL.query.await(query, { delStatus, dayLimit })
+
+    return rows[1].count
 end
 ```
 
@@ -281,20 +322,17 @@ end
 
 | Name                         | Type               | Description                                                
 |------------------------------|--------------------|--------------------------------------------------
-| `data`                       | `table`            | ตารางข้อมูล ผู้เล่นทั้งหมด ที่เข้าเงื่อนไขถูกลบข้อมูล
-| `data[index]`                | `table`            | ตารางข้อมูล ผู้เล่น ที่เข้าเงื่อนไขถูกลบข้อมูล
-| `data[index].identifier`     | `string`           | ตัวระบุผู้เล่น
-| `data[index].lastseen`       | `number`           | วันที่ผู้เล่นเชื่อมต่อครั้งล่าสุด
+| `count`                      | `number`           | จำนวน ผู้เล่นที่ไม่เชื่อมต่อกับเซิร์ฟเวอร์มากกว่าวันที่กำหนด (ตามการกำหนดค่า [**UserIdle.LimitDays**](../config/server.md#useridlelimitdays))
 
 ## GetPlayerData (function)
 
 รับข้อมูล วันที่เชื่อมต่อ และ สถานะการถูกลบ ของผู้เล่น
 
-```lua title="บรรทัดที่ 150"
+```lua title="บรรทัดที่ 172"
 function DATABASE.GetPlayerData(identifier)
     local row = MySQL.prepare.await('SELECT UNIX_TIMESTAMP(`lastseen`) AS `lastseen`, `deleted` FROM `azael_db_guardian` WHERE `identifier` = ? LIMIT 1', { identifier })
 
-    if (row and type(row.deleted) == 'number') then
+    if (row and tonumber(row.deleted)) then
         row.deleted = row.deleted ~= 0
     end
 
@@ -320,14 +358,14 @@ end
 
 รับรายการตัวระบุที่ถูกสร้างโดย Framework เพื่อใช้ในการ ลบข้อมูล และ สำรองข้อมูล ของผู้เล่น
 
-```lua title="บรรทัดที่ 163"
+```lua title="บรรทัดที่ 185"
 function DATABASE.GetForeignCharIds(identifier)
     local idsStr
 
     if FRAMEWORK.Database.FOREIGN_IDENTIFIERS then
-        local rows = MySQL.prepare.await(FRAMEWORK.Database.FOREIGN_IDENTIFIERS, { identifier })
+        local rows = MySQL.query.await(FRAMEWORK.Database.FOREIGN_IDENTIFIERS, { identifier })
         
-        if rows then
+        if (rows and rows[1]) then
             idsStr = {}
             
             for i = 1, #rows, 1 do
@@ -364,7 +402,7 @@ end
 
 ตรวจสอบว่ามีข้อมูลอยู่หรือไม่
 
-```lua title="บรรทัดที่ 188"
+```lua title="บรรทัดที่ 210"
 function DATABASE.DoesRowExist(identifier, tableName, columnName)
     local where = FRAMEWORK.Database.WHERE_IDENTIFIER:format(columnName, identifier)
     local row = MySQL.scalar.await(('SELECT 1 FROM `%s` WHERE %s'):format(tableName, where))
@@ -391,9 +429,9 @@ end
 
 บันทึกข้อมูลการเชื่อมต่อผู้เล่น
 
-```lua title="บรรทัดที่ 198"
+```lua title="บรรทัดที่ 220"
 function DATABASE.InsertPlayerConnection(identifier)
-    MySQL.prepare('INSERT INTO `azael_db_guardian` (`identifier`) VALUES (?)', { identifier })
+    MySQL.insert('INSERT INTO `azael_db_guardian` (`identifier`) VALUES (?)', { identifier })
 end
 ```
 
@@ -407,7 +445,7 @@ end
 
 บันทึกข้อมูลการเชื่อมต่อผู้เล่น
 
-```lua title="บรรทัดที่ 205"
+```lua title="บรรทัดที่ 227"
 function DATABASE.UpdatePlayerConnection(identifier)
     MySQL.prepare('UPDATE `azael_db_guardian` SET lastseen = CURRENT_TIMESTAMP WHERE `identifier` = ?', { identifier })
 end
@@ -423,14 +461,14 @@ end
 
 อัพเดทวันที่เชื่อมต่อให้ผู้เล่น ในกรณีแจ้งลาต่างๆ
 
-```lua title="บรรทัดที่ 213"
+```lua title="บรรทัดที่ 235"
 function DATABASE.UpdatePlayerLeaveDays(identifier, days)
-    local success, err = pcall(MySQL.prepare.await, 'UPDATE `azael_db_guardian` SET lastseen = DATE_ADD(CURRENT_TIMESTAMP, INTERVAL ? DAY) WHERE `identifier` = ?', { days, identifier })
+    local success, err = pcall(MySQL.update.await, 'UPDATE `azael_db_guardian` SET lastseen = DATE_ADD(CURRENT_TIMESTAMP, INTERVAL ? DAY) WHERE `identifier` = ?', { days, identifier })
 
     if pcall(MySQL.scalar.await, 'SELECT 1 FROM `azael_dc_whitelisted` WHERE `identifier` = ?', { identifier }) then
         local unixTime = (days * 86400) + os.time()
         
-        MySQL.prepare('UPDATE `azael_dc_whitelisted` SET connect = ? WHERE `identifier` = ?', { unixTime, identifier })
+        MySQL.update('UPDATE `azael_dc_whitelisted` SET connect = ? WHERE `identifier` = ?', { unixTime, identifier })
     end
 
     return success, err
@@ -462,9 +500,9 @@ end
 
 อัพเดตสถานะการลบข้อมูลผู้เล่น
 
-```lua title="บรรทัดที่ 230"
+```lua title="บรรทัดที่ 252"
 function DATABASE.UpdateDeletionStatus(identifier, delStatus)
-    local success, err = pcall(MySQL.prepare.await, (delStatus 
+    local success, err = pcall(MySQL.update.await, (delStatus 
         and 'UPDATE `azael_db_guardian` SET deleted = ? WHERE `identifier` = ?'
         or 'UPDATE `azael_db_guardian` SET lastseen = CURRENT_TIMESTAMP, deleted = ? WHERE `identifier` = ?'
     ), { delStatus, identifier })
@@ -491,13 +529,13 @@ end
 
 ลบข้อมูลผู้เล่นออกจากฐานข้อมูล
 
-```lua title="บรรทัดที่ 244"
+```lua title="บรรทัดที่ 266"
 function DATABASE.DeletePlayerData(identifier, tableName, columnName)
     local where = FRAMEWORK.Database.WHERE_IDENTIFIER:format(columnName, identifier)
-    local success, rows = pcall(MySQL.prepare.await, ('DELETE FROM `%s` WHERE %s'):format(tableName, where))
+    local success, rows = pcall(MySQL.update.await, ('DELETE FROM `%s` WHERE %s'):format(tableName, where))
     
     if not success then
-        -- print(('[^1ERROR^7] %s'):format(rows))
+        print(('[^1ERROR^7] %s'):format(rows))
         
         return false, 0
     end

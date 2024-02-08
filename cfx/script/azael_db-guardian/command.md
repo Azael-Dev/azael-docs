@@ -36,6 +36,36 @@ dbdelidle
 
 :::
 
+### ยกเลิกกระบวนการลบข้อมูลผู้เล่น
+
+- คำสั่ง ยกเลิกกระบวนการลบข้อมูลผู้เล่นที่ไม่เชื่อมต่อ หากระบบกำลังดำเนินการลบข้อมูลอยู่
+- ชื่อคำสั่งเริ่มต้นคือ **`dbdelcancel`** (อ้างอิงจากการกำหนดค่า [**Command.CancelDelUserIdle**](./config/server.md#commandcanceldeluseridle))
+
+```sh
+dbdelcancel
+```
+
+:::caution
+
+สามารถใช้งานคำสั่งนี้ได้ทางฝั่ง [**Server**](https://en.wikipedia.org/wiki/Server-side) เท่านั้น ไม่สามารถใช้งานทางฝั่ง [**Client**](https://en.wikipedia.org/wiki/Client-side) ได้
+
+:::
+
+### แสดงจำนวนผู้เล่นที่เข้าเงื่อนไขถูกลบข้อมูล
+
+- คำสั่ง แสดงจำนวนผู้เล่นทั้งหมด ที่ไม่เชื่อมต่อกับเซิร์ฟเวอร์มากกว่าวันที่กำหนด ตามการกำหนดค่า [**UserIdle.LimitDays**](./config/server.md#useridlelimitdays)
+- ชื่อคำสั่งเริ่มต้นคือ **`dbcountidle`** (อ้างอิงจากการกำหนดค่า [**Command.CountUserIdle**](./config/server.md#commandcountuseridle))
+
+```sh
+dbcountidle
+```
+
+:::caution
+
+สามารถใช้งานคำสั่งนี้ได้ทางฝั่ง [**Server**](https://en.wikipedia.org/wiki/Server-side) เท่านั้น ไม่สามารถใช้งานทางฝั่ง [**Client**](https://en.wikipedia.org/wiki/Client-side) ได้
+
+:::
+
 ### ลบข้อมูลเฉพาะผู้เล่น
 
 - คำสั่ง ลบข้อมูลเฉพาะผู้เล่น โดยจะไม่ตรวจสอบวันที่เชื่อมต่อครั้งล่าสุดของผู้เล่น
