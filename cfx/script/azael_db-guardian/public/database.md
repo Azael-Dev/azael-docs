@@ -144,7 +144,7 @@ end
 
 ```lua title="บรรทัดที่ 93"
 function DATABASE.FormatServerBackupCommand(dbUser, dbPass, dbHost, dbPort, dbName, cmdName, backupPath)
-    return ('"%s" -u %s %s --single-transaction --quick --lock-tables=false %s > "%s"'):format(cmdName, dbUser, (dbPass and ('-p%s'):format(dbPass) or ''), dbName, backupPath)
+    return ('"%s" -u %s %s --single-transaction --quick %s > "%s"'):format(cmdName, dbUser, (dbPass and ('-p%s'):format(dbPass) or ''), dbName, backupPath)
 end
 ```
 
@@ -170,12 +170,12 @@ end
 
 จัดรูปแบบคำสั่งสำรองฐานข้อมูลผู้เล่น เมื่อถูกลบข้อมูล
 
-```lua title="บรรทัดที่ 109"
-function DATABASE.FormatPlayerBackupCommand(dbUser, dbPass, dbHost, dbPort, dbName, cmdName, backupPath, tableName, columnName, identifier)
+```lua title="บรรทัดที่ 110"
+function DATABASE.FormatPlayerBackupCommand(dbUser, dbPass, dbHost, dbPort, dbName, cmdName, backupPath, tableName, columnName, identifier, isSpecialId)
     local password = (dbPass and ('-p%s'):format(dbPass) or '')
-    local where = FRAMEWORK.Database.WHERE_IDENTIFIER:format(columnName, identifier)
+    local where = isSpecialId and ('`%s` IN (%s)'):format(columnName, identifier) or FRAMEWORK.Database.WHERE_IDENTIFIER:format(columnName, identifier)
     
-    return ('"%s" -u %s %s --no-create-db --no-create-info --skip-triggers --insert-ignore --single-transaction --quick --lock-tables=false %s %s --where="%s" >> "%s"'):format(cmdName, dbUser, password, dbName, tableName, where, backupPath)
+    return ('"%s" -u %s %s --no-create-db --no-create-info --skip-triggers --insert-ignore --complete-insert --single-transaction --quick %s %s --where="%s" >> "%s"'):format(cmdName, dbUser, password, dbName, tableName, where, backupPath)
 end
 ```
 
@@ -192,7 +192,8 @@ end
 | `backupPath`                 | `string`           | เส้นทางไฟล์ สำรองฐานข้อมูลผู้เล่น เมื่อถูกลบข้อมูล
 | `tableName`                  | `string`           | ชื่อ ตาราง ฐานข้อมูล
 | `columnName`                 | `string`           | ชื่อ คอลัมน์ ฐานข้อมูล
-| `identifier`                 | `string`           | ตัวระบุ ผู้เล่น
+| `identifier`                 | `string`           | ตัวระบุผู้เล่น หรือ ตัวระบุพิเศษ หาก `isSpecialId` เท่ากับ `true`
+| `isSpecialId`                | `boolean`          | เป็นตัวระบุพิเศษ
 
 ### Return
 
@@ -204,7 +205,7 @@ end
 
 รับชื่อ ตาราง, คอลัมน์ บนฐานข้อมูล
 
-```lua title="บรรทัดที่ 119"
+```lua title="บรรทัดที่ 120"
 function DATABASE.GetSchemaTable(dbName)
     return MySQL.query.await(("SELECT table_name, column_name FROM information_schema.columns WHERE table_schema = '%s'"):format(dbName))
 end
@@ -229,8 +230,8 @@ end
 
 รับชื่อ ตาราง ทีมีความสัมพันธ์กับตารางอื่นๆ ([**Foreign Keys**](https://en.wikipedia.org/wiki/Foreign_key))
 
-```lua title="บรรทัดที่ 126"
-function DATABASE.GetForeignkeyTable(dbName)
+```lua title="บรรทัดที่ 127"
+function DATABASE.GetForeignKeyTable(dbName)
     return MySQL.query.await(("SELECT table_name, referenced_table_name FROM information_schema.key_column_usage WHERE table_schema = '%s' AND referenced_table_name IS NOT NULL"):format(dbName))
 end
 ```
@@ -254,7 +255,7 @@ end
 
 รับข้อมูลผู้เล่นที่ไม่ได้ใช้งาน
 
-```lua title="บรรทัดที่ 136"
+```lua title="บรรทัดที่ 137"
 function DATABASE.GetIdlePlayers(delStatus, dayLimit, delLimit, ignoreIds)
     local query = 'SELECT `identifier`, UNIX_TIMESTAMP(`lastseen`) AS `lastseen` FROM `azael_db_guardian` WHERE `deleted` = ? AND `lastseen` < DATE_SUB(NOW(), INTERVAL ? DAY)'
 
@@ -293,7 +294,7 @@ end
 
 นับจำนวนผู้เล่นที่ไม่ได้ใช้งาน (ไม่เชื่อมต่อกับเซิร์ฟเวอร์มากกว่าวันที่กำหนด)
 
-```lua title="บรรทัดที่ 155"
+```lua title="บรรทัดที่ 156"
 function DATABASE.CountIdlePlayers(delStatus, dayLimit, ignoreIds)
     local query = 'SELECT COUNT(`identifier`) AS `count` FROM `azael_db_guardian` WHERE `deleted` = ? AND `lastseen` < DATE_SUB(NOW(), INTERVAL ? DAY)'
 
@@ -328,7 +329,7 @@ end
 
 รับข้อมูล วันที่เชื่อมต่อ และ สถานะการถูกลบ ของผู้เล่น
 
-```lua title="บรรทัดที่ 172"
+```lua title="บรรทัดที่ 173"
 function DATABASE.GetPlayerData(identifier)
     local row = MySQL.prepare.await('SELECT UNIX_TIMESTAMP(`lastseen`) AS `lastseen`, `deleted` FROM `azael_db_guardian` WHERE `identifier` = ? LIMIT 1', { identifier })
 
@@ -358,7 +359,7 @@ end
 
 รับรายการตัวระบุที่ถูกสร้างโดย Framework เพื่อใช้ในการ ลบข้อมูล และ สำรองข้อมูล ของผู้เล่น
 
-```lua title="บรรทัดที่ 185"
+```lua title="บรรทัดที่ 186"
 function DATABASE.GetForeignCharIds(identifier)
     local idsStr
 
@@ -372,7 +373,7 @@ function DATABASE.GetForeignCharIds(identifier)
                 idsStr[i] = rows[i]['id']
             end
 
-            idsStr = ("%s"):format(table.concat(idsStr, "','"))
+            idsStr = ("'%s'"):format(table.concat(idsStr, "','"))
         end
     end
 
@@ -396,15 +397,53 @@ end
 
 | Name                          | Type               | Description                                                
 |-------------------------------|--------------------|--------------------------------------------------
-| `frameworkIds`                | `string` / `nil`   | รายการตัวระบุ Framework ของผู้เล่นทั้งหมด (ตัวอย่าง: `"'ID_1', 'ID_2', 'ID_3'"`)
+| `idsStr`                      | `string` / `nil`   | รายการตัวระบุ Framework ของผู้เล่นทั้งหมด (ตัวอย่าง: `'ID_1'` หรือ `'ID_1', 'ID_2', 'ID_3'`)
+
+## GetKeysByIdentifier (function)
+
+รับคีย์อ้างอิงจาก ตัวระบุ เพื่อ สำรองข้อมูล หรือ ลบข้อมูล ของผู้เล่น
+
+```lua title="บรรทัดที่ 212"
+function DATABASE.GetKeysByIdentifier(identifier, tableName, idColumnName, keyColumnName)
+    local rows = MySQL.query.await(('SELECT `%s` AS `key` FROM `%s` WHERE `%s` = ?'):format(keyColumnName, tableName, idColumnName), { identifier })
+    local keysStr
+
+    if (rows and rows[1]) then
+        keysStr = {}
+            
+        for i = 1, #rows, 1 do
+            keysStr[i] = rows[i]['key']
+        end
+
+        keysStr = ("'%s'"):format(table.concat(keysStr, "','"))
+    end
+
+    return keysStr
+end
+```
+
+### Parameter
+
+| Name                         | Type               | Description                                                
+|------------------------------|--------------------|----------------------------------------------------------------------
+| `identifier`                 | `string`           | ตัวระบุผู้เล่น
+| `tableName`                  | `string`           | ชื่อตาราง
+| `idColumnName`               | `string`           | ชื่อคอลัมน์ ตัวระบุ
+| `keyColumnName`              | `string`           | ชื่อคอลัมน์ คีย์อ้างอิง
+
+### Return
+
+| Name                          | Type               | Description                                                
+|-------------------------------|--------------------|--------------------------------------------------
+| `keysStr`                     | `string` / `nil`   | รายการคีย์อ้างอิง (ตัวอย่าง: `'KEY_1'` หรือ `'KEY_1', 'KEY_2', 'KEY_3'`)
 
 ## DoesRowExist (function)
 
 ตรวจสอบว่ามีข้อมูลอยู่หรือไม่
 
-```lua title="บรรทัดที่ 210"
-function DATABASE.DoesRowExist(identifier, tableName, columnName)
-    local where = FRAMEWORK.Database.WHERE_IDENTIFIER:format(columnName, identifier)
+```lua title="บรรทัดที่ 235"
+function DATABASE.DoesRowExist(identifier, tableName, columnName, isSpecialId)
+    local where = isSpecialId and ('`%s` IN (%s)'):format(columnName, identifier) or FRAMEWORK.Database.WHERE_IDENTIFIER:format(columnName, identifier)
     local row = MySQL.scalar.await(('SELECT 1 FROM `%s` WHERE %s'):format(tableName, where))
     
     return row ~= nil
@@ -415,9 +454,10 @@ end
 
 | Name                         | Type               | Description                                                
 |------------------------------|--------------------|----------------------------------------------------------------------
-| `identifier`                 | `string`           | ตัวระบุผู้เล่น
-| `tableName`                  | `string` / `nil`   | ชื่อตาราง
-| `columnName`                 | `string` / `nil`   | ชื่อคอลัมน์
+| `identifier`                 | `string`           | ตัวระบุผู้เล่น หรือ ตัวระบุพิเศษ หาก `isSpecialId` เท่ากับ `true`
+| `tableName`                  | `string`           | ชื่อตาราง
+| `columnName`                 | `string`           | ชื่อคอลัมน์
+| `isSpecialId`                | `boolean`          | เป็นตัวระบุพิเศษ
 
 ### Return
 
@@ -429,7 +469,7 @@ end
 
 บันทึกข้อมูลการเชื่อมต่อผู้เล่น
 
-```lua title="บรรทัดที่ 220"
+```lua title="บรรทัดที่ 245"
 function DATABASE.InsertPlayerConnection(identifier)
     MySQL.insert('INSERT INTO `azael_db_guardian` (`identifier`) VALUES (?)', { identifier })
 end
@@ -445,7 +485,7 @@ end
 
 บันทึกข้อมูลการเชื่อมต่อผู้เล่น
 
-```lua title="บรรทัดที่ 227"
+```lua title="บรรทัดที่ 252"
 function DATABASE.UpdatePlayerConnection(identifier)
     MySQL.prepare('UPDATE `azael_db_guardian` SET lastseen = CURRENT_TIMESTAMP WHERE `identifier` = ?', { identifier })
 end
@@ -461,7 +501,7 @@ end
 
 อัพเดทวันที่เชื่อมต่อให้ผู้เล่น ในกรณีแจ้งลาต่างๆ
 
-```lua title="บรรทัดที่ 235"
+```lua title="บรรทัดที่ 260"
 function DATABASE.UpdatePlayerLeaveDays(identifier, days)
     local success, err = pcall(MySQL.update.await, 'UPDATE `azael_db_guardian` SET lastseen = DATE_ADD(CURRENT_TIMESTAMP, INTERVAL ? DAY) WHERE `identifier` = ?', { days, identifier })
 
@@ -500,7 +540,7 @@ end
 
 อัพเดตสถานะการลบข้อมูลผู้เล่น
 
-```lua title="บรรทัดที่ 252"
+```lua title="บรรทัดที่ 277"
 function DATABASE.UpdateDeletionStatus(identifier, delStatus)
     local success, err = pcall(MySQL.update.await, (delStatus 
         and 'UPDATE `azael_db_guardian` SET deleted = ? WHERE `identifier` = ?'
@@ -529,9 +569,9 @@ end
 
 ลบข้อมูลผู้เล่นออกจากฐานข้อมูล
 
-```lua title="บรรทัดที่ 266"
-function DATABASE.DeletePlayerData(identifier, tableName, columnName)
-    local where = FRAMEWORK.Database.WHERE_IDENTIFIER:format(columnName, identifier)
+```lua title="บรรทัดที่ 292"
+function DATABASE.DeletePlayerData(identifier, tableName, columnName, isSpecialId)
+    local where = isSpecialId and ('`%s` IN (%s)'):format(columnName, identifier) or FRAMEWORK.Database.WHERE_IDENTIFIER:format(columnName, identifier)
     local success, rows = pcall(MySQL.update.await, ('DELETE FROM `%s` WHERE %s'):format(tableName, where))
     
     if not success then
@@ -548,9 +588,10 @@ end
 
 | Name                         | Type               | Description                                                
 |------------------------------|--------------------|----------------------------------------------------------------------
-| `identifier`                 | `string`           | ตัวระบุผู้เล่น
+| `identifier`                 | `string`           | ตัวระบุผู้เล่น หรือ ตัวระบุพิเศษ หาก `isSpecialId` เท่ากับ `true`
 | `tableName`                  | `string`           | ชื่อตาราง
 | `columnName`                 | `string`           | ชื่อคอลัมน์
+| `isSpecialId`                | `boolean`          | เป็นตัวระบุพิเศษ
 
 ### Return
 

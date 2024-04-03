@@ -542,6 +542,15 @@ CONFIG.Database.Frameworks = { -- [[ table ]]
 
         IgnoreTables = { -- [[ table ]]
             'table_name' -- [[ string ]]
+        },
+
+        CustomForeignTables = { -- [[ table ]]
+            { -- [[ table ]]
+                table_name = 'table_name', -- [[ string ]]
+                column_name = 'column_name', -- [[ string ]]
+                referenced_table_name = 'table_name', -- [[ string ]]
+                referenced_column_name = 'column_name', -- [[ string ]]
+            }
         }
     }
 }
@@ -553,6 +562,11 @@ CONFIG.Database.Frameworks = { -- [[ table ]]
 - **`FilterColumns`** คือ ชื่อ คอลัมน์ ตัวระบุของผู้เล่น ใช้ในการอ้างอิงเพื่อดำเนินการ ลบข้อมูล และ สำรองข้อมูล ของผู้เล่น
 - **`IgnoreColumns`** คือ ชื่อ คอลัมน์ ที่ต้องการละเว้นการตรวจสอบจากชื่อ ตาราง ที่กำหนด ในกรณีภายใน ตาราง มีชื่อ คอลัมน์ ที่ตรงกับการกำหนดค่าใน **FilterColumns** และไม่ใช่ คอลัมน์ สำหรับจัดเก็บ ตัวระบุของผู้เล่น (**key** เท่ากับ ชื่อตาราง และ **value** เท่ากับ ชื่อคอลัมน์)
 - **`IgnoreTables`** คือ ชื่อ ตาราง ที่ต้องการละเว้น และ ไม่ลบข้อมูล ของผู้เล่น
+- **`CustomForeignTables`** คือ ตาราง ทีมีความสัมพันธ์กับ ตารางอื่น และไม่มีการจัดเก็บข้อมูล ตัวระบุของผู้เล่น ภายในตาราง เพื่อใช้ในการ ลบข้อมูล และ สำรองข้อมูล ของผู้เล่นให้ครบถ้วน (สามารถเพิ่มข้อมูลตารางได้)
+    - **`table_name`** คือ ชื่อ ตารางลูก ทีมีความสัมพันธ์กับ ตารางแม่ ที่ถูกอ้างอิง (จะต้องไม่มีการจัดเก็บข้อมูล ตัวระบุของผู้เล่น ภายในตาราง)
+    - **`column_name`** คือ ชื่อ คอลัมน์ (คีย์นอก) ทีมีความสัมพันธ์กับ คอลัมน์ (คีย์หลัก) ใน ตารางแม่ ที่ถูกอ้างอิง
+    - **`referenced_table_name`** คือ ชื่อ ตารางแม่ ที่ถูกอ้างอิง (จะต้องมีคอลัมน์จัดเก็บข้อมูล ตัวระบุของผู้เล่น ภายในตาราง)
+    - **`referenced_column_name`** คือ ชื่อ คอลัมน์ (คีย์หลัก) ทีมีความสัมพันธ์กับ คอลัมน์ (คีย์นอก) ใน ตารางลูก
 
 <details>
     <summary>การกำหนดค่าเริ่มต้น **ESX Framework**</summary>
@@ -574,6 +588,29 @@ CONFIG.Database.Frameworks = { -- [[ table ]]
     IgnoreTables = {
         'azael_db_guardian',
         'bans'
+    },
+    
+    CustomForeignTables = {
+        {
+            table_name = 'xzero_trunk',
+            column_name = 'plate',
+            referenced_table_name = 'owned_vehicles',
+            referenced_column_name = 'plate'
+        },
+
+        {
+            table_name = 'nc_vehicle_inside_storage',
+            column_name = 'plate',
+            referenced_table_name = 'owned_vehicles',
+            referenced_column_name = 'plate'
+        },
+
+        {
+            table_name = 'nc_vehicle_trunk_storage',
+            column_name = 'plate',
+            referenced_table_name = 'owned_vehicles',
+            referenced_column_name = 'plate'
+        }
     }
 }
 ```
@@ -600,6 +637,15 @@ CONFIG.Database.Frameworks = { -- [[ table ]]
     IgnoreTables = {
         'azael_db_guardian',
         'bans'
+    },
+    
+    CustomForeignTables = {
+        {
+            table_name = 'table_name',
+            column_name = 'column_name',
+            referenced_table_name = 'table_name',
+            referenced_column_name = 'column_name'
+        }
     }
 }
 ```
@@ -624,6 +670,22 @@ CONFIG.Database.Frameworks = { -- [[ table ]]
         'azael_db_guardian',
         'users',
         'banneds'
+    },
+    
+    CustomForeignTables = {
+        {
+            table_name = 'character_inventories',
+            column_name = 'character_id',
+            referenced_table_name = 'characters',
+            referenced_column_name = 'charidentifier'
+        },
+        
+        {
+            table_name = 'items_crafted',
+            column_name = 'character_id',
+            referenced_table_name = 'characters',
+            referenced_column_name = 'charidentifier'
+        }
     }
 }
 ```
@@ -647,7 +709,7 @@ CONFIG.Database.Frameworks = { -- [[ table ]]
 
 อัปโหลดไฟล์ไปยัง [**Google Drive API (GCP)**](https://console.cloud.google.com/apis/library/drive.googleapis.com), [**Discord API (Webhook)**](https://discord.com/developers/docs/resources/webhook) หรือ [**Custom API**](https://en.wikipedia.org/wiki/API) (แก้ไขรหัสได้ที่ไฟล์ **`public/fileupload/custom.fileupload.js`**)
 
-```lua title="บรรทัดที่ 207"
+```lua title="บรรทัดที่ 255"
 CONFIG.FileUpload = {} -- [[ table ]]
 ```
 
@@ -655,7 +717,7 @@ CONFIG.FileUpload = {} -- [[ table ]]
 
 ประเภทตัวเลือกที่ต้องการใช้งานการอัปโหลดไฟล์
 
-```lua title="บรรทัดที่ 209"
+```lua title="บรรทัดที่ 257"
 CONFIG.FileUpload.Option.Type = 0 -- [[ number ]]
 ```
 
@@ -670,7 +732,7 @@ CONFIG.FileUpload.Option.Type = 0 -- [[ number ]]
 
 เปิดใช้งาน ลบไฟล์ สำรองข้อมูลของเซิร์ฟเวอร์ หากไฟล์เก่ากว่า **`X`** วัน ตามการกำหนดค่า [**GoogleDriveAPI.DeleteOldFiles.Days**](./server.md#googledriveapideleteoldfilesdays)
 
-```lua title="บรรทัดที่ 214"
+```lua title="บรรทัดที่ 262"
 CONFIG.FileUpload.GoogleDriveAPI.DeleteOldFiles.Enable = true -- [[ boolean ]]
 ```
 
@@ -685,7 +747,7 @@ CONFIG.FileUpload.GoogleDriveAPI.DeleteOldFiles.Enable = true -- [[ boolean ]]
 
 จำนวนวันที่ต้องการจัดเก็บไฟล์ สำรองข้อมูลของเซิร์ฟเวอร์ หากไฟล์เก่ากว่า **`X`** วัน ระบบจำดำเนินการลบไฟล์ทิ้ง (ต้องเปิดใช้งาน [**GoogleDriveAPI.DeleteOldFiles.Enable**](./server.md#googledriveapideleteoldfilesenable))
 
-```lua title="บรรทัดที่ 215"
+```lua title="บรรทัดที่ 263"
 CONFIG.FileUpload.GoogleDriveAPI.DeleteOldFiles.Days = 60 -- [[ number ]]
 ```
 
@@ -699,7 +761,7 @@ CONFIG.FileUpload.GoogleDriveAPI.DeleteOldFiles.Days = 60 -- [[ number ]]
 
 ข้อมูลรับรองเพื่อยืนยันสิทธิ์ในการเข้าถึง [**Google Drive API**](https://developers.google.com/drive/api/guides/about-sdk) โดยใช้งาน [**Service Accounts**](https://cloud.google.com/iam/docs/service-account-overview)
 
-```lua title="บรรทัดที่ 218"
+```lua title="บรรทัดที่ 266"
 CONFIG.FileUpload.GoogleDriveAPI.ServiceAccountKey = { --[[ table ]]
     client_email = 'service_account_email', --[[ string ]]
     private_key = 'service_account_private_key' --[[ string ]]
@@ -716,7 +778,7 @@ CONFIG.FileUpload.GoogleDriveAPI.ServiceAccountKey = { --[[ table ]]
 
 แชร์โฟลเดอร์ สำรองข้อมูลของเซิร์ฟเวอร์ และ สำรองข้อมูลของผู้เล่น ไปยังบัญชี [**Gmail**](https://myaccount.google.com/) ของผู้ใช้ที่ระบุ เพื่อให้สามารถเข้าถึงได้บน [**Google Drive (Shared)**](https://drive.google.com/drive/shared-with-me)
 
-```lua title="บรรทัดที่ 223"
+```lua title="บรรทัดที่ 271"
 CONFIG.FileUpload.GoogleDriveAPI.SharedUsers = { --[[ table ]]
     'example@gmail.com' --[[ string ]]
 }
@@ -732,7 +794,7 @@ CONFIG.FileUpload.GoogleDriveAPI.SharedUsers = { --[[ table ]]
 
 รายการ คำสั่ง เกี่ยวกับไฟล์ สำรองข้อมูลของเซิร์ฟเวอร์
 
-```lua title="บรรทัดที่ 228"
+```lua title="บรรทัดที่ 276"
 CONFIG.FileUpload.GoogleDriveAPI.Command.ServerBackups = { --[[ table ]]
     FileList = 'gdserverlist', --[[ string ]]
     FileDelete = 'gdserverdel', --[[ string ]]
@@ -756,7 +818,7 @@ CONFIG.FileUpload.GoogleDriveAPI.Command.ServerBackups = { --[[ table ]]
 
 รายการ คำสั่ง เกี่ยวกับไฟล์ สำรองข้อมูลของเซิร์ฟเวอร์
 
-```lua title="บรรทัดที่ 234"
+```lua title="บรรทัดที่ 282"
 CONFIG.FileUpload.GoogleDriveAPI.Command.PlayerBackups = { --[[ table ]]
     FileList = 'gdplayerlist', --[[ string ]]
     FileDelete = 'gdplayerdel', --[[ string ]]
@@ -780,7 +842,7 @@ CONFIG.FileUpload.GoogleDriveAPI.Command.PlayerBackups = { --[[ table ]]
 
 ขนาดไฟล์สูงสุดที่อนุญาตให้อัปโหลดไฟล์ได้ โดยหน่วยเป็น MB
 
-```lua title="บรรทัดที่ 243"
+```lua title="บรรทัดที่ 291"
 CONFIG.FileUpload.DiscordAPI.MaxFileSize = 25 --[[ number ]]
 ```
 
@@ -807,7 +869,7 @@ CONFIG.FileUpload.DiscordAPI.MaxFileSize = 25 --[[ number ]]
 
 อัปโหลดไฟล์ สำรองข้อมูลของเซิร์ฟเวอร์ ไปยัง [**Webhook URL**](https://discord.com/developers/docs/resources/webhook) ที่ระบุ
 
-```lua title="บรรทัดที่ 250"
+```lua title="บรรทัดที่ 298"
 CONFIG.FileUpload.DiscordAPI.ServerData.WebhookURL = 'webhook_url' --[[ string ]]
 ```
 
@@ -815,7 +877,7 @@ CONFIG.FileUpload.DiscordAPI.ServerData.WebhookURL = 'webhook_url' --[[ string ]
 
 อัปโหลดไฟล์ สำรองข้อมูลของผู้เล่น เมื่อถูกลบข้อมูล ไปยัง [**Webhook URL**](https://discord.com/developers/docs/resources/webhook) ที่ระบุ
 
-```lua title="บรรทัดที่ 254"
+```lua title="บรรทัดที่ 302"
 CONFIG.FileUpload.DiscordAPI.PlayerData.WebhookURL = 'webhook_url' --[[ string ]]
 ```
 
@@ -823,7 +885,7 @@ CONFIG.FileUpload.DiscordAPI.PlayerData.WebhookURL = 'webhook_url' --[[ string ]
 
 ภาษา
 
-```lua title="บรรทัดที่ 259"
+```lua title="บรรทัดที่ 307"
 CONFIG.Language = { --[[ table ]]
     CONN_DATABASE_UNAVAILABLE = 'ฐานข้อมูลเซิร์ฟเวอร์ไม่พร้อมใช้งาน โปรดรายงานข้อความนี้ไปยังผู้ดูแลระบบเซิร์ฟเวอร์นี้\nผู้ดูแลระบบเซิร์ฟเวอร์: โปรดตรวจสอบสถานะของทรัพยากรที่คุณกำลังใช้สื่อสารกับฐานข้อมูลของเซิร์ฟเวอร์ ว่าสามารถเชื่อมต่อกับฐานข้อมูลได้สำเร็จหรือไม่',
     CONN_MISSING_IDENTIFIER = 'ไม่พบตัวระบุของคุณ โปรดดำเนินการตรวจสอบและลองเชื่อมค่อใหม่อีกครั้ง',
@@ -837,7 +899,7 @@ CONFIG.Language = { --[[ table ]]
 
 บันทึกที่กำหนดเอง
 
-```lua title="บรรทัดที่ 267"
+```lua title="บรรทัดที่ 315"
 CONFIG.CustomLog = {} --[[ table ]]
 ```
 
@@ -845,7 +907,7 @@ CONFIG.CustomLog = {} --[[ table ]]
 
 เปิดใช้งาน ฟังก์ชัน บันทึกการใช้งาน คำสั่ง หรือ ฟังก์ชันส่งออก ([**ExecuteCommand (function)**](./server.md#executecommand-function))
 
-```lua title="บรรทัดที่ 269"
+```lua title="บรรทัดที่ 317"
 CONFIG.CustomLog.Enable.ExecuteCommand = true -- [[ boolean ]]
 ```
 
@@ -860,7 +922,7 @@ CONFIG.CustomLog.Enable.ExecuteCommand = true -- [[ boolean ]]
 
 เปิดใช้งาน ฟังก์ชัน บันทึกสำรองฐานข้อมูลเซิร์ฟเวอร์ ([**ServerBackup (function)**](./server.md#serverbackup-function))
 
-```lua title="บรรทัดที่ 270"
+```lua title="บรรทัดที่ 318"
 CONFIG.CustomLog.Enable.ServerBackup = true -- [[ boolean ]]
 ```
 
@@ -875,7 +937,7 @@ CONFIG.CustomLog.Enable.ServerBackup = true -- [[ boolean ]]
 
 เปิดใช้งาน ฟังก์ชัน บันทึกลบข้อมูลผู้เล่นออกจากฐานข้อมูลของเซิร์ฟเวอร์ ([**DeletePlayerData (function)**](./server.md#deleteplayerdata-function))
 
-```lua title="บรรทัดที่ 271"
+```lua title="บรรทัดที่ 319"
 CONFIG.CustomLog.Enable.DeletePlayerData = true -- [[ boolean ]]
 ```
 
@@ -890,7 +952,7 @@ CONFIG.CustomLog.Enable.DeletePlayerData = true -- [[ boolean ]]
 
 ฟังก์ชัน บันทึกการใช้งาน คำสั่ง หรือ ฟังก์ชันส่งออก
 
-```lua title="บรรทัดที่ 281"
+```lua title="บรรทัดที่ 329"
 CONFIG.CustomLog.ExecuteCommand = function(command, success, response, source)
     local fields = {
         { name = '**COMMAND**', value = ('```%s```'):format(command), inline = false },
@@ -935,7 +997,7 @@ end
 
 ฟังก์ชัน บันทึกการสำรองฐานข้อมูลเซิร์ฟเวอร์
 
-```lua title="บรรทัดที่ 313"
+```lua title="บรรทัดที่ 361"
 CONFIG.CustomLog.ServerBackup = function(dbName, fileName, fileSize, filePath, fileUpload)
     local fields = {
         { name = '**DATABASE NAME**', value = ('```%s```'):format(dbName), inline = false },
@@ -987,7 +1049,7 @@ end
 
 ฟังก์ชัน บันทึกลบข้อมูลผู้เล่นออกจากฐานข้อมูลของเซิร์ฟเวอร์
 
-```lua title="บรรทัดที่ 344"
+```lua title="บรรทัดที่ 392"
 CONFIG.CustomLog.DeletePlayerData = function(data)
     local fields, chunks = {}, {}
     local tableCount = #data.tables
