@@ -87,3 +87,127 @@ CONFIG.Debug.Enable = false -- [[ boolean ]]
 ไม่แนะนำให้เปิดใช้งาน หากเซิร์ฟเวอร์ของคุณมีผู้เล่นออนไลน์อยู่เป็นจำนวนมาก
 
 :::
+
+## Bridge
+
+แปลง **ฟังก์ชันส่งออก** จากทรัพยากรอื่นๆมาเป็น [**azael_dc-serverlogs**](../index.md)
+
+```lua title="บรรทัดที่ 36"
+CONFIG.Bridge = {} -- [[ table ]]
+```
+
+### Exports
+
+แปลง **ฟังก์ชันส่งออก** จากทรัพยากรที่กำหนด (**สามารถเพิ่มข้อมูลได้**)
+
+```lua title="บรรทัดที่ 37"
+CONFIG.Bridge.Exports = { -- [[ table ]]
+    { -- [[ table ]]
+        Enable = true, -- [[ boolean ]]
+        Resource = 'resource_name', --[[ string ]]
+        Server = { -- [[ table ]]
+            Name = 'export_name', --[[ string ]]
+            Callback = function(...) --[[ function ]]
+                ---See: https://docs.azael.dev/cfx/script/azael_dc-serverlogs/export/server#insertdata
+                insertData(...) --[[ function ]]
+            end
+        },
+        Client = { -- [[ table ]]
+            Name = 'export_name', --[[ string ]]
+            Callback = function(...) --[[ function ]]
+                ---See: https://docs.azael.dev/cfx/script/azael_dc-serverlogs/export/client#insertdata
+                insertData(...) --[[ function ]]
+            end
+        }
+    }
+}
+```
+
+:::info
+
+- **Enable** เปิดใช้งานการแปลงฟังก์ชันส่งออกมาเป็น [azael_dc-serverlogs](../index.md) (`true` เท่ากับ เปิดใช้งาน | `false` เท่ากับ ปิดใช้งาน)
+- **Resource** ชื่อทรัพยากร
+- **Server** ฟังก์ชันส่งออกฝั่ง Server
+    - **Name** ชื่อฟังก์ชันส่งออกฝั่ง Server
+    - **Callback** ฟังก์ชัน Callback ฝั่ง Server
+- **Client** ฟังก์ชันส่งออกฝั่ง Client
+    - **Name** ชื่อฟังก์ชันส่งออกฝั่ง Client
+    - **Callback** ฟังก์ชัน Callback ฝั่ง Client
+
+<details>
+    <summary>การกำหนดค่าเริ่มต้น **NC Discord Logs**</summary>
+
+```lua title="nc_discordlogs"
+{
+    Enable = true,
+    Resource = 'nc_discordlogs',
+
+    Server = {
+        Name = 'Discord',
+        Callback = function(data)
+            if data.xPlayer then
+                insertData({
+                    event = data.webhook,
+                    content = ('### %s\n%s'):format(data.message or data.title, ( data.description or '')),
+                    fields = data.fields,
+                    image = data.imageURL,
+                    source = data.xPlayer.source,
+                    options = {
+                        public = data.public,
+                        codeblock = false
+                    }
+                })
+            end
+            
+            if data.xTarget then
+                insertData({
+                    event = data.webhook,
+                    content = ('### %s\n%s'):format(data.message or data.title, ( data.description or '')),
+                    fields = data.fields,
+                    image = data.imageURL,
+                    source = data.xTarget.source,
+                    options = {
+                        public = data.public,
+                        codeblock = false
+                    }
+                })
+            end
+        end
+    },
+    
+    Client = {
+        Name = 'Discord',
+        Callback = function(data)
+            insertData({
+                event = data.webhook,
+                content = ('### %s\n%s'):format(data.message or data.title, ( data.description or '')),
+                fields = data.fields,
+                image = data.imageURL,
+                source = (data.xPlayer and GetPlayerServerId(NetworkGetPlayerIndexFromPed(data.xPlayer)) or nil),
+                options = {
+                    public = data.public,
+                    codeblock = false
+                }
+            })
+            
+            if data.xTarget then
+                insertData({
+                    event = data.webhook,
+                    content = ('### %s\n%s'):format(data.message or data.title, ( data.description or '')),
+                    fields = data.fields,
+                    image = data.imageURL,
+                    source = GetPlayerServerId(NetworkGetPlayerIndexFromPed(data.xTarget)),
+                    options = {
+                        public = data.public,
+                        codeblock = false
+                    }
+                })
+            end
+        end
+    }
+}
+```
+
+</details>
+
+:::

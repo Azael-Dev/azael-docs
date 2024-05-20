@@ -13,11 +13,26 @@ sidebar_label: Client
 ```lua title="บรรทัดที่ 11"
 CONFIG.Death = {} -- [[ table ]]
 ```
+
+### Option.Type
+
+ตัวเลือกการส่งข้อมูล **สาเหตุการตาย** ในกรณีผู้เล่นถูกฆ่าโดยผู้เล่นคนอื่นๆ
+
+```lua title="บรรทัดที่ 13"
+CONFIG.Death.Option.Type = 0 -- [[ number ]]
+```
+
+| Value  |  Description                                                
+|--------|--------------------------------------------------
+| `0`    | ส่งข้อมูล **สาเหตุการตาย** ของ **ผู้ฆ่า** และ **ผู้ถูกฆ่า**
+| `1`    | ส่งข้อมูล **สาเหตุการตาย** เฉพาะ **ผู้ฆ่า**
+| `2`    | ส่งข้อมูล **สาเหตุการตาย** เฉพาะ **ผู้ถูกฆ่า**
+
 ### Custom.Enable
 
 เปิดใช้งาน กำหนดเหตุการณ์สาเหตุการตายภายในโซนที่กำหนดใน **[Custom.Zones](./client.md#customzones)**
 
-```lua title="บรรทัดที่ 13"
+```lua title="บรรทัดที่ 17"
 CONFIG.Death.Custom.Enable = false -- [[ boolean ]]
 ```
 
@@ -31,7 +46,7 @@ CONFIG.Death.Custom.Enable = false -- [[ boolean ]]
 
 โซนที่ต้องการกำหนดเอง (**สามารถเพิ่มโซนได้**)
 
-```lua title="บรรทัดที่ 15"
+```lua title="บรรทัดที่ 19"
 CONFIG.Death.Custom.Zones = { -- [[ table ]]
     --[[ Boxing - Los Santos International Airport ]]
     {
@@ -54,7 +69,7 @@ CONFIG.Death.Custom.Zones = { -- [[ table ]]
 
 เปิดใช้งาน ละเว้นสาเหตุการตายภายในโซนที่กำหนดใน **[Ignore.Zones](./client.md#ignorezones)**
 
-```lua title="บรรทัดที่ 26"
+```lua title="บรรทัดที่ 30"
 CONFIG.Death.Ignore.Enable = false -- [[ boolean ]]
 ```
 
@@ -68,7 +83,7 @@ CONFIG.Death.Ignore.Enable = false -- [[ boolean ]]
 
 รายการโซนที่ต้องการละเว้น (**สามารถเพิ่มโซนได้**)
 
-```lua title="บรรทัดที่ 28"
+```lua title="บรรทัดที่ 32"
 CONFIG.Death.Ignore.Zones = { -- [[ table ]]
     --[[ Boxing - Los Santos International Airport ]]
     {
@@ -89,7 +104,7 @@ CONFIG.Death.Ignore.Zones = { -- [[ table ]]
 
 เหตุผลสาเหตุการตาย
 
-```lua title="บรรทัดที่ 37"
+```lua title="บรรทัดที่ 41"
 CONFIG.Death.Reason = { -- [[ table ]]
     Default = 'เสียชีวิต โดย %s',
     Player = 'ถูก %s ฆ่า โดย %s',
@@ -143,7 +158,7 @@ CONFIG.Death.Reason = { -- [[ table ]]
 
 </details>
 
-```lua title="บรรทัดที่ 57"
+```lua title="บรรทัดที่ 61"
 CONFIG.Death.Causes = { -- [[ table ]]
     --[[ MELEE - ระยะประชิด ]]
     [`WEAPON_DAGGER`] = {                                   -- ชื่อ หรือ แฮช
