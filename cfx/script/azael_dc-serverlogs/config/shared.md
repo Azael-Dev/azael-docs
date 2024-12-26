@@ -145,13 +145,16 @@ CONFIG.Bridge.Exports = { -- [[ table ]]
     Server = {
         Name = 'Discord',
         Callback = function(data)
-            if data.xPlayer then
+            local playerId = data.xPlayer?.source or tonumber(data.xPlayer)
+            local targetId = data.xTarget?.source or tonumber(data.xTarget)
+
+            if playerId then
                 insertData({
                     event = data.webhook,
                     content = ('### %s\n%s'):format(data.message or data.title, ( data.description or '')),
                     fields = data.fields,
                     image = data.imageURL,
-                    source = data.xPlayer.source,
+                    source = playerId,
                     options = {
                         public = data.public,
                         codeblock = false
@@ -159,13 +162,13 @@ CONFIG.Bridge.Exports = { -- [[ table ]]
                 })
             end
             
-            if data.xTarget then
+            if targetId then
                 insertData({
                     event = data.webhook,
                     content = ('### %s\n%s'):format(data.message or data.title, ( data.description or '')),
                     fields = data.fields,
                     image = data.imageURL,
-                    source = data.xTarget.source,
+                    source = targetId,
                     options = {
                         public = data.public,
                         codeblock = false
