@@ -968,7 +968,7 @@ CONFIG.CustomLog.ExecuteCommand = function(command, success, response, source)
     pcall(function()
         exports['azael_dc-serverlogs']:insertData({
             event = 'DB_ExecuteCommand',
-            content = '**ประวัติการใช้งาน คำสั่ง หรือ ฟังก์ชันส่งออก**',
+            content = '### ประวัติการใช้งาน คำสั่ง หรือ ฟังก์ชันส่งออก',
             fields = fields,
             source = (source > 0 and source or 0),
             color = (success and 2 or 1),
@@ -1013,7 +1013,7 @@ CONFIG.CustomLog.ServerBackup = function(dbName, fileName, fileSize, filePath, f
     pcall(function()
         exports['azael_dc-serverlogs']:insertData({
             event = 'DB_ServerBackups',
-            content = '**สำรองฐานข้อมูลของเซิร์ฟเวอร์**',
+            content = '### สำรองฐานข้อมูลของเซิร์ฟเวอร์',
             fields = fields,
             source = 0,
             color = 2,
@@ -1087,7 +1087,7 @@ CONFIG.CustomLog.DeletePlayerData = function(data)
     pcall(function()
         exports['azael_dc-serverlogs']:insertData({
             event = 'DB_DeletePlayerData',
-            content = '**ลบข้อมูลผู้เล่นออกจากฐานข้อมูลของเซิร์ฟเวอร์**',
+            content = '### ลบข้อมูลผู้เล่นออกจากฐานข้อมูลของเซิร์ฟเวอร์',
             fields = fields,
             source = 0,
             color = 1,
