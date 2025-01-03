@@ -31,6 +31,7 @@
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.7.0",
     "@docusaurus/types": "^3.7.0",
+    "magic-snowflakes": "^7.0.1"
   },
   "browserslist": {
     "production": [
