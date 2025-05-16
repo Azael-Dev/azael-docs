@@ -43,11 +43,24 @@ const sidebars = {
       },
       collapsed: false,
       items: [
-        /* azael_dc-whitelisted */
+        /* azael_playpass */
         {
-          type: 'link',
-          label: 'azael_dc-whitelisted',
-          href: 'https://docs-old.azael.dev/docs/azael_dc-whitelisted/',
+          type: 'category',
+          label: 'azael_playpass',
+          link: {
+            type: 'doc',
+            id: 'script/azael_playpass/index',
+          },
+          items: [
+            {
+              type: 'category',
+              label: 'Config',
+              items: [
+                'script/azael_playpass/config/auth',
+                'script/azael_playpass/config/setup',
+              ],
+            },
+          ],
         },
         /* azael_dc-serverlogs */
         {
