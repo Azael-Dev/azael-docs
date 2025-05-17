@@ -6,7 +6,7 @@ sidebar_label: External API
 
 การกำหนดค่าเกี่ยวกับการตรวจสอบสิทธิ์ของผู้เล่นจาก API ภายนอก
 
-## Active API
+## activeAPI
 
 ประเภทตัวเลือกการตรวจสอบสิทธิ์จาก API ภายนอกที่ต้องการใช้งาน
 
@@ -17,14 +17,14 @@ activeAPI = ACTIVE_API.DISCORD
 - activeAPI: `integer`
     - ACTIVE_API: ข้อมูลการกำหนดค่าเกี่ยวกับประเภทตัวเลือกการตรวจสอบสิทธิ์จาก API ภายนอก (ถูกกำหนดมาจากภายในสคริปต์)
         - DISCORD: อ้างอิงสิทธิ์การเชื่อมต่อจากบทบาท (ยศ) ที่กำหนด
-            - ⚠️ หากใช้งานจะต้องกำหนดค่า [`identifierType`](./core.md#identifier-type) เป็น `discord` ที่ไฟล์ [`./config/core.lua`](./core.md)
+            - ⚠️ หากใช้งานจะต้องกำหนดค่า [`identifierType`](./core.md#identifiertype) เป็น `discord` ที่ไฟล์ [`./config/core.lua`](./core.md)
         - CUSTOM: อ้างอิงสิทธิ์การเชื่อมต่อจาก API ที่กำหนดเอง
 
-## Discord API
+## discord
 
 การกำหนดค่า [Discord API](https://discord.com/developers/docs/reference)
 
-### Base URL
+### baseUrl
 
 กำหนด [Base URL](https://discord.com/developers/docs/reference#api-reference-base-url) สำหรับการเชื่อมต่อกับ [Discord API](https://discord.com/developers/docs/reference)
 
@@ -34,7 +34,7 @@ baseUrl = 'https://discord.com/api'
 
 - baseUrl: `string`
 
-### Version
+### version
 
 กำหนดเวอร์ชัน [Discord API](https://discord.com/developers/docs/reference#api-versioning) ที่ต้องการใช้งาน
 
@@ -44,7 +44,7 @@ version = 10
 
 - version: `integer`
 
-### Bot Token
+### botToken
 
 [Bot Token](https://discord.com/developers/docs/discord-social-sdk/development-guides/using-with-discord-apis#authentication-types) ใช้สำหรับยืนยันตัวตนของบอท เพื่อให้สามารถเข้าถึง [Discord API](https://discord.com/developers/docs/reference) ได้
 
@@ -64,7 +64,7 @@ set discord_botToken "your_bot_token"
 
 :::
 
-### Guild ID
+### guildId
 
 Guild ID ที่ต้องการเข้าถึงข้อมูลสมาชิก
 
@@ -84,7 +84,7 @@ set discord_guildId "your_guild_id"
 
 :::
 
-### Allowed Roles
+### allowedRoleIds
 
 รายการ [Role ID](https://discord.com/developers/docs/topics/permissions#role-object) ที่ได้รับอนุญาตให้เข้าร่วมเซิร์ฟเวอร์ (รหัสของบทบาท/ยศ)
 
@@ -97,7 +97,7 @@ allowedRoleIds = {
 
 - `string`: รหัสของบทบาท/ยศที่ได้รับอนุญาตให้เข้าร่วมเซิร์ฟเวอร์
 
-### Guild Ban Check
+### guildBanCheck
 
 เปิดใช้งานตรวจสอบสถานะการถูกแบนจาก Guild บน Discord เมื่อผู้เล่นเชื่อมต่อ
 
@@ -113,7 +113,7 @@ Bot จะต้องมีสิทธิ์ [`BAN_MEMBERS`](https://discord.c
 
 :::
 
-### Request Limits
+### requestLimits
 
 กำหนดค่าการจำกัดจำนวนคำขอสำหรับ [Discord API](https://discord.com/developers/docs/reference)
 
@@ -138,7 +138,7 @@ requestLimits = {
 
 :::
 
-### Use DB Auth On Fail
+### useDbAuthOnFail
 
 ใช้การตรวจสอบสิทธิ์จากฐานข้อมูลแทน หากเกิดข้อผิดพลาดในการตรวจสอบสิทธิ์จาก [Discord API](https://discord.com/developers/docs/reference)
 
@@ -169,7 +169,7 @@ useDbAuthOnFail = {
 
 :::
 
-## Custom API
+## custom
 
 การกำหนดค่า Custom API
 
@@ -179,7 +179,7 @@ useDbAuthOnFail = {
 
 :::
 
-### Base URL
+### baseUrl
 
 กำหนด Base URL สำหรับการเชื่อมต่อกับ Custom API โดยใช้ Identifier อ้างอิงสิทธิ์การเชื่อมต่อกับเซิร์ฟเวอร์
 
@@ -191,11 +191,11 @@ baseUrl = 'https://example.com/api/players'
 
 :::info
 
-ตัวระบุอ้างอิงจากการกำหนดค่า [`identifierType`](./core.md#identifier-type) ที่ไฟล์ [./config/core.lua](./core.md)
+ตัวระบุอ้างอิงจากการกำหนดค่า [`identifierType`](./core.md#identifiertype) ที่ไฟล์ [./config/core.lua](./core.md)
 
 :::
 
-### Authorization
+### authorization
 
 การกำหนดค่าการตรวจสอบสิทธิ์สำหรับการเข้าถึง Custom API
 
@@ -205,7 +205,7 @@ authorization = 'Bearer <your_bearer_token>'
 
 - authorization: `string`
 
-### Request Limits
+### requestLimits
 
 กำหนดค่าการจำกัดจำนวนคำขอสำหรับ Custom API
 
@@ -224,7 +224,7 @@ requestLimits = {
 - per: `integer`
     - ระยะเวลาที่ต้องรอก่อนที่จะรีเซ็ตจำนวนคำขอใหม่ (หน่วยเป็น **วินาที**)
 
-### Use DB Auth On Fail
+### useDbAuthOnFail
 
 ใช้การตรวจสอบสิทธิ์จากฐานข้อมูลแทน หากเกิดข้อผิดพลาดในการตรวจสอบสิทธิ์จาก Custom API 
 

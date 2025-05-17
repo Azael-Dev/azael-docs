@@ -6,7 +6,7 @@ sidebar_label: Core
 
 การกำหนดค่าหลักของทรัพยากรนี้
 
-## Locale
+## locale
 
 ภาษาที่ต้องการใช้งาน
 
@@ -17,7 +17,7 @@ locale = 'th'
 - locale: `string`
     - เส้นทางไฟล์ `./locales/<langcode>.json`
 
-## Auth Method
+## authMethod
 
 ประเภทการตรวจสอบสิทธิ์การเชื่อมต่อที่ต้องการใช้งาน
 
@@ -31,7 +31,7 @@ authMethod = AUTH_METHOD.EXTERNAL_API
         - DATABASE: การตรวจสอบสิทธิ์จากตัวระบุ (identifier) ในฐานข้อมูลของเซิร์ฟเวอร์ที่ตาราง azael_playpass คอลัมน์ identifier
         - EXTERNAL_API: การตรวจสอบสิทธิ์ผ่าน API ภายนอก เช่น Discord API หรือ Custom API โดยใช้ HTTP Request เพื่อร้องขอข้อมูล (กำหนดค่าที่ไฟล์ `./config/external_api.lua`)
 
-## Maintenance Mode
+## maintenanceMode
 
 เปิดใช้งานโหมดปิดปรับปรุงเซิร์ฟเวอร์ โดยผู้เล่นที่ไม่มีสิทธิ์จะไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้
 
@@ -40,9 +40,9 @@ maintenanceMode = false
 ```
 
 - maintenanceMode: `boolean`
-    - กำหนดสิทธิ์ให้บทบาทที่อนุญาตได้ที่การกำหนค่า [Permissions](./core.md#permissions) สำหรับ [Skip Rules](./core.md#skip-rules) ประเภท `maintenance_mode`
+    - กำหนดสิทธิ์ให้บทบาทที่อนุญาตได้ที่การกำหนค่า [Permissions](./core.md#permissions) สำหรับ [Skip Rules](./core.md#skiprules) ประเภท `maintenance_mode`
 
-## User Profile Card
+## userProfileCard
 
 เปิดใช้งานการแสดงโปรไฟล์ข้อมูลบัญชีของผู้เล่นเมื่อเชื่อมต่อ
 
@@ -53,7 +53,7 @@ userProfileCard = true
 - userProfileCard: `boolean`
     - กำหนดค่าเพิ่มเติมที่ไฟล์ `./config/profile.lua` และปรับเเต่ง [Adaptive Cards](https://adaptivecards.io/) ได้ที่ `./modules/profile/templates`
 
-## Connection Queue
+## connectionQueue
 
 เปิดใช้งานระบบคิวการเชื่อมต่อ
 
@@ -64,7 +64,7 @@ connectionQueue = true
 - connectionQueue: `boolean`
     - กำหนดค่าเพิ่มเติมที่ไฟล์ `./config/queue.lua`
 
-## Identifier Type
+## identifierType
 
 ตัวระบุของผู้เล่นที่ต้องการใช้งาน
 
@@ -81,9 +81,9 @@ identifierType = 'discord'
 
 :::
 
-## Bind Identifier
+## bindIdentifier
 
-ผูกตัวระบุที่ต้องการเข้ากับตัวระบุที่กำหนดใน [`identifierType`](./core.md#identifier-type) เพื่อป้องกันการใช้บัญชีซ้ำหรือแจกจ่ายสิทธิ์ในการเชื่อมต่อกับเซิร์ฟเวอร์
+ผูกตัวระบุที่ต้องการเข้ากับตัวระบุที่กำหนดใน [`identifierType`](./core.md#identifiertype) เพื่อป้องกันการใช้บัญชีซ้ำหรือแจกจ่ายสิทธิ์ในการเชื่อมต่อกับเซิร์ฟเวอร์
 
 ```lua title="บรรทัดที่ 34"
 bindIdentifier = {
@@ -100,11 +100,11 @@ bindIdentifier = {
 
 :::danger
 
-โปรดหลีกเลี่ยงการใช้งานประเภทตัวระบุเดียวกันกับที่กำหนดใน [`identifierType`](./core.md#identifier-type) เพราะอาจเกิดข้อผิดพลาดได้
+โปรดหลีกเลี่ยงการใช้งานประเภทตัวระบุเดียวกันกับที่กำหนดใน [`identifierType`](./core.md#identifiertype) เพราะอาจเกิดข้อผิดพลาดได้
 
 :::
 
-## Max Ping Limit
+## maxPingLimit
 
 กำหนดค่า [Ping](https://en.wikipedia.org/wiki/Ping_(networking_utility)) สูงสุดที่อนุญาตให้ผู้เล่นเชื่อมต่อกับเซิร์ฟเวอร์
 
@@ -114,7 +114,7 @@ maxPingLimit = 500
 
 - maxPingLimit: `integer`
 
-## Connection Attempt Limit
+## connectionAttemptLimit
 
 ป้องกันการเชื่อมต่อบ่อยและเร็วเกินกำหนด
 
@@ -136,7 +136,7 @@ connectionAttemptLimit = {
 - blockDuration: `integer`
     - ระยะเวลาที่ผู้เล่นจะถูกบล็อกหลังจากพยายามเชื่อมต่อเกินจำนวนที่อนุญาต (หน่วยเป็น **วินาที**)
 
-## Ban Player Hwids
+## banPlayerHwids
 
 การแบน HWIDs ของผู้เล่น ([Player Tokens](https://docs.fivem.net/natives/?_0x54C06897))
 
@@ -162,7 +162,7 @@ banPlayerHwids = {
 
 :::
 
-## Auto Ban Associated
+## autoBanAssociated
 
 โหมดการแบนผู้เล่นที่เกี่ยวข้องกับผู้เล่นที่ถูกแบน จะทำการแบนอัตโนมัติเมื่อพบข้อมูลที่ตรงกับผู้เล่นที่ถูกแบนในฐานข้อมูลของเซิร์ฟเวอร์
 
@@ -174,13 +174,13 @@ autoBanAssociated = {
 ```
 
 - boundId: `boolean`
-    - เปิดใช้งานการตรวจสอบ [Bound Id](./core.md#bind-identifier) สำหรับการแบนผู้เล่นอัตโนมัติเมื่อพบข้อมูลที่ตรงกับผู้เล่นที่ถูกแบน
-        - ⚠️ ไม่ทำงานหากปิดใช้งาน [`bindIdentifier`](./core.md#bind-identifier)
+    - เปิดใช้งานการตรวจสอบ [Bound Id](./core.md#bindidentifier) สำหรับการแบนผู้เล่นอัตโนมัติเมื่อพบข้อมูลที่ตรงกับผู้เล่นที่ถูกแบน
+        - ⚠️ ไม่ทำงานหากปิดใช้งาน [`bindIdentifier`](./core.md#bindidentifier)
 - hwids: `boolean`
-    - เปิดใช้งานการตรวจสอบ [HWID Tokens](./core.md#ban-player-hwids) สำหรับการแบนผู้เล่นอัตโนมัติเมื่อพบข้อมูลที่ตรงกับผู้เล่นที่ถูกแบน
-        - ⚠️ ไม่ทำงานหากปิดใช้งาน [`banPlayerHwids`](./core.md#ban-player-hwids)
+    - เปิดใช้งานการตรวจสอบ [HWID Tokens](./core.md#banplayerhwids) สำหรับการแบนผู้เล่นอัตโนมัติเมื่อพบข้อมูลที่ตรงกับผู้เล่นที่ถูกแบน
+        - ⚠️ ไม่ทำงานหากปิดใช้งาน [`banPlayerHwids`](./core.md#banplayerhwids)
 
-## Inactive Players
+## inactivePlayers
 
 กำหนดค่าการตรวจสอบผู้เล่นที่ไม่ได้เข้าร่วมเซิร์ฟเวอร์ตามระยะเวลาที่กำหนด ผู้เล่นจะถูกระงับการใช้งานเมื่อครบระยะเวลาที่กำหนด
 
@@ -196,7 +196,7 @@ inactivePlayers = {
 - limitDays: `integer`
     - จำนวนวันที่ผู้เล่นไม่ได้เข้าร่วมเซิร์ฟเวอร์ก่อนที่จะถูกระงับ (หน่วยเป็น **วัน**)
 
-## Airtime Server
+## airTimeServer
 
 ระบบจำกัดเวลาในการเล่น โดยผู้เล่นจะต้องเติม Airtime เพื่อเพิ่มเวลาในการเล่น
 
@@ -216,7 +216,7 @@ airTimeServer = {
     - เปิดใช้งานเตะผู้เล่นออกจากเซิร์ฟเวอร์หากหมดเวลาเล่น
 
 
-## New Player Label
+## newPlayerLabel
 
 ป้ายกำกับผู้เล่นใหม่ โดยจะแสดงข้อความบนส่วนหัวของผู้เล่น
 
@@ -238,7 +238,7 @@ newPlayerLabel = {
 
 :::
 
-## Community Link
+## communityLink
 
 ลิงก์ของชุมชนจะถูกแสดงให้ผู้เล่นทราบเมื่อไม่มีสิทธิ์เข้าร่วมเซิร์ฟเวอร์หรือเกิดปัญหาอื่นๆ
 
@@ -260,7 +260,7 @@ communityLink = {
 - supportUrl: `string`
     - [URL](https://en.wikipedia.org/wiki/URL) สำหรับติดต่อฝ่ายสนับสนุนหากพบปัญหาในการเชื่อมต่อกับเซิร์ฟเวอร์
 
-## Resource Blocks
+## resourceBlocks
 
 บล็อกทรัพยากรที่ส่งผลต่อการทำงาน เช่น การควบคุมระบบคิว หรือ การตรวจสอบสิทธิ์การเชื่อมต่อกับเซิร์ฟเวอร์
 
@@ -275,7 +275,7 @@ resourceBlocks = {
     - [azael_dc-whitelisted](https://github.com/Azael-Dev/azael-fivem-docs/tree/master/content/docs/azael_dc-whitelisted) ทรัพยากรนี้ในเวอร์ชันเก่า (**ล้าสมัย**)
     - [hardcap](https://github.com/citizenfx/cfx-server-data/tree/master/resources/%5Bsystem%5D/hardcap) ทรัพยากรเกี่ยวกับระบบคิวเชื่อมต่อกับเซิร์ฟเวอร์
 
-## Permissions
+## permissions
 
 กำหนดสิทธิ์ในการเข้าถึงและการข้ามข้อจำกัดต่างๆ
 
@@ -288,7 +288,7 @@ permissions = {
 - skipRules: `table`
     - กำหนดสิทธิ์ที่อนุญาตให้ผู้เล่นข้ามการตรวจสอบและข้อจำกัดตามบทบาท
 
-### Skip Rules
+### skipRules
 
 กำหนดสิทธิ์ที่อนุญาตให้ผู้เล่นข้ามการตรวจสอบและข้อจำกัดตามบทบาท
 
@@ -360,6 +360,6 @@ skipRules = {
 
 :::tip
 
-ตัวแปร [**PLAYER_ROLES**](./setup.md#player-roles) คือข้อมูลการกำหนดค่าเกี่ยวกับบทบาทของผู้เล่น โดนอ้างอิงการกำหนดค่าที่ไฟล์ [`./config/setup.lua`](./setup.md)
+ตัวแปร [**PLAYER_ROLES**](./setup.md#roles) คือข้อมูลการกำหนดค่าเกี่ยวกับบทบาทของผู้เล่น โดนอ้างอิงการกำหนดค่าที่ไฟล์ [`./config/setup.lua`](./setup.md)
 
 :::

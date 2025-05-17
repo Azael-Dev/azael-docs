@@ -30,7 +30,7 @@
 
 1. ดาวน์โหลดและแตกไฟล์ลงในโฟลเดอร์ **resources** ของคุณ
 2. ชื่อของทรัพยากรจะต้องเป็น **azael_playpass** ห้ามแก้ไขโดยเด็ดขาด
-3. ไปยังโฟลเดอร์ **config** และดำเนินการเปิดไฟล์ [**auth.lua**](./config/auth.md) เพื่อระบุ [**Token**](./config/auth.md#product-token) ของสินค้า
+3. ไปยังโฟลเดอร์ **config** และดำเนินการเปิดไฟล์ [**auth.lua**](./config/auth.md) เพื่อระบุ [**Token**](./config/auth.md#producttoken) ของสินค้า
 4. ไปยังไฟล์ **server.cfg** และทำการเพิ่ม `ensure azael_playpass`
 
 ```diff title="server.cfg"
