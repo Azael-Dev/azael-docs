@@ -60,6 +60,7 @@ const sidebars = {
                 'script/azael_playpass/config/setup',
                 'script/azael_playpass/config/core',
                 'script/azael_playpass/config/external_api',
+                'script/azael_playpass/config/queue',
               ],
             },
           ],
