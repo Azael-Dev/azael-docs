@@ -59,6 +59,7 @@ const sidebars = {
                 'script/azael_playpass/config/auth',
                 'script/azael_playpass/config/setup',
                 'script/azael_playpass/config/core',
+                'script/azael_playpass/config/external_api',
               ],
             },
           ],
