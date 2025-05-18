@@ -29,7 +29,7 @@ authMethod = AUTH_METHOD.EXTERNAL_API
     - AUTH_METHOD: ข้อมูลการกำหนดค่าเกี่ยวกับประเภทการตรวจสอบสิทธิ์การเชื่อมต่อ (ถูกกำหนดมาจากภายในสคริปต์)
         - DISABLE: ปิดใช้งานการตรวจสอบสิทธิ์การเชื่อมต่อ
         - DATABASE: การตรวจสอบสิทธิ์จากตัวระบุ (identifier) ในฐานข้อมูลของเซิร์ฟเวอร์ที่ตาราง azael_playpass คอลัมน์ identifier
-        - EXTERNAL_API: การตรวจสอบสิทธิ์ผ่าน API ภายนอก เช่น Discord API หรือ Custom API โดยใช้ HTTP Request เพื่อร้องขอข้อมูล (กำหนดค่าที่ไฟล์ `./config/external_api.lua`)
+        - EXTERNAL_API: การตรวจสอบสิทธิ์ผ่าน API ภายนอก เช่น Discord API หรือ Custom API โดยใช้ HTTP Request เพื่อร้องขอข้อมูล (กำหนดค่าที่ไฟล์ [`./config/external_api.lua`](./external_api.md))
 
 ## maintenanceMode
 
@@ -40,7 +40,7 @@ maintenanceMode = false
 ```
 
 - maintenanceMode: `boolean`
-    - กำหนดสิทธิ์ให้บทบาทที่อนุญาตได้ที่การกำหนค่า [Permissions](./core.md#permissions) สำหรับ [Skip Rules](./core.md#skiprules) ประเภท `maintenance_mode`
+    - กำหนดสิทธิ์ให้บทบาทที่อนุญาตได้ที่การกำหนค่า [permissions](./core.md#permissions) สำหรับ [skipRules](./core.md#skiprules) ประเภท `maintenance_mode`
 
 ## userProfileCard
 
@@ -51,7 +51,7 @@ userProfileCard = true
 ```
 
 - userProfileCard: `boolean`
-    - กำหนดค่าเพิ่มเติมที่ไฟล์ `./config/profile.lua` และปรับเเต่ง [Adaptive Cards](https://adaptivecards.io/) ได้ที่ `./modules/profile/templates`
+    - กำหนดค่าเพิ่มเติมที่ไฟล์ [`./config/profile.lua`](./profile.md) และปรับเเต่ง [Adaptive Cards](https://adaptivecards.io/) ได้ที่ `./modules/profile/templates`
 
 ## connectionQueue
 
@@ -62,7 +62,7 @@ connectionQueue = true
 ```
 
 - connectionQueue: `boolean`
-    - กำหนดค่าเพิ่มเติมที่ไฟล์ `./config/queue.lua`
+    - กำหนดค่าเพิ่มเติมที่ไฟล์ [`./config/queue.lua`](./queue.md)
 
 ## identifierType
 
