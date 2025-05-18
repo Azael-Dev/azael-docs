@@ -62,6 +62,7 @@ const sidebars = {
                 'script/azael_playpass/config/external_api',
                 'script/azael_playpass/config/queue',
                 'script/azael_playpass/config/profile',
+                'script/azael_playpass/config/command',
                 'script/azael_playpass/config/nui',
               ],
             },
