@@ -104,11 +104,11 @@ luckySlots = {
     - คูลดาวน์การหมุนในแต่ละรอบ (หน่วยเป็น **วินาที**)
 - numSlots: `integer`
     - จำนวน Slots (แนะนำ **3** ขึ้นไป)
-- emojis: `table<{ [string], [string] }>`
+- emojis: `table<{ [index]: string }>`
     - รายการ Emojis สำหรับการสุ่ม
 - winChance: `integer`
     - โอกาสชนะ (**1** ถึง **100** หรือ **0** เพื่อสุ่มแบบปกติ)
-- winRandomReward: `table<{ [table], [table] }>` | `table`
+- winRandomReward: `table<{ [index]: table<{ points: integer, days: integer|nil }> }>` | `table<{}>`
     - รางวัล Queue Points แบบสุ่มที่ผู้เล่นจะได้รับเมื่อชนะ
         - points: `integer`
             - จำนวนคิวพอยท์ที่ต้องการเพิ่มให้ผู้เล่น

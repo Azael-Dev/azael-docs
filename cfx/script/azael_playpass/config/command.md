@@ -25,7 +25,7 @@ httpHandler = {
     - เปิดใช้งาน [HTTP Handler](https://docs.fivem.net/natives/?_0xF5C6330C) เพื่ออนุญาตให้เรียกใช้คำสั่งจากภายนอก
 - authorization: `string`
     - การกำหนดค่าการตรวจสอบสิทธิ์ของ [HTTP Request](https://en.wikipedia.org/wiki/HTTP)
-- allowedIPs: `table<{ [string], [string] }>`
+- allowedIPs: `table<{ [index]: string }>` | `table<{}>`
     - การกำหนด [Public IP](https://en.wikipedia.org/wiki/IP_address#Public_address) ที่อนุญาตให้เข้าถึง
         - ⚠️ หากไม่มีการกำหนด IP ระบบจะอ้างอิงสิทธิ์การเข้าถึงจาก `authorization` เท่านั้น
 
@@ -69,7 +69,7 @@ getUser = {
         - ตัวอย่างการใช้คำสั่ง `<commandName> getuser <identifier>`
 - serverOnly: `boolean`
     - ใช้งานคำสั่งได้ทางฝั่งเซิร์ฟเวอร์เท่านั้น
-- allowedRoles: `table<{ [integer], [integer] }>`
+- allowedRoles: `table<{ [index]: integer }>` | `table<{}>`
     - บทบาทที่อนุญาตให้ใช้คำสั่งทางฝั่งไคลเอนต์
         - ⚠️ ไม่สามารถใช้งานคำสั่งทางฝั่งไคลเอนต์ได้ หากกำหนด `serverOnly` เป็น `true`
         - [**PLAYER_ROLES**](./setup.md#roles) คือข้อมูลการกำหนดค่าเกี่ยวกับบทบาทของผู้เล่น โดยอ้างอิงการกำหนดค่าจากไฟล์ [`./config/setup.lua`](./setup.md)
@@ -95,7 +95,7 @@ addUser = {
         - ตัวอย่างการใช้คำสั่ง `<commandName> adduser <identifier> <bindId|nil>`
 - serverOnly: `boolean`
     - ใช้งานคำสั่งได้ทางฝั่งเซิร์ฟเวอร์เท่านั้น
-- allowedRoles: `table<{ [integer], [integer] }>`
+- allowedRoles: `table<{ [index]: integer }>` | `table<{}>`
     - บทบาทที่อนุญาตให้ใช้คำสั่งทางฝั่งไคลเอนต์
         - ⚠️ ไม่สามารถใช้งานคำสั่งทางฝั่งไคลเอนต์ได้ หากกำหนด `serverOnly` เป็น `true`
         - [**PLAYER_ROLES**](./setup.md#roles) คือข้อมูลการกำหนดค่าเกี่ยวกับบทบาทของผู้เล่น โดยอ้างอิงการกำหนดค่าจากไฟล์ [`./config/setup.lua`](./setup.md)
@@ -121,7 +121,7 @@ deleteUser = {
         - ตัวอย่างการใช้คำสั่ง `<commandName> deluser <identifier>`
 - serverOnly: `boolean`
     - ใช้งานคำสั่งได้ทางฝั่งเซิร์ฟเวอร์เท่านั้น
-- allowedRoles: `table<{ [integer], [integer] }>`
+- allowedRoles: `table<{ [index]: integer }>` | `table<{}>`
     - บทบาทที่อนุญาตให้ใช้คำสั่งทางฝั่งไคลเอนต์
         - ⚠️ ไม่สามารถใช้งานคำสั่งทางฝั่งไคลเอนต์ได้ หากกำหนด `serverOnly` เป็น `true`
         - [**PLAYER_ROLES**](./setup.md#roles) คือข้อมูลการกำหนดค่าเกี่ยวกับบทบาทของผู้เล่น โดยอ้างอิงการกำหนดค่าจากไฟล์ [`./config/setup.lua`](./setup.md)
@@ -147,7 +147,7 @@ getBanInfo = {
         - ตัวอย่างการใช้คำสั่ง `<commandName> baninfo <identifier|banRefId>`
 - serverOnly: `boolean`
     - ใช้งานคำสั่งได้ทางฝั่งเซิร์ฟเวอร์เท่านั้น
-- allowedRoles: `table<{ [integer], [integer] }>`
+- allowedRoles: `table<{ [index]: integer }>` | `table<{}>`
     - บทบาทที่อนุญาตให้ใช้คำสั่งทางฝั่งไคลเอนต์
         - ⚠️ ไม่สามารถใช้งานคำสั่งทางฝั่งไคลเอนต์ได้ หากกำหนด `serverOnly` เป็น `true`
         - [**PLAYER_ROLES**](./setup.md#roles) คือข้อมูลการกำหนดค่าเกี่ยวกับบทบาทของผู้เล่น โดยอ้างอิงการกำหนดค่าจากไฟล์ [`./config/setup.lua`](./setup.md)
@@ -173,7 +173,7 @@ banUser = {
         - ตัวอย่างการใช้คำสั่ง `<commandName> banuser <identifier> <numDays|0=permanent> <reason>`
 - serverOnly: `boolean`
     - ใช้งานคำสั่งได้ทางฝั่งเซิร์ฟเวอร์เท่านั้น
-- allowedRoles: `table<{ [integer], [integer] }>`
+- allowedRoles: `table<{ [index]: integer }>` | `table<{}>`
     - บทบาทที่อนุญาตให้ใช้คำสั่งทางฝั่งไคลเอนต์
         - ⚠️ ไม่สามารถใช้งานคำสั่งทางฝั่งไคลเอนต์ได้ หากกำหนด `serverOnly` เป็น `true`
         - [**PLAYER_ROLES**](./setup.md#roles) คือข้อมูลการกำหนดค่าเกี่ยวกับบทบาทของผู้เล่น โดยอ้างอิงการกำหนดค่าจากไฟล์ [`./config/setup.lua`](./setup.md)
@@ -199,7 +199,7 @@ unbanUser = {
         - ตัวอย่างการใช้คำสั่ง `<commandName> unbanuser <identifier>`
 - serverOnly: `boolean`
     - ใช้งานคำสั่งได้ทางฝั่งเซิร์ฟเวอร์เท่านั้น
-- allowedRoles: `table<{ [integer], [integer] }>`
+- allowedRoles: `table<{ [index]: integer }>` | `table<{}>`
     - บทบาทที่อนุญาตให้ใช้คำสั่งทางฝั่งไคลเอนต์
         - ⚠️ ไม่สามารถใช้งานคำสั่งทางฝั่งไคลเอนต์ได้ หากกำหนด `serverOnly` เป็น `true`
         - [**PLAYER_ROLES**](./setup.md#roles) คือข้อมูลการกำหนดค่าเกี่ยวกับบทบาทของผู้เล่น โดยอ้างอิงการกำหนดค่าจากไฟล์ [`./config/setup.lua`](./setup.md)
@@ -225,7 +225,7 @@ setUserRole = {
         - ตัวอย่างการใช้คำสั่ง `<commandName> setrole <identifier> <roleId>`
 - serverOnly: `boolean`
     - ใช้งานคำสั่งได้ทางฝั่งเซิร์ฟเวอร์เท่านั้น
-- allowedRoles: `table<{ [integer], [integer] }>`
+- allowedRoles: `table<{ [index]: integer }>` | `table<{}>`
     - บทบาทที่อนุญาตให้ใช้คำสั่งทางฝั่งไคลเอนต์
         - ⚠️ ไม่สามารถใช้งานคำสั่งทางฝั่งไคลเอนต์ได้ หากกำหนด `serverOnly` เป็น `true`
         - [**PLAYER_ROLES**](./setup.md#roles) คือข้อมูลการกำหนดค่าเกี่ยวกับบทบาทของผู้เล่น โดยอ้างอิงการกำหนดค่าจากไฟล์ [`./config/setup.lua`](./setup.md)
@@ -251,7 +251,7 @@ reactivateUser = {
         - ตัวอย่างการใช้คำสั่ง `<commandName> reactivate <identifier>`
 - serverOnly: `boolean`
     - ใช้งานคำสั่งได้ทางฝั่งเซิร์ฟเวอร์เท่านั้น
-- allowedRoles: `table<{ [integer], [integer] }>`
+- allowedRoles: `table<{ [index]: integer }>` | `table<{}>`
     - บทบาทที่อนุญาตให้ใช้คำสั่งทางฝั่งไคลเอนต์
         - ⚠️ ไม่สามารถใช้งานคำสั่งทางฝั่งไคลเอนต์ได้ หากกำหนด `serverOnly` เป็น `true`
         - [**PLAYER_ROLES**](./setup.md#roles) คือข้อมูลการกำหนดค่าเกี่ยวกับบทบาทของผู้เล่น โดยอ้างอิงการกำหนดค่าจากไฟล์ [`./config/setup.lua`](./setup.md)
@@ -277,7 +277,7 @@ setNewIdentifier = {
         - ตัวอย่างการใช้คำสั่ง `<commandName> setnewid <identifier> <newIdentifier>`
 - serverOnly: `boolean`
     - ใช้งานคำสั่งได้ทางฝั่งเซิร์ฟเวอร์เท่านั้น
-- allowedRoles: `table<{ [integer], [integer] }>`
+- allowedRoles: `table<{ [index]: integer }>` | `table<{}>`
     - บทบาทที่อนุญาตให้ใช้คำสั่งทางฝั่งไคลเอนต์
         - ⚠️ ไม่สามารถใช้งานคำสั่งทางฝั่งไคลเอนต์ได้ หากกำหนด `serverOnly` เป็น `true`
         - [**PLAYER_ROLES**](./setup.md#roles) คือข้อมูลการกำหนดค่าเกี่ยวกับบทบาทของผู้เล่น โดยอ้างอิงการกำหนดค่าจากไฟล์ [`./config/setup.lua`](./setup.md)
@@ -303,7 +303,7 @@ resetBindIdentifier = {
         - ตัวอย่างการใช้คำสั่ง `<commandName> resetbindid <identifier>`
 - serverOnly: `boolean`
     - ใช้งานคำสั่งได้ทางฝั่งเซิร์ฟเวอร์เท่านั้น
-- allowedRoles: `table<{ [integer], [integer] }>`
+- allowedRoles: `table<{ [index]: integer }>` | `table<{}>`
     - บทบาทที่อนุญาตให้ใช้คำสั่งทางฝั่งไคลเอนต์
         - ⚠️ ไม่สามารถใช้งานคำสั่งทางฝั่งไคลเอนต์ได้ หากกำหนด `serverOnly` เป็น `true`
         - [**PLAYER_ROLES**](./setup.md#roles) คือข้อมูลการกำหนดค่าเกี่ยวกับบทบาทของผู้เล่น โดยอ้างอิงการกำหนดค่าจากไฟล์ [`./config/setup.lua`](./setup.md)
@@ -329,7 +329,7 @@ resetHwids = {
         - ตัวอย่างการใช้คำสั่ง `<commandName> resethwids <identifier>`
 - serverOnly: `boolean`
     - ใช้งานคำสั่งได้ทางฝั่งเซิร์ฟเวอร์เท่านั้น
-- allowedRoles: `table<{ [integer], [integer] }>`
+- allowedRoles: `table<{ [index]: integer }>` | `table<{}>`
     - บทบาทที่อนุญาตให้ใช้คำสั่งทางฝั่งไคลเอนต์
         - ⚠️ ไม่สามารถใช้งานคำสั่งทางฝั่งไคลเอนต์ได้ หากกำหนด `serverOnly` เป็น `true`
         - [**PLAYER_ROLES**](./setup.md#roles) คือข้อมูลการกำหนดค่าเกี่ยวกับบทบาทของผู้เล่น โดยอ้างอิงการกำหนดค่าจากไฟล์ [`./config/setup.lua`](./setup.md)
@@ -355,7 +355,7 @@ getPoints = {
         - ตัวอย่างการใช้คำสั่ง `<commandName> getpoints <identifier>`
 - serverOnly: `boolean`
     - ใช้งานคำสั่งได้ทางฝั่งเซิร์ฟเวอร์เท่านั้น
-- allowedRoles: `table<{ [integer], [integer] }>`
+- allowedRoles: `table<{ [index]: integer }>` | `table<{}>`
     - บทบาทที่อนุญาตให้ใช้คำสั่งทางฝั่งไคลเอนต์
         - ⚠️ ไม่สามารถใช้งานคำสั่งทางฝั่งไคลเอนต์ได้ หากกำหนด `serverOnly` เป็น `true`
         - [**PLAYER_ROLES**](./setup.md#roles) คือข้อมูลการกำหนดค่าเกี่ยวกับบทบาทของผู้เล่น โดยอ้างอิงการกำหนดค่าจากไฟล์ [`./config/setup.lua`](./setup.md)
@@ -381,7 +381,7 @@ addPoints = {
         - ตัวอย่างการใช้คำสั่ง `<commandName> addpoints <identifier> <numPoints> <expirationDays|nil>`
 - serverOnly: `boolean`
     - ใช้งานคำสั่งได้ทางฝั่งเซิร์ฟเวอร์เท่านั้น
-- allowedRoles: `table<{ [integer], [integer] }>`
+- allowedRoles: `table<{ [index]: integer }>` | `table<{}>`
     - บทบาทที่อนุญาตให้ใช้คำสั่งทางฝั่งไคลเอนต์
         - ⚠️ ไม่สามารถใช้งานคำสั่งทางฝั่งไคลเอนต์ได้ หากกำหนด `serverOnly` เป็น `true`
         - [**PLAYER_ROLES**](./setup.md#roles) คือข้อมูลการกำหนดค่าเกี่ยวกับบทบาทของผู้เล่น โดยอ้างอิงการกำหนดค่าจากไฟล์ [`./config/setup.lua`](./setup.md)
@@ -407,7 +407,7 @@ setPermanentPoints = {
         - ตัวอย่างการใช้คำสั่ง `<commandName> setpoints <identifier> <numPoints>`
 - serverOnly: `boolean`
     - ใช้งานคำสั่งได้ทางฝั่งเซิร์ฟเวอร์เท่านั้น
-- allowedRoles: `table<{ [integer], [integer] }>`
+- allowedRoles: `table<{ [index]: integer }>` | `table<{}>`
     - บทบาทที่อนุญาตให้ใช้คำสั่งทางฝั่งไคลเอนต์
         - ⚠️ ไม่สามารถใช้งานคำสั่งทางฝั่งไคลเอนต์ได้ หากกำหนด `serverOnly` เป็น `true`
         - [**PLAYER_ROLES**](./setup.md#roles) คือข้อมูลการกำหนดค่าเกี่ยวกับบทบาทของผู้เล่น โดยอ้างอิงการกำหนดค่าจากไฟล์ [`./config/setup.lua`](./setup.md)
@@ -433,7 +433,7 @@ deleteTemporaryPoints = {
         - ตัวอย่างการใช้คำสั่ง `<commandName> delpoints <identifier> <numIndex>`
 - serverOnly: `boolean`
     - ใช้งานคำสั่งได้ทางฝั่งเซิร์ฟเวอร์เท่านั้น
-- allowedRoles: `table<{ [integer], [integer] }>`
+- allowedRoles: `table<{ [index]: integer }>` | `table<{}>`
     - บทบาทที่อนุญาตให้ใช้คำสั่งทางฝั่งไคลเอนต์
         - ⚠️ ไม่สามารถใช้งานคำสั่งทางฝั่งไคลเอนต์ได้ หากกำหนด `serverOnly` เป็น `true`
         - [**PLAYER_ROLES**](./setup.md#roles) คือข้อมูลการกำหนดค่าเกี่ยวกับบทบาทของผู้เล่น โดยอ้างอิงการกำหนดค่าจากไฟล์ [`./config/setup.lua`](./setup.md)
@@ -459,7 +459,7 @@ purgePoints = {
         - ตัวอย่างการใช้คำสั่ง `<commandName> purgepoints <identifier>`
 - serverOnly: `boolean`
     - ใช้งานคำสั่งได้ทางฝั่งเซิร์ฟเวอร์เท่านั้น
-- allowedRoles: `table<{ [integer], [integer] }>`
+- allowedRoles: `table<{ [index]: integer }>` | `table<{}>`
     - บทบาทที่อนุญาตให้ใช้คำสั่งทางฝั่งไคลเอนต์
         - ⚠️ ไม่สามารถใช้งานคำสั่งทางฝั่งไคลเอนต์ได้ หากกำหนด `serverOnly` เป็น `true`
         - [**PLAYER_ROLES**](./setup.md#roles) คือข้อมูลการกำหนดค่าเกี่ยวกับบทบาทของผู้เล่น โดยอ้างอิงการกำหนดค่าจากไฟล์ [`./config/setup.lua`](./setup.md)
@@ -485,7 +485,7 @@ getAirtime = {
         - ตัวอย่างการใช้คำสั่ง `<commandName> getairtime <identifier>`
 - serverOnly: `boolean`
     - ใช้งานคำสั่งได้ทางฝั่งเซิร์ฟเวอร์เท่านั้น
-- allowedRoles: `table<{ [integer], [integer] }>`
+- allowedRoles: `table<{ [index]: integer }>` | `table<{}>`
     - บทบาทที่อนุญาตให้ใช้คำสั่งทางฝั่งไคลเอนต์
         - ⚠️ ไม่สามารถใช้งานคำสั่งทางฝั่งไคลเอนต์ได้ หากกำหนด `serverOnly` เป็น `true`
         - [**PLAYER_ROLES**](./setup.md#roles) คือข้อมูลการกำหนดค่าเกี่ยวกับบทบาทของผู้เล่น โดยอ้างอิงการกำหนดค่าจากไฟล์ [`./config/setup.lua`](./setup.md)
@@ -511,7 +511,7 @@ setAirtime = {
         - ตัวอย่างการใช้คำสั่ง `<commandName> setairtime <identifier> <numSeconds>`
 - serverOnly: `boolean`
     - ใช้งานคำสั่งได้ทางฝั่งเซิร์ฟเวอร์เท่านั้น
-- allowedRoles: `table<{ [integer], [integer] }>`
+- allowedRoles: `table<{ [index]: integer }>` | `table<{}>`
     - บทบาทที่อนุญาตให้ใช้คำสั่งทางฝั่งไคลเอนต์
         - ⚠️ ไม่สามารถใช้งานคำสั่งทางฝั่งไคลเอนต์ได้ หากกำหนด `serverOnly` เป็น `true`
         - [**PLAYER_ROLES**](./setup.md#roles) คือข้อมูลการกำหนดค่าเกี่ยวกับบทบาทของผู้เล่น โดยอ้างอิงการกำหนดค่าจากไฟล์ [`./config/setup.lua`](./setup.md)
@@ -537,7 +537,7 @@ addAirtime = {
         - ตัวอย่างการใช้คำสั่ง `<commandName> addairtime <identifier> <numSeconds>`
 - serverOnly: `boolean`
     - ใช้งานคำสั่งได้ทางฝั่งเซิร์ฟเวอร์เท่านั้น
-- allowedRoles: `table<{ [integer], [integer] }>`
+- allowedRoles: `table<{ [index]: integer }>` | `table<{}>`
     - บทบาทที่อนุญาตให้ใช้คำสั่งทางฝั่งไคลเอนต์
         - ⚠️ ไม่สามารถใช้งานคำสั่งทางฝั่งไคลเอนต์ได้ หากกำหนด `serverOnly` เป็น `true`
         - [**PLAYER_ROLES**](./setup.md#roles) คือข้อมูลการกำหนดค่าเกี่ยวกับบทบาทของผู้เล่น โดยอ้างอิงการกำหนดค่าจากไฟล์ [`./config/setup.lua`](./setup.md)
@@ -563,7 +563,7 @@ removeAirtime = {
         - ตัวอย่างการใช้คำสั่ง `<commandName> removeairtime <identifier> <numSeconds>`
 - serverOnly: `boolean`
     - ใช้งานคำสั่งได้ทางฝั่งเซิร์ฟเวอร์เท่านั้น
-- allowedRoles: `table<{ [integer], [integer] }>`
+- allowedRoles: `table<{ [index]: integer }>` | `table<{}>`
     - บทบาทที่อนุญาตให้ใช้คำสั่งทางฝั่งไคลเอนต์
         - ⚠️ ไม่สามารถใช้งานคำสั่งทางฝั่งไคลเอนต์ได้ หากกำหนด `serverOnly` เป็น `true`
         - [**PLAYER_ROLES**](./setup.md#roles) คือข้อมูลการกำหนดค่าเกี่ยวกับบทบาทของผู้เล่น โดยอ้างอิงการกำหนดค่าจากไฟล์ [`./config/setup.lua`](./setup.md)
@@ -589,7 +589,7 @@ getMyInfo = {
 - name: `string`
     - ชื่อคำสั่งย่อย
         - ตัวอย่างการใช้คำสั่ง `<commandName> myinfo`
-- allowedRoles: `table<{ [integer], [integer] }>`
+- allowedRoles: `table<{ [index]: integer }>` | `table<{}>`
     - บทบาทที่อนุญาตให้ใช้คำสั่งทางฝั่งไคลเอนต์
         - [**PLAYER_ROLES**](./setup.md#roles) คือข้อมูลการกำหนดค่าเกี่ยวกับบทบาทของผู้เล่น โดยอ้างอิงการกำหนดค่าจากไฟล์ [`./config/setup.lua`](./setup.md)
 
@@ -617,7 +617,7 @@ getQueueInfo = {
         - ตัวอย่างการใช้คำสั่ง `<commandName> queueinfo`
 - serverOnly: `boolean`
     - ใช้งานคำสั่งได้ทางฝั่งเซิร์ฟเวอร์เท่านั้น
-- allowedRoles: `table<{ [integer], [integer] }>`
+- allowedRoles: `table<{ [index]: integer }>` | `table<{}>`
     - บทบาทที่อนุญาตให้ใช้คำสั่งทางฝั่งไคลเอนต์
         - ⚠️ ไม่สามารถใช้งานคำสั่งทางฝั่งไคลเอนต์ได้ หากกำหนด `serverOnly` เป็น `true`
         - [**PLAYER_ROLES**](./setup.md#roles) คือข้อมูลการกำหนดค่าเกี่ยวกับบทบาทของผู้เล่น โดยอ้างอิงการกำหนดค่าจากไฟล์ [`./config/setup.lua`](./setup.md)
