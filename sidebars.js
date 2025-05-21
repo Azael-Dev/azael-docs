@@ -66,6 +66,19 @@ const sidebars = {
                 'script/azael_playpass/config/nui',
               ],
             },
+            {
+              type: 'category',
+              label: 'Modules',
+              items: [
+                {
+                  type: 'category',
+                  label: 'Database',
+                  items: [
+                    'script/azael_playpass/modules/database/server',
+                  ],
+                },
+              ],
+            },
           ],
         },
         /* azael_dc-serverlogs */
