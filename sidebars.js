@@ -72,6 +72,13 @@ const sidebars = {
               items: [
                 {
                   type: 'category',
+                  label: 'Commands',
+                  items: [
+                    'script/azael_playpass/modules/commands/server',
+                  ],
+                },
+                {
+                  type: 'category',
                   label: 'Database',
                   items: [
                     'script/azael_playpass/modules/database/server',
