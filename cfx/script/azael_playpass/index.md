@@ -22,7 +22,7 @@
 
 :::tip
 
-- หากคุณไม่ได้ใช้งาน [**oxmysql**](https://github.com/CommunityOx/oxmysql) คุณสามารถดูรายละเอียดได้ที่ **`modules/database/server.lua`**
+- หากคุณไม่ได้ใช้งาน [**oxmysql**](https://github.com/CommunityOx/oxmysql) คุณสามารถดูรายละเอียดได้ที่ไฟล์ [**`./modules/database/server.lua`**](./modules/database/server.md)
 
 :::
 
@@ -41,7 +41,7 @@ ensure azael_playpass
 
 - ระบบจะดำเนินการตรวจสอบและติดตั้งฐานข้อมูล (**SQL**) ของทรัพยากรนี้โดยอัตโนมัติ
     - หากใช้งาน **azael_dc-whitelisted** มาก่อนและเปลี่ยนมาใช้ทรัพยากรนี้ ระบบจะดำเนินการคัดลอกข้อมูลจากตาราง **`azael_dc_whitelisted`** มายัง **`azael_playpass`** เมื่อเริ่มต้นทรัพยากรนี้ในครั้งแรก
-    - ดูรายละเอียดของรหัสได้ที่ **modules/database** ฟังก์ชัน **Database.setupTables**
+    - ดูรายละเอียดของรหัสได้ที่ไฟล์ [**`./modules/database/server.lua`**](./modules/database/server.md) ฟังก์ชัน [**Database.setupTables**](./modules/database/server.md#setuptables)
 
 :::
 
@@ -79,7 +79,7 @@ azael_playpass
 │   ├── profile.lua
 │   ├── queue.lua
 │   └── setup.lua
-├── core
+├── core # คุณไม่สามารถดำเนินการใดๆภายในโฟลเดอร์นี้ได้ เนื่องจากไฟล์ทั้งหมดภายในโฟลเดอร์นี้ถูกจะถูกเข้ารหัสไว้
 │   ├── modules
 │   │   ├── anti-spam
 │   │   │   └── server.lua
