@@ -457,7 +457,7 @@ end
 - identifier: `string`
     - [ตัวระบุ](../../config/core.md#identifiertype)ของผู้เล่น
 
-#### Returns
+#### Returns {#getplayerdata-returns}
 
 - playerData: `table<{ [key]: any }>` | `nil`
     - ข้อมูลของผู้เล่น (ดูรายละเอียดด้านล่าง)
