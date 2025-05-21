@@ -88,7 +88,7 @@ steam = {
 
 :::tip
 
-การกำหนดค่าเริ่มต้นจะรับ [Steam Web API Key]((https://steamcommunity.com/dev/apikey)) มาจาก `steam_webApiKey` ที่กำหนดไว้ภายในไฟล์ [`server.cfg`](https://docs.fivem.net/docs/server-manual/setting-up-a-server-vanilla/#servercfg)
+การกำหนดค่าเริ่มต้นจะรับ [Steam Web API Key](https://steamcommunity.com/dev/apikey) มาจาก `steam_webApiKey` ที่กำหนดไว้ภายในไฟล์ [`server.cfg`](https://docs.fivem.net/docs/server-manual/setting-up-a-server-vanilla/#servercfg)
 
 ```diff title="server.cfg"
 set steam_webApiKey "your_api_key"
