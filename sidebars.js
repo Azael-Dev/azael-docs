@@ -91,6 +91,13 @@ const sidebars = {
                     'script/azael_playpass/modules/external-api/server',
                   ],
                 },
+                {
+                  type: 'category',
+                  label: 'Hooks',
+                  items: [
+                    'script/azael_playpass/modules/hooks/server',
+                  ],
+                },
               ],
             },
           ],
