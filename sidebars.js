@@ -127,6 +127,13 @@ const sidebars = {
                     'script/azael_playpass/modules/profile/server',
                   ],
                 },
+                {
+                  type: 'category',
+                  label: 'Queue',
+                  items: [
+                    'script/azael_playpass/modules/queue/server',
+                  ],
+                },
               ],
             },
           ],
