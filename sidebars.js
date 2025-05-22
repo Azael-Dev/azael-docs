@@ -98,6 +98,13 @@ const sidebars = {
                     'script/azael_playpass/modules/hooks/server',
                   ],
                 },
+                {
+                  type: 'category',
+                  label: 'Logger',
+                  items: [
+                    'script/azael_playpass/modules/logger/server',
+                  ],
+                },
               ],
             },
           ],
