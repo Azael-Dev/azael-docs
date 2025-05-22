@@ -379,4 +379,4 @@ end
 #### Returns
 
 - payload: `table<{ [key]: any }>`
-    - [ข้อมูลของผู้เล่นที่จะใช้งานภายในระบบคิว](./server.md#parameters-onaddplayertoqueue-parameters)
+    - [ข้อมูลของผู้เล่นที่จะใช้งานภายในระบบคิว](./server.md#onaddplayertoqueue-parameters)
