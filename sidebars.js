@@ -112,6 +112,14 @@ const sidebars = {
                     'script/azael_playpass/modules/nui/client',
                   ],
                 },
+                {
+                  type: 'category',
+                  label: 'Player',
+                  items: [
+                    'script/azael_playpass/modules/player/client',
+                    'script/azael_playpass/modules/player/server',
+                  ],
+                },
               ],
             },
           ],
