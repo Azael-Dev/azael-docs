@@ -120,6 +120,13 @@ const sidebars = {
                     'script/azael_playpass/modules/player/server',
                   ],
                 },
+                {
+                  type: 'category',
+                  label: 'Profile',
+                  items: [
+                    'script/azael_playpass/modules/profile/server',
+                  ],
+                },
               ],
             },
           ],
