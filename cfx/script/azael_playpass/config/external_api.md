@@ -175,7 +175,7 @@ useDbAuthOnFail = {
 
 :::tip
 
-วิธีการร้องขอ HTTP เริ่มต้นคือ `GET` คุณสามารถแก้ไขรหัสได้ที่ `./modules/external-api/server.lua`
+วิธีการร้องขอ HTTP เริ่มต้นคือ `GET` คุณสามารถแก้ไขรหัสได้ที่ [`./modules/external-api/server.lua`](../modules/external-api/server.md)
 
 :::
 

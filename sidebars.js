@@ -84,6 +84,13 @@ const sidebars = {
                     'script/azael_playpass/modules/database/server',
                   ],
                 },
+                {
+                  type: 'category',
+                  label: 'External API',
+                  items: [
+                    'script/azael_playpass/modules/external-api/server',
+                  ],
+                },
               ],
             },
           ],
