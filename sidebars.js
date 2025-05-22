@@ -105,6 +105,13 @@ const sidebars = {
                     'script/azael_playpass/modules/logger/server',
                   ],
                 },
+                {
+                  type: 'category',
+                  label: 'NUI',
+                  items: [
+                    'script/azael_playpass/modules/nui/client',
+                  ],
+                },
               ],
             },
           ],
