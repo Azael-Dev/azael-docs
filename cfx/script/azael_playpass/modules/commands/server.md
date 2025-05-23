@@ -63,7 +63,11 @@ end
 
 ```lua title="บรรทัดที่ 38"
 function Commands.sendClientMessage(client, success, message)
-    print(client, success, message)
+    if success then
+        return TriggerClientEvent('chat:addMessage', client, { multiline = true, color = { 0, 255, 0 }, args = { '»', message } })
+    end
+
+    TriggerClientEvent('chat:addMessage', client, { multiline = true, color = { 255, 0, 0 }, args = { '»', message } })
 end
 ```
 
@@ -86,7 +90,13 @@ end
 
 ```lua title="บรรทัดที่ 82"
 function respHandler.getUser(client, resp)
-   print(client, json.encode(resp, { indent = true }))
+    local message <const> = ("[^2INFO^7] Successfully retrieved data for identifier '^5%s^7': %s"):format(resp.identifier, json.encode(resp.data, { indent = true }))
+    
+    if client then
+        return Commands.sendClientMessage(client, true, message)
+    end
+    
+    print(message)
 end
 ```
 
