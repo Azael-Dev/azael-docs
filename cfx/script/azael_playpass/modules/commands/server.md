@@ -46,13 +46,14 @@ end
     </TabItem>
     <TabItem value="response" label="response">
 :::tip Success
-        ข้อมูลตอบกลับเมื่อใช้คำสั่งสำเร็จ สามารถดูรายละเอียดได้ที่ [**respHandler**](../commands/server.md#resphandler)
+        ข้อมูลตอบกลับเมื่อใช้คำสั่งสำเร็จ คุณสามารถดูรายละเอียดได้ที่ [**respHandler**](../commands/server.md#resphandler)
 :::
 :::danger Failed
+        ข้อมูลตอบกลับเมื่อใช้คำสั่งล้มเหลว
         | Field                 | Type                          | Description
         |-----------------------|-------------------------------|-------------------------------
         | `type`                | `string`                      | ประเภทของข้อผิดพลาด
-        | `message`             | `string`                      | ข้อความตอบกลับเมื่อไม่สำเร็จ
+        | `message`             | `string`                      | ข้อความของข้อผิดพลาด
 :::
     </TabItem>
 </Tabs>
