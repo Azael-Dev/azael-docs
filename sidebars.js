@@ -136,6 +136,7 @@ const sidebars = {
                 },
               ],
             },
+            'script/azael_playpass/commands',
           ],
         },
         /* azael_dc-serverlogs */
