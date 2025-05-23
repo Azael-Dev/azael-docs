@@ -136,6 +136,14 @@ const sidebars = {
                 },
               ],
             },
+            {
+              type: 'category',
+              label: 'Exports',
+              items: [
+                'script/azael_playpass/exports/client',
+                'script/azael_playpass/exports/server',
+              ],
+            },
             'script/azael_playpass/commands',
           ],
         },
