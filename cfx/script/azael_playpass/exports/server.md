@@ -6,11 +6,7 @@ sidebar_label: Server
 
 ส่งออกฟังก์ชันเพื่อให้สามารถเรียกใช้จากทรัพยากรอื่นได้ทางฝั่ง [**Server**](https://en.wikipedia.org/wiki/Client%E2%80%93server_model#Server-side)
 
-## Commands
-
-ฟังก์ชันส่งออกที่เกี่ยวข้องกับ [Commands](../commands.md)
-
-### executeCommand
+## executeCommand
 
 เรียกใช้งาน [คำสั่งต่างๆ](../commands.md) ของทรัพยากรนี้
 
