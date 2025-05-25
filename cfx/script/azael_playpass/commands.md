@@ -74,7 +74,7 @@ sidebar_label: Commands
     - [ตัวระบุหลัก](./config/core.md#identifiertype) ของผู้ใช้
 - boundId: `string` | `nil`
     - [ตัวระบุที่จะถูกผูก](./config/core.md#bindidentifier) เอาไว้กับ [ตัวระบุหลัก](./config/core.md#identifiertype) ของผู้ใช้
-        - ⚠️ ไม่จำเป็นที่จะต้องระบุในส่วนนี้ หากคุณปิดใช้งาน [bindIdentifier](./config/core.md#bindidentifier)
+        - ⚠️ ไม่จำเป็นที่จะต้องระบุในส่วนนี้ เนื่องจากระบบจะอัปเดตไปยังฐานข้อมูลโดยอัตโนมัติเมื่อผู้เล่นเชื่อมต่อกับเซิร์ฟเวอร์
 
 #### Returns
 
