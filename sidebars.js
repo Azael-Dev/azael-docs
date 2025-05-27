@@ -420,11 +420,7 @@ const sidebars = {
           label: 'Scripts',
           collapsed: false,
           items: [
-            {
-              type: 'link',
-              label: 'azael_dc-whitelisted',
-              href: 'https://docs-old.azael.dev/docs/faq/azael_dc-whitelisted/',
-            },
+            'faq/script/azael_playpass',
             'faq/script/azael_dc-serverlogs',
             'faq/script/azael_db-health&armor',
           ],
