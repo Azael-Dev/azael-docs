@@ -54,6 +54,11 @@ botToken = GetConvar('discord_botToken', '')
 
 - botToken: `string`
 
+> #### บทช่วยสอนและคำแนะนำ
+>- [**สร้างแอปพลิเคชันและบอท**](../tutorials.md#สร้างแอปพลิเคชันและบอท)
+>- [**เพิ่มบอทไปยังเซิร์ฟเวอร์**](../tutorials.md#เพิ่มบอทไปยังเซิร์ฟเวอร์)
+>- [**รับโทเค็นของบอท**](../tutorials.md#รับโทเค็นของบอท)
+
 :::tip
 
 การกำหนดค่าเริ่มต้นจะรับ Bot Token มาจาก `discord_botToken` ที่กำหนดไว้ภายในไฟล์ [`server.cfg`](https://docs.fivem.net/docs/server-manual/setting-up-a-server-vanilla/#servercfg)
@@ -73,6 +78,9 @@ guildId = GetConvar('discord_guildId', '')
 ```
 
 - guildId: `string`
+
+> #### บทช่วยสอนและคำแนะนำ
+>- [**รับ ID ของเซิร์ฟเวอร์ (Guild ID)**](../tutorials.md#รับ-id-ของเซิร์ฟเวอร์-guild-id)
 
 :::tip
 
@@ -96,6 +104,9 @@ allowedRoleIds = {
 ```
 
 - `string`: รหัสของบทบาท/ยศที่ได้รับอนุญาตให้เข้าร่วมเซิร์ฟเวอร์
+
+> #### บทช่วยสอนและคำแนะนำ
+>- [**รับ ID ของบทบาท (Role ID)**](../tutorials.md#รับ-id-ของบทบาท-role-id)
 
 ### guildBanCheck
 
