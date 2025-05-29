@@ -458,7 +458,31 @@ CONFIG.Discord.Webhooks = { -- [[ table ]]
     ['Login'] = 'webhook_url',                              -- เข้าสู่เซิร์ฟเวอร์
     ['Logout'] = 'webhook_url',                             -- ออกจากเซิร์ฟเวอร์
     ['Chat'] = 'webhook_url',                               -- ข้อความแชท
-    ['Dead'] = 'webhook_url'                                -- สาเหตุการตาย
+    ['Dead'] = 'webhook_url',                               -- สาเหตุการตาย
+    --[[ azael_playpass ]]
+    ['APP_ConnectionSpam'] = 'webhook_url',                 -- เชื่อมต่อบ่อยและเร็ว
+    ['APP_PingExceeded'] = 'webhook_url',                   -- ปิงสูงเกินกำหนด
+    ['APP_BannedHwidDetected'] = 'webhook_url',             -- แบนเชื่อมต่อ-hwids
+    ['APP_BannedIdDetected'] = 'webhook_url',               -- แบนเชื่อมต่อ-ids
+    ['APP_InactiveDetected'] = 'webhook_url',               -- ไม่เข้าเซิร์ฟเกินกำหนด
+    ['APP_BoundIdMismatch'] = 'webhook_url',                -- บัญชีที่ผูกไม่ตรงกัน
+    ['APP_PlayerDataStored'] = 'webhook_url',               -- บันทึกข้อมูลผู้เล่น
+    ['APP_PlayerDataDeleted'] = 'webhook_url',              -- ลบข้อมูลผู้เล่น
+    ['APP_IdentifierUpdated'] = 'webhook_url',              -- เปลี่ยนตัวระบุผู้เล่น
+    ['APP_BoundIdUpdated'] = 'webhook_url',                 -- อัปเดตการผูกบัญชี
+    ['APP_PlayerBanned'] = 'webhook_url',                   -- ผู้เล่นถูกแบน
+    ['APP_PlayerUnbanned'] = 'webhook_url',                 -- ยกเลิกแบนผู้เล่น
+    ['APP_AirtimeUpdated'] = 'webhook_url',                 -- อัปเดตแอร์ไทม์
+    ['APP_TempPointsExpired'] = 'webhook_url',              -- คิวพอยท์หมดอายุ
+    ['APP_AwardedLuckySlots'] = 'webhook_url',              -- รางวัลลัคกี้สล็อต
+    ['APP_ExecuteCommands'] = 'webhook_url',                -- ประวัติใช้คำสั่ง
+    --[[ azael_active-identifiers ]]
+    ['ActiveIdentifiers'] = 'webhook_url',                  -- id-เดียวกัน
+    ['IPRateLimits'] = 'webhook_url',                       -- ip-ถูกจำกัด
+    --[[ azael_db-guardian ]]
+    ['DB_ExecuteCommand'] = 'webhook_url',                  -- db-ประวัติใช้คำสั่ง
+    ['DB_ServerBackups'] = 'webhook_url',                   -- db-สำรองข้อมูลเซิร์ฟ
+    ['DB_DeletePlayerData'] = 'webhook_url',                -- db-ลบข้อมูลผู้เล่น
 }
 ```
 
