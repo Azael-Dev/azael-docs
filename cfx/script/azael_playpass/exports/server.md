@@ -1012,5 +1012,41 @@ sidebar_label: Server
         - secondsAgo: `integer`
             - เข้าร่วมกับเซิร์ฟเวอร์หรือถูกยกเลิกสถานะมาแล้วกี่วินาที
 
+
+## signalDeferredDone
+
+เรียกใช้เพื่อแจ้งให้ทรัพยากร [`azael_playpass`](../index.md) ทราบว่าการเลื่อนเวลาจากทรัพยากรที่กำหนดใน [awaitedResources](../config/core.md#awaitedresources) ดำเนินการเสร็จแล้ว และให้ดำเนินการขั้นถัดไปต่อได้
+
+<Tabs>
+    <TabItem value="usage" label="Usage">
+        ```lua
+        exports.azael_playpass:signalDeferredDone(tempPlayerId)
+        ```
+    </TabItem>
+    <TabItem value="example" label="Example">
+        ```lua
+        AddEventHandler('playerConnecting', function OnPlayerConnecting(name, setKickReason, deferrals)
+            local tempPlayerId = source
+            
+            ...
+            
+            deferrals.done()
+            
+            exports.azael_playpass:signalDeferredDone(tempPlayerId)
+        end)
+        ```
+    </TabItem>
+</Tabs>
+
+#### Arguments
+    - tempPlayerId: `integer`
+        - [Temp ID](https://docs.fivem.net/docs/scripting-reference/events/list/playerconnecting/#parameters) ของผู้เล่น  (ไอดีแบบชั่วคราวเมื่อกำลังเชื่อมต่อ)
+
+:::warning
+
+หากไม่มีการเรียกใช้ฟังก์ชันนี้ ก่อน หรือ หลัง การเรียกใช้ [deferrals.done](https://docs.fivem.net/docs/scripting-reference/events/list/playerconnecting/#donefailurereason-string-void) จะรอจนกว่าจะครบเวลา timeout ที่กำหนดไว้ใน [awaitedResources](../config/core.md#awaitedresources) ระบบจึงจะดำเนินการขั้นถัดไปต่อ
+
+:::
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

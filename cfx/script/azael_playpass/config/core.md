@@ -260,11 +260,38 @@ communityLink = {
 - supportUrl: `string`
     - [URL](https://en.wikipedia.org/wiki/URL) สำหรับติดต่อฝ่ายสนับสนุนหากพบปัญหาในการเชื่อมต่อกับเซิร์ฟเวอร์
 
+## awaitedResources
+
+ทรัพยากรที่ต้องประมวลผลให้เสร็จก่อนเมื่อผู้เล่นเชื่อมต่อ เพื่อป้องกันการทำงานทับซ้อนของ [deferrals.update](https://docs.fivem.net/docs/scripting-reference/events/list/playerconnecting/#updatemessage-string-void) หรือ [update.presentCard](https://docs.fivem.net/docs/scripting-reference/events/list/playerconnecting/#presentcardcard-object--string-cb-data-object-rawdata-string--void-void) จากทรัพยากรอื่น
+
+```lua title="บรรทัดที่ 83"
+awaitedResources = {
+    ['nc_PROTECT+'] = {
+        timeout = 15 
+    },
+    ['bt_defender'] = {
+        timeout = 15
+    }
+}
+```
+
+- `['resourceName']`: `table`
+    - ชื่อของทรัพยากร
+        - timeout: `integer`
+            - ระยะเวลาที่จะรอก่อนดำเนินการต่อ (หน่วยเป็น **วินาที**)
+
+:::warning
+
+- ทรัพยากรที่กำหนดจะต้องเรียกใช้ฟังก์ชัน [signalDeferredDone](../exports/server.md#signaldeferreddone) ก่อน หรือ หลัง การเรียก [deferrals.done](https://docs.fivem.net/docs/scripting-reference/events/list/playerconnecting/#donefailurereason-string-void)
+- หากไม่มีการเรียก [signalDeferredDone](../exports/server.md#signaldeferreddone) ระบบจะรอจนกว่าจะครบเวลา timeout ที่กำหนดไว้ ก่อนจะดำเนินการขั้นถัดไป
+
+:::
+
 ## resourceBlocks
 
 บล็อกทรัพยากรที่ส่งผลต่อการทำงาน เช่น การควบคุมระบบคิว หรือ การตรวจสอบสิทธิ์การเชื่อมต่อกับเซิร์ฟเวอร์
 
-```lua title="บรรทัดที่ 83"
+```lua title="บรรทัดที่ 95"
 resourceBlocks = {
     'azael_dc-whitelisted',
     'hardcap'
@@ -279,7 +306,7 @@ resourceBlocks = {
 
 กำหนดสิทธิ์ในการเข้าถึงและการข้ามข้อจำกัดต่างๆ
 
-```lua title="บรรทัดที่ 88"
+```lua title="บรรทัดที่ 100"
 permissions = {
     skipRules = { ... }
 }
@@ -292,7 +319,7 @@ permissions = {
 
 กำหนดสิทธิ์ที่อนุญาตให้ผู้เล่นข้ามการตรวจสอบและข้อจำกัดตามบทบาท
 
-```lua title="บรรทัดที่ 89"
+```lua title="บรรทัดที่ 101"
 skipRules = {
     ['full_queue_limit'] = {
         PLAYER_ROLES.MODERATOR,
@@ -363,3 +390,46 @@ skipRules = {
 ตัวแปร [**PLAYER_ROLES**](./setup.md#roles) คือข้อมูลการกำหนดค่าเกี่ยวกับบทบาทของผู้เล่น โดยอ้างอิงการกำหนดค่าที่ไฟล์ [`./config/setup.lua`](./setup.md)
 
 :::
+
+## azaelBanOptions
+
+ตัวเลือกการกำหนดค่าที่เกี่ยวข้องกับระบบแบนของผู้ให้บริการ [AZAEL](https://www.azael.dev/)
+
+### enableDataShare
+
+เปิดการแชร์ข้อมูลการแบนหรือยกเลิกแบนของผู้เล่นไปยังบริการ [BAN DB](https://bandb.azael.dev/)
+
+```lua title="บรรทัดที่ 154"
+azaelBanOptions = {
+    enableDataShare = true
+}
+```
+
+- enableDataShare: `boolean`
+    - เปิดการแชร์ข้อมูลการแบนหรือยกเลิกแบนของผู้เล่นไปยังบริการ [BAN DB](https://bandb.azael.dev/)
+
+:::warning
+**เมื่อเปิดใช้งาน คุณยินยอมให้ผู้ให้บริการสามารถเข้าถึงและจัดเก็บข้อมูลดังต่อไปนี้**
+- **Owner ID**:
+    - ไอดีเจ้าของ [CFX License Key](https://portal.cfx.re/) ที่กำลังใช้งาน
+- **Owner Name:**
+    - ชื่อเจ้าของ [CFX License Key](https://portal.cfx.re/) ที่กำลังใช้งาน
+- **Owner Avatar:**
+    - รูปอวาตาร์ของเจ้าของ [CFX License Key](https://portal.cfx.re/) ที่กำลังใช้งาน
+- **Server ID:**
+    - ไอดีเซิร์ฟเวอร์ เป็น ID อ้างอิง [CFX License Key](https://portal.cfx.re/) ที่กำลังใช้งาน
+- **Server Type:**
+    - ประเภทของเซิร์ฟเวอร์ เช่น `gta4`, `gta5`, `rdr3`
+- **Server Name:**
+    - ชื่อเซิร์ฟเวอร์จาก `sv_projectName` ที่กำหนดใน [server.cfg](https://docs.fivem.net/docs/server-manual/setting-up-a-server-vanilla/#servercfg)
+- **Ban Data:**
+    - ข้อมูลการแบน เช่น ตัวระบุผู้เล่น, ประเภทการแบน, เหตุผลการแบน, วันที่สิ้นสุดการแบน
+
+:::note
+
+ข้อมูลเหล่านี้เป็นข้อมูลสาธารณะที่สามารถเข้าถึงได้ผ่านระบบของ [Cfx.re](https://cfx.re/) และไม่ถือว่าเป็นความลับ
+
+:::
+
+:::
+
