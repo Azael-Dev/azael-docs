@@ -743,6 +743,40 @@ sidebar_label: Commands
 - [ข้อมูลแอร์ไทม์ของผู้ใช้](./modules/commands/server.md#removeairtime) เมื่อใช้คำสั่งสำเร็จ
 - [ข้อความแสดงข้อผิดพลาด](./modules/commands/server.md#onexecuted) เมื่อใช้คำสั่งล้มเหลว
 
+### ล้างแคชข้อมูลผู้เล่น {#clearplayercache}
+
+คำสั่ง [ล้างแคชข้อมูลผู้เล่น](./config/command.md#clearplayercache) (ℹ️ ใช้เมื่อเกิดข้อผิดพลาด และต้องการโหลดข้อมูลผู้เล่นใหม่จากฐานข้อมูล)
+
+<Tabs>
+    <TabItem value="command" label="Command">
+        ```bash
+        <commandName> clearcache <identifier>
+        ```
+    </TabItem>
+    <TabItem value="example" label="Example">
+        ```bash
+        app clearcache 443334508020891658
+        ```
+:::tip
+    คุณสามารถระบุตัวระบุได้ทั้งแบบที่มีหรือไม่มีคำนำหน้า เช่น `discord:443334508020891658` หรือ `443334508020891658`
+:::
+    </TabItem>
+</Tabs>
+
+#### Arguments
+
+- commandName: `string`
+    - ชื่อของ [คำสั่งหลัก](./config/command.md#commandname) เพื่ออ้างอิงว่าเป็นคำสั่งของทรัพยากรนี้ สำหรับใช้งานผ่าน Server Console หรือ Client Console
+- subCommandName: `string`
+    - ชื่อของ [คำสั่งย่อย](./config/command.md#subcommands) และค่าเริ่มต้นคือ [`clearcache`](./config/command.md#clearplayercache)
+- identifier: `string`
+    - [ตัวระบุหลัก](./config/core.md#identifiertype) ของผู้ใช้
+
+#### Returns
+
+- [ข้อมูลตัวระบุของผู้ใช้](./modules/commands/server.md#clearplayercache) เมื่อใช้คำสั่งสำเร็จ
+- [ข้อความแสดงข้อผิดพลาด](./modules/commands/server.md#onexecuted) เมื่อใช้คำสั่งล้มเหลว
+
 ## User Commands
 
 รายการคำสั่งทั้งหมดของ [**ผู้ใช้**](https://en.wikipedia.org/wiki/User_(computing))

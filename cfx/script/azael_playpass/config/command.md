@@ -568,11 +568,36 @@ removeAirtime = {
         - ⚠️ ไม่สามารถใช้งานคำสั่งทางฝั่งไคลเอนต์ได้ หากกำหนด `serverOnly` เป็น `true`
         - [**PLAYER_ROLES**](./setup.md#roles) คือข้อมูลการกำหนดค่าเกี่ยวกับบทบาทของผู้เล่น โดยอ้างอิงการกำหนดค่าจากไฟล์ [`./config/setup.lua`](./setup.md)
 
+### clearPlayerCache
+
+คำสั่งสำหรับล้างแคชข้อมูลผู้เล่น (ℹ️ ใช้เมื่อเกิดข้อผิดพลาด และต้องการโหลดข้อมูลผู้เล่นใหม่จากฐานข้อมูล)
+
+```lua title="บรรทัดที่ 210"
+clearPlayerCache = {
+    name = 'clearcache',
+    serverOnly = false,
+    allowedRoles = {
+        PLAYER_ROLES.MODERATOR,
+        PLAYER_ROLES.ADMIN,
+        PLAYER_ROLES.DEVELOPER
+    }
+}
+```
+- name: `string`
+    - ชื่อคำสั่งย่อย
+        - ตัวอย่างการใช้คำสั่ง `<commandName> clearcache <identifier>`
+- serverOnly: `boolean`
+    - ใช้งานคำสั่งได้ทางฝั่งเซิร์ฟเวอร์เท่านั้น
+- allowedRoles: `table<{ [index]: integer }>` | `table<{}>`
+    - บทบาทที่อนุญาตให้ใช้คำสั่งทางฝั่งไคลเอนต์
+        - ⚠️ ไม่สามารถใช้งานคำสั่งทางฝั่งไคลเอนต์ได้ หากกำหนด `serverOnly` เป็น `true`
+        - [**PLAYER_ROLES**](./setup.md#roles) คือข้อมูลการกำหนดค่าเกี่ยวกับบทบาทของผู้เล่น โดยอ้างอิงการกำหนดค่าจากไฟล์ [`./config/setup.lua`](./setup.md)
+
 ### getMyInfo
 
 คำสั่งรับข้อมูลส่วนตัวของผู้เล่นภายในเกม (ℹ️ คำสั่งนี้สามารถใช้งานได้เพียงฝั่งไคลเอนต์เท่านั้น)
 
-```lua title="บรรทัดที่ 210"
+```lua title="บรรทัดที่ 219"
 getMyInfo = {
     name = 'myinfo',
     allowedRoles = {
@@ -597,7 +622,7 @@ getMyInfo = {
 
 คำสั่งรับข้อมูลเกี่ยวกับระบบคิว
 
-```lua title="บรรทัดที่ 221"
+```lua title="บรรทัดที่ 230"
 getQueueInfo = {
     name = 'queueinfo',
     serverOnly = false,

@@ -715,6 +715,31 @@ end
         - newAirtime: `integer`
             - จำนวน[แอร์ไทม์คงเหลือ](../../config/core.md#airtimeserver)หลังจากถูกลบ
 
+### clearPlayerCache
+
+ทำงานเมื่อใช้คำสั่ง "[ล้างแคชข้อมูลผู้เล่น](../../config/command.md#clearplayercache)" สำเร็จ
+
+```lua title="บรรทัดที่ 600"
+function respHandler.clearPlayerCache(client, resp)
+    local message <const> = ("[^2INFO^7] Successfully cleared player cache for identifier '^5%s^7'"):format(resp.identifier)
+    
+    if client then
+        return Commands.sendClientMessage(client, true, message)
+    end
+    
+    print(message)
+end
+```
+
+#### Parameters
+
+- client: `integer` | `nil`
+    - [Net ID](https://docs.fivem.net/docs/scripting-manual/networking/ids/#server-id) ของผู้เล่น หรือ `nil` หากใช้คำสั่งที่ Server Console
+- resp: `table<{ [key]: any }>`
+    - ข้อมูลตอบกลับของคำสั่ง
+        - identifier: `string`
+            - [ตัวระบุของผู้เล่น](../../config/core.md#identifiertype)
+
 ### getMyInfo
 
 ทำงานเมื่อใช้คำสั่ง "[รับข้อมูลส่วนตัวของผู้เล่น](../../config/command.md#getmyinfo)" สำเร็จ

@@ -85,6 +85,7 @@ sidebar_label: Server
 | `setAirtime`              | [กำหนดแอร์ไทม์ผู้ใช้](../commands.md#getairtime)
 | `addAirtime`              | [เพิ่มแอร์ไทม์ผู้ใช้](../commands.md#addairtime)
 | `removeAirtime`           | [ลบแอร์ไทม์ผู้ใช้](../commands.md#removeairtime)
+| `clearPlayerCache`        | [ล้างแคชข้อมูลผู้เล่น](../commands.md#clearplayercache)
 | `getQueueInfo`            | [รับข้อมูลระบบคิว](../commands.md#getqueueinfo)
 
 ## getUser
@@ -936,6 +937,45 @@ sidebar_label: Server
     - สถานะการเรียกใช้
 - response: `table<{ [key]: any }>`
     - [ข้อมูลแอร์ไทม์ผู้ใช้](../modules/commands/server.md#removeairtime) หากการเรียกใช้สำเร็จ
+    - [ข้อมูลข้อผิดพลาด](./server.md#execommand-returns) หากการเรียกใช้ล้มเหลว
+
+## clearPlayerCache
+
+ล้างแคชข้อมูลผู้เล่น
+
+<Tabs>
+    <TabItem value="usage" label="Usage">
+        ```lua
+        exports.azael_playpass:clearPlayerCache(identifier)
+        ```
+    </TabItem>
+    <TabItem value="example" label="Example">
+        ```lua
+        local success, response = exports.azael_playpass:clearPlayerCache('443334508020891658')
+
+        if not success then
+            return print('Error type:', response.type, 'Error message:', response.message)
+        end
+
+        print(json.encode(response, { indent = true }))
+        ```
+:::tip
+    คุณสามารถระบุตัวระบุได้ทั้งแบบที่มีหรือไม่มีคำนำหน้า เช่น `discord:443334508020891658` หรือ `443334508020891658`
+:::
+    </TabItem>
+</Tabs>
+
+#### Arguments
+
+- identifier: `string`
+    - [ตัวระบุหลัก](../config/core.md#identifiertype) ของผู้ใช้
+
+#### Returns
+
+- success: `boolean`
+    - สถานะการเรียกใช้
+- response: `table<{ [key]: any }>`
+    - [ข้อมูลตัวระบุของผู้ใช้](../modules/commands/server.md#clearplayercache) หากการเรียกใช้สำเร็จ
     - [ข้อมูลข้อผิดพลาด](./server.md#execommand-returns) หากการเรียกใช้ล้มเหลว
 
 ## getQueueInfo
