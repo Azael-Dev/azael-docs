@@ -26,6 +26,13 @@
 
 :::
 
+:::danger  
+ทรัพยากรนี้ไม่สามารถใช้งานร่วมกับ [**nc_PROTECT+**](https://fivem.nc-developer.com/product/62517d4c2d7b0) ได้ และอาจทำให้เกิดปัญหา *Deadloop* ที่ฝั่ง Client  
+โปรดดำเนินการตามขั้นตอนด้านล่างเพื่อหลีกเลี่ยงปัญหา:
+1. เปิดไฟล์ `nc_PROTECT+/config/config.resources.lua`  
+2. เพิ่ม `azael_playpass` ในการกำหนดค่า `Config.IgnoredResources`
+:::
+
 ## ติดตั้งและใช้งาน
 
 1. ดาวน์โหลดและแตกไฟล์ลงในโฟลเดอร์ **resources** ของคุณ
@@ -36,6 +43,8 @@
 ```diff title="server.cfg"
 ensure azael_playpass
 ```
+
+5. โปรดดำเนินการตามขั้นตอนเพิ่มเติมใน “[**คู่มือการติดตั้ง**](./tutorials.md#installation)”
 
 :::tip
 

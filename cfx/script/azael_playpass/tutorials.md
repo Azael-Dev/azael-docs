@@ -6,6 +6,31 @@ sidebar_label: Tutorials
 
 บทช่วยสอนและคำแนะนำที่เกี่ยวข้องกับทรัพยากร **[azael_playpass](./index.md)**
 
+## Installation
+
+บทช่วยสอนและคำแนะนำที่เกี่ยวกับการติดตั้ง (⚠️ เฉพาะเซิร์ฟเวอร์ที่ใช้งานบัญชี [Discord](https://discord.com/) และ [Steam](https://steamcommunity.com) เป็น [ตัวระบุหลัก](./config/core.md#identifiertype) หรือ [ตัวระบุที่ผูก](./config/core.md#bindidentifier))
+
+1. ดำเนินการตามขั้นตอน [ติดตั้งและใช้งาน](./index.md#ติดตั้งและใช้งาน) ก่อน
+2. [สร้างแอปพลิเคชันและบอท](./tutorials.md#สร้างแอปพลิเคชันและบอท) และ [เพิ่มบอทไปยังเซิร์ฟเวอร์](./tutorials.md#เพิ่มบอทไปยังเซิร์ฟเวอร์) ให้เรียบร้อย
+3. ไปทีไฟล์ `server.cfg` และเพิ่มรหัสด้านล่างนี้
+```lua
+set discord_guildId "your_guild_id"
+set discord_botToken "your_bot_token"
+```
+4. นำ [ID ของเซิร์ฟเวอร์](./tutorials.md#รับ-id-ของเซิร์ฟเวอร์-guild-id) ไปแทนที่ `your_guild_id`
+5. นำ [โทเค็นของบอท](./tutorials.md#รับโทเค็นของบอท) ไปแทนที่ `your_bot_token`
+6. นำ [ID ของบทบาท](./tutorials.md#รับ-id-ของบทบาท-role-id) ที่อนุญาตให้เข้าร่วมเซิร์ฟเวอร์ได้ ไปกำหนดที่ [allowedRoleIds](./config/external_api.md#allowedroleids) ไฟล์ `config/external_api.lua`
+7. ไปทีไฟล์ `server.cfg` และเพิ่มรหัสด้านล่างนี้ (หากมีอยู่แล้วให้ข้ามไปยังหัวข้อที่ 9)
+```lua
+set steam_webApiKey "your_api_key"
+```
+8. ดำเนินการ [ลงทะเบียนรับรหัส Steam Web API](https://steamcommunity.com/dev/apikey) และนำรหัสไปแทนที่ `your_api_key`
+9. เสร็จแล้ว! เริ่มต้นเซิร์ฟเวอร์ของคุณ และลองเชื่อมต่อกับเซิร์ฟเวอร์เพื่อทดสอบ
+
+:::tip
+การกำหนดค่าในส่วนอื่นๆ ถูกตั้งค่าไว้เป็นค่าเริ่มต้นที่พร้อมใช้งานแล้ว อย่างไรก็ตาม แนะนำให้ศึกษารายละเอียดเพิ่มเติมเพื่อปรับแต่งให้เหมาะสมกับการใช้งานในแต่ละเซิร์ฟเวอร์
+:::
+
 ## Discord Client
 
 บทช่วยสอนและคำแนะนำเกี่ยวกับการใช้งานแอป [**Discord**](https://discord.com)
