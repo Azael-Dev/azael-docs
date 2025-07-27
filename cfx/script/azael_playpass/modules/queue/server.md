@@ -36,7 +36,7 @@ end
             - ลำดับของผู้เล่นในคิว
         - joinTime: `integer`
             - เวลาที่ผู้เล่นเข้าร่วมคิว ([Unix time](https://en.wikipedia.org/wiki/Unix_time))
-- ordinalLists: `string`
+- ordinalLists: `string` | `nil`
     - รายการ[ลำดับของผู้เล่นที่แสดง](../../config/queue.md#queuedisplaylists)
 - usedSlots: `integer`
     - จำนวนสล็อตเซิร์ฟเวอร์ที่ใช้งาน

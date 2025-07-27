@@ -180,11 +180,28 @@ autoBanAssociated = {
     - เปิดใช้งานการตรวจสอบ [HWID Tokens](./core.md#banplayerhwids) สำหรับการแบนผู้เล่นอัตโนมัติเมื่อพบข้อมูลที่ตรงกับผู้เล่นที่ถูกแบน
         - ⚠️ ไม่ทำงานหากปิดใช้งาน [`banPlayerHwids`](./core.md#banplayerhwids)
 
+## txAdminBanListener
+
+รับฟังเหตุการณ์ แบน หรือ ยกเลิกแบน จาก [txAdmin](https://txadmin.gg/) เพื่อจัดการการแบนและยกเลิกแบนภายในระบบของทรัพยากรนี้
+
+```lua title="บรรทัดที่ 60"
+txAdminBanListener = true
+```
+
+- txAdminBanListener: `boolean`
+    - เปิดใช้งานการรับฟังเหตุการณ์ แบน หรือ ยกเลิกแบน จาก [txAdmin](https://txadmin.gg/)
+
+:::warning
+
+รองรับ [txAdmin](https://txadmin.gg/) เวอร์ชัน 6.0 ขึ้นไป
+
+:::
+
 ## inactivePlayers
 
 กำหนดค่าการตรวจสอบผู้เล่นที่ไม่ได้เข้าร่วมเซิร์ฟเวอร์ตามระยะเวลาที่กำหนด ผู้เล่นจะถูกระงับการใช้งานเมื่อครบระยะเวลาที่กำหนด
 
-```lua title="บรรทัดที่ 60"
+```lua title="บรรทัดที่ 63"
 inactivePlayers = {
     enable = true,
     limitDays = 14
@@ -200,7 +217,7 @@ inactivePlayers = {
 
 ระบบจำกัดเวลาในการเล่น โดยผู้เล่นจะต้องเติม Airtime เพื่อเพิ่มเวลาในการเล่น
 
-```lua title="บรรทัดที่ 65"
+```lua title="บรรทัดที่ 68"
 airTimeServer = {
     enable = false, 
     addTime = 86400 * 7,
@@ -220,7 +237,7 @@ airTimeServer = {
 
 ป้ายกำกับผู้เล่นใหม่ โดยจะแสดงข้อความบนส่วนหัวของผู้เล่น
 
-```lua title="บรรทัดที่ 71"
+```lua title="บรรทัดที่ 74"
 newPlayerLabel = { 
     enable = true,
     durationDays = 7
@@ -242,7 +259,7 @@ newPlayerLabel = {
 
 ลิงก์ของชุมชนจะถูกแสดงให้ผู้เล่นทราบเมื่อไม่มีสิทธิ์เข้าร่วมเซิร์ฟเวอร์หรือเกิดปัญหาอื่นๆ
 
-```lua title="บรรทัดที่ 76"
+```lua title="บรรทัดที่ 79"
 communityLink = {
     enable = true,
     mainUrl = 'https://example.com',
@@ -264,7 +281,7 @@ communityLink = {
 
 ทรัพยากรที่ต้องประมวลผลให้เสร็จก่อนเมื่อผู้เล่นเชื่อมต่อ เพื่อป้องกันการทำงานทับซ้อนของ [deferrals.update](https://docs.fivem.net/docs/scripting-reference/events/list/playerconnecting/#updatemessage-string-void) หรือ [update.presentCard](https://docs.fivem.net/docs/scripting-reference/events/list/playerconnecting/#presentcardcard-object--string-cb-data-object-rawdata-string--void-void) จากทรัพยากรอื่น
 
-```lua title="บรรทัดที่ 83"
+```lua title="บรรทัดที่ 86"
 awaitedResources = {
     ['nc_PROTECT+'] = {
         timeout = 15 
@@ -291,7 +308,7 @@ awaitedResources = {
 
 บล็อกทรัพยากรที่ส่งผลต่อการทำงาน เช่น การควบคุมระบบคิว หรือ การตรวจสอบสิทธิ์การเชื่อมต่อกับเซิร์ฟเวอร์
 
-```lua title="บรรทัดที่ 95"
+```lua title="บรรทัดที่ 98"
 resourceBlocks = {
     'azael_dc-whitelisted',
     'hardcap'
@@ -306,7 +323,7 @@ resourceBlocks = {
 
 กำหนดสิทธิ์ในการเข้าถึงและการข้ามข้อจำกัดต่างๆ
 
-```lua title="บรรทัดที่ 100"
+```lua title="บรรทัดที่ 103"
 permissions = {
     skipRules = { ... }
 }
@@ -319,7 +336,7 @@ permissions = {
 
 กำหนดสิทธิ์ที่อนุญาตให้ผู้เล่นข้ามการตรวจสอบและข้อจำกัดตามบทบาท
 
-```lua title="บรรทัดที่ 101"
+```lua title="บรรทัดที่ 104"
 skipRules = {
     ['full_queue_limit'] = {
         PLAYER_ROLES.MODERATOR,
@@ -399,7 +416,7 @@ skipRules = {
 
 เปิดการแชร์ข้อมูลการแบนหรือยกเลิกแบนของผู้เล่นไปยังบริการ [BAN DB](https://bandb.azael.dev/)
 
-```lua title="บรรทัดที่ 154"
+```lua title="บรรทัดที่ 157"
 azaelBanOptions = {
     enableDataShare = true
 }
@@ -430,6 +447,3 @@ azaelBanOptions = {
 ข้อมูลเหล่านี้เป็นข้อมูลสาธารณะที่สามารถเข้าถึงได้ผ่านระบบของ [Cfx.re](https://cfx.re/) และไม่ถือว่าเป็นความลับ
 
 :::
-
-:::
-

@@ -90,7 +90,8 @@ CREATE TABLE `azael_playpass` (
         |-----------------------|-------------------------------|-------------------------------
         | `type`                | `string`                      | ประเภทของการถูกแบน ชั่วคราว (`temporary`) หรือ ถาวร (`permanent`)
         | `reason`              | `string`                      | เหตุผลการถูกแบน
-        | `banned_by`           | `string`                      | ถูกแบนโดย เช่น `<identifier>`, `Admin (Server Console)`, `Resource: <name>` หรือ `IP Address: <ip:port>`
+        | `banned_by`           | `string`                      | ถูกแบนโดย เช่น `<identifier>`, `Admin (Server Console)`, `Resource: <name>`, `IP Address: <ip:port>`, `txAdmin: <author>` หรือ `Discord Guild`
+        | `associated_id`       | `string` \| `nil`             | ตัวระบุที่ทำให้บัญชีนี้ถูกแบน ([autoBanAssociated](../../config/core.md#autobanassociated))
         | `start_datetime`      | `string`                      | วันที่และเวลาที่เริ่มต้นการแบน ในรูปแบบ `YYYY-MM-DD HH:MM:SS` เช่น `"2025-05-21 14:33:00"`
         | `end_datetime`        | `string` \| `null`            | วันที่และเวลาที่สิ้นสุดการแบน ในรูปแบบ `YYYY-MM-DD HH:MM:SS` เช่น `"2026-05-21 14:33:00"`
         ###### Example
@@ -277,7 +278,7 @@ end
 
 ```lua title="บรรทัดที่ 199"
 function Database.getBannedHwids()
-    return MySQL.query.await('SELECT `identifier`, `last_hwids` FROM `azael_playpass` WHERE `status` = ? AND `last_hwids` IS NOT NULL', { PLAYER_STATUS.BANNED })
+    return MySQL.query.await("SELECT `identifier`, `last_hwids` FROM `azael_playpass` WHERE `status` = ? AND `last_hwids` IS NOT NULL AND JSON_UNQUOTE(JSON_EXTRACT(`ban_details`, '$.start_datetime')) IS NOT NULL ORDER BY JSON_UNQUOTE(JSON_EXTRACT(`ban_details`, '$.start_datetime')) ASC", { PLAYER_STATUS.BANNED })
 end
 ```
 
@@ -290,6 +291,12 @@ end
 |-----------------------|-------------------------------|-------------------------------
 | `identifier`          | `string`                      | [ตัวระบุ](../../config/core.md#identifiertype)ของผู้เล่น
 | `last_hwids`          | `table` \| `string<JSON>`      | ข้อมูล [Last HWIDs](./server.md#json-structure)ของผู้เล่น
+
+:::warning
+
+ข้อมูลจะต้องเรียงลำดับจากเก่าไปใหม่ โดยอ้างอิงจาก `start_datetime` ที่คอลัมน์ `ban_details` เพื่อความถูกต้อง
+
+:::
 
 ### getInactivePlayers
 

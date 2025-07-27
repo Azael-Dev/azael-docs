@@ -11,11 +11,66 @@ sidebar_label: Server
 - `./modules/profile/templates/single-account.json` หากปิดใช้งาน [bindIdentifier](../../config/core.md#bindidentifier)
 :::
 
+### sanitizeDisplayName
+
+ทำความสะอาดชื่อที่แสดงเพื่อหลีกเลี่ยงข้อผิดพลาดทางไวยากรณ์เมื่อใช้กับ `gsub` และ `JSON`
+
+```lua title="บรรทัดที่ 19"
+local function sanitizeDisplayName(str)
+    if not str then return '' end
+    
+    local cleaned = tostring(str)
+    
+    -- แปลง backslash ก่อน (สำคัญสำหรับ JSON)
+    cleaned = cleaned:gsub('\\', '\\\\')
+    
+    -- ป้องกันอักขระพิเศษของ Lua pattern
+    cleaned = cleaned:gsub('[%^%$%(%)%%%.%[%]%*%+%-%?]', '%%%1')
+    
+    -- ทำให้อักขระปลอดภัยสำหรับ JSON
+    cleaned = cleaned:gsub('"', '\\"')
+    cleaned = cleaned:gsub('\n', '\\n')
+    cleaned = cleaned:gsub('\r', '\\r')
+    cleaned = cleaned:gsub('\t', '\\t')
+    cleaned = cleaned:gsub('\b', '\\b')
+    cleaned = cleaned:gsub('\f', '\\f')
+    
+    -- แปลงอักขระพิเศษทั่วไปเพื่อให้ปลอดภัย
+    cleaned = cleaned:gsub('/', '\\/')
+    
+    -- ลบอักขระ Unicode ที่ไม่พึงประสงค์ (เช่น ตัวล่องหน)
+    cleaned = cleaned:gsub('[\200-\255][\128-\191]*', function(char)
+        local byte1 <const> = string.byte(char, 1)
+        
+        if byte1 >= 226 and byte1 <= 239 then
+            return ''
+        end
+        
+        return char
+    end)
+    
+    -- ลบอักขระควบคุม (ASCII 0–31) ยกเว้นที่จำเป็น
+    cleaned = cleaned:gsub('[\1-\31]', '')
+    
+    return cleaned
+end
+```
+
+#### Parameters
+
+- str: `string`
+    - ชื่อที่แสดง
+    
+#### Returns
+
+- cleaned: `string`
+    - ชื่อที่แสดง หลังทำความสะอาดแล้ว
+
 ### loadTemplate
 
 โหลดเทมเพลตโปรไฟล์
 
-```lua title="บรรทัดที่ 19"
+```lua title="บรรทัดที่ 61"
 function Profile.loadTemplate(name)
     local filePath <const> = ('modules/profile/templates/%s.json'):format(name)
     local fileContents <const> = LoadResourceFile(resourceName, filePath)
@@ -46,7 +101,7 @@ end
 
 ดึงข้อมูลผู้ใช้จากผู้ให้บริการ [Steam](https://steamcommunity.com/)
 
-```lua title="บรรทัดที่ 38"
+```lua title="บรรทัดที่ 80"
 function Profile.getSteamUser(req, id)
     local reqUrl <const> = req.url:gsub('${WEB_API_KEY}', req.auth):gsub('${STEAM_ID}', id)
     local resStatus <const>, resBody <const> = PerformHttpRequestAwait(reqUrl, 'GET', '', {
@@ -112,7 +167,7 @@ end
 
 ดึงข้อมูลผู้ใช้จากผู้ให้บริการ [Discord](https://discord.com/)
 
-```lua title="บรรทัดที่ 73"
+```lua title="บรรทัดที่ 115"
 function Profile.getDiscordUser(req, id)
     local reqUrl <const> = req.url:gsub('${USER_ID}', id)
     local resStatus <const>, resBody <const> = PerformHttpRequestAwait(reqUrl, 'GET', '', {

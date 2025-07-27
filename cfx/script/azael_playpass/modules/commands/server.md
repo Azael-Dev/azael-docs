@@ -174,9 +174,10 @@ end
 
 ```lua title="บรรทัดที่ 202"
 function respHandler.getBanInfo(client, resp)
-    local message <const> = ("[^2INFO^7] Identifier: ^5%s^7\n[^2INFO^7] Bound ID: %s\n[^2INFO^7] Ban Type: %s\n[^2INFO^7] Ban Reason: %s\n[^2INFO^7] Ban Start: %s\n[^2INFO^7] Ban End: %s")
+    local message <const> = ("[^2INFO^7] Identifier: ^5%s^7\n[^2INFO^7] Bound ID: %s\n[^2INFO^7] Associated ID: %s\n[^2INFO^7] Ban Type: %s\n[^2INFO^7] Ban Reason: %s\n[^2INFO^7] Ban Start: %s\n[^2INFO^7] Ban End: %s")
         :format(resp.identifier, 
             ('^5' .. resp.boundId .. '^7' or 'None'), 
+            (resp.banDetails.associated_id and '^3' .. resp.banDetails.associated_id .. '^7' or 'None'),
             (resp.banDetails.type == 'temporary' and '^3Temporary^7' or '^1Permanent^7'),
             '^6' .. resp.banDetails.reason .. '^7',
             '^3' .. resp.banDetails.start_datetime .. '^7',

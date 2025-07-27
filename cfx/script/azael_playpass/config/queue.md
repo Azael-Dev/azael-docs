@@ -22,7 +22,7 @@ svFullQueueLimit = 52
 จำนวนผู้เล่นสูงสุดที่จะปล่อยเข้าเซิร์ฟเวอร์ในแต่ละรอบเมื่อสล็อตว่าง
 
 ```lua title="บรรทัดที่ 14"
-releaseQueueLimit = 2
+releaseQueueLimit = 6
 ```
 
 - releaseQueueLimit: `integer`
@@ -43,7 +43,7 @@ releaseQueueLimit = 2
 จำนวนผู้เล่นสูงสุดที่สามารถดาวน์โหลดไฟล์ทรัพยากรพร้อมกันได้
 
 ```lua title="บรรทัดที่ 18"
-resourceDownloadLimit = 10
+resourceDownloadLimit = 30
 ```
 
 - resourceDownloadLimit: `integer`
