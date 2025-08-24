@@ -24,8 +24,8 @@ local function sanitizeDisplayName(str)
     -- แปลง backslash ก่อน (สำคัญสำหรับ JSON)
     cleaned = cleaned:gsub('\\', '\\\\')
     
-    -- ป้องกันอักขระพิเศษของ Lua pattern
-    cleaned = cleaned:gsub('[%^%$%(%)%%%.%[%]%*%+%-%?]', '%%%1')
+    -- Escape % สำหรับ gsub replacement string (ต้องทำก่อน JSON escaping)
+    cleaned = cleaned:gsub('%%', '%%%%')
     
     -- ทำให้อักขระปลอดภัยสำหรับ JSON
     cleaned = cleaned:gsub('"', '\\"')
@@ -35,10 +35,10 @@ local function sanitizeDisplayName(str)
     cleaned = cleaned:gsub('\b', '\\b')
     cleaned = cleaned:gsub('\f', '\\f')
     
-    -- แปลงอักขระพิเศษทั่วไปเพื่อให้ปลอดภัย
+    -- แปลงอักขระพิเศษทั่วไป
     cleaned = cleaned:gsub('/', '\\/')
     
-    -- ลบอักขระ Unicode ที่ไม่พึงประสงค์ (เช่น ตัวล่องหน)
+    -- ลบอักขระ Unicode ที่ไม่พึงประสงค์
     cleaned = cleaned:gsub('[\200-\255][\128-\191]*', function(char)
         local byte1 <const> = string.byte(char, 1)
         

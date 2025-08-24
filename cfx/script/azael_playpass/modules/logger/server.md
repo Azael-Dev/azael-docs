@@ -71,7 +71,7 @@ function Logger.onPlayerPingExceeded(payload)
                 { name = 'IDENTIFIER', value = ('```%s```'):format(payload.player.identifier), inline = false },
                 { name = 'PLAYER PING', value = ('```📶 ➔ %d ms```'):format(payload.player.ping), inline = false }
             },
-            source = 0,
+            source = payload.player.netId,
             color = 1,
             options = {
                 codeblock = false
@@ -88,7 +88,9 @@ end
         - player: `table<{ [key]: any }>`
             - ข้อมูลของผู้เล่นเมื่อเชื่อมต่อ
                 - tempId: `integer`
-                    - [Temp ID](https://docs.fivem.net/docs/scripting-reference/events/list/playerconnecting/#parameters) ของผู้เล่น 
+                    - [Temp ID](https://docs.fivem.net/docs/scripting-reference/events/list/playerconnecting/#parameters) ของผู้เล่น
+                - netId: `integer`
+                    - [Net ID](https://docs.fivem.net/docs/scripting-manual/networking/ids/#server-id) ของผู้เล่น
                 - identifier: `string`
                     - [ตัวระบุหลัก](../../config/core.md#identifiertype) ของผู้เล่น
                 - bindId: `string` | `nil`

@@ -799,7 +799,7 @@ end
     - numQueues: `integer`
         - จำนวนผู้เล่นที่รออยู่ในคิว
     - numDownloads: `integer`
-        - จำนวนผู้เล่นที่กำลัง[ดาวน์โหลดทรัพยากร](../../config/queue.md#resourcedownloadlimit)ของเซิร์ฟเวอร์ (ก่อนเข้าหน้า Loading Screen)
+        - จำนวนผู้เล่นที่กำลัง[ดาวน์โหลดทรัพยากร](../../config/queue.md#resourcedownload)ของเซิร์ฟเวอร์ (ก่อนเข้าหน้า Loading Screen)
     - numCrashes: `integer`
         - จำนวนผู้เล่นที่เกิดการขัดข้องและ[มีสิทธิ์เข้าร่วมใหม่โดยไม่ต้องรอคิว](../../config/queue.md#rejoinoncrashes)
     - numPlayers: `integer`
