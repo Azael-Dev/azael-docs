@@ -83,13 +83,22 @@ CONFIG.General.Screenshot.Enable = true -- [[ boolean ]]
 
 ```lua title="บรรทัดที่ 27"
 CONFIG.General.Screenshot.Webhooks = { -- [[ table ]]
-    ['Dead'] = 'webhook_url'           -- ฝากภาพ-สาเหตุการตาย
+    ['Dead'] = 'webhook_url',           -- ฝากภาพ-สาเหตุการตาย
+    ['Dead:1'] = 'webhook_url',         -- ฝากภาพ-สาเหตุการตาย-1
+    ['Dead:2'] = 'webhook_url',         -- ฝากภาพ-สาเหตุการตาย-2
+    ['Dead:3'] = 'webhook_url',         -- ฝากภาพ-สาเหตุการตาย-3
+    ['Dead:4'] = 'webhook_url',         -- ฝากภาพ-สาเหตุการตาย-4
+    ['Dead:5'] = 'webhook_url',         -- ฝากภาพ-สาเหตุการตาย-5
+    ['Dead:6'] = 'webhook_url',         -- ฝากภาพ-สาเหตุการตาย-6
+    ['Dead:7'] = 'webhook_urlB',        -- ฝากภาพ-สาเหตุการตาย-7
+    ['Dead:8'] = 'webhook_url',         -- ฝากภาพ-สาเหตุการตาย-8
+    ['Dead:9'] = 'webhook_url',         -- ฝากภาพ-สาเหตุการตาย-9
 }
 ```
 
 :::caution
 
-เหตุการณ์ **Login** (**เข้าสู่เซิร์ฟเวอร์**) และ **Logout** (**ออกจากเซิร์ฟเวอร์**) ไม่สามารถใช้งานได้
+- เหตุการณ์ **Login** (**เข้าสู่เซิร์ฟเวอร์**) และ **Logout** (**ออกจากเซิร์ฟเวอร์**) ไม่สามารถใช้งานได้
 
 :::
 
@@ -97,7 +106,7 @@ CONFIG.General.Screenshot.Webhooks = { -- [[ table ]]
 
 เปิดใช้งาน ตรวจสอบข้อความที่ผู้เล่นดำเนินการ (**[chatMessage](https://docs.fivem.net/docs/resources/chat/events/chatMessage/)**)
 
-```lua title="บรรทัดที่ 33"
+```lua title="บรรทัดที่ 42"
 CONFIG.General.Chat.Enable = false -- [[ boolean ]]
 ```
 
@@ -111,7 +120,7 @@ CONFIG.General.Chat.Enable = false -- [[ boolean ]]
 
 เปิดใช้งาน ลบข้อความ หากพบคําที่ไม่อนุญาต
 
-```lua title="บรรทัดที่ 36"
+```lua title="บรรทัดที่ 45"
 CONFIG.General.Chat.Remove.Enable = true -- [[ boolean ]]
 ```
 
@@ -125,7 +134,7 @@ CONFIG.General.Chat.Remove.Enable = true -- [[ boolean ]]
 
 เปิดใช้งาน เตะผู้เล่นออกจากเซิร์ฟเวอร์ หากพบคําที่ไม่อนุญาต
 
-```lua title="บรรทัดที่ 40"
+```lua title="บรรทัดที่ 49"
 CONFIG.General.Chat.Kick.Enable = true -- [[ boolean ]]
 ```
 
@@ -139,7 +148,7 @@ CONFIG.General.Chat.Kick.Enable = true -- [[ boolean ]]
 
 เหตุผลในการเตะผู้เล่นออกจากเซิร์ฟเวอร์ หากพบคําที่ไม่อนุญาต
 
-```lua title="บรรทัดที่ 41"
+```lua title="บรรทัดที่ 50"
 CONFIG.General.Chat.Kick.Reason = 'ตรวจพบคำที่ไม่ได้รับอนุญาต (%s)' -- [[ string ]]
 ```
 
@@ -147,7 +156,7 @@ CONFIG.General.Chat.Kick.Reason = 'ตรวจพบคำที่ไม่ไ
 
 รายการคำที่ไม่ได้รับอนุญาตให้ใช้งาน
 
-```lua title="บรรทัดที่ 44"
+```lua title="บรรทัดที่ 53"
 CONFIG.General.Chat.Word = { -- [[ table ]]
     'discord.gg',
     'discord.com/invite',
@@ -161,7 +170,7 @@ CONFIG.General.Chat.Word = { -- [[ table ]]
 
 รหัสสี (รูปแบบ **[Hexadecimal](https://en.wikipedia.org/wiki/Web_colors)**)
 
-```lua title="บรรทัดที่ 53"
+```lua title="บรรทัดที่ 62"
 CONFIG.General.Color = { -- [[ table ]]
     [1] = '#FF4444',                                    -- แดงอ่อน
     [2] = '#99CC00',                                    -- เขียวเข้ม
@@ -180,7 +189,7 @@ CONFIG.General.Color = { -- [[ table ]]
 
 เปิดใช้งาน **เพิ่มตัวจัดการเหตุการณ์** ให้รองรับรหัสการส่งข้อมูล **[azael_dc-serverlogs](../index.md)** เวอร์ชันที่ล้าสมัยในรูปแบบ **[TriggerEvent](https://docs.fivem.net/docs/scripting-manual/working-with-events/triggering-events/)** ทางฝั่ง **[Server](https://en.wikipedia.org/wiki/Server-side)**
 
-```lua title="บรรทัดที่ 67"
+```lua title="บรรทัดที่ 76"
 CONFIG.General.EventHandler.Enable = true -- [[ boolean ]]
 ```
 
@@ -201,7 +210,7 @@ CONFIG.General.EventHandler.Enable = true -- [[ boolean ]]
 
 รายชื่อเหตุการณ์ทั้งหมดของ **[azael_dc-serverlogs](../index.md)** ในเวอร์ชันที่ล้าสมัย
 
-```lua title="บรรทัดที่ 69"
+```lua title="บรรทัดที่ 78"
 CONFIG.General.EventHandler.Events = { -- [[ table ]]
     'azael_discordlogs:sendToDiscord',
     'azael_dc-serverlogs:sendToDiscord',
@@ -240,7 +249,7 @@ TriggerEvent('azael_dc-serverlogs:insertData', 'eventName', content, source, 7, 
 
 ส่งคำขอไปยัง **[Server API](https://en.wikipedia.org/wiki/Web_API)** ที่กำหนดเองแบบเรียลไทม์
 
-```lua title="บรรทัดที่ 77"
+```lua title="บรรทัดที่ 86"
 CONFIG.Custom = {} -- [[ table ]]
 ```
 
@@ -248,7 +257,7 @@ CONFIG.Custom = {} -- [[ table ]]
 
 **[Base URL](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)** ของ **[Server API](https://en.wikipedia.org/wiki/Web_API)** สำหรับ รับข้อมูลจากฟอร์มคำขอ (**[HTTP Requests](https://en.wikipedia.org/wiki/POST_(HTTP))**)
 
-```lua title="บรรทัดที่ 79"
+```lua title="บรรทัดที่ 88"
 CONFIG.Custom.API.BaseURL = 'http://localhost/api/azael_logs/' -- [[ string ]]
 ```
 
@@ -262,7 +271,7 @@ CONFIG.Custom.API.BaseURL = 'http://localhost/api/azael_logs/' -- [[ string ]]
 
 **Method** สำหรับ **[Authorization](https://en.wikipedia.org/wiki/HTTP_authentication)** ที่ใช้งาน (จะถูกกำหนดภายใน **[HTTP Headers](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields)** ของคำขอ)
 
-```lua title="บรรทัดที่ 82"
+```lua title="บรรทัดที่ 91"
 CONFIG.Custom.API.Authorization.Method = 'Log' -- [[ string ]]
 ```
 
@@ -281,7 +290,7 @@ CONFIG.Custom.API.Authorization.Method = 'Log' -- [[ string ]]
 
 **Token** สำหรับ **[Authorization](https://en.wikipedia.org/wiki/HTTP_authentication)** ที่ใช้งาน (จะถูกกำหนดภายใน **[HTTP Headers](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields)** ของคำขอ)
 
-```lua title="บรรทัดที่ 83"
+```lua title="บรรทัดที่ 92"
 CONFIG.Custom.API.Authorization.Token = 'security_token' -- [[ string ]]
 ```
 
@@ -296,11 +305,75 @@ CONFIG.Custom.API.Authorization.Token = 'security_token' -- [[ string ]]
 
 :::
 
+### Events
+
+กำหนด Events ที่ต้องการส่งข้อมูลไปยัง **[Server API](https://en.wikipedia.org/wiki/Web_API)** ที่กำหนดเอง
+
+:::tip
+
+หากไม่กำหนดหรือปิดรหัส `CONFIG.Custom.Events` (เช่น คอมเมนต์หรือไม่ใส่ตารางนี้ในไฟล์) ระบบจะถือว่าส่งทุกข้อมูลของทุกเหตุการณ์ไปยัง **Server API** โดยไม่มีการกรองใด ๆ ทั้งสิ้น
+
+:::
+
+```lua title="บรรทัดที่ 132"
+CONFIG.Custom.Events = { -- [[ table ]]
+    ['Login'] = true,                                       -- เข้าสู่เซิร์ฟเวอร์
+    ['Logout'] = true,                                      -- ออกจากเซิร์ฟเวอร์
+    ['Chat'] = true,                                        -- ข้อความแชท
+    ['Dead'] = true,                                        -- สาเหตุการตาย
+    --[[ azael_playpass ]]
+    ['APP_ConnectionSpam'] = true,                          -- เชื่อมต่อบ่อยและเร็ว
+    ['APP_PingExceeded'] = true,                            -- ปิงสูงเกินกำหนด
+    ['APP_BannedHwidDetected'] = true,                      -- แบนเชื่อมต่อ-hwids
+    ['APP_BannedIdDetected'] = true,                        -- แบนเชื่อมต่อ-ids
+    ['APP_InactiveDetected'] = true,                        -- ไม่เข้าเซิร์ฟเกินกำหนด
+    ['APP_BoundIdMismatch'] = true,                         -- บัญชีที่ผูกไม่ตรงกัน
+    ['APP_PlayerDataStored'] = true,                        -- บันทึกข้อมูลผู้เล่น
+    ['APP_PlayerDataDeleted'] = true,                       -- ลบข้อมูลผู้เล่น
+    ['APP_IdentifierUpdated'] = true,                       -- เปลี่ยนตัวระบุผู้เล่น
+    ['APP_BoundIdUpdated'] = true,                          -- อัปเดตการผูกบัญชี
+    ['APP_PlayerBanned'] = true,                            -- ผู้เล่นถูกแบน
+    ['APP_PlayerUnbanned'] = true,                          -- ยกเลิกแบนผู้เล่น
+    ['APP_AirtimeUpdated'] = true,                          -- อัปเดตแอร์ไทม์
+    ['APP_TempPointsExpired'] = true,                       -- คิวพอยท์หมดอายุ
+    ['APP_AwardedLuckySlots'] = true,                       -- รางวัลลัคกี้สล็อต
+    ['APP_ExecuteCommands'] = true,                         -- ประวัติใช้คำสั่ง
+    --[[ azael_active-identifiers ]]
+    ['ActiveIdentifiers'] = true,                           -- id-เดียวกัน
+    ['IPRateLimits'] = true,                                -- ip-ถูกจำกัด
+    --[[ azael_db-guardian ]]
+    ['DB_ExecuteCommand'] = true,                           -- db-ประวัติใช้คำสั่ง
+    ['DB_ServerBackups'] = true,                            -- db-สำรองข้อมูลเซิร์ฟ
+    ['DB_DeletePlayerData'] = true,                         -- db-ลบข้อมูลผู้เล่น
+}
+```
+
+:::info
+
+```lua
+['event'] = <boolean>
+```
+
+- `event` คือ ชื่อเหตุการณ์ที่ต้องการให้ระบบตรวจสอบและส่งข้อมูลไปยัง **Server API** ที่คุณกำหนดเอง (เช่น `Login`, `Logout`, `Chat`, `Dead` หรือเหตุการณ์อื่น ๆ ที่เพิ่มในตารางนี้)
+- `<boolean>` คือ ค่าที่ใช้กำหนดว่าจะให้ส่งข้อมูลของเหตุการณ์นั้นไปยัง **Server API** หรือไม่
+    - หากกำหนดเป็น `true` ระบบจะส่งข้อมูลของเหตุการณ์นี้ไปยัง **Server API** ตามที่ตั้งค่าไว้ใน `API.BaseURL`
+    - หากกำหนดเป็น `false` หรือไม่กำหนด ระบบจะไม่ส่งข้อมูลของเหตุการณ์นี้ไปยัง **Server API**
+
+:::
+
+
+:::caution
+
+- ไม่ต้องกำหนดค่าในส่วนนี้ หากคุณไม่ได้ใช้งานตัวเลือก **`CUSTOM`** ในการตั้งค่า **[Option.Type](./server.md#optiontype)**
+- เหตุการณ์ **`Login`**, **`Logout`**, **`Chat`**, **`Dead`** คือค่าเริ่มต้นของทรัพยากร (เหตุการณ์มาจากรหัสภายในทรัพยากรนี้)
+
+:::
+
 ## Discord API
 
 ส่งคำขอไปยัง **[Discord API](https://discord.com/developers/docs/resources/webhook#create-webhook)** โดยใช้ **[Webhook URL](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)** ตามขีดจำกัดอัตราการใช้งาน **[Discord API](https://discord.com/developers/docs/resources/webhook#create-webhook)** สำหรับ **[Webhooks](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)**
 
-```lua title="บรรทัดที่ 88"
+```lua title="บรรทัดที่ 97"
 CONFIG.Discord = {} -- [[ table ]]
 ```
 
@@ -308,7 +381,7 @@ CONFIG.Discord = {} -- [[ table ]]
 
 กำหนดการส่งคำขอไปยัง **[Discord API](https://discord.com/developers/docs/resources/webhook#create-webhook)** ภายใน **1** นาที ต่อ **1** ช่อง
 
-```lua title="บรรทัดที่ 90"
+```lua title="บรรทัดที่ 99"
 CONFIG.Discord.Rate.Limit = 30 -- [[ number ]]
 ```
 
@@ -322,7 +395,7 @@ CONFIG.Discord.Rate.Limit = 30 -- [[ number ]]
 
 ที่อยู่รูปภาพอวทาร์ สำหรับ **[Webhooks](https://discord.com/developers/docs/resources/webhook#create-webhook-json-params)**
 
-```lua title="บรรทัดที่ 94"
+```lua title="บรรทัดที่ 103"
 CONFIG.Discord.Avatar.URL = 'https://i.imgur.com/GxQpZzJ.png' -- [[ string ]]
 ```
 
@@ -330,7 +403,7 @@ CONFIG.Discord.Avatar.URL = 'https://i.imgur.com/GxQpZzJ.png' -- [[ string ]]
 
 ข้อความที่ดำเนินการ Ping ไปยังบทบาทที่กำหนด หากรหัสส่งข้อมูลมีการกำหนดค่า `options = { important = true }`
 
-```lua title="บรรทัดที่ 98"
+```lua title="บรรทัดที่ 107"
 CONFIG.Discord.Important.Content = '__**⚠️ IMPORTANT ― || @everyone || Please Read!! ⚠️**__' -- [[ string ]]
 ```
 
@@ -344,7 +417,7 @@ CONFIG.Discord.Important.Content = '__**⚠️ IMPORTANT ― || @everyone || Ple
 
 คำสั่ง บันทึกข้อมูลทั้งหมด ไปยังโฟลเดอร์ **`azael_data/azael_dc-serverlogs/logs`** ในรูปแบบไฟล์ **[JSON](https://www.wikidata.org/wiki/Q2063)**
 
-```lua title="บรรทัดที่ 102"
+```lua title="บรรทัดที่ 111"
 CONFIG.Discord.Command.Save = 'logsave' -- [[ string ]]
 ```
 
@@ -364,7 +437,7 @@ CONFIG.Discord.Command.Save = 'logsave' -- [[ string ]]
 
 ตรวจสอบคิวที่ยังรอดำเนินการส่งคำขอไปยัง **[Discord API](https://discord.com/developers/docs/resources/webhook#create-webhook)** สำหรับ **[Webhook](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)**
 
-```lua title="บรรทัดที่ 103"
+```lua title="บรรทัดที่ 112"
 CONFIG.Discord.Command.Queue = 'logqueue' -- [[ string ]]
 ```
 
@@ -378,7 +451,7 @@ CONFIG.Discord.Command.Queue = 'logqueue' -- [[ string ]]
 
 เปิดใช้งาน บันทึกข้อมูลทั้งหมดไปยังโฟลเดอร์ **`azael_data/azael_dc-serverlogs/logs`** ในรูปแบบไฟล์ **[JSON](https://www.wikidata.org/wiki/Q2063)** สำหรับเหตุการณ์ **กำลังปิดเซิร์ฟเวอร์** โดย **[txAdmin](https://txadm.in/)** (**ป้องกันข้อมูลสูญหาย**)
 
-```lua title="บรรทัดที่ 107"
+```lua title="บรรทัดที่ 116"
 CONFIG.Discord.txAdmin.Enable = true -- [[ boolean ]]
 ```
 
@@ -398,7 +471,7 @@ CONFIG.Discord.txAdmin.Enable = true -- [[ boolean ]]
 
 ชื่อเหตุการณ์ กำลังปิดเซิร์ฟเวอร์ โดย ผู้ดูแลระบบ หรือ ตามกำหนดการรีสตาร์ท
 
-```lua title="บรรทัดที่ 110"
+```lua title="บรรทัดที่ 119"
 CONFIG.Discord.txAdmin.Shutting.Event = 'txAdmin:events:serverShuttingDown' -- [[ string ]]
 ```
 
@@ -418,7 +491,7 @@ CONFIG.Discord.txAdmin.Shutting.Event = 'txAdmin:events:serverShuttingDown' -- [
 
 เปิดใช้งาน ตรวจจับตัวระบุที่กำหนด และดำเนินการย้ายไปยังเหตุการณ์ใหม่
 
-```lua title="บรรทัดที่ 115"
+```lua title="บรรทัดที่ 124"
 CONFIG.Discord.Filter.Enable = false -- [[ boolean ]]
 ```
 
@@ -432,7 +505,7 @@ CONFIG.Discord.Filter.Enable = false -- [[ boolean ]]
 
 รายการตัวระบุทั้งหมดที่ต้องการตรวจจับ และดำเนินการย้ายไปยังเหตุการณ์ใหม่ (รองรับตัวระบุ `steam`, `discord`, `license`, `license2`, `ip`)
 
-```lua title="บรรทัดที่ 117"
+```lua title="บรรทัดที่ 126"
 CONFIG.Discord.Filter.Identifiers = { -- [[ table ]]
     ['steam:xxxxxxxxxxxxxxx'] = 'Player_A'
 }
@@ -453,7 +526,7 @@ CONFIG.Discord.Filter.Identifiers = { -- [[ table ]]
 
 กำหนด **[Webhooks](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)** สำหรับ เหตุการณ์ ทั้งหมด
 
-```lua title="บรรทัดที่ 123"
+```lua title="บรรทัดที่ 163"
 CONFIG.Discord.Webhooks = { -- [[ table ]]
     ['Login'] = 'webhook_url',                              -- เข้าสู่เซิร์ฟเวอร์
     ['Logout'] = 'webhook_url',                             -- ออกจากเซิร์ฟเวอร์

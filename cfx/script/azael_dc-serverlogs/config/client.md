@@ -6,11 +6,72 @@ sidebar_label: Client
 
 ไฟล์การกำหนดค่าของทรัพยากรทางฝั่ง **[Client](https://en.wikipedia.org/wiki/Client-side)**
 
+## Screenshot
+
+การกำหนดค่า [บันทึกภาพหน้าจอ](./server.md#screenshotenable)
+
+```lua title="บรรทัดที่ 11"
+CONFIG.Screenshot = {} -- [[ table ]]
+```
+
+### Timeout
+
+ระยะเวลารอภาพหน้าจอ (หน่วยเป็น **วินาที**)
+
+```lua title="บรรทัดที่ 12"
+CONFIG.Screenshot.Timeout = 30 -- [[ number ]]
+```
+
+### RequestScreenshot (function)
+
+ฟังก์ชันสำหรับขอภาพหน้าจอจากผู้เล่น (รหัสเริ่มต้นใช้งานทรัพยากร [screenshot-basic](https://github.com/citizenfx/screenshot-basic))
+
+```lua title="บรรทัดที่ 18"
+RequestScreenshot = function(uploadUrls, eventName, cb)
+    local uploadUrl = uploadUrls[eventName]
+
+    ---กำหนด URL สำหรับอัปโหลดภาพเหตุการณ์ "สาเหตุการตาย" โดยใช้ตัวเลขหลักสุดท้ายจาก Server ID ของผู้เล่น
+    ---วิธีนี้ช่วยกระจายโหลดไปยังหลาย URL เพื่อลดโอกาสเกิด Rate Limit ของ Discord API (Webhooks)
+    if eventName == 'Dead' then
+        local serverId = GetPlayerServerId(PlayerId())
+        local lastDigit = serverId % 10
+        
+        if lastDigit > 0 then
+            local newUrl = uploadUrls[eventName .. ':' .. lastDigit]
+            
+            if newUrl then
+                uploadUrl = newUrl
+            end
+        end
+    end
+    
+    exports['screenshot-basic']:requestScreenshotUpload(uploadUrl, 'file', function(data)
+        local resp = json.decode(data)
+        local imgUrl = nil
+        
+        if resp and (resp.attachments and resp.attachments[1]) then
+            imgUrl = resp.attachments[1].proxy_url or resp.attachments[1].url
+        end
+        
+        cb(imgUrl)
+    end)
+end
+```
+
+#### Parameters
+
+- uploadUrls: `table<{ [key]: string }>`
+    - ตารางข้อมูล URLs สำหรับการอัปโหลดรูปภาพ (อ้างอิงจาก [Screenshot.Webhooks](./server.md#screenshotwebhooks))
+- eventName: `string`
+    - ชื่อของเหตุการณ์ที่ขอภาพหน้าจอและอัปโหลดรูปภาพ
+- cb: `function`
+    - ฟังก์ชัน callback ที่จะถูกเรียกเมื่ออัปโหลดภาพหน้าจอเสร็จสิ้น โดยรับค่า URL ของภาพ (`string`) หรือ `nil` หากอัปโหลดไม่สำเร็จ
+
 ## Death
 
 สาเหตุการตาย
 
-```lua title="บรรทัดที่ 11"
+```lua title="บรรทัดที่ 49"
 CONFIG.Death = {} -- [[ table ]]
 ```
 
@@ -18,7 +79,7 @@ CONFIG.Death = {} -- [[ table ]]
 
 ตัวเลือกการส่งข้อมูล **สาเหตุการตาย** ในกรณีผู้เล่นถูกฆ่าโดยผู้เล่นคนอื่นๆ
 
-```lua title="บรรทัดที่ 13"
+```lua title="บรรทัดที่ 51"
 CONFIG.Death.Option.Type = 0 -- [[ number ]]
 ```
 
@@ -32,7 +93,7 @@ CONFIG.Death.Option.Type = 0 -- [[ number ]]
 
 เปิดใช้งาน กำหนดเหตุการณ์สาเหตุการตายภายในโซนที่กำหนดใน **[Custom.Zones](./client.md#customzones)**
 
-```lua title="บรรทัดที่ 17"
+```lua title="บรรทัดที่ 55"
 CONFIG.Death.Custom.Enable = false -- [[ boolean ]]
 ```
 
@@ -46,7 +107,7 @@ CONFIG.Death.Custom.Enable = false -- [[ boolean ]]
 
 โซนที่ต้องการกำหนดเอง (**สามารถเพิ่มโซนได้**)
 
-```lua title="บรรทัดที่ 19"
+```lua title="บรรทัดที่ 57"
 CONFIG.Death.Custom.Zones = { -- [[ table ]]
     --[[ Boxing - Los Santos International Airport ]]
     {
@@ -69,7 +130,7 @@ CONFIG.Death.Custom.Zones = { -- [[ table ]]
 
 เปิดใช้งาน ละเว้นสาเหตุการตายภายในโซนที่กำหนดใน **[Ignore.Zones](./client.md#ignorezones)**
 
-```lua title="บรรทัดที่ 30"
+```lua title="บรรทัดที่ 68"
 CONFIG.Death.Ignore.Enable = false -- [[ boolean ]]
 ```
 
@@ -83,7 +144,7 @@ CONFIG.Death.Ignore.Enable = false -- [[ boolean ]]
 
 รายการโซนที่ต้องการละเว้น (**สามารถเพิ่มโซนได้**)
 
-```lua title="บรรทัดที่ 32"
+```lua title="บรรทัดที่ 70"
 CONFIG.Death.Ignore.Zones = { -- [[ table ]]
     --[[ Boxing - Los Santos International Airport ]]
     {
@@ -104,7 +165,7 @@ CONFIG.Death.Ignore.Zones = { -- [[ table ]]
 
 เหตุผลสาเหตุการตาย
 
-```lua title="บรรทัดที่ 41"
+```lua title="บรรทัดที่ 79"
 CONFIG.Death.Reason = { -- [[ table ]]
     Default = 'เสียชีวิต โดย %s',
     Player = 'ถูก %s ฆ่า โดย %s',
@@ -158,7 +219,7 @@ CONFIG.Death.Reason = { -- [[ table ]]
 
 </details>
 
-```lua title="บรรทัดที่ 61"
+```lua title="บรรทัดที่ 99"
 CONFIG.Death.Causes = { -- [[ table ]]
     --[[ MELEE - ระยะประชิด ]]
     [`WEAPON_DAGGER`] = {                                   -- ชื่อ หรือ แฮช
