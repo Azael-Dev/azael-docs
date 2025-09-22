@@ -86,9 +86,10 @@
 
 - Discord ใช้ระบบ Rate Limiting แบบ "Per-route" และ "Per-user" ดังนั้นควรออกแบบระบบให้จัดการกับข้อจำกัดเหล่านี้อย่างเหมาะสม
 - หากยังพบปัญหาที่เกี่ยวข้องกับสถานะเหล่านี้ แนะนำให้อ้างอิงเอกสารทางการของ Discord ที่ [**Rate Limits**](https://discord.com/developers/docs/topics/rate-limits)
+
 :::
 
-## HWIDs (Player Tokens)
+## HWIDs (Player Tokens) คืออะไร?
 
 [Player Tokens](https://docs.fivem.net/natives/?_0x54C06897) หรือที่นิยมเรียกกันว่า HWIDs คือรหัสเฉพาะที่ [FXServer](https://github.com/citizenfx/fivem/blob/60beca63fbd365f7900170aa71f9798325f03609/code/components/citizen-server-impl/src/PlayerScriptFunctions.cpp#L85) สร้างขึ้นจากข้อมูลฝั่งเครื่องของผู้เล่น ([Client-side](https://en.wikipedia.org/wiki/Client-side)). อย่างไรก็ตาม แหล่งข้อมูลที่ใช้สร้าง Token ไม่ได้ถูกระบุไว้อย่างชัดเจนในเอกสารสาธารณะ จึงไม่ควรตีความโดยตรงว่าเป็น “ข้อมูลฮาร์ดแวร์” เสมอไป — HWIDs ถูกออกแบบมาเพื่อบ่งชี้ความเชื่อมโยงหรือความเป็นไปได้ที่ไคลเอนต์เดียวกันถูกใช้งาน มากกว่าจะเป็นการระบุฮาร์ดแวร์จริงโดยตรง
 
@@ -98,7 +99,7 @@
 
 :::
 
-### ยกเลิกแบน HWIDs (Player Tokens)
+## ยกเลิกการแบน HWIDs (Player Tokens)
 
 ในบางครั้ง การแบนด้วย HWIDs อาจส่งผลกระทบกับบัญชีอื่นที่เชื่อมโยงกันโดยไม่ตั้งใจ เช่น บัญชีที่ใช้คอมพิวเตอร์เครื่องเดียวกันหรือมี HWID Tokens ซ้ำกัน ระบบจะมองว่าบัญชีเหล่านั้นเกี่ยวข้องกับการกระทำผิด และทำการแบนพ่วงโดยอัตโนมัติ
 
@@ -133,3 +134,100 @@ app resethwids 443334508020891658
 ```
 app unbanuser 845951838691393546
 ```
+
+## ตรวจสอบการเชื่อมโยงบัญชีที่ถูกแบน (Ban Chain)
+
+คุณสามารถตรวจสอบว่า `identifier` ของผู้เล่นถูกแบนและเชื่อมโยงกับบัญชีอื่น ๆ ที่ถูกแบนในฐานข้อมูลของเซิร์ฟเวอร์หรือไม่ ระบบจะตรวจสอบต่อเนื่องสูงสุด 20 ระดับ ผลลัพธ์จะแสดงรายการบัญชีที่ถูกแบนทั้งหมดจากผู้เล่นคนเดียวกัน
+
+### ตัวอย่างคำสั่ง SQL
+
+:::danger ข้อกำหนดฐานข้อมูล
+
+- **MySQL**: **`8.0.4`** ขึ้นไป  
+- **MariaDB**: **`10.6.4`** ขึ้นไป
+
+:::
+
+```sql
+SET @identifier_input = 'discord:443334508020891658';
+
+WITH RECURSIVE ban_chain AS (
+   SELECT 
+      p.identifier,
+      JSON_UNQUOTE(JSON_EXTRACT(p.ban_details, '$.associated_id')) AS associated_id,
+      p.bound_id,
+      p.ban_details,
+      p.last_hwids,
+      0 AS level
+   FROM azael_playpass p
+   WHERE p.status = 'banned'
+     AND (p.identifier = @identifier_input
+         OR JSON_UNQUOTE(JSON_EXTRACT(p.ban_details, '$.associated_id')) = @identifier_input)
+
+   UNION ALL
+
+   SELECT 
+      p.identifier,
+      JSON_UNQUOTE(JSON_EXTRACT(p.ban_details, '$.associated_id')) AS associated_id,
+      p.bound_id,
+      p.ban_details,
+      p.last_hwids,
+      bc.level + 1 AS level
+   FROM azael_playpass p
+   INNER JOIN ban_chain bc 
+      ON p.identifier = bc.associated_id
+      OR JSON_UNQUOTE(JSON_EXTRACT(p.ban_details, '$.associated_id')) = bc.identifier
+   WHERE p.status = 'banned'
+     AND bc.level < 20
+)
+SELECT DISTINCT
+   bc.identifier,
+   bc.associated_id,
+   bc.bound_id,
+   JSON_UNQUOTE(JSON_EXTRACT(bc.ban_details, '$.banned_by')) AS banned_by,
+   JSON_UNQUOTE(JSON_EXTRACT(bc.ban_details, '$.type')) AS ban_type, 
+   JSON_UNQUOTE(JSON_EXTRACT(bc.ban_details, '$.reason')) AS ban_reason,
+   JSON_UNQUOTE(JSON_EXTRACT(bc.ban_details, '$.start_datetime')) AS ban_start,
+   JSON_UNQUOTE(JSON_EXTRACT(bc.ban_details, '$.end_datetime')) AS ban_end,
+   bc.last_hwids AS ban_hwids,
+   COALESCE(m.matching_hwids_count, 0) AS ban_hwid_tokens
+FROM ban_chain bc
+LEFT JOIN (
+   SELECT 
+      bc.identifier AS id,
+      bc.associated_id AS assoc_id,
+      COUNT(DISTINCT j1.hw1) AS matching_hwids_count
+   FROM ban_chain bc
+   JOIN azael_playpass assoc
+      ON assoc.identifier = bc.associated_id
+   JOIN JSON_TABLE(bc.last_hwids, '$[*]' COLUMNS(hw1 VARCHAR(255) PATH '$')) AS j1
+   JOIN JSON_TABLE(assoc.last_hwids, '$[*]' COLUMNS(hw2 VARCHAR(255) PATH '$')) AS j2
+      ON j1.hw1 = j2.hw2
+   GROUP BY bc.identifier, bc.associated_id
+) AS m
+   ON bc.identifier = m.id AND bc.associated_id = m.assoc_id
+ORDER BY ban_start ASC;
+```
+
+### คำอธิบายฟิลด์ผลลัพธ์
+
+| ฟิลด์               | ความหมาย                                                              |
+| ----------------- | ---------------------------------------------------------------------- |
+| `identifier`      | บัญชีหลักที่ถูกแบน                                                         |
+| `associated_id`   | บัญชีที่ทำให้เกิดการแบนพ่วง                                                  |
+| `bound_id`        | บัญชีที่ผูกกับบัญชี `identifier`                                        |
+| `banned_by`       | ผู้แบน                                                                  |
+| `ban_type`        | ประเภทการแบน                                                           |
+| `ban_reason`      | เหตุผลการแบน                                                           |
+| `ban_start`       | วันที่เริ่มแบน                                                             |
+| `ban_end`         | วันที่สิ้นสุดการแบน (ถ้ามี)                                                  |
+| `ban_hwids`       | รายการ HWID / Player Tokens ของบัญชีที่ถูกแบน                             |
+| `ban_hwid_tokens` | จำนวน HWID / Player Tokens ที่ถูกแบนและตรงกับบัญชีใน `associated_id`       |
+
+#### หมายเหตุ
+
+- คำสั่งนี้ใช้ฟังก์ชัน **JSON** (`JSON_EXTRACT`, `JSON_UNQUOTE`, `JSON_TABLE`) ดังนั้นต้องใช้ [MySQL](https://www.mysql.com/) 8.0.4+ หรือ [MariaDB](https://mariadb.com/) 10.6.4+
+- ความลึกสูงสุด `20` สามารถปรับเปลี่ยนได้ตามความต้องการ
+- `associated_id` คือบัญชีที่ทำให้เกิดการแบนพ่วง
+- `bound_id` คืบัญชีที่ผูกเอาไว้กับบัญชี `identifier`
+- `ban_hwid_tokens` ใช้ระบุจำนวน HWID / Player Tokens ที่ตรงกับบัญชีใน `associated_id`
