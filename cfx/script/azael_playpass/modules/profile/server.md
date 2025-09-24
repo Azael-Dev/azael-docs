@@ -189,7 +189,7 @@ function Profile.getDiscordUser(req, id)
             id = userData.id,
             name = userData.global_name,
             username = userData.username,
-            avatar = userData.avatar and ('https://cdn.discordapp.com/avatars/%d/%s.%s'):format(userData.id, userData.avatar, (userData.avatar:sub(1, 2) == 'a_' and 'gif' or 'webp')) or nil
+            avatar = userData.avatar and ('https://cdn.discordapp.com/avatars/%s/%s.webp?animated=true'):format(userData.id, userData.avatar) or nil
         }
     end
     
