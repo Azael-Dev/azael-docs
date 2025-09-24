@@ -17,6 +17,16 @@ svFullQueueLimit = 52
 - svFullQueueLimit: `integer`
     - ระบุ **`0`** เพื่อปิดใช้งานการจำกัด
 
+:::tip
+
+รองรับการกำหนดค่า **แบบไดนามิก** ผ่านคำสั่ง [**convar**](https://docs.fivem.net/docs/scripting-reference/convars/) เพื่อปรับขนาดคิวสูงสุด **ได้ทันทีระหว่างรันไทม์** เมื่อใช้คำสั่งด้านล่างนี้ ขนาดคิวสูงสุดจะเปลี่ยนจาก **`52`** เป็น **`120`**
+
+```diff
+set azael_playpass:svFullQueueLimit 120
+```
+
+:::
+
 ## releaseQueueLimit
 
 จำนวนผู้เล่นสูงสุดที่จะปล่อยเข้าเซิร์ฟเวอร์ในแต่ละรอบเมื่อสล็อตว่าง
