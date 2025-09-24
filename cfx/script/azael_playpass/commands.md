@@ -267,9 +267,43 @@ sidebar_label: Commands
 - [ข้อมูลบทบาทของผู้ใช้](./modules/commands/server.md#setuserrole) เมื่อใช้คำสั่งสำเร็จ
 - [ข้อความแสดงข้อผิดพลาด](./modules/commands/server.md#onexecuted) เมื่อใช้คำสั่งล้มเหลว
 
-### ยกเลิกระงับผู้ใช้ (ไม่เล่นนานเกินกำหนด) {#reactivateuser}
+### ปิดใช้งานบัญชีผู้ใช้ {#deactivateuser}
 
-คำสั่ง [ยกเลิกสถานะการถูกระงับ](./config/command.md#reactivateuser) โดยสาเหตุไม่เข้าร่วมเซิร์ฟเวอร์นานเกินที่กำหนดใน [inactivePlayers](./config/core.md#inactiveplayers)
+คำสั่ง [ปิดใช้งานบัญชีผู้ใช้](./config/command.md#deactivateuser) ในกรณีกำลังตรวจสอบหรือดำเนินการเกี่ยวกับบัญชีของผู้ใช้อยู่ เพื่อไม่ให้ผู้ใช้สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้
+
+<Tabs>
+    <TabItem value="command" label="Command">
+        ```bash
+        <commandName> deactivate <identifier>
+        ```
+    </TabItem>
+    <TabItem value="example" label="Example">
+        ```bash
+        app deactivate 443334508020891658
+        ```
+:::tip
+    คุณสามารถระบุตัวระบุได้ทั้งแบบที่มีหรือไม่มีคำนำหน้า เช่น `discord:443334508020891658` หรือ `443334508020891658`
+:::
+    </TabItem>
+</Tabs>
+
+#### Arguments
+
+- commandName: `string`
+    - ชื่อของ [คำสั่งหลัก](./config/command.md#commandname) เพื่ออ้างอิงว่าเป็นคำสั่งของทรัพยากรนี้ สำหรับใช้งานผ่าน Server Console หรือ Client Console
+- subCommandName: `string`
+    - ชื่อของ [คำสั่งย่อย](./config/command.md#subcommands) และค่าเริ่มต้นคือ [`deactivate`](./config/command.md#deactivateuser)
+- identifier: `string`
+    - [ตัวระบุหลัก](./config/core.md#identifiertype) ของผู้ใช้
+
+#### Returns
+
+- [ข้อมูลสถานะของผู้ใช้](./modules/commands/server.md#deactivateuser) เมื่อใช้คำสั่งสำเร็จ
+- [ข้อความแสดงข้อผิดพลาด](./modules/commands/server.md#onexecuted) เมื่อใช้คำสั่งล้มเหลว
+
+### เปิดใช้งานบัญชีผู้ใช้ (ไม่เล่นนานเกินกำหนด) {#reactivateuser}
+
+คำสั่ง [เปิดใช้งานบัญชีผู้ใช้](./config/command.md#reactivateuser) หรือ ยกเลิกสถานะการถูกระงับเมื่อผู้เล่นถูกระงับโดยสาเหตุไม่เข้าร่วมเซิร์ฟเวอร์นานเกินที่กำหนดใน [inactivePlayers](./config/core.md#inactiveplayers)
 
 <Tabs>
     <TabItem value="command" label="Command">
