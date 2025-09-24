@@ -230,11 +230,37 @@ setUserRole = {
         - ⚠️ ไม่สามารถใช้งานคำสั่งทางฝั่งไคลเอนต์ได้ หากกำหนด `serverOnly` เป็น `true`
         - [**PLAYER_ROLES**](./setup.md#roles) คือข้อมูลการกำหนดค่าเกี่ยวกับบทบาทของผู้เล่น โดยอ้างอิงการกำหนดค่าจากไฟล์ [`./config/setup.lua`](./setup.md)
 
-### reactivateUser
+### deactivateUser
 
-คำสั่งยกเลิกสถานะการถูกระงับเมื่อผู้เล่นถูกระงับจาก [inactivePlayers](./core.md#inactiveplayers)
+คำสั่งปิดใช้งานบัญชีผู้ใช้ ในกรณีกำลังตรวจสอบหรือดำเนินการเกี่ยวกับบัญชีของผู้ใช้อยู่ เพื่อไม่ให้ผู้ใช้สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้
 
 ```lua title="บรรทัดที่ 93"
+deactivateUser = {
+    name = 'deactivate',
+    serverOnly = false,
+    allowedRoles = {
+        PLAYER_ROLES.MODERATOR,
+        PLAYER_ROLES.ADMIN,
+        PLAYER_ROLES.DEVELOPER
+    }
+}
+```
+
+- name: `string`
+    - ชื่อคำสั่งย่อย
+        - ตัวอย่างการใช้คำสั่ง `<commandName> deactivate <identifier>`
+- serverOnly: `boolean`
+    - ใช้งานคำสั่งได้ทางฝั่งเซิร์ฟเวอร์เท่านั้น
+- allowedRoles: `table<{ [index]: integer }>` | `table<{}>`
+    - บทบาทที่อนุญาตให้ใช้คำสั่งทางฝั่งไคลเอนต์
+        - ⚠️ ไม่สามารถใช้งานคำสั่งทางฝั่งไคลเอนต์ได้ หากกำหนด `serverOnly` เป็น `true`
+        - [**PLAYER_ROLES**](./setup.md#roles) คือข้อมูลการกำหนดค่าเกี่ยวกับบทบาทของผู้เล่น โดยอ้างอิงการกำหนดค่าจากไฟล์ [`./config/setup.lua`](./setup.md)
+
+### reactivateUser
+
+คำสั่งเปิดใช้งานบัญชีผู้ใช้อีกครั้ง หรือ ยกเลิกสถานะการถูกระงับเมื่อผู้เล่นถูกระงับจาก [inactivePlayers](./core.md#inactiveplayers)
+
+```lua title="บรรทัดที่ 102"
 reactivateUser = {
     name = 'reactivate',
     serverOnly = false,
@@ -260,7 +286,7 @@ reactivateUser = {
 
 คำสั่งกำหนดตัวระบุให้ผู้ใช้ใหม่
 
-```lua title="บรรทัดที่ 102"
+```lua title="บรรทัดที่ 111"
 setNewIdentifier = {
     name = 'setnewid',
     serverOnly = false,
@@ -286,7 +312,7 @@ setNewIdentifier = {
 
 คำสั่งรีเซ็ต[ตัวระบุที่ถูกผูกไว้](./core.md#bindidentifier)ของผู้ใช้
 
-```lua title="บรรทัดที่ 111"
+```lua title="บรรทัดที่ 120"
 resetBindIdentifier = {
     name = 'resetbindid',
     serverOnly = false,
@@ -312,7 +338,7 @@ resetBindIdentifier = {
 
 คำสั่งรีเซ็ต [HWIDs](https://docs.fivem.net/natives/?_0x54C06897) ของผู้ใช้
 
-```lua title="บรรทัดที่ 120"
+```lua title="บรรทัดที่ 129"
 resetHwids = {
     name = 'resethwids',
     serverOnly = false,
@@ -338,7 +364,7 @@ resetHwids = {
 
 คำสั่งรับข้อมูลคิวพอยท์ของผู้ใช้
 
-```lua title="บรรทัดที่ 129"
+```lua title="บรรทัดที่ 138"
 getPoints = {
     name = 'getpoints',
     serverOnly = false,
@@ -364,7 +390,7 @@ getPoints = {
 
 คำสั่งเพิ่มคิวพอยท์ให้ผู้ใช้
 
-```lua title="บรรทัดที่ 138"
+```lua title="บรรทัดที่ 147"
 addPoints = {
     name = 'addpoints',
     serverOnly = false,
@@ -390,7 +416,7 @@ addPoints = {
 
 คำสั่งกำหนดคิวพ้อยท์แบบไม่มีวันหมดอายุให้ผู้ใช้
 
-```lua title="บรรทัดที่ 147"
+```lua title="บรรทัดที่ 156"
 setPermanentPoints = {
     name = 'setpoints',
     serverOnly = false,
@@ -416,7 +442,7 @@ setPermanentPoints = {
 
 คำสั่งลบคิวพ้อยท์แบบมีวันหมดอายุของผู้ใช้
 
-```lua title="บรรทัดที่ 156"
+```lua title="บรรทัดที่ 165"
 deleteTemporaryPoints = {
     name = 'delpoints',
     serverOnly = false,
@@ -442,7 +468,7 @@ deleteTemporaryPoints = {
 
 คำสั่งลบคิวพ้อยท์ทั้งหมดของผู้ใช้
 
-```lua title="บรรทัดที่ 165"
+```lua title="บรรทัดที่ 174"
 purgePoints = {
     name = 'purgepoints',
     serverOnly = false,
@@ -468,7 +494,7 @@ purgePoints = {
 
 คำสั่งรับแอร์ไทม์คงเหลือของผู้ใช้
 
-```lua title="บรรทัดที่ 174"
+```lua title="บรรทัดที่ 183"
 getAirtime = {
     name = 'getairtime',
     serverOnly = false,
@@ -494,7 +520,7 @@ getAirtime = {
 
 คำสั่งกำหนดแอร์ไทม์ให้ผู้ใช้
 
-```lua title="บรรทัดที่ 183"
+```lua title="บรรทัดที่ 192"
 setAirtime = {
     name = 'setairtime',
     serverOnly = false,
@@ -520,7 +546,7 @@ setAirtime = {
 
 คำสั่งเพิ่มแอร์ไทม์ให้ผู้ใช้
 
-```lua title="บรรทัดที่ 192"
+```lua title="บรรทัดที่ 201"
 addAirtime = {
     name = 'addairtime',
     serverOnly = false,
@@ -546,7 +572,7 @@ addAirtime = {
 
 คำสั่งลบ/ลดแอร์ไทม์ของผู้ใช้
 
-```lua title="บรรทัดที่ 201"
+```lua title="บรรทัดที่ 210"
 removeAirtime = {
     name = 'removeairtime',
     serverOnly = false,
@@ -572,7 +598,7 @@ removeAirtime = {
 
 คำสั่งสำหรับล้างแคชข้อมูลผู้เล่น (ℹ️ ใช้เมื่อเกิดข้อผิดพลาด และต้องการโหลดข้อมูลผู้เล่นใหม่จากฐานข้อมูล)
 
-```lua title="บรรทัดที่ 210"
+```lua title="บรรทัดที่ 219"
 clearPlayerCache = {
     name = 'clearcache',
     serverOnly = false,
@@ -597,7 +623,7 @@ clearPlayerCache = {
 
 คำสั่งรับข้อมูลส่วนตัวของผู้เล่นภายในเกม (ℹ️ คำสั่งนี้สามารถใช้งานได้เพียงฝั่งไคลเอนต์เท่านั้น)
 
-```lua title="บรรทัดที่ 219"
+```lua title="บรรทัดที่ 228"
 getMyInfo = {
     name = 'myinfo',
     allowedRoles = {
@@ -622,7 +648,7 @@ getMyInfo = {
 
 คำสั่งรับข้อมูลเกี่ยวกับระบบคิว
 
-```lua title="บรรทัดที่ 230"
+```lua title="บรรทัดที่ 239"
 getQueueInfo = {
     name = 'queueinfo',
     serverOnly = false,

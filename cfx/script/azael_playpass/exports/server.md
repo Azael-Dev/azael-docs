@@ -72,7 +72,8 @@ sidebar_label: Server
 | `banUser`                 | [แบนผู้ใช้ (ชั่วคราว/ถาวร)](../commands.md#banuser)
 | `unbanUser`               | [ยกเลิกแบนผู้ใช้](../commands.md#unbanuser)
 | `setUserRole`             | [กำหนดบทบาทผู้ใช้](../commands.md#setuserrole)
-| `reactivateUser`          | [ยกเลิกระงับผู้ใช้ (ไม่เล่นนานเกินกำหนด)](../commands.md#reactivateuser)
+| `deactivateUser`          | [ปิดใช้งานบัญชีผู้ใช้](../commands.md#deactivateuser)
+| `reactivateUser`          | [เปิดใช้งานบัญชีผู้ใช้ (ไม่เล่นนานเกินกำหนด)](../commands.md#reactivateuser)
 | `setNewIdentifier`        | [กำหนดตัวระบุใหม่ให้ผู้ใช้](../commands.md#setnewidentifier)
 | `resetBindIdentifier`     | [รีเซ็ตตัวระบุที่ผูกไว้ของผู้ใช้](../commands.md#resetbindidentifier)
 | `resetHwids`              | [รีเซ็ต HWIDs ผู้ใช้](../commands.md#resethwids)
@@ -392,9 +393,48 @@ sidebar_label: Server
     - [ข้อมูลบทบาทผู้ใช้](../modules/commands/server.md#setuserrole) หากการเรียกใช้สำเร็จ
     - [ข้อมูลข้อผิดพลาด](./server.md#execommand-returns) หากการเรียกใช้ล้มเหลว
 
+## deactivateUser
+
+ปิดใช้งานบัญชีผู้ใช้ ในกรณีกำลังตรวจสอบหรือดำเนินการเกี่ยวกับบัญชีของผู้ใช้อยู่ เพื่อไม่ให้ผู้ใช้สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้
+
+<Tabs>
+    <TabItem value="usage" label="Usage">
+        ```lua
+        exports.azael_playpass:deactivateUser(identifier)
+        ```
+    </TabItem>
+    <TabItem value="example" label="Example">
+        ```lua
+        local success, response = exports.azael_playpass:deactivateUser('443334508020891658')
+
+        if not success then
+            return print('Error type:', response.type, 'Error message:', response.message)
+        end
+
+        print(json.encode(response, { indent = true }))
+        ```
+:::tip
+    คุณสามารถระบุตัวระบุได้ทั้งแบบที่มีหรือไม่มีคำนำหน้า เช่น `discord:443334508020891658` หรือ `443334508020891658`
+:::
+    </TabItem>
+</Tabs>
+
+#### Arguments
+
+- identifier: `string`
+    - [ตัวระบุหลัก](../config/core.md#identifiertype) ของผู้ใช้
+
+#### Returns
+
+- success: `boolean`
+    - สถานะการเรียกใช้
+- response: `table<{ [key]: any }>`
+    - [ข้อมูลสถานะผู้ใช้](../modules/commands/server.md#reactivateuser) หากการเรียกใช้สำเร็จ
+    - [ข้อมูลข้อผิดพลาด](./server.md#execommand-returns) หากการเรียกใช้ล้มเหลว
+
 ## reactivateUser
 
-ยกเลิกสถานะการถูกระงับของผู้ใช้ จากสาเหตุไม่เข้าร่วมเซิร์ฟเวอร์นานเกินที่กำหนดใน [inactivePlayers](../config/core.md#inactiveplayers)
+เปิดใช้งานบัญชีผู้ใช้อีกครั้ง หรือ ยกเลิกสถานะการถูกระงับของผู้ใช้ จากสาเหตุไม่เข้าร่วมเซิร์ฟเวอร์นานเกินที่กำหนดใน [inactivePlayers](../config/core.md#inactiveplayers)
 
 <Tabs>
     <TabItem value="usage" label="Usage">
