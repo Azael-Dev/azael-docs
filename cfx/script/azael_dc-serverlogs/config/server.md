@@ -583,3 +583,57 @@ CONFIG.Discord.Webhooks = { -- [[ table ]]
 - เเนะนำให้กำหนดค่า **1** เหตุการณ์ ต่อ **1** ช่อง ต่อ **1 [Webhook URL](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)** เพื่อป้องกันสถานะ **[429 (You are being rate limited)](https://discord.com/developers/docs/topics/opcodes-and-status-codes#http-http-response-codes)** เนื่องจากระบบคิวในการส่งออกคำขอไปยัง **[Discord API](https://discord.com/developers/docs/resources/webhook#create-webhook)** จะอ้างอิงจากชื่อเหตุการณ์ (**`event`**)
 
 :::
+
+## afterHttpRequest
+
+ฟังก์ชันที่จะถูกเรียกใช้หลังจากคำขอ HTTP เสร็จสมบูรณ์ 
+
+:::info
+
+สามารถใช้ฟังก์ชันนี้เพื่อดำเนินการเพิ่มเติมหลังจากส่งข้อมูลไปยัง Discord API หรือ Custom API สำเร็จแล้ว
+
+:::
+
+```lua title="บรรทัดที่ 225"
+CONFIG.afterHttpRequest = function(data)
+    -- local numLogs = #data
+    -- print("HTTP Request data: ", json.encode(data, { indent = true }))
+end
+```
+
+### Parameters
+
+- data: `table<{ [index]: table }>`
+    - ตารางที่มีข้อมูลของ Log ที่ถูกส่งผ่าน HTTP Request โดยมีโครงสร้างดังนี้:
+        - event: `string`
+            - ชื่อเหตุการณ์ที่ถูกส่ง
+        - content: `string`
+            - เนื้อหาของข้อความที่ถูกส่ง
+        - fields: `table<{ name: string, value: string, inline: boolean }>`
+            - ตารางของฟิลด์ที่ถูกส่งใน Embed (ถ้ามี)
+        - hardware: `string`|`nil`
+            - ข้อมูล Hardware Tokens ของผู้เล่น (ถ้ามี)
+        - image: `string`|`nil`
+            - URL ของภาพที่ถูกส่ง (ถ้ามี)
+        - coords: `string`|`nil`
+            - ตำแหน่งพิกัดของผู้เล่น (ถ้ามี)
+        - source: `integer`
+            - NetID ของผู้เล่นที่เกี่ยวข้องกับ Log หรือ `0` หากเป็น Log ของระบบ
+        - identifiers: `table`|`string`
+            - ตารางของตัวระบุผู้เล่นที่เกี่ยวข้องกับ Log (ถ้ามี)
+                - steam: `string`|`nil`
+                - discord: `string`|`nil`
+                - fivem: `string`|`nil`
+                - license: `string`|`nil`
+                - license2: `string`|`nil`
+                - ip: `string`|`nil`
+        - options: `table`|`nil`
+            - ตารางของตัวเลือกเพิ่มเติมที่ถูกส่ง
+                - public: `boolean`
+                    - ระบุว่าข้อมูลนี้เป็นสาธารณะหรือไม่
+                - important: `boolean`
+                    - ระบุว่าข้อมูลนี้เป็นข้อมูลสำคัญหรือไม่
+                - codeblock: `boolean`
+                    - ระบุว่าข้อมูลนี้ควรถูกจัดรูปแบบเป็น code block หรือไม่
+        - timestamp: `string`
+            - เวลาที่ Log ถูกสร้างในรูปแบบ ISO 8601
