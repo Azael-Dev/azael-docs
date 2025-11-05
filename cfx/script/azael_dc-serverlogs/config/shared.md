@@ -145,8 +145,8 @@ CONFIG.Bridge.Exports = { -- [[ table ]]
     Server = {
         Name = 'Discord',
         Callback = function(data)
-            local playerId = data.xPlayer?.source or tonumber(data.xPlayer)
-            local targetId = data.xTarget?.source or tonumber(data.xTarget)
+            local playerId = type(data.xPlayer) == 'table' and data.xPlayer.source or tonumber(data.xPlayer)
+            local targetId = type(data.xTarget) == 'table' and data.xTarget.source or tonumber(data.xTarget)
 
             if playerId then
                 insertData({
