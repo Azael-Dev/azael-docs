@@ -118,7 +118,7 @@ CONFIG.General.UserIdle.LimitDays = 90 -- [[ number ]]
 เปิดใช้งาน ตรวจสอบ และ ลบข้อมูล ผู้เล่นที่ไม่เชื่อมต่อกับเซิร์ฟเวอร์ตามการกำหนดค่า [**UserIdle.LimitDays**](./server.md#useridlelimitdays) โดยอัตโนมัติ เมื่อมีการเริ่มต้นทรัพยากรนี้ภายในช่วงเวลาที่กำหนดใน [**AutoDelete.TimeBetween**](./server.md#autodeletetimebetween)
 
 ```lua title="บรรทัดที่ 43"
-CONFIG.General.AutoDelete.Enable = true -- [[ boolean ]]
+CONFIG.General.AutoDelete.Enable = false -- [[ boolean ]]
 ```
 
 :::info
@@ -843,7 +843,7 @@ CONFIG.FileUpload.GoogleDriveAPI.Command.PlayerBackups = { --[[ table ]]
 ขนาดไฟล์สูงสุดที่อนุญาตให้อัปโหลดไฟล์ได้ โดยหน่วยเป็น MB
 
 ```lua title="บรรทัดที่ 291"
-CONFIG.FileUpload.DiscordAPI.MaxFileSize = 25 --[[ number ]]
+CONFIG.FileUpload.DiscordAPI.MaxFileSize = 10 --[[ number ]]
 ```
 
 :::info
@@ -858,8 +858,8 @@ CONFIG.FileUpload.DiscordAPI.MaxFileSize = 25 --[[ number ]]
 
 | Level Perks        | Server Boosts      | File Size Limits                                                
 |--------------------|--------------------|--------------------------------------------------------------------------------------------
-| 0                  | 0                  | 25 MB
-| 1                  | 2                  | 25 MB
+| 0                  | 0                  | 10 MB
+| 1                  | 2                  | 10 MB
 | 2                  | 7                  | 50 MB
 | 3                  | 14                 | 100 MB
 

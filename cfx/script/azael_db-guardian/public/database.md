@@ -117,18 +117,20 @@ end
 
 ```lua title="บรรทัดที่ 69"
 function DATABASE.GetDumpCommand()
-    local dataDir = MySQL.query.await("SHOW VARIABLES LIKE 'datadir'")
+    local baseDirRes = MySQL.query.await("SHOW VARIABLES LIKE 'basedir'")
+    if not (baseDirRes and baseDirRes[1]) then return nil end
     
-    if (dataDir and dataDir[1]) then
-        local filePath = dataDir[1].Value:gsub('\\data\\', '\\bin\\mysqldump.exe')
-        local fileExists = io.open(filePath, 'r')
-        
-        if fileExists then
-            fileExists:close()
-            
-            return filePath
-        end
+    local baseDir = baseDirRes[1].Value
+    local isWindows = baseDir:find('\\')
+    local dumpPath
+    
+    if isWindows then
+        dumpPath = baseDir:gsub('\\$', '') .. '\\bin\\mysqldump.exe'
+    else
+        dumpPath = baseDir:gsub('/$', '') .. '/bin/mysqldump'
     end
+    
+    return dumpPath
 end
 ```
 
