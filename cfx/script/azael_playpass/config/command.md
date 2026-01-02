@@ -29,6 +29,101 @@ httpHandler = {
     - การกำหนด [Public IP](https://en.wikipedia.org/wiki/IP_address#Public_address) ที่อนุญาตให้เข้าถึง
         - ⚠️ หากไม่มีการกำหนด IP ระบบจะอ้างอิงสิทธิ์การเข้าถึงจาก `authorization` เท่านั้น
 
+<details>
+<summary>ตัวอย่างรหัสการเรียกใช้คำสั่งจากภายนอก</summary>
+
+**ตัวอย่างการ[เพิ่มคิวพอยท์ผู้ใช้](./command.md#addpoints)**
+
+```js title="Node.js (Axios)"
+const axios = require('axios').default;
+
+const options = {
+    method: 'POST',
+    url: 'https://<web_baseUrl>/azael_playpass/addPoints',
+    headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer <your_bearer_token>'
+    },
+    data: [
+        '443334508020891658', // Discord ID
+        1000, // Num Points
+        30 // Expiration Days
+    ]
+};
+
+try {
+  const { data } = await axios.request(options);
+  console.log(data);
+} catch (error) {
+  console.error(error);
+}
+```
+
+- ฉันจะรับ [**Web BaseURL**](https://forum.cfx.re/t/problems-with-sethttphandler-and-js-post-request/2079782/9?u=azael.dev) ได้จากที่ใด?
+    - คุณสามารถรับได้ขณะที่เซิร์ฟเวอร์ออนไลน์อยู่โดยพิมพ์ `web_baseUrl` ที่ Server Console
+    - **ตัวอย่าง:** `azael-dev-bqvwqx.users.cfx.re`
+- ฉันจะดู [**API Endpoint**](../exports/server.md#subcommand-list) ที่สามารถใช้งานได้จากที่ใด?
+    - คุณสามารถดูได้ที่ [**Subcommand List**](../exports/server.md#subcommand-list) โดยอ้างอิงจาก **Key**
+
+:::tip Response Status: 200 (OK)
+
+<Tabs>
+    <TabItem value="success" label="Success">
+    ```json title="JSON"
+    {
+        "success": true,
+        "payload": {
+            "addPoints": 1000,
+            "data": {
+            "permanent": 1000,
+            "temporary": [
+                {
+                "value": 1000,
+                "expiry_datetime": "2026-02-01 23:42:08"
+                },
+                {
+                "value": 1000,
+                "expiry_datetime": "2026-02-01 23:42:58"
+                }
+            ]
+            },
+            "prevPoints": 2000,
+            "identifier": "discord:443334508020891658",
+            "newPoints": 3000,
+            "expirationDays": 30
+        }
+    }
+    ```
+    </TabItem>
+    <TabItem value="failed" label="Failed">
+    ```json title="JSON"
+    {
+        "success": false,
+        "error": {
+            "message": "No user found for identifier 'discord:44333450802089168'",
+            "type": "user_not_found"
+        }
+    }
+    ```
+    </TabItem>
+</Tabs>
+:::
+
+:::danger Response Status: 4XX (ERROR)
+
+| Code  | Description
+| ----- | ----------------------------------------------------------------------------
+| `400` | คำขอไม่ถูกต้อง — request body ไม่ใช่ JSON ที่ถูกต้อง หรือไม่สามารถถอดรหัสได้
+| `401` | ไม่ได้รับอนุญาต — ไม่มีหรือขาด `Authorization` header
+| `403` | ถูกปฏิเสธ — `Authorization` ไม่ถูกต้อง หรือ IP Address ไม่ได้รับอนุญาต
+| `404` | ไม่พบคำสั่ง — ไม่พบ Subcommand หรือเป็นคำสั่งที่ไม่อนุญาตให้เรียกผ่าน HTTP
+| `405` | Method ไม่ถูกต้อง — ไม่ใช่ `POST`
+| `415` | ไม่รองรับประเภทข้อมูล — `Content-Type` ไม่ใช่ `application/json`
+
+:::
+
+</details>
+
 ## commandName
 
 ชื่อคำสั่งหลักสำหรับใช้งานใน Server Console หรือ Client Console เพื่ออ้างอิงคำสั่งของทรัพยากรนี้
@@ -672,3 +767,6 @@ getQueueInfo = {
     - บทบาทที่อนุญาตให้ใช้คำสั่งทางฝั่งไคลเอนต์
         - ⚠️ ไม่สามารถใช้งานคำสั่งทางฝั่งไคลเอนต์ได้ หากกำหนด `serverOnly` เป็น `true`
         - [**PLAYER_ROLES**](./setup.md#roles) คือข้อมูลการกำหนดค่าเกี่ยวกับบทบาทของผู้เล่น โดยอ้างอิงการกำหนดค่าจากไฟล์ [`./config/setup.lua`](./setup.md)
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
