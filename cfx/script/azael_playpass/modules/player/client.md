@@ -33,36 +33,38 @@ end
 
 ฟังก์ชันสร้าง[ป้ายกำกับผู้เล่นใหม่](../../config/core.md#newplayerlabel) โดยจะแสดงข้อความบนส่วนหัวของผู้เล่น
 
-```lua title="บรรทัดที่ 29"
+```lua title="บรรทัดที่ 30"
 function Player.initNewbieLabel(getNewbieState)
     Citizen.CreateThread(function()
+        local MAX_DISTANCE <const> = 20.0   -- ระยะสูงสุดที่ป้ายกำกับผู้เล่นใหม่จะแสดง
         local playerId <const> = PlayerId()
+        local activeTags <const> = {}
         
         while true do
-            local playerCoords <const> = GetEntityCoords(PlayerPedId())
+            local playerPed <const> = PlayerPedId()
+            local playerCoords <const> = GetEntityCoords(playerPed)
             
             for _, id in ipairs(GetActivePlayers()) do
                 if id ~= playerId then
-                    if NetworkIsPlayerActive(id) then
-                        local isNewbie <const>, createdAgo <const> = getNewbieState(GetPlayerServerId(id))
-                        
-                        if isNewbie then
-                            local targetCoords <const> = GetEntityCoords(GetPlayerPed(id))
-                            
-                            if #(playerCoords - targetCoords) <= 22 then
-                                if not IsMpGamerTagActive(id) and IsMpGamerTagFree(id) then
-                                    CreateMpGamerTagWithCrewColor(id, '', false, false, '', 0, 255, 255, 255)
-                                end
-                                
-                                SetMpGamerTagBigText(id, 'NEWBIE')
-                                SetMpGamerTagColour(id, 3, 234)
-                                SetMpGamerTagVisibility(id, 3, true)
-                            elseif IsMpGamerTagActive(id) then
-                                SetMpGamerTagVisibility(id, 3, false)
-                            end
+                    local targetPed <const> = GetPlayerPed(id)
+                    local targetCoords <const> = GetEntityCoords(targetPed)
+                    local distance <const> = #(playerCoords - targetCoords)
+                    local inRange <const> = distance <= MAX_DISTANCE and HasEntityClearLosToEntity(playerPed, targetPed, 17)
+                    local shouldShow <const> = inRange and getNewbieState(GetPlayerServerId(id))
+                    
+                    if shouldShow and not activeTags[id] then
+                        if not IsMpGamerTagActive(id) and IsMpGamerTagFree(id) then
+                            CreateMpGamerTagWithCrewColor(id, '', false, false, '', 0, 255, 255, 255)
                         end
-                    elseif IsMpGamerTagActive(id) then
-                        RemoveMpGamerTag(id)
+                        
+                        SetMpGamerTagBigText(id, 'NEWBIE')
+                        SetMpGamerTagColour(id, 3, 234)
+                        SetMpGamerTagVisibility(id, 3, true)
+                        
+                        activeTags[id] = true
+                    elseif not shouldShow and activeTags[id] then
+                        SetMpGamerTagVisibility(id, 3, false)
+                        activeTags[id] = nil
                     end
                 end
             end
