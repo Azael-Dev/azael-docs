@@ -26,11 +26,19 @@
 
 :::
 
-:::danger  
+:::danger
+
 ทรัพยากรนี้ไม่สามารถใช้งานร่วมกับ [**nc_PROTECT+**](https://fivem.nc-developer.com/product/62517d4c2d7b0) ได้ และอาจทำให้เกิดปัญหา *Deadloop* ที่ฝั่ง Client  
 โปรดดำเนินการตามขั้นตอนด้านล่างเพื่อหลีกเลี่ยงปัญหา:
 1. เปิดไฟล์ `nc_PROTECT+/config/config.resources.lua`  
 2. เพิ่ม `azael_playpass` ในการกำหนดค่า `Config.IgnoredResources`
+
+:::
+
+:::warning
+
+หากใช้งาน [**bt_defender**](https://betters.dev/) หรือ **Anti-Cheat** จากผู้ให้บริการอื่นๆ และพบปัญหาการค้างที่หน้า [Loading Screen](https://docs.fivem.net/docs/scripting-manual/nui-development/loading-screens/) ให้ดำเนินการละเว้น **azael_playpass** เช่นเดียวกัน
+
 :::
 
 ## ติดตั้งและใช้งาน
@@ -67,86 +75,4 @@ ensure azael_playpass
 
 ```diff title="server.cfg"
 #ensure azael_playpass
-```
-
-## โครงสร้าง
-
-:::danger
-
-คุณสามารถเข้าถึงไฟล์ทั้งหมดได้ ยกเว้นไฟล์ภายในโฟลเดอร์ **core** ซึ่งจะถูกเข้ารหัสไฟล์ไว้
-
-:::
-
-```bash
-azael_playpass
-├── config
-│   ├── auth.lua
-│   ├── command.lua
-│   ├── core.lua
-│   ├── external_api.lua
-│   ├── nui.lua
-│   ├── profile.lua
-│   ├── queue.lua
-│   └── setup.lua
-├── core # คุณไม่สามารถดำเนินการใดๆภายในโฟลเดอร์นี้ได้ เนื่องจากไฟล์ทั้งหมดภายในโฟลเดอร์นี้ถูกจะถูกเข้ารหัสไว้
-│   ├── modules
-│   │   ├── anti-spam
-│   │   │   └── server.lua
-│   │   ├── azael-auth
-│   │   │   ├── client.lua
-│   │   │   └── server.lua
-│   │   ├── commands
-│   │   │   └── server.lua
-│   │   ├── external-api
-│   │   │   └── server.lua
-│   │   ├── locale
-│   │   │   └── shared.lua
-│   │   ├── player
-│   │   │   └── server.lua
-│   │   ├── profile
-│   │   │   └── server.lua
-│   │   ├── queue
-│   │   │   └── server.lua
-│   │   └── utils
-│   │       ├── client.lua
-│   │       └── server.lua
-│   ├── client.lua
-│   ├── init.lua
-│   └── server.lua
-├── locales
-│   └── th.json
-├── modules
-│   ├── commands
-│   │   └── server.lua
-│   ├── database
-│   │   └── server.lua
-│   ├── external-api
-│   │   ├── test-api
-│   │   │   ├── .gitignore
-│   │   │   ├── index.js
-│   │   │   └── package.json
-│   │   └── server.lua
-│   ├── hooks
-│   │   └── server.lua
-│   ├── logger
-│   │   └── server.lua
-│   ├── nui
-│   │   └── client.lua
-│   ├── player
-│   │   ├── client.lua
-│   │   └── server.lua
-│   ├── profile
-│   │   ├── templates
-│   │   │   ├── bind-account.json
-│   │   │   └── single-account.json
-│   │   └── server.lua
-│   └── queue
-│       └── server.lua
-├── web
-│   ├── css
-│   │   └── styles.css
-│   ├── js
-│   │   └── script.js
-│   └── index.html
-└── fxmanifest.lua
 ```

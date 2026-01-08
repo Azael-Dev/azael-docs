@@ -811,6 +811,78 @@ sidebar_label: Commands
 - [ข้อมูลตัวระบุของผู้ใช้](./modules/commands/server.md#clearplayercache) เมื่อใช้คำสั่งสำเร็จ
 - [ข้อความแสดงข้อผิดพลาด](./modules/commands/server.md#onexecuted) เมื่อใช้คำสั่งล้มเหลว
 
+### ล้างคิวทั้งหมด {#purgequeue}
+
+คำสั่ง [ล้างคิวทั้งหมด](./config/command.md#purgequeue) ที่กำลังรอเข้าร่วมกับเซิร์ฟเวอร์อยู่
+
+<Tabs>
+    <TabItem value="command" label="Command">
+        ```bash
+        <commandName> queuepurge
+        ```
+    </TabItem>
+    <TabItem value="example" label="Example">
+        ```bash
+        app queuepurge
+        ```
+    </TabItem>
+</Tabs>
+
+#### Arguments
+
+- commandName: `string`
+    - ชื่อของ [คำสั่งหลัก](./config/command.md#commandname) เพื่ออ้างอิงว่าเป็นคำสั่งของทรัพยากรนี้ สำหรับใช้งานผ่าน Server Console หรือ Client Console
+- subCommandName: `string`
+    - ชื่อของ [คำสั่งย่อย](./config/command.md#subcommands) และค่าเริ่มต้นคือ [`queuepurge`](./config/command.md#purgequeue)
+
+#### Returns
+
+- [ข้อมูลผู้เล่นที่ถูกลบออกจากคิว](./modules/commands/server.md#purgequeue) เมื่อใช้คำสั่งสำเร็จ
+- [ข้อความแสดงข้อผิดพลาด](./modules/commands/server.md#onexecuted) เมื่อใช้คำสั่งล้มเหลว
+
+### เพิ่มสิทธิ์การข้ามคิว {#addqueuebypass}
+
+คำสั่ง [เพิ่มสิทธิ์การข้ามคิว](./config/command.md#addqueuebypass) เพื่อให้ผู้เล่นสามารถเข้าเซิร์ฟเวอร์ได้ทันที
+
+<Tabs>
+    <TabItem value="command" label="Command">
+        ```bash
+        <commandName> queuebypass <identifier> <timeoutMinutes|nil>
+        ```
+    </TabItem>
+    <TabItem value="example" label="Example">
+        ```bash
+        app queuebypass 443334508020891658
+        ```
+:::tip
+    คุณสามารถระบุตัวระบุได้ทั้งแบบที่มีหรือไม่มีคำนำหน้า เช่น `discord:443334508020891658` หรือ `443334508020891658`
+:::
+    </TabItem>
+</Tabs>
+
+#### Arguments
+
+- commandName: `string`
+    - ชื่อของ [คำสั่งหลัก](./config/command.md#commandname) เพื่ออ้างอิงว่าเป็นคำสั่งของทรัพยากรนี้ สำหรับใช้งานผ่าน Server Console หรือ Client Console
+- subCommandName: `string`
+    - ชื่อของ [คำสั่งย่อย](./config/command.md#subcommands) และค่าเริ่มต้นคือ [`queuebypass`](./config/command.md#addqueuebypass)
+- identifier: `string`
+    - [ตัวระบุหลัก](./config/core.md#identifiertype) ของผู้ใช้
+- timeoutMinutes: `integer` | `nil`
+    - ระยะเวลาสูงสุดที่ผู้เล่นต้องเข้าร่วมเซิร์ฟเวอร์ก่อนที่ระบบจะถือว่าหมดเวลา (หน่วยเป็นนาที)
+        - กำหนดค่าได้ตั้งแต่ **1** ถึง **30** นาที (หากไม่กำหนด ค่าเริ่มต้นจะหมดเวลาใน **2** นาที)
+
+#### Returns
+
+- [ข้อมูลการหมดเวลา](./modules/commands/server.md#addqueuebypass) เมื่อใช้คำสั่งสำเร็จ
+- [ข้อความแสดงข้อผิดพลาด](./modules/commands/server.md#onexecuted) เมื่อใช้คำสั่งล้มเหลว
+
+:::tip
+
+หากเซิร์ฟเวอร์ไม่มี Slot ว่าง (เต็ม) ผู้เล่นจะเข้าร่วมคิวและอยู่ลำดับแรกของคิวโดยไม่สนใจ Points ใช้ในกรณีผู้เล่นหลุดออกจากเซิร์ฟแต่มี Story อยู่ และต้องการเข้าร่วมเซิร์ฟเวอร์ใหม่อีกครั้งแบบเร่งด่วน
+
+:::
+
 ## User Commands
 
 รายการคำสั่งทั้งหมดของ [**ผู้ใช้**](https://en.wikipedia.org/wiki/User_(computing))

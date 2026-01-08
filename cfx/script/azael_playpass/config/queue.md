@@ -11,7 +11,7 @@ sidebar_label: Queue
 จำนวนผู้เล่นสูงสุดที่สามารถรอในคิวเมื่อเซิร์ฟเวอร์สล็อตเต็ม
 
 ```lua title="บรรทัดที่ 12"
-svFullQueueLimit = 52
+svFullQueueLimit = 128
 ```
 
 - svFullQueueLimit: `integer`
@@ -19,10 +19,10 @@ svFullQueueLimit = 52
 
 :::tip
 
-รองรับการกำหนดค่า **แบบไดนามิก** ผ่านคำสั่ง [**convar**](https://docs.fivem.net/docs/scripting-reference/convars/) เพื่อปรับขนาดคิวสูงสุด **ได้ทันทีระหว่างรันไทม์** เมื่อใช้คำสั่งด้านล่างนี้ ขนาดคิวสูงสุดจะเปลี่ยนจาก **`52`** เป็น **`120`**
+รองรับการกำหนดค่า **แบบไดนามิก** ผ่านคำสั่ง [**convar**](https://docs.fivem.net/docs/scripting-reference/convars/) เพื่อปรับขนาดคิวสูงสุด **ได้ทันทีระหว่างรันไทม์** เมื่อใช้คำสั่งด้านล่างนี้ ขนาดคิวสูงสุดจะเปลี่ยนจาก **`128`** เป็น **`256`**
 
 ```diff
-set azael_playpass:svFullQueueLimit 120
+set azael_playpass:svFullQueueLimit 256
 ```
 
 :::
@@ -65,7 +65,7 @@ playerCheckInterval = 5
 
 ```lua title="บรรทัดที่ 20"
 resourceDownload = {
-    maxLimit = 30,
+    maxLimit = 64,
     allowRetryOnFail = {
         enable = true,
         timeout = 1

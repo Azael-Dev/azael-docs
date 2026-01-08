@@ -714,11 +714,67 @@ clearPlayerCache = {
         - ⚠️ ไม่สามารถใช้งานคำสั่งทางฝั่งไคลเอนต์ได้ หากกำหนด `serverOnly` เป็น `true`
         - [**PLAYER_ROLES**](./setup.md#roles) คือข้อมูลการกำหนดค่าเกี่ยวกับบทบาทของผู้เล่น โดยอ้างอิงการกำหนดค่าจากไฟล์ [`./config/setup.lua`](./setup.md)
 
+### purgeQueue
+
+คำสั่งสำหรับล้างคิวทั้งหมดที่กำลังรอเข้าร่วมกับเซิร์ฟเวอร์อยู่
+
+```lua title="บรรทัดที่ 228"
+purgeQueue = {
+    name = 'queuepurge',
+    serverOnly = false,
+    allowedRoles = {
+        PLAYER_ROLES.MODERATOR,
+        PLAYER_ROLES.ADMIN,
+        PLAYER_ROLES.DEVELOPER
+    }
+}
+```
+- name: `string`
+    - ชื่อคำสั่งย่อย
+        - ตัวอย่างการใช้คำสั่ง `<commandName> queuepurge`
+- serverOnly: `boolean`
+    - ใช้งานคำสั่งได้ทางฝั่งเซิร์ฟเวอร์เท่านั้น
+- allowedRoles: `table<{ [index]: integer }>` | `table<{}>`
+    - บทบาทที่อนุญาตให้ใช้คำสั่งทางฝั่งไคลเอนต์
+        - ⚠️ ไม่สามารถใช้งานคำสั่งทางฝั่งไคลเอนต์ได้ หากกำหนด `serverOnly` เป็น `true`
+        - [**PLAYER_ROLES**](./setup.md#roles) คือข้อมูลการกำหนดค่าเกี่ยวกับบทบาทของผู้เล่น โดยอ้างอิงการกำหนดค่าจากไฟล์ [`./config/setup.lua`](./setup.md)
+
+### addQueueBypass
+
+คำสั่งสำหรับเพิ่มสิทธิ์การข้ามคิวเพื่อให้ผู้เล่นสามารถเข้าเซิร์ฟเวอร์ได้ทันที
+
+```lua title="บรรทัดที่ 237"
+addQueueBypass = {
+    name = 'queuebypass',
+    serverOnly = false,
+    allowedRoles = {
+        PLAYER_ROLES.MODERATOR,
+        PLAYER_ROLES.ADMIN,
+        PLAYER_ROLES.DEVELOPER
+    }
+}
+```
+- name: `string`
+    - ชื่อคำสั่งย่อย
+        - ตัวอย่างการใช้คำสั่ง `<commandName> queuebypass <identifier> <timeoutMinutes|nil>`
+- serverOnly: `boolean`
+    - ใช้งานคำสั่งได้ทางฝั่งเซิร์ฟเวอร์เท่านั้น
+- allowedRoles: `table<{ [index]: integer }>` | `table<{}>`
+    - บทบาทที่อนุญาตให้ใช้คำสั่งทางฝั่งไคลเอนต์
+        - ⚠️ ไม่สามารถใช้งานคำสั่งทางฝั่งไคลเอนต์ได้ หากกำหนด `serverOnly` เป็น `true`
+        - [**PLAYER_ROLES**](./setup.md#roles) คือข้อมูลการกำหนดค่าเกี่ยวกับบทบาทของผู้เล่น โดยอ้างอิงการกำหนดค่าจากไฟล์ [`./config/setup.lua`](./setup.md)
+
+:::tip
+
+หากเซิร์ฟเวอร์ไม่มี Slot ว่าง (เต็ม) ผู้เล่นจะเข้าร่วมคิวและอยู่ลำดับแรกของคิวโดยไม่สนใจ Points ใช้ในกรณีผู้เล่นหลุดออกจากเซิร์ฟแต่มี Story อยู่ และต้องการเข้าร่วมเซิร์ฟเวอร์ใหม่อีกครั้งแบบเร่งด่วน
+
+:::
+
 ### getMyInfo
 
 คำสั่งรับข้อมูลส่วนตัวของผู้เล่นภายในเกม (ℹ️ คำสั่งนี้สามารถใช้งานได้เพียงฝั่งไคลเอนต์เท่านั้น)
 
-```lua title="บรรทัดที่ 228"
+```lua title="บรรทัดที่ 246"
 getMyInfo = {
     name = 'myinfo',
     allowedRoles = {
@@ -743,7 +799,7 @@ getMyInfo = {
 
 คำสั่งรับข้อมูลเกี่ยวกับระบบคิว
 
-```lua title="บรรทัดที่ 239"
+```lua title="บรรทัดที่ 257"
 getQueueInfo = {
     name = 'queueinfo',
     serverOnly = false,

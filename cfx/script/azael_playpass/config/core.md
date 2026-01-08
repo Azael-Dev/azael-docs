@@ -106,13 +106,14 @@ bindIdentifier = {
 
 ## maxPingLimit
 
-กำหนดค่า [Ping](https://en.wikipedia.org/wiki/Ping_(networking_utility)) สูงสุดที่อนุญาตให้ผู้เล่นเชื่อมต่อกับเซิร์ฟเวอร์
+กำหนดค่า [Ping](https://en.wikipedia.org/wiki/Ping_(networking_utility)) สูงสุดที่อนุญาตให้ผู้เล่นเข้าร่วมกับเซิร์ฟเวอร์
 
 ```lua title="บรรทัดที่ 39"
 maxPingLimit = 500
 ```
 
 - maxPingLimit: `integer`
+    - ระบุ **`0`** เพื่อปิดการตรวจสอบค่า Ping
 
 ## connectionAttemptLimit
 
@@ -182,7 +183,7 @@ banPlayerHwids = {
 ```lua title="บรรทัดที่ 55"
 autoBanAssociated = {
     boundId = true,
-    hwids = true
+    hwids = false
 }
 ```
 
@@ -216,7 +217,7 @@ txAdminBanListener = true
 
 ```lua title="บรรทัดที่ 63"
 inactivePlayers = {
-    enable = true,
+    enable = false,
     limitDays = 14
 }
 ```
@@ -252,7 +253,7 @@ airTimeServer = {
 
 ```lua title="บรรทัดที่ 74"
 newPlayerLabel = { 
-    enable = true,
+    enable = false,
     durationDays = 7
 }
 ```

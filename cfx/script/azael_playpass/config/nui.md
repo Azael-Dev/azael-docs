@@ -11,7 +11,7 @@ sidebar_label: NUI
 แสดง UI ข้อมูลบัญชีเมื่อผู้เล่นเข้าสู่เกมและตัวละครเกิดแล้ว
 
 ```lua title="บรรทัดที่ 12"
-showUIOnSpawn = true
+showUIOnSpawn = false
 ```
 
 - showUIOnSpawn: `boolean`

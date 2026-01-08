@@ -152,14 +152,10 @@ end
     - ตารางข้อมูล
         - player: `table<{ [key]: any }>`
             - ข้อมูลของผู้เล่นเมื่อเชื่อมต่อ
-                - tempId: `integer`
-                    - [Temp ID](https://docs.fivem.net/docs/scripting-reference/events/list/playerconnecting/#parameters) ของผู้เล่น
                 - netId: `integer`
                     - [Net ID](https://docs.fivem.net/docs/scripting-manual/networking/ids/#server-id) ของผู้เล่น
                 - identifier: `string`
                     - [ตัวระบุหลัก](../../config/core.md#identifiertype) ของผู้เล่น
-                - bindId: `string` | `nil`
-                    - [ตัวระบุที่ผูก](../../config/core.md#bindidentifier)ไว้กับ[ตัวระบุหลัก](../../config/core.md#identifiertype) ของผู้เล่น
                 - ping: `integer`
                     - ค่า Ping ของผู้เล่น
 
@@ -375,8 +371,6 @@ end
             - ลำดับของผู้เล่นในคิว
         - joinTime: `integer`
             - เวลาที่ผู้เล่นเข้าร่วมคิว ([Unix time](https://en.wikipedia.org/wiki/Unix_time))
-        - lastCheck: `integer`
-            - เวลาที่ตรวจสอบว่าผู้เล่นยังอยู่ในคิวครั้งล่าสุด ([Unix time](https://en.wikipedia.org/wiki/Unix_time))
 
 #### Returns
 

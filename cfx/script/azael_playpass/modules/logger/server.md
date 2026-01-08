@@ -87,14 +87,10 @@ end
     - ตารางข้อมูล
         - player: `table<{ [key]: any }>`
             - ข้อมูลของผู้เล่นเมื่อเชื่อมต่อ
-                - tempId: `integer`
-                    - [Temp ID](https://docs.fivem.net/docs/scripting-reference/events/list/playerconnecting/#parameters) ของผู้เล่น
                 - netId: `integer`
                     - [Net ID](https://docs.fivem.net/docs/scripting-manual/networking/ids/#server-id) ของผู้เล่น
                 - identifier: `string`
                     - [ตัวระบุหลัก](../../config/core.md#identifiertype) ของผู้เล่น
-                - bindId: `string` | `nil`
-                    - [ตัวระบุที่ผูก](../../config/core.md#bindidentifier)ไว้กับ[ตัวระบุหลัก](../../config/core.md#identifiertype) ของผู้เล่น
                 - ping: `integer`
                     - ค่า Ping ของผู้เล่น
 
@@ -102,7 +98,7 @@ end
 
 ทำงานเมื่อผู้เล่นเชื่อมต่อและ[ตรวจพบ HWIDs ของผู้เล่นอื่นที่ถูกแบน](../../config/core.md#banplayerhwids)
 
-```lua title="บรรทัดที่ 85"
+```lua title="บรรทัดที่ 86"
 function Logger.onBannedHwidDetected(payload)
     pcall(function()
         exports['azael_dc-serverlogs']:insertData({
@@ -154,7 +150,7 @@ end
 
 ทำงานเมื่อผู้เล่นเชื่อมต่อและตรวจพบ Identifiers ของผู้เล่นที่ถูกแบน
 
-```lua title="บรรทัดที่ 128"
+```lua title="บรรทัดที่ 130"
 function Logger.onBannedIdentifierDetected(payload)
     pcall(function()
         exports['azael_dc-serverlogs']:insertData({
@@ -197,7 +193,7 @@ end
 
 ทำงานเมื่อ[คิวพอยท์แบบชั่วคราว](../database/server.md#temporary-fields)ของผู้เล่นหมดอายุแล้ว
 
-```lua title="บรรทัดที่ 171"
+```lua title="บรรทัดที่ 173"
 function Logger.onPlayerTempPointsExpired(payload)
     pcall(function()
         exports['azael_dc-serverlogs']:insertData({
@@ -243,7 +239,7 @@ end
 
 ทำงานเมื่อผู้เล่นถูกแบนชั่วคราวหรือถาวร
 
-```lua title="บรรทัดที่ 212"
+```lua title="บรรทัดที่ 215"
 function Logger.onPlayerBanned(payload)
     local banType <const> = payload.data.banDetails.type
     local fields <const> = { { name = 'IDENTIFIER', value = ('```%s```'):format(payload.player.identifier), inline = false } }
@@ -302,7 +298,7 @@ end
 
 ทำงานเมื่อผู้เล่นถูกยกเลิกการแบนแล้ว
 
-```lua title="บรรทัดที่ 266"
+```lua title="บรรทัดที่ 270"
 function Logger.onPlayerUnbanned(payload)
     pcall(function()
         exports['azael_dc-serverlogs']:insertData({
@@ -350,7 +346,7 @@ end
 
 ทำงานเมื่อ[ผู้เล่นไม่ได้เข้าร่วมเซิร์ฟเวอร์ตามระยะเวลาที่กำหนด](../../config/core.md#inactiveplayers)และถูกระงับการใช้งานแล้ว
 
-```lua title="บรรทัดที่ 290"
+```lua title="บรรทัดที่ 294"
 function Logger.onPlayerInactiveDetected(payload)
     pcall(function()
         exports['azael_dc-serverlogs']:insertData({
@@ -393,7 +389,7 @@ end
 
 ทำงานเมื่อผู้เล่นเชื่อมต่อและใช้งาน[บัญชีที่ผูกไว้](../../config/core.md#bindidentifier)ไม่ตรงกับฐานข้อมูล
 
-```lua title="บรรทัดที่ 311"
+```lua title="บรรทัดที่ 315"
 function Logger.onPlayerBoundIdMismatch(payload)
     pcall(function()
         exports['azael_dc-serverlogs']:insertData({
@@ -435,7 +431,7 @@ end
 
 ทำงานเมื่อมีการ[บันทึกข้อมูลผู้เล่นไปยังฐานข้อมูล](../database/server.md#insertplayerdata)ของเซิร์ฟเวอร์
 
-```lua title="บรรทัดที่ 369"
+```lua title="บรรทัดที่ 374"
 function Logger.onPlayerDataStored(payload)
     pcall(function()
         exports['azael_dc-serverlogs']:insertData({
@@ -473,7 +469,7 @@ end
 
 ทำงานเมื่อ[ข้อมูลผู้เล่นถูกลบออกจากฐานข้อมูล](../database/server.md#deleteplayerdata)ของเซิร์ฟเวอร์
 
-```lua title="บรรทัดที่ 426"
+```lua title="บรรทัดที่ 432"
 function Logger.onPlayerDataDeleted(payload)
     pcall(function()
         exports['azael_dc-serverlogs']:insertData({
@@ -509,7 +505,7 @@ end
 
 ทำงานเมื่อมีการ[อัปเดทตัวระบุ](../database/server.md#updateplayeridentifier)ของผู้เล่นใหม่
 
-```lua title="บรรทัดที่ 483"
+```lua title="บรรทัดที่ 490"
 function Logger.onPlayerIdentifierUpdated(payload)
     pcall(function()
         exports['azael_dc-serverlogs']:insertData({
@@ -547,7 +543,7 @@ end
 
 ทำงานเมื่อผู้เล่นเชื่อมต่อและ[อัปเดตตัวระบุการผูกบัญชี](../database/server.md#updatebindidentifier)ใหม่
 
-```lua title="บรรทัดที่ 505"
+```lua title="บรรทัดที่ 512"
 function Logger.onPlayerBoundIdUpdated(payload)
     pcall(function()
         exports['azael_dc-serverlogs']:insertData({
@@ -588,7 +584,7 @@ end
 
 ทำงานเมื่อผู้เล่นได้รับรางวัลจากกิจกรรม [Lucky Slots](../../config/queue.md#luckyslots) ของระบบ [Queue](../../config/queue.md)
 
-```lua title="บรรทัดที่ 547"
+```lua title="บรรทัดที่ 554"
 function Logger.onPlayerAwardedLuckySlots(payload)
     pcall(function()
         exports['azael_dc-serverlogs']:insertData({
@@ -645,7 +641,7 @@ end
 
 ทำงานเมื่อ[แอร์ไทม์ของผู้เล่น](../database/server.md#setplayerairtime)มีการเปลี่ยนแปลง
 
-```lua title="บรรทัดที่ 583"
+```lua title="บรรทัดที่ 590"
 function Logger.onPlayerAirtimeUpdated(payload)
     local oldAirtime <const> = payload.data.oldAirtime
     local newAirtime <const> = payload.data.newAirtime
@@ -695,7 +691,7 @@ end
 
 ทำงานเมื่อดำเนินการ[ใช้คำสั่งเสร็จสิ้นแล้ว](../commands/server.md#onexecuted)
 
-```lua title="บรรทัดที่ 634"
+```lua title="บรรทัดที่ 641"
 function Logger.onCommandExecuted(payload)
     local command <const> = payload.data.command
     local success <const> = payload.data.success

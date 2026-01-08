@@ -87,6 +87,8 @@ sidebar_label: Server
 | `addAirtime`              | [เพิ่มแอร์ไทม์ผู้ใช้](../commands.md#addairtime)
 | `removeAirtime`           | [ลบแอร์ไทม์ผู้ใช้](../commands.md#removeairtime)
 | `clearPlayerCache`        | [ล้างแคชข้อมูลผู้เล่น](../commands.md#clearplayercache)
+| `purgeQueue`              | [ล้างคิวทั้งหมด](../commands.md#purgequeue)
+| `addQueueBypass`          | [เพิ่มสิทธิ์การข้ามคิว](../commands.md#addqueuebypass)
 | `getQueueInfo`            | [รับข้อมูลระบบคิว](../commands.md#getqueueinfo)
 
 ## getUser
@@ -1017,6 +1019,85 @@ sidebar_label: Server
 - response: `table<{ [key]: any }>`
     - [ข้อมูลตัวระบุของผู้ใช้](../modules/commands/server.md#clearplayercache) หากการเรียกใช้สำเร็จ
     - [ข้อมูลข้อผิดพลาด](./server.md#execommand-returns) หากการเรียกใช้ล้มเหลว
+
+## purgeQueue
+
+ล้างคิวทั้งหมดที่กำลังรอเข้าร่วมกับเซิร์ฟเวอร์อยู่
+
+<Tabs>
+    <TabItem value="usage" label="Usage">
+        ```lua
+        exports.azael_playpass:purgeQueue()
+        ```
+    </TabItem>
+    <TabItem value="example" label="Example">
+        ```lua
+        local success, response = exports.azael_playpass:purgeQueue()
+
+        if not success then
+            return print('Error type:', response.type, 'Error message:', response.message)
+        end
+
+        print(json.encode(response, { indent = true }))
+        ```
+    </TabItem>
+</Tabs>
+
+#### Returns
+
+- success: `boolean`
+    - สถานะการเรียกใช้
+- response: `table<{ [key]: any }>`
+    - [ข้อมูลผู้เล่นที่ถูกลบออกจากคิว](../modules/commands/server.md#purgequeue) หากการเรียกใช้สำเร็จ
+    - [ข้อมูลข้อผิดพลาด](./server.md#execommand-returns) หากการเรียกใช้ล้มเหลว
+
+## addQueueBypass
+
+เพิ่มสิทธิ์การข้ามคิวเพื่อให้ผู้เล่นสามารถเข้าเซิร์ฟเวอร์ได้ทันที
+
+<Tabs>
+    <TabItem value="usage" label="Usage">
+        ```lua
+        exports.azael_playpass:addQueueBypass(identifier, timeoutMinutes|nil)
+        ```
+    </TabItem>
+    <TabItem value="example" label="Example">
+        ```lua
+        local success, response = exports.azael_playpass:addQueueBypass('443334508020891658')
+
+        if not success then
+            return print('Error type:', response.type, 'Error message:', response.message)
+        end
+
+        print(json.encode(response, { indent = true }))
+        ```
+:::tip
+    คุณสามารถระบุตัวระบุได้ทั้งแบบที่มีหรือไม่มีคำนำหน้า เช่น `discord:443334508020891658` หรือ `443334508020891658`
+:::
+    </TabItem>
+</Tabs>
+
+#### Arguments
+
+- identifier: `string`
+    - [ตัวระบุหลัก](../config/core.md#identifiertype) ของผู้ใช้
+- timeoutMinutes: `integer` | `nil`
+    - ระยะเวลาสูงสุดที่ผู้เล่นต้องเข้าร่วมเซิร์ฟเวอร์ก่อนที่ระบบจะถือว่าหมดเวลา (หน่วยเป็นนาที)
+        - กำหนดค่าได้ตั้งแต่ **1** ถึง **30** นาที (หากไม่กำหนด ค่าเริ่มต้นจะหมดเวลาใน **2** นาที)
+
+#### Returns
+
+- success: `boolean`
+    - สถานะการเรียกใช้
+- response: `table<{ [key]: any }>`
+    - [ข้อมูลการหมดเวลา](../modules/commands/server.md#addqueuebypass) หากการเรียกใช้สำเร็จ
+    - [ข้อมูลข้อผิดพลาด](./server.md#execommand-returns) หากการเรียกใช้ล้มเหลว
+
+:::tip
+
+หากเซิร์ฟเวอร์ไม่มี Slot ว่าง (เต็ม) ผู้เล่นจะเข้าร่วมคิวและอยู่ลำดับแรกของคิวโดยไม่สนใจ Points ใช้ในกรณีผู้เล่นหลุดออกจากเซิร์ฟแต่มี Story อยู่ และต้องการเข้าร่วมเซิร์ฟเวอร์ใหม่อีกครั้งแบบเร่งด่วน
+
+:::
 
 ## getQueueInfo
 

@@ -770,11 +770,64 @@ end
         - identifier: `string`
             - [ตัวระบุของผู้เล่น](../../config/core.md#identifiertype)
 
+### purgeQueue
+
+ทำงานเมื่อใช้คำสั่ง "[ล้างคิวผู้เล่นทั้งหมดที่รอเข้าเซิร์ฟเวอร์](../../config/command.md#purgequeue)" สำเร็จ
+
+```lua title="บรรทัดที่ 643"
+function respHandler.purgeQueue(client, resp)
+    local message <const> = ("[^2INFO^7] Successfully purged the queue (Removed ^3%d^7 players)"):format(resp.numPurged)
+    
+    if client then
+        return Commands.sendClientMessage(client, true, message)
+    end
+    
+    print(message)
+end
+```
+
+#### Parameters
+
+- client: `integer` | `nil`
+    - [Net ID](https://docs.fivem.net/docs/scripting-manual/networking/ids/#server-id) ของผู้เล่น หรือ `nil` หากใช้คำสั่งที่ Server Console
+- resp: `table<{ [key]: any }>`
+    - ข้อมูลตอบกลับของคำสั่ง
+        - numPurged: `integer`
+            - จำนวนผู้เล่นที่ถูกลบออกจากคิวการเข้าร่วมเซิร์ฟเวอร์
+
+### addQueueBypass
+
+ทำงานเมื่อใช้คำสั่ง "[เพิ่มสิทธิ์การข้ามคิวให้กับผู้เล่น](../../config/command.md#addqueuebypass)" สำเร็จ
+
+```lua title="บรรทัดที่ 656"
+function respHandler.addQueueBypass(client, resp)
+    local message <const> = ("[^2INFO^7] Successfully added queue bypass for identifier '^5%s^7' (Timeout: ^3%d^7 minutes)")
+        :format(resp.identifier, resp.timeoutMinutes)
+    
+    if client then
+        return Commands.sendClientMessage(client, true, message)
+    end
+    
+    print(message)
+end
+```
+
+#### Parameters
+
+- client: `integer` | `nil`
+    - [Net ID](https://docs.fivem.net/docs/scripting-manual/networking/ids/#server-id) ของผู้เล่น หรือ `nil` หากใช้คำสั่งที่ Server Console
+- resp: `table<{ [key]: any }>`
+    - ข้อมูลตอบกลับของคำสั่ง
+        - identifier: `string`
+            - [ตัวระบุของผู้เล่น](../../config/core.md#identifiertype)
+        - timeoutMinutes: `integer`
+            - ระยะเวลาสูงสุดที่ผู้เล่นต้องเข้าร่วมเซิร์ฟเวอร์ก่อนที่ระบบจะถือว่าหมดเวลา (หน่วยเป็น **นาที**)
+
 ### getMyInfo
 
 ทำงานเมื่อใช้คำสั่ง "[รับข้อมูลส่วนตัวของผู้เล่น](../../config/command.md#getmyinfo)" สำเร็จ
 
-```lua title="บรรทัดที่ 672"
+```lua title="บรรทัดที่ 699"
 function respHandler.getMyInfo(client, resp)
     local message <const> = ("[^2INFO^7] User Role: ^2%s^7\n[^2INFO^7] Airtime Left: ^3%s^7\n[^2INFO^7] Total Points: ^2%d^7\n[^2INFO^7] Permanent Points: ^5%d^7\n[^2INFO^7] Temporary Points: ^3%d^7")
         :format(resp.role.name:gsub('^%l', string.upper), resp.airtimeLeft, resp.queuePoints.total, resp.queuePoints.permanent, resp.queuePoints.temporary)
@@ -801,7 +854,7 @@ end
 
 ทำงานเมื่อใช้คำสั่ง "[รับข้อมูลเกี่ยวกับระบบคิว](../../config/command.md#getqueueinfo)" สำเร็จ
 
-```lua title="บรรทัดที่ 695"
+```lua title="บรรทัดที่ 722"
 function respHandler.getQueueInfo(client, resp)
     local message <const> = ('[^2INFO^7] Queue Status: %s\n[^2INFO^7] Max Queue Size: ^3%d^7\n[^2INFO^7] Players in Queue: ^3%d^7\n[^2INFO^7] Players Downloading: ^3%d^7\n[^2INFO^7] Players Reconnectable (Crashed): ^3%d^7\n[^2INFO^7] Players Online: ^3%d^7\n[^2INFO^7] Total Used Slots: ^5%d^7/^5%d^7')
         :format((resp.isQueueFull and '^1Full^7' or '^2Not Full^7'), resp.maxQueueSize, resp.numQueues, resp.numDownloads, resp.numCrashes, resp.numPlayers, resp.numUsedSlots, resp.maxServerSlots)
