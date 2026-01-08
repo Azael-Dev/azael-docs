@@ -10,11 +10,38 @@ sidebar_label: Server
 
 ทำงานเมื่อผู้เล่นทำการเชื่อมต่อกับเซิร์ฟเวอร์
 
-```lua title="บรรทัดที่ 16"
+```lua title="บรรทัดที่ 31"
 function Hooks.onPlayerConnecting(payload)
+    ---เปิดใช้งานฟังก์ชันด้านล่างนี้หากต้องการให้มีการหน่วงเวลาการเชื่อมต่อแบบสุ่ม
+    -- randomCooldown(payload.deferrals.update)
+    
     return true
 end
 ```
+
+<details>
+    <summary>ฟังก์ชัน randomCooldown</summary>
+    ```lua title="บรรทัดที่ 15"
+    local function randomCooldown(deferUpdate)
+        local minWait <const> = 5       -- กำหนดคูลดาวน์ต่ำสุด (วินาที)
+        local maxWait <const> = 30      -- กำหนดคูลดาวน์สูงสุด (วินาที)
+        
+        math.randomseed(os.time())
+        local waitTime <const> = math.random(minWait, maxWait)
+        
+        for time = waitTime, 0, -1 do
+            deferUpdate(('⏳ โปรดรอ %d วินาที การเชื่อมต่อจะเริ่มต้นโดยอัตโนมัติ...'):format(time))
+            Citizen.Wait(1000)
+        end
+    end
+    ```
+    - deferUpdate: `function`
+        - อัปเดตหรือส่งข้อความไปยังไคลเอนต์ที่เชื่อมต่อ
+
+    :::tip
+    หากเปิดใช้งานฟังก์ชัน **`randomCooldown`** แนะนำให้ปิดใช้งานการกำหนดค่า [**`connectionAttemptLimit`**](../../config/core.md#connectionattemptlimit)
+    :::
+</details>
 
 #### Parameters
 
@@ -50,7 +77,7 @@ end
 
 ทำงานเมื่อผู้เล่นกำลังเข้าร่วมกับเซิร์ฟเวอร์
 
-```lua title="บรรทัดที่ 23"
+```lua title="บรรทัดที่ 41"
 function Hooks.onPlayerJoining(payload)
     return true
 end
@@ -81,7 +108,7 @@ end
 
 ทำงานเมื่อผู้เล่นเชื่อมต่อและข้อมูลของผู้เล่นถูกโหลดแล้ว
 
-```lua title="บรรทัดที่ 60"
+```lua title="บรรทัดที่ 79"
 function Hooks.onPlayerDataLoaded(payload)
     return payload
 end
@@ -101,7 +128,7 @@ end
 
 ทำงานเมื่อผู้เล่น[เชื่อมต่อบ่อยและเร็วเกินกำหนด](../../config/core.md#connectionattemptlimit)
 
-```lua title="บรรทัดที่ 67"
+```lua title="บรรทัดที่ 86"
 function Hooks.onPlayerConnectionSpam(payload)    
     return false
 end
@@ -140,7 +167,7 @@ end
 
 ทำงานเมื่อผู้เล่นเชื่อมต่อและ[การตอบสนองของเครือข่ายผู้เล่นช้าเกินกำหนด](../../config/core.md#maxpinglimit)
 
-```lua title="บรรทัดที่ 74"
+```lua title="บรรทัดที่ 93"
 function Hooks.onPlayerPingExceeded(payload)
     return false
 end
@@ -169,7 +196,7 @@ end
 
 ทำงานเมื่อผู้เล่นเชื่อมต่อและ[ตรวจพบ HWIDs ของผู้เล่นอื่นที่ถูกแบน](../../config/core.md#banplayerhwids)
 
-```lua title="บรรทัดที่ 104"
+```lua title="บรรทัดที่ 124"
 function Hooks.onBannedHwidDetected(payload)
     return false
 end
@@ -210,7 +237,7 @@ end
 
 ทำงานเมื่อผู้เล่นเชื่อมต่อและตรวจพบ Identifiers ของผู้เล่นที่ถูกแบน
 
-```lua title="บรรทัดที่ 130"
+```lua title="บรรทัดที่ 151"
 function Hooks.onBannedIdentifierDetected(payload)
     return false
 end
@@ -245,7 +272,7 @@ end
 
 ทำงานเมื่อผู้เล่นเชื่อมต่อและสถานะถูกตั้งเป็นระงับการใช้งานเนื่องจาก[ไม่เข้าร่วมเซิร์ฟเวอร์ตามระยะเวลาที่กำหนด](../../config/core.md#inactiveplayers)
 
-```lua title="บรรทัดที่ 137"
+```lua title="บรรทัดที่ 158"
 function Hooks.onPlayerInactiveDetected(payload)
     return false
 end
@@ -282,7 +309,7 @@ end
 
 ทำงานเมื่อผู้เล่นเชื่อมต่อและ Airtime ไม่เพียงพอ ([ระบบจำกัดเวลาในการเล่น](../../config/core.md#airtimeserver) โดยผู้เล่นจะต้องเติม Airtime เพื่อเพิ่มเวลาในการเล่น)
 
-```lua title="บรรทัดที่ 144"
+```lua title="บรรทัดที่ 165"
 function Hooks.onPlayerAirtimeRejected(payload)
     return false
 end
@@ -315,7 +342,7 @@ end
 
 ทำงานเมื่อผู้เล่นเชื่อมต่อและใช้งาน[บัญชีที่ผูกไว้](../../config/core.md#bindidentifier)ไม่ตรงกับฐานข้อมูล
 
-```lua title="บรรทัดที่ 151"
+```lua title="บรรทัดที่ 172"
 function Hooks.onPlayerBoundIdMismatch(payload)
     return false
 end
@@ -349,7 +376,7 @@ end
 
 ทำงานก่อนเพิ่มข้อมูลผู้เล่นไปยัง[ระบบคิวรอเข้าร่วมเซิร์ฟเวอร์](../../config/queue.md)
 
-```lua title="บรรทัดที่ 158"
+```lua title="บรรทัดที่ 179"
 function Hooks.onAddPlayerToQueue(payload)
     return payload
 end
@@ -376,3 +403,6 @@ end
 
 - payload: `table<{ [key]: any }>`
     - [ข้อมูลของผู้เล่นที่จะใช้งานภายในระบบคิว](./server.md#onaddplayertoqueue-parameters)
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
