@@ -89,7 +89,7 @@ end
 
 ทำงานเมื่อใช้คำสั่ง "[รับข้อมูลผู้ใช้งาน](../../config/command.md#getuser)" สำเร็จ
 
-```lua title="บรรทัดที่ 82"
+```lua title="บรรทัดที่ 83"
 function respHandler.getUser(client, resp)
     local message <const> = ("[^2INFO^7] Successfully retrieved data for identifier '^5%s^7': %s"):format(resp.identifier, json.encode(resp.data, { indent = true }))
     
@@ -116,7 +116,7 @@ end
 
 ทำงานเมื่อใช้คำสั่ง "[เพิ่มข้อมูลผู้ใช้งาน](../../config/command.md#adduser)" สำเร็จ
 
-```lua title="บรรทัดที่ 128"
+```lua title="บรรทัดที่ 130"
 function respHandler.addUser(client, resp)
     local message <const> = resp.data.bound_id 
         and ("[^2INFO^7] Successfully added identifier '^5%s^7' and bound ID '^5%s^7' to the database"):format(resp.identifier, resp.data.bound_id)
@@ -145,7 +145,7 @@ end
 
 ทำงานเมื่อใช้คำสั่ง "[ลบข้อมูลผู้ใช้งาน](../../config/command.md#deleteuser)" สำเร็จ
 
-```lua title="บรรทัดที่ 176"
+```lua title="บรรทัดที่ 179"
 function respHandler.deleteUser(client, resp)
     local message <const> = ("[^2INFO^7] Successfully deleted data for identifier '^5%s^7' from the database"):format(resp.identifier)
     
@@ -172,11 +172,11 @@ end
 
 ทำงานเมื่อใช้คำสั่ง "[รับข้อมูลการถูกแบน](../../config/command.md#getbaninfo)" สำเร็จ
 
-```lua title="บรรทัดที่ 202"
+```lua title="บรรทัดที่ 206"
 function respHandler.getBanInfo(client, resp)
     local message <const> = ("[^2INFO^7] Identifier: ^5%s^7\n[^2INFO^7] Bound ID: %s\n[^2INFO^7] Associated ID: %s\n[^2INFO^7] Ban Type: %s\n[^2INFO^7] Ban Reason: %s\n[^2INFO^7] Ban Start: %s\n[^2INFO^7] Ban End: %s")
         :format(resp.identifier, 
-            ('^5' .. resp.boundId .. '^7' or 'None'), 
+            (resp.boundId and '^5' .. resp.boundId .. '^7' or 'None'),
             (resp.banDetails.associated_id and '^3' .. resp.banDetails.associated_id .. '^7' or 'None'),
             (resp.banDetails.type == 'temporary' and '^3Temporary^7' or '^1Permanent^7'),
             '^6' .. resp.banDetails.reason .. '^7',
@@ -211,7 +211,7 @@ end
 
 ทำงานเมื่อใช้คำสั่ง "[แบนผู้ใช้ถาวรหรือชั่วคราว](../../config/command.md#banuser)" สำเร็จ
 
-```lua title="บรรทัดที่ 236"
+```lua title="บรรทัดที่ 242"
 function respHandler.banUser(client, resp)
     local message <const> = resp.banDays 
         and ("[^2INFO^7] Successfully banned identifier '^5%s^7' for ^3%d^7 days"):format(resp.identifier, resp.banDays) 
@@ -246,7 +246,7 @@ end
 
 ทำงานเมื่อใช้คำสั่ง "[ยกเลิกแบนผู้ใช้](../../config/command.md#unbanuser)" สำเร็จ
 
-```lua title="บรรทัดที่ 265"
+```lua title="บรรทัดที่ 272"
 function respHandler.unbanUser(client, resp)
     local message <const> = ("[^2INFO^7] Successfully unbanned identifier '^5%s^7' by '^3%s^7'"):format(resp.identifier, (resp.unbanBy or 'Unknown'))
     
@@ -279,7 +279,7 @@ end
 
 ทำงานเมื่อใช้คำสั่ง "[กำหนดบทบาทของผู้ใช้](../../config/command.md#setuserrole)" สำเร็จ
 
-```lua title="บรรทัดที่ 288"
+```lua title="บรรทัดที่ 295"
 function respHandler.setUserRole(client, resp)
     local message <const> = ("[^2INFO^7] Successfully assigned role '^2%s^7' (ID: ^2%d^7) to identifier '^5%s^7'."):format(resp.newRole.name, resp.newRole.id, resp.identifier)
     
