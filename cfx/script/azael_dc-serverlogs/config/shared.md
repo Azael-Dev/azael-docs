@@ -47,6 +47,12 @@ CONFIG.Frameworks = { -- [[ table ]]
     {
         Resource = 'qb-core', -- [[ string ]]
         Directory = 'qb' -- [[ string ]]
+    },
+
+    --[[ VORPCore Framework ]]
+    {
+        Resource = 'vorp_core', -- [[ string ]]
+        Directory = 'vorp' -- [[ string ]]
     }
 }
 ```
@@ -70,7 +76,7 @@ CONFIG.Frameworks = { -- [[ table ]]
 
 แสดง **Debug** เพื่อตรวจสอบสถานะการทำงานต่างๆ
 
-```lua title="บรรทัดที่ 32"
+```lua title="บรรทัดที่ 37"
 CONFIG.Debug = {} -- [[ table ]]
 ```
 
@@ -78,7 +84,7 @@ CONFIG.Debug = {} -- [[ table ]]
 
 เปิดใช้งาน แสดง **Debug** ไปยัง **[Server Console](https://docs.fivem.net/docs/server-manual/server-commands)** หรือ **[Client Console](https://docs.fivem.net/docs/client-manual/console-commands)** <kbd>F8</kbd>
 
-```lua title="บรรทัดที่ 33"
+```lua title="บรรทัดที่ 38"
 CONFIG.Debug.Enable = false -- [[ boolean ]]
 ```
 
@@ -92,7 +98,7 @@ CONFIG.Debug.Enable = false -- [[ boolean ]]
 
 แปลง **ฟังก์ชันส่งออก** จากทรัพยากรอื่นๆมาเป็น [**azael_dc-serverlogs**](../index.md)
 
-```lua title="บรรทัดที่ 36"
+```lua title="บรรทัดที่ 41"
 CONFIG.Bridge = {} -- [[ table ]]
 ```
 
@@ -100,7 +106,7 @@ CONFIG.Bridge = {} -- [[ table ]]
 
 แปลง **ฟังก์ชันส่งออก** จากทรัพยากรที่กำหนด (**สามารถเพิ่มข้อมูลได้**)
 
-```lua title="บรรทัดที่ 37"
+```lua title="บรรทัดที่ 42"
 CONFIG.Bridge.Exports = { -- [[ table ]]
     { -- [[ table ]]
         Enable = true, -- [[ boolean ]]

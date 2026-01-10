@@ -1,6 +1,6 @@
 # azael_dc-serverlogs
 
-ส่งบันทึกกิจกรรมของผู้เล่นไปยัง **[Discord API](./config/server.md#discord-api)** โดยใช้ **[Webhook URL](./config/server.md#webhooks)** ตามขีดจำกัดอัตราการใช้งาน **[Discord API](https://discord.com/developers/docs/resources/webhook#create-webhook)** สำหรับ **[Webhooks](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)** หรือ **[Custom API](./config/server.md#custom-api)** สำหรับการส่งบันทึกกิจกรรมของผู้เล่นไปยัง **[Server API](https://en.wikipedia.org/wiki/Web_API)** ที่กำหนดเองแบบเรียลไทม์ (**[Real Time](https://en.wikipedia.org/wiki/Real-time)**)
+ส่งบันทึกกิจกรรมของผู้เล่นไปยัง **[Discord API](./config/server.md#discord-api)** โดยใช้ **[Webhook URL](./config/events/discord#discord-events)** ตามขีดจำกัดอัตราการใช้งาน **[Discord API](https://discord.com/developers/docs/resources/webhook#create-webhook)** สำหรับ **[Webhooks](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)** หรือ **[Custom API](./config/server.md#custom-api)** สำหรับการส่งบันทึกกิจกรรมของผู้เล่นไปยัง **[Server API](https://en.wikipedia.org/wiki/Web_API)** ที่กำหนดเองแบบเรียลไทม์ (**[Real Time](https://en.wikipedia.org/wiki/Real-time)**)
 
 ## ความต้องการ
 

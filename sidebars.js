@@ -165,6 +165,22 @@ const sidebars = {
                 'script/azael_dc-serverlogs/config/server',
                 'script/azael_dc-serverlogs/config/client',
                 'script/azael_dc-serverlogs/config/shared',
+                {
+                  type: 'category',
+                  label: 'Events',
+                  items: [
+                    'script/azael_dc-serverlogs/config/events/custom',
+                    'script/azael_dc-serverlogs/config/events/discord',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Weapons',
+                  items: [
+                    'script/azael_dc-serverlogs/config/weapons/fivem',
+                    'script/azael_dc-serverlogs/config/weapons/redm',
+                  ],
+                },
               ],
             },
             {
@@ -172,6 +188,7 @@ const sidebars = {
               label: 'Public',
               items: [
                 'script/azael_dc-serverlogs/public/framework',
+                'script/azael_dc-serverlogs/public/hook',
               ],
             },
             {

@@ -1,12 +1,12 @@
 # Framework
 
-รหัสเริ่มต้นรองรับ **[ESX Framework](https://github.com/esx-framework)** และ **[QBCore Framework](https://github.com/qbcore-framework)** หากคุณกำลังใช้งาน **[Framework](https://en.wikipedia.org/wiki/Framework)** อื่นๆ คุณสามารถดูรายละเอียดได้ที่นี่
+รหัสเริ่มต้นรองรับ **[ESX Framework](https://github.com/esx-framework)**, **[QBCore Framework](https://github.com/qbcore-framework)** และ **[VORPCore Framework](https://github.com/VORPCORE)** หากคุณกำลังใช้งาน **[Framework](https://en.wikipedia.org/wiki/Framework)** อื่นๆ คุณสามารถดูรายละเอียดได้ที่นี่
 
 ## ขั้นตอนการเพิ่ม Framework
 
 หากคุณกำลังใช้งาน **[Framework](https://en.wikipedia.org/wiki/Framework)** อื่นๆ คุณสามารถเพิ่ม **[Framework](https://en.wikipedia.org/wiki/Framework)** เพื่อให้รองรับกับเซิร์ฟเวอร์ของคุณได้ดังนี้
 
-1. ดำเนินการคัดลอกโฟลเดอร์ `esx` หรือ `qb` ตามที่คุณต้องการ
+1. ดำเนินการคัดลอกโฟลเดอร์ `esx`, `qb` หรือ `vorp` ตามที่คุณต้องการ
 2. เปลี่ยนชื่อโฟลเดอร์ที่คุณคัดลอกเป็นชื่อโฟลเดอร์ที่คุณต้องการ
 3. ดำเนินการแก้ไขรหัสไฟล์ภายในโฟลเดอร์ ให้มีความเข้ากันได้กับ **[Framework](https://en.wikipedia.org/wiki/Framework)** ที่คุณกำลังใช้งานอยู่
 4. ไปที่ `config/shared.config.lua` การกำหนดค่า **[CONFIG.Frameworks](../config/shared.md#frameworks)** และดำเนินการเพิ่มข้อมูลเพื่อเรียกใช้งาน

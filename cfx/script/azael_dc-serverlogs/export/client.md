@@ -69,7 +69,7 @@ exports['azael_dc-serverlogs']['insertData']({
 
 | Name                    | Type               | Required           | Default                                      | Description                                                
 |-------------------------|--------------------|--------------------|----------------------------------------------|--------------------------------------------------
-| `event`                 | `string`           | ✔️                 |                                              | ชื่อเหตุการณ์เพื่อแยกประเภทข้อมูล (หากใช้งาน **[Discord API](../config/server.md#discord-api)** จะอ้างอิงจากการกำหนดค่า **[Webhooks](../config/server.md#webhooks)**)
+| `event`                 | `string`           | ✔️                 |                                              | ชื่อเหตุการณ์เพื่อแยกประเภทข้อมูล (หากใช้งาน **[Discord API](../config/server.md#discord-api)** จะอ้างอิงจากการกำหนดค่า **[Webhooks](../config/events/discord#discord-events)**)
 | `content`               | `string`           | ✔️                 |                                              | เนื้อหาของข้อความที่ต้องการส่ง
 | `source`                | `number`           | ❌                 | `nil`                                        | ID อ้างอิงผู้เล่น หรือที่รู้จักกันในอีกชื่อคือ **[Server ID](https://docs.fivem.net/docs/scripting-manual/networking/ids/#server-id)** (ไม่ต้องกำหนดสำหรับผู้เล่นปัจจุบัน **[อ่านรายละเอียดเพิ่มเติม](../tutorial.md#ติดตั้งฝั่ง-client)**)
 | `image`                | `string`            | ❌                 | `nil`                                        | URL รูปภาพแบบกำหนดเอง (หากใช้งานห้ามกำหนด `event` นี้ที่ **[Screenshot.Webhooks](../config/server.md#screenshotwebhooks)** โดยเด็ดขาด)
