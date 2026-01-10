@@ -10,8 +10,8 @@ import {themes as prismThemes} from 'prism-react-renderer';
 const config = {
   title: 'Azael Docs',
   tagline: 'เอกสารประกอบการใช้งานสำหรับทรัพยากรที่ถูกพัฒนาโดย Azael Dev',
-  url: 'https://docs.azael.dev',
-  baseUrl: '/',
+  url: 'https://azael-dev.github.io',
+  baseUrl: '/azael-docs/',
   favicon: 'img/logo.ico',
   onBrokenLinks: 'throw',
   onBrokenAnchors: 'throw',
