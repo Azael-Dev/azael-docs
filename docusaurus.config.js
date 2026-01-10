@@ -11,7 +11,7 @@ const config = {
   title: 'Azael Docs',
   tagline: 'เอกสารประกอบการใช้งานสำหรับทรัพยากรที่ถูกพัฒนาโดย Azael Dev',
   url: 'https://azael-dev.github.io',
-  baseUrl: '/azael-docs/',
+  baseUrl: '/azael-docs/cfx/',
   favicon: 'img/logo.ico',
   onBrokenLinks: 'throw',
   onBrokenAnchors: 'throw',
