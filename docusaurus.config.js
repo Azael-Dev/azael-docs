@@ -90,7 +90,7 @@ const config = {
             'aria-label': 'Home',
           },
           {
-            href: 'https://discord.azael.dev',
+            href: 'https://azael.dev/links/discord',
             position: 'right',
             className: 'header-discord-link',
             'aria-label': 'Discord',
