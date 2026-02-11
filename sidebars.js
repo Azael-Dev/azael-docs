@@ -362,6 +362,69 @@ const sidebars = {
           label: 'azael_ui-acceptitems',
           href: 'https://docs-old.azael.dev/docs/azael_ui-acceptitems/',
         },
+        /* azael_connshield */
+        {
+          type: 'category',
+          label: 'azael_connshield',
+          link: {
+            type: 'doc',
+            id: 'script/azael_connshield/index',
+          },
+          items: [
+            {
+              type: 'category',
+              label: 'Config',
+              items: [
+                'script/azael_connshield/config/auth',
+                'script/azael_connshield/config/core',
+                'script/azael_connshield/config/command',
+                'script/azael_connshield/config/permissions',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Modules',
+              items: [
+                {
+                  type: 'category',
+                  label: 'Commands',
+                  items: [
+                    'script/azael_connshield/modules/commands/server',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Hooks',
+                  items: [
+                    'script/azael_connshield/modules/hooks/server',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Logger',
+                  items: [
+                    'script/azael_connshield/modules/logger/server',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Player',
+                  items: [
+                    'script/azael_connshield/modules/player/server',
+                  ],
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Exports',
+              items: [
+                'script/azael_connshield/exports/server',
+              ],
+            },
+            'script/azael_connshield/commands',
+          ],
+        },
         /* azael_active-identifiers */
         {
           type: 'category',
