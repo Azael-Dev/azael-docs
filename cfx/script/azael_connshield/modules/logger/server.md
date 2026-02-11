@@ -16,12 +16,25 @@ function Logger.onPlayerDuplicateIdentifier(payload)
     local existing <const> = payload.players.existing
     local kickedPlayer <const> = payload.kickType == 'incoming' and incoming or existing
     local conflictPlayer <const> = payload.kickType == 'incoming' and existing or incoming
+    local kickColor <const> = payload.kickType == 'incoming' and 3 or 1
+    local kickReasonTitle <const> = payload.kickType == 'incoming'
+        and '### ปฏิเสธการเชื่อมต่อเนื่องจากมีผู้เล่นอื่นเชื่อมต่อด้วยตัวระบุเดียวกันอยู่แล้ว'
+        or '### ผู้เล่นถูกเตะเนื่องจากมีผู้เล่นรายอื่นเชื่อมต่อด้วยตัวระบุเดียวกัน'
 
     pcall(function()
         exports['azael_dc-serverlogs']:insertData({
             event = 'CNS_DuplicateIdKick',
-            content = '...',
-            ...
+            content = kickReasonTitle,
+            fields = {
+                { name = 'DUPLICATE IDENTIFIER', value = ('```%s```'):format(kickedPlayer.identifier), inline = false },
+                { name = 'CONFLICT PLAYER ID', value = ('```%s```'):format(conflictPlayer.netId), inline = false },
+                { name = 'CONFLICT IDENTIFIERS', value = '```' .. table.concat(conflictPlayer.identifiers, '``` ```') .. '```', inline = false },
+            },
+            source = kickedPlayer.netId,
+            color = kickColor,
+            options = {
+                codeblock = false
+            }
         })
     end)
 end
@@ -62,7 +75,16 @@ function Logger.onPlayerIpLimitExceeded(payload)
         exports['azael_dc-serverlogs']:insertData({
             event = 'CNS_IpLimitExceeded',
             content = '### ปฏิเสธการเชื่อมต่อเนื่องจากมีผู้เล่นออนไลน์เกินขีดจำกัดจากที่อยู่ IP เดียวกัน',
-            ...
+            fields = {
+                { name = 'IP ADDRESS', value = ('```%s```'):format(payload.ipAddress), inline = false },
+                { name = 'CONNECTIONS', value = ('```%s/%s```'):format(payload.numConnections, payload.maxConnections), inline = false },
+                { name = 'PLAYERS', value = ('```%s```'):format(json.encode(payload.players, { indent = true })), inline = false }
+            },
+            source = payload.netId,
+            color = 1,
+            options = {
+                codeblock = false
+            }
         })
     end)
 end
@@ -101,7 +123,20 @@ function Logger.onPlayerIpReputationBlocked(payload)
         exports['azael_dc-serverlogs']:insertData({
             event = 'CNS_IpReputationBlocked',
             content = '### ปฏิเสธการเชื่อมต่อเนื่องจาก IP ไม่ผ่านการตรวจสอบ',
-            ...
+            fields = {
+                { name = 'IP ADDRESS', value = ('```%s```'):format(payload.ipAddress), inline = false },
+                { name = 'VPN', value = ('```%s```'):format(payload.isVPN and '✔️ Yes' or '❌ No'), inline = true },
+                { name = 'PROXY', value = ('```%s```'):format(payload.isProxy and '✔️ Yes' or '❌ No'), inline = true },
+                { name = 'COUNTRY', value = ('```%s (%s)```'):format(payload.country or 'Unknown', payload.isoCode or 'Unknown'), inline = false },
+                { name = 'RISK', value = ('```%d%%```'):format(payload.riskScore), inline = true },
+                { name = 'CONFIDENCE', value = ('```%d%%```'):format(payload.confidenceScore), inline = true },
+                { name = 'BLOCK REASON', value = ('```%s```'):format(payload.blockReason or 'Unknown'), inline = false }
+            },
+            source = payload.netId,
+            color = 1,
+            options = {
+                codeblock = false
+            }
         })
     end)
 end
@@ -144,11 +179,29 @@ end
 
 ```lua title="บรรทัดที่ 96"
 function Logger.onPlayerBypassedRules(payload)
+    local fields <const> = {}
+
+    for i, v in ipairs(payload.bypassedRules) do
+        local rule <const> = v.rule:gsub('^bypass.', ''):upper()
+        local identifier <const> = (v.identifier or v.ipAddress) or 'N/A'
+
+        fields[i] = {
+            name = ('BYPASSED RULE: `%s`'):format(rule),
+            value = ('```%s```'):format(identifier),
+            inline = false
+        }
+    end
+
     pcall(function()
         exports['azael_dc-serverlogs']:insertData({
             event = 'CNS_BypassRules',
-            content = '### ผู้เล่นข้ามกฎการเชื่อมต่อ',
-            ...
+            content = ('### ผู้เล่นข้ามกฎการเชื่อมต่อ `%d` รายการ'):format(#payload.bypassedRules),
+            fields = fields,
+            source = payload.netId,
+            color = 9,
+            options = {
+                codeblock = false
+            }
         })
     end)
 end
@@ -183,11 +236,59 @@ end
 
 ```lua title="บรรทัดที่ 120"
 function Logger.onCommandExecuted(payload)
+    local invokerType <const> = payload.type
+    local invoker <const> = payload.invoker
+    local data <const> = payload.data
+    local command <const> = data.command
+    local success <const> = data.success
+    local response <const> = data.response
+
+    local invokerInfo <const> = (invokerType == 'console')
+        and (invoker.player.netId > 0 and ('Player ID: %d'):format(invoker.player.netId) or 'Server Console')
+        or invoker.resource
+
+    local resultColor <const> = success and 2 or 1
+    local resultText <const> = success and '✔️ Success' or '❌ Failed'
+
+    local fields <const> = {
+        { name = 'COMMAND', value = ('```%s```'):format(command.raw), inline = false },
+        { name = 'RESULT', value = ('```%s```'):format(resultText), inline = true },
+        { name = 'INVOKER TYPE', value = ('```%s```'):format(invokerType:upper()), inline = true },
+        { name = 'INVOKER', value = ('```%s```'):format(invokerInfo), inline = false }
+    }
+
+    if not success and response.message then
+        fields[#fields + 1] = {
+            name = 'ERROR',
+            value = ('```%s```'):format(response.message),
+            inline = false
+        }
+    elseif success and response.identifier then
+        fields[#fields + 1] = {
+            name = 'IDENTIFIER',
+            value = ('```%s```'):format(response.identifier),
+            inline = false
+        }
+
+        if response.bypassTypes then
+            fields[#fields + 1] = {
+                name = 'BYPASS TYPES',
+                value = '```' .. table.concat(response.bypassTypes, '``` ```') .. '```',
+                inline = false
+            }
+        end
+    end
+
     pcall(function()
         exports['azael_dc-serverlogs']:insertData({
             event = 'CNS_CommandExecuted',
-            content = '### คำสั่งถูกดำเนินการ',
-            ...
+            content = ('### คำสั่ง `%s` ถูกดำเนินการ'):format(command.name),
+            fields = fields,
+            source = (invokerType == 'console' and invoker.player.netId > 0) and invoker.player.netId or 0,
+            color = resultColor,
+            options = {
+                codeblock = false
+            }
         })
     end)
 end
