@@ -228,7 +228,7 @@ end
 
 รายการ Event Name ทั้งหมดที่ใช้ส่งข้อมูลไปยัง [**azael_dc-serverlogs**](../../../azael_dc-serverlogs/index.md)
 
-| Event Name | คำอธิบาย |
+| Event Name | Description |
 |---|---|
 | `CNS_DuplicateIdKick` | ผู้เล่นถูกเตะเนื่องจากตัวระบุซ้ำ |
 | `CNS_IpLimitExceeded` | ปฏิเสธการเชื่อมต่อเนื่องจากเกินขีดจำกัด IP |

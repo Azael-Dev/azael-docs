@@ -44,7 +44,7 @@ add_principal identifier.steam:1100001332e7216 group.bypass_id
 add_principal identifier.steam:1100001332e7216 group.bypass_ip
 ```
 
-| กลุ่ม | คำอธิบาย |
+| Group | Description |
 |---|---|
 | `group.superadmin` | ผู้ดูแลระบบขั้นสูง |
 | `group.admin` | ผู้ดูแลระบบ |

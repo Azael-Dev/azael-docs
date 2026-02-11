@@ -191,9 +191,9 @@ bypassRules = {
 
 :::
 
-### กลุ่มเริ่มต้น {#default-groups}
+#### Default Groups
 
-| ชื่อกลุ่ม | Bypass Rules | คำอธิบาย |
+| Group Name | Bypass Rules | Description |
 |---|---|---|
 | `superadmin` | `IDENTIFIER_UNIQUENESS`, `IP_PROTECTIONS` | ข้ามการตรวจสอบทั้งหมด |
 | `admin` | `IDENTIFIER_UNIQUENESS`, `IP_PROTECTIONS` | ข้ามการตรวจสอบทั้งหมด |
