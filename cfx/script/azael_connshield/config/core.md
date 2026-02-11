@@ -187,7 +187,7 @@ bypassRules = {
 
 :::info
 
-ดูรายละเอียดเกี่ยวกับการตั้งค่ากลุ่ม ACE ได้ที่ไฟล์ [**`./config/permissions.cfg`**](./permissions.md) และดูข้อมูลเพิ่มเติมเกี่ยวกับ ACE Permission ได้ที่ [**Cfx.re Documentation**](https://docs.fivem.net/docs/server-manual/access-control/)
+ดูรายละเอียดเกี่ยวกับการตั้งค่ากลุ่ม ACE ได้ที่ไฟล์ [**`./config/permissions.cfg`**](./permissions.md) และดูข้อมูลเพิ่มเติมเกี่ยวกับ ACE Permission ได้ที่ [**Cfx.re Documentation**](https://docs.fivem.net/docs/server-manual/server-commands/#access-control-commands)
 
 :::
 
