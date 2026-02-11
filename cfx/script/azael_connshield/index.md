@@ -15,14 +15,6 @@
 - เวอร์ชัน [**FXServer**](https://runtime.fivem.net/artifacts/fivem/build_server_windows/master) ขั้นต่ำ **`12933`**
 - เปิดใช้งาน [**OneSync**](https://docs.fivem.net/docs/scripting-reference/onesync)
 
-## คุณสมบัติหลัก
-
-- **Identifier Uniqueness** — ป้องกันการใช้งานตัวระบุเดียวกันเชื่อมต่อพร้อมกัน รองรับ Steam, Discord, License, License2 และ FiveM
-- **IP Connection Limit** — จำกัดจำนวนการเชื่อมต่อจากที่อยู่ IP เดียวกันเพื่อป้องกันการใช้งานหลายบัญชี
-- **IP Reputation Check** — ตรวจสอบความน่าเชื่อถือของที่อยู่ IP ผ่าน [proxycheck.io](https://proxycheck.io/) เพื่อบล็อก VPN, Proxy หรือจำกัดประเทศที่เชื่อมต่อ
-- **Bypass Rules** — กำหนดกลุ่ม ACE ที่สามารถข้ามการตรวจสอบตามกฎที่กำหนดได้
-- **Commands** — คำสั่งสำหรับเพิ่มและลบสิทธิ์ข้ามกฎการตรวจสอบแบบชั่วคราว
-
 ## ติดตั้งและใช้งาน
 
 1. ดาวน์โหลดและแตกไฟล์ลงในโฟลเดอร์ **resources** ของคุณ
