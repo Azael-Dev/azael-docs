@@ -80,3 +80,6 @@ sidebar_label: Commands
 
 - [ข้อมูลสิทธิ์ที่ถูกลบ](./modules/commands/server.md#removebypass) เมื่อใช้คำสั่งสำเร็จ
 - [ข้อความแสดงข้อผิดพลาด](./modules/commands/server.md#onexecuted) เมื่อใช้คำสั่งล้มเหลว
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';

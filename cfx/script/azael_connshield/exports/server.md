@@ -224,3 +224,6 @@ sidebar_label: Server
 
 - error: `string` | `nil`
     - ข้อความข้อผิดพลาด (ถ้ามี)
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';

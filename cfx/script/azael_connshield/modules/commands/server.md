@@ -150,3 +150,6 @@ end
             - ตัวระบุของผู้เล่น
         - bypassTypes: `string[]`
             - ประเภทของ bypass ที่ถูกลบออก
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
