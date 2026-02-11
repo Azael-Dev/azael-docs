@@ -187,7 +187,7 @@ sidebar_label: Server
     </TabItem>
     <TabItem value="example" label="Example">
         ```lua
-        local result, err = exports.azael_connshield:checkIp('1.2.3.4')
+        local result, err = exports.azael_connshield:checkIp('127.0.0.1')
         
         if err then
             return print('Error:', err)
@@ -204,7 +204,7 @@ sidebar_label: Server
 #### Arguments
 
 - ipAddress: `string`
-    - ที่อยู่ IP ที่ต้องการตรวจสอบ (เช่น `ip:1.2.3.4` หรือ `1.2.3.4`)
+    - ที่อยู่ IP ที่ต้องการตรวจสอบ (เช่น `ip:127.0.0.1` หรือ `127.0.0.1`)
 
 #### Returns
 
