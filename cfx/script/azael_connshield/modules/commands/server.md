@@ -65,7 +65,7 @@ end
 ```lua title="บรรทัดที่ 15"
 function Commands.sendClientMessage(client, success, message)
     TriggerClientEvent('chat:addMessage', client, {
-        args = { message }
+        multiline = true, color = success and { 0, 255, 0 } or { 255, 0, 0 }, args = { '»', message }
     })
 end
 ```
