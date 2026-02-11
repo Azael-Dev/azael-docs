@@ -45,6 +45,12 @@ sidebar_label: Commands
         - `id` — ข้ามการตรวจสอบ Identifier Uniqueness เท่านั้น
         - `ip` — ข้ามการตรวจสอบ IP Protections เท่านั้น
 
+:::info
+
+หากไม่ระบุ `options` ค่าเริ่มต้นจะเท่ากับ `all` ข้ามการตรวจสอบทั้งหมด (Identifier Uniqueness + IP Protections)
+
+:::
+
 #### Returns
 
 - [ข้อมูลสิทธิ์ที่ถูกเพิ่ม](./modules/commands/server.md#addbypass) เมื่อใช้คำสั่งสำเร็จ
