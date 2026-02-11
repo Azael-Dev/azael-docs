@@ -63,12 +63,12 @@ sidebar_label: Commands
 <Tabs>
     <TabItem value="command" label="Command">
         ```bash
-        <commandName> removebypass <identifier>
+        <commandName> removebypass <identifier> <options>
         ```
     </TabItem>
     <TabItem value="example" label="Example">
         ```bash
-        cshield removebypass steam:1100001332e7216
+        cshield removebypass steam:1100001332e7216 all
         ```
     </TabItem>
 </Tabs>
@@ -81,6 +81,17 @@ sidebar_label: Commands
     - ชื่อของ [คำสั่งย่อย](./config/command.md#subcommands) และค่าเริ่มต้นคือ [`removebypass`](./config/command.md#removebypass)
 - identifier: `string`
     - ตัวระบุของผู้เล่น โดยต้องมีคำนำหน้าตรงกับประเภท [identifierUniqueness.provider](./config/core.md#identifieruniqueness) เช่น `steam:1100001332e7216`
+- options: `string` | `nil`
+    - ประเภทการข้ามที่ต้องการลบออก
+        - `all` — ข้ามการตรวจสอบทั้งหมด (Identifier Uniqueness + IP Protections)
+        - `id` — ข้ามการตรวจสอบ Identifier Uniqueness เท่านั้น
+        - `ip` — ข้ามการตรวจสอบ IP Protections เท่านั้น
+
+:::info
+
+หากไม่ระบุ `options` ค่าเริ่มต้นจะเท่ากับ `all` ข้ามการตรวจสอบทั้งหมด (Identifier Uniqueness + IP Protections)
+
+:::
 
 #### Returns
 
