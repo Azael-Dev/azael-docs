@@ -33,9 +33,12 @@ CONFIG.Custom.Events = { -- [[ table ]]
     ['APP_TempPointsExpired'] = true,                       -- คิวพอยท์หมดอายุ
     ['APP_AwardedLuckySlots'] = true,                       -- รางวัลลัคกี้สล็อต
     ['APP_ExecuteCommands'] = true,                         -- ประวัติใช้คำสั่ง
-    --[[ azael_active-identifiers ]]
-    ['ActiveIdentifiers'] = true,                           -- id-เดียวกัน
-    ['IPRateLimits'] = true,                                -- ip-ถูกจำกัด
+    --[[ azael_connshield ]]
+    ['CNS_DuplicateIdKick'] = true,                         -- เชื่อมต่อ-ตัวระบุซ้ำ
+    ['CNS_IpLimitExceeded'] = true,                         -- เกินขีดจำกัด-ip
+    ['CNS_IpReputationBlocked'] = true,                     -- บล็อกที่อยู่-ip
+    ['CNS_BypassRules'] = true,                             -- เชื่อมต่อ-ข้ามกฎ
+    ['CNS_CommandExecuted'] = true,                         -- ประวัติใช้คำสั่ง
     --[[ azael_db-guardian ]]
     ['DB_ExecuteCommand'] = true,                           -- db-ประวัติใช้คำสั่ง
     ['DB_ServerBackups'] = true,                            -- db-สำรองข้อมูลเซิร์ฟ

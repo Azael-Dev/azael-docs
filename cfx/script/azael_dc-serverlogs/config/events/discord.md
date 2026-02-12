@@ -33,9 +33,12 @@ CONFIG.Discord.Events = { -- [[ table ]]
     ['APP_TempPointsExpired'] = 'webhook_url',              -- คิวพอยท์หมดอายุ
     ['APP_AwardedLuckySlots'] = 'webhook_url',              -- รางวัลลัคกี้สล็อต
     ['APP_ExecuteCommands'] = 'webhook_url',                -- ประวัติใช้คำสั่ง
-    --[[ azael_active-identifiers ]]
-    ['ActiveIdentifiers'] = 'webhook_url',                  -- id-เดียวกัน
-    ['IPRateLimits'] = 'webhook_url',                       -- ip-ถูกจำกัด
+    --[[ azael_connshield ]]
+    ['CNS_DuplicateIdKick'] = 'webhook_url',                -- เชื่อมต่อ-ตัวระบุซ้ำ
+    ['CNS_IpLimitExceeded'] = 'webhook_url',                -- เกินขีดจำกัด-ip
+    ['CNS_IpReputationBlocked'] = 'webhook_url',            -- บล็อกที่อยู่-ip
+    ['CNS_BypassRules'] = 'webhook_url',                    -- เชื่อมต่อ-ข้ามกฎ
+    ['CNS_CommandExecuted'] = 'webhook_url',                -- ประวัติใช้คำสั่ง
     --[[ azael_db-guardian ]]
     ['DB_ExecuteCommand'] = 'webhook_url',                  -- db-ประวัติใช้คำสั่ง
     ['DB_ServerBackups'] = 'webhook_url',                   -- db-สำรองข้อมูลเซิร์ฟ
