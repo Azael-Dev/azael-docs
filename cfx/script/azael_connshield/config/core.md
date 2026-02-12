@@ -22,7 +22,7 @@ locale = 'th'
 โหมดดีบัก (Debug Mode) ใช้สำหรับแสดงข้อมูลดีบักในคอนโซลเซิร์ฟเวอร์
 
 ```lua title="บรรทัดที่ 24"
-debugMode = true
+debugMode = false
 ```
 
 - debugMode: `boolean`
@@ -102,7 +102,7 @@ connectionLimit = {
 
 ```lua title="บรรทัดที่ 44"
 ipReputation = {
-    enable = true,
+    enable = false,
     provider = IP_PROVIDER.PROXYCHECK,
     allowOnFailure = true,
     providers = { ... }
@@ -169,7 +169,39 @@ bypassRules = {
                 BYPASS_RULE.IP_PROTECTIONS
             }
         },
-        ...
+        {
+            name = 'admin',
+            rules = {
+                BYPASS_RULE.IDENTIFIER_UNIQUENESS,
+                BYPASS_RULE.IP_PROTECTIONS
+            }
+        },
+        {
+            name = 'moderator',
+            rules = {
+                BYPASS_RULE.IDENTIFIER_UNIQUENESS,
+                BYPASS_RULE.IP_PROTECTIONS
+            }
+        },
+        {
+            name = 'bypass_all',
+            rules = {
+                BYPASS_RULE.IDENTIFIER_UNIQUENESS,
+                BYPASS_RULE.IP_PROTECTIONS
+            }
+        },
+        {
+            name = 'bypass_id',
+            rules = {
+                BYPASS_RULE.IDENTIFIER_UNIQUENESS
+            }
+        },
+        {
+            name = 'bypass_ip',
+            rules = {
+                BYPASS_RULE.IP_PROTECTIONS
+            }
+        }
     }
 }
 ```
