@@ -10,7 +10,7 @@ sidebar_label: Server
 
 ทำงานเมื่อดำเนินการใช้คำสั่งเสร็จสิ้นแล้ว
 
-```lua title="บรรทัดที่ 22"
+```lua title="บรรทัดที่ 29"
 function Commands.onExecuted(source, command, success, response)
     local client <const> = (source > 0 and source or nil)
 
@@ -62,7 +62,7 @@ end
 
 ส่งข้อความไปยังฝั่งไคลเอนต์เมื่อใช้คำสั่งเสร็จสิ้นแล้ว
 
-```lua title="บรรทัดที่ 15"
+```lua title="บรรทัดที่ 18"
 function Commands.sendClientMessage(client, success, message)
     TriggerClientEvent('chat:addMessage', client, {
         multiline = true, color = success and { 0, 255, 0 } or { 255, 0, 0 }, args = { '»', message }
@@ -87,7 +87,7 @@ end
 
 ทำงานเมื่อใช้คำสั่ง "[เพิ่มสิทธิ์ข้ามกฎการตรวจสอบ](../../config/command.md#addbypass)" สำเร็จ
 
-```lua title="บรรทัดที่ 46"
+```lua title="บรรทัดที่ 44"
 function respHandler.addBypass(client, resp)
     local bypassTypes <const> = {}
 
@@ -121,7 +121,7 @@ end
 
 ทำงานเมื่อใช้คำสั่ง "[ลบสิทธิ์ข้ามกฎการตรวจสอบ](../../config/command.md#removebypass)" สำเร็จ
 
-```lua title="บรรทัดที่ 63"
+```lua title="บรรทัดที่ 64"
 function respHandler.removeBypass(client, resp)
     local bypassTypes <const> = {}
 

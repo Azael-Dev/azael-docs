@@ -10,7 +10,7 @@ sidebar_label: Auth
 
 ระบุ **Token** ของผลิตภัณฑ์ เพื่อใช้ในการตรวจสอบสิทธิ์การใช้งานผลิตภัณฑ์
 
-```lua title="บรรทัดที่ 12"
+```lua title="บรรทัดที่ 13"
 productToken = 'product_token'
 ```
 

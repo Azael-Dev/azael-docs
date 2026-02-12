@@ -4,13 +4,23 @@ sidebar_label: Server
 
 # Logger (Server-side)
 
+รายการ Event Name ทั้งหมดที่ใช้ส่งข้อมูลไปยัง [**azael_dc-serverlogs**](../../../azael_dc-serverlogs/index.md)
+
+| Event Name | Description |
+|---|---|
+| `CNS_DuplicateIdKick` | ผู้เล่นถูกเตะเนื่องจากตัวระบุซ้ำ |
+| `CNS_IpLimitExceeded` | ปฏิเสธการเชื่อมต่อเนื่องจากเกินขีดจำกัด IP |
+| `CNS_IpReputationBlocked` | ปฏิเสธการเชื่อมต่อเนื่องจาก IP ไม่ผ่านการตรวจสอบ |
+| `CNS_BypassRules` | ผู้เล่นข้ามกฎการเชื่อมต่อ |
+| `CNS_CommandExecuted` | คำสั่งถูกดำเนินการ |
+
 ## Logger
 
 ### onPlayerDuplicateIdentifier
 
 ทำงานเมื่อผู้เล่นถูกเตะออกจากเซิร์ฟเวอร์ เนื่องจากมีการเชื่อมต่อด้วยตัวระบุเดียวกัน
 
-```lua title="บรรทัดที่ 14"
+```lua title="บรรทัดที่ 16"
 function Logger.onPlayerDuplicateIdentifier(payload)
     local incoming <const> = payload.players.incoming
     local existing <const> = payload.players.existing
@@ -69,7 +79,7 @@ end
 
 ทำงานเมื่อผู้เล่นเชื่อมต่อกับเซิร์ฟเวอร์แต่เกินขีดจำกัดการเชื่อมต่อจากที่อยู่ IP เดียวกัน
 
-```lua title="บรรทัดที่ 44"
+```lua title="บรรทัดที่ 47"
 function Logger.onPlayerIpLimitExceeded(payload)
     pcall(function()
         exports['azael_dc-serverlogs']:insertData({
@@ -117,7 +127,7 @@ end
 
 ทำงานเมื่อผู้เล่นเชื่อมต่อกับเซิร์ฟเวอร์แต่ไม่ผ่านการตรวจสอบความน่าเชื่อถือของที่อยู่ IP
 
-```lua title="บรรทัดที่ 64"
+```lua title="บรรทัดที่ 69"
 function Logger.onPlayerIpReputationBlocked(payload)
     pcall(function()
         exports['azael_dc-serverlogs']:insertData({
@@ -177,7 +187,7 @@ end
 
 ทำงานเมื่อผู้เล่นมีสิทธิ์ข้ามกฎการเชื่อมต่อบางอย่าง
 
-```lua title="บรรทัดที่ 96"
+```lua title="บรรทัดที่ 95"
 function Logger.onPlayerBypassedRules(payload)
     local fields <const> = {}
 
@@ -234,7 +244,7 @@ end
 
 ทำงานเมื่อมีการดำเนินการใช้คำสั่ง
 
-```lua title="บรรทัดที่ 120"
+```lua title="บรรทัดที่ 126"
 function Logger.onCommandExecuted(payload)
     local invokerType <const> = payload.type
     local invoker <const> = payload.invoker
@@ -324,15 +334,3 @@ end
 ฟังก์ชันนี้ส่งข้อมูลไปยัง [**azael_dc-serverlogs**](../../../azael_dc-serverlogs/index.md) โดยใช้ Event Name: `CNS_CommandExecuted`
 
 :::
-
-## Event Names
-
-รายการ Event Name ทั้งหมดที่ใช้ส่งข้อมูลไปยัง [**azael_dc-serverlogs**](../../../azael_dc-serverlogs/index.md)
-
-| Event Name | Description |
-|---|---|
-| `CNS_DuplicateIdKick` | ผู้เล่นถูกเตะเนื่องจากตัวระบุซ้ำ |
-| `CNS_IpLimitExceeded` | ปฏิเสธการเชื่อมต่อเนื่องจากเกินขีดจำกัด IP |
-| `CNS_IpReputationBlocked` | ปฏิเสธการเชื่อมต่อเนื่องจาก IP ไม่ผ่านการตรวจสอบ |
-| `CNS_BypassRules` | ผู้เล่นข้ามกฎการเชื่อมต่อ |
-| `CNS_CommandExecuted` | คำสั่งถูกดำเนินการ |

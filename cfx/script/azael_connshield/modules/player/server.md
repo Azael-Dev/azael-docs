@@ -10,7 +10,7 @@ sidebar_label: Server
 
 รับตัวระบุของผู้เล่นตามประเภทที่ระบุ
 
-```lua title="บรรทัดที่ 18"
+```lua title="บรรทัดที่ 22"
 function Player.getIdentifier(playerId, identifierType)
     return GetPlayerIdentifierByType(playerId, identifierType)
 end
@@ -32,7 +32,7 @@ end
 
 รับตัวระบุทั้งหมดของผู้เล่น
 
-```lua title="บรรทัดที่ 25"
+```lua title="บรรทัดที่ 29"
 function Player.getIdentifiers(playerId)
     return GetPlayerIdentifiers(playerId)
 end

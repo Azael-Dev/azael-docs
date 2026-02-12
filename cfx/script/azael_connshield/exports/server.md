@@ -19,7 +19,7 @@ sidebar_label: Server
     <TabItem value="example" label="Example">
         ```lua
         local success, response = exports.azael_connshield:executeCommand('addBypass', { 'steam:1100001332e7216', 'all' })
-        
+
         if not success then
             return print('Error type:', response.type, 'Error message:', response.message)
         end
@@ -78,7 +78,7 @@ sidebar_label: Server
     <TabItem value="example" label="Example">
         ```lua
         local success, response = exports.azael_connshield:addBypass('steam:1100001332e7216', 'all')
-        
+
         if not success then
             return print('Error type:', response.type, 'Error message:', response.message)
         end
@@ -133,7 +133,7 @@ sidebar_label: Server
     <TabItem value="example" label="Example">
         ```lua
         local success, response = exports.azael_connshield:removeBypass('steam:1100001332e7216', 'all')
-        
+
         if not success then
             return print('Error type:', response.type, 'Error message:', response.message)
         end
@@ -188,7 +188,7 @@ sidebar_label: Server
     <TabItem value="example" label="Example">
         ```lua
         local result, err = exports.azael_connshield:checkIp('127.0.0.1')
-        
+
         if err then
             return print('Error:', err)
         end

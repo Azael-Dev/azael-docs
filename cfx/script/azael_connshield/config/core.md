@@ -139,7 +139,7 @@ proxycheck = {
 ```
 
 - apiKey: `string`
-    - ระบุ API Key ที่ได้รับจาก [proxycheck.io Dashboard](https://proxycheck.io/dashboard/)
+    - ระบุ API Key ที่ได้รับจากแดชบอร์ด [proxycheck.io](https://proxycheck.io/dashboard/)
 - blockVPN: `boolean`
     - บล็อกการเชื่อมต่อผ่าน VPN (`true` = บล็อก, `false` = ไม่บล็อก)
 - blockProxy: `boolean`

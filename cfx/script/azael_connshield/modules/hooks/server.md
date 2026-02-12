@@ -10,7 +10,7 @@ sidebar_label: Server
 
 ทำงานเมื่อผู้เล่นถูกเตะออกจากเซิร์ฟเวอร์ เนื่องจากมีการเชื่อมต่อด้วยตัวระบุเดียวกัน
 
-```lua title="บรรทัดที่ 14"
+```lua title="บรรทัดที่ 17"
 function Hooks.onPlayerDuplicateIdentifier(payload)
     return false, true
 end
@@ -58,7 +58,7 @@ end
 
 ทำงานเมื่อผู้เล่นเชื่อมต่อกับเซิร์ฟเวอร์แต่เกินขีดจำกัดการเชื่อมต่อจากที่อยู่ IP เดียวกัน
 
-```lua title="บรรทัดที่ 23"
+```lua title="บรรทัดที่ 24"
 function Hooks.onPlayerIpLimitExceeded(payload)
     return true
 end
@@ -91,7 +91,7 @@ end
 
 ทำงานเมื่อผู้เล่นเชื่อมต่อกับเซิร์ฟเวอร์แต่ไม่ผ่านการตรวจสอบความน่าเชื่อถือของที่อยู่ IP (IP Reputation)
 
-```lua title="บรรทัดที่ 30"
+```lua title="บรรทัดที่ 31"
 function Hooks.onPlayerIpReputationBlocked(payload)
     return true
 end
