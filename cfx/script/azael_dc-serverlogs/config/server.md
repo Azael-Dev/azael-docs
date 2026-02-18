@@ -31,7 +31,7 @@ CONFIG.General.Option.Type = 'DISCORD' -- [[ string ]]
 
 ### Crashes.Enable
 
-เปิดใช้งาน บันทึกข้อมูลไปยังโฟลเดอร์ **`azael_data/azael_dc-serverlogs/crashes`** หากพบข้อผิดพลาดต่างๆ (**ป้องกันข้อมูลสูญหาย**)
+เปิดใช้งาน บันทึกข้อมูลไปยังโฟลเดอร์ **`azael_dc-serverlogs/data/crashes`** หากพบข้อผิดพลาดต่างๆ (**ป้องกันข้อมูลสูญหาย**)
 
 ```lua title="บรรทัดที่ 17"
 CONFIG.General.Crashes.Enable = true -- [[ boolean ]]
@@ -351,7 +351,7 @@ CONFIG.Discord.Important.Content = '__**⚠️ IMPORTANT ― || @everyone || Ple
 
 ### Command.Save
 
-คำสั่ง บันทึกข้อมูลทั้งหมด ไปยังโฟลเดอร์ **`azael_data/azael_dc-serverlogs/logs`** ในรูปแบบไฟล์ **[JSON](https://www.wikidata.org/wiki/Q2063)**
+คำสั่ง บันทึกข้อมูลทั้งหมด ไปยังโฟลเดอร์ **`azael_dc-serverlogs/data/logs`** ในรูปแบบไฟล์ **[JSON](https://www.wikidata.org/wiki/Q2063)**
 
 ```lua title="บรรทัดที่ 111"
 CONFIG.Discord.Command.Save = 'logsave' -- [[ string ]]
@@ -359,7 +359,7 @@ CONFIG.Discord.Command.Save = 'logsave' -- [[ string ]]
 
 :::info
 
-ในกรณียังมีคิวส่งคำขออยู่ และผู้ดูแลต้องการ ปิดเซิร์ฟเวอร์ หรือ รีสตาร์ทเซิร์ฟเวอร์ ระบบจะบันทึกข้อมูลทั้งหมดไปยังโฟลเดอร์ **`azael_data/azael_dc-serverlogs/logs`**
+ในกรณียังมีคิวส่งคำขออยู่ และผู้ดูแลต้องการ ปิดเซิร์ฟเวอร์ หรือ รีสตาร์ทเซิร์ฟเวอร์ ระบบจะบันทึกข้อมูลทั้งหมดไปยังโฟลเดอร์ **`azael_dc-serverlogs/data/logs`**
 
 :::
 
@@ -385,7 +385,7 @@ CONFIG.Discord.Command.Queue = 'logqueue' -- [[ string ]]
 
 ### txAdmin.Enable
 
-เปิดใช้งาน บันทึกข้อมูลทั้งหมดไปยังโฟลเดอร์ **`azael_data/azael_dc-serverlogs/logs`** ในรูปแบบไฟล์ **[JSON](https://www.wikidata.org/wiki/Q2063)** สำหรับเหตุการณ์ **กำลังปิดเซิร์ฟเวอร์** โดย **[txAdmin](https://txadm.in/)** (**ป้องกันข้อมูลสูญหาย**)
+เปิดใช้งาน บันทึกข้อมูลทั้งหมดไปยังโฟลเดอร์ **`azael_dc-serverlogs/data/logs`** ในรูปแบบไฟล์ **[JSON](https://www.wikidata.org/wiki/Q2063)** สำหรับเหตุการณ์ **กำลังปิดเซิร์ฟเวอร์** โดย **[txAdmin](https://txadm.in/)** (**ป้องกันข้อมูลสูญหาย**)
 
 ```lua title="บรรทัดที่ 116"
 CONFIG.Discord.txAdmin.Enable = true -- [[ boolean ]]
