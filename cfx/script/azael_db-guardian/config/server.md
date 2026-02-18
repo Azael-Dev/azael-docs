@@ -748,7 +748,7 @@ CONFIG.FileUpload.GoogleDriveAPI.DeleteOldFiles.Enable = true -- [[ boolean ]]
 จำนวนวันที่ต้องการจัดเก็บไฟล์ สำรองข้อมูลของเซิร์ฟเวอร์ หากไฟล์เก่ากว่า **`X`** วัน ระบบจำดำเนินการลบไฟล์ทิ้ง (ต้องเปิดใช้งาน [**GoogleDriveAPI.DeleteOldFiles.Enable**](./server.md#googledriveapideleteoldfilesenable))
 
 ```lua title="บรรทัดที่ 263"
-CONFIG.FileUpload.GoogleDriveAPI.DeleteOldFiles.Days = 60 -- [[ number ]]
+CONFIG.FileUpload.GoogleDriveAPI.DeleteOldFiles.Days = 30 -- [[ number ]]
 ```
 
 :::info

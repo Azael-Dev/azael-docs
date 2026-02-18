@@ -30,8 +30,11 @@
 4. ไปยังไฟล์ `server.cfg` และทำการเพิ่ม `ensure azael_db-guardian`
 
 ```diff title="server.cfg"
+add_unsafe_child_process_permission azael_db-guardian
 ensure azael_db-guardian
 ```
+
+- ต้องกำหนด `add_unsafe_child_process_permission azael_db-guardian` หากใช้งาน [Server](https://runtime.fivem.net/artifacts/fivem/build_server_windows/master/) ตั้งเเต่เวอร์ชัน `25943` เป็นต้นไป
 
 :::tip
 
