@@ -115,24 +115,29 @@ end
 
 รับคำสั่งที่ใช้ในการสำรองฐานข้อมูล
 
-```lua title="บรรทัดที่ 69"
-function DATABASE.GetDumpCommand()
+```lua title="บรรทัดที่ 70"
+function DATABASE.GetDumpCommand(platform)
     local baseDirRes = MySQL.query.await("SHOW VARIABLES LIKE 'basedir'")
-    if not (baseDirRes and baseDirRes[1]) then return nil end
-    
-    local baseDir = baseDirRes[1].Value
-    local isWindows = baseDir:find('\\')
-    local dumpPath
-    
-    if isWindows then
-        dumpPath = baseDir:gsub('\\$', '') .. '\\bin\\mysqldump.exe'
-    else
-        dumpPath = baseDir:gsub('/$', '') .. '/bin/mysqldump'
+
+    if not (baseDirRes and baseDirRes[1] and baseDirRes[1].Value) then
+        return nil
     end
-    
-    return dumpPath
+
+    local baseDir = baseDirRes[1].Value:gsub('[\\/]+$', '')
+
+    if platform == 'linux' then
+        return baseDir .. '/bin/mysqldump'
+    end
+
+    return baseDir .. '\\bin\\mysqldump.exe' -- windows
 end
 ```
+
+### Parameter
+
+| Name                         | Type               | Description                                                
+|------------------------------|--------------------|----------------------------------------------------------------------
+| `platform`                    | `string`          | ชื่อแพลตฟอร์มที่เซิร์ฟเวอร์กำลังทำงานอยู่ เช่น windows หรือ linux
 
 ### Return
 
@@ -144,7 +149,7 @@ end
 
 จัดรูปแบบคำสั่งสำรองฐานข้อมูลเซิร์ฟเวอร์
 
-```lua title="บรรทัดที่ 93"
+```lua title="บรรทัดที่ 95"
 function DATABASE.FormatServerBackupCommand(dbUser, dbPass, dbHost, dbPort, dbName, cmdName, backupPath)
     local password = (dbPass and ('-p"%s"'):format(dbPass) or '')
     local host = (dbHost and ('-h "%s"'):format(dbHost) or '')
@@ -178,7 +183,7 @@ end
 
 จัดรูปแบบคำสั่งสำรองฐานข้อมูลผู้เล่น เมื่อถูกลบข้อมูล
 
-```lua title="บรรทัดที่ 116"
+```lua title="บรรทัดที่ 118"
 function DATABASE.FormatPlayerBackupCommand(dbUser, dbPass, dbHost, dbPort, dbName, cmdName, backupPath, tableName, columnName, identifier, isSpecialId)
     local password = (dbPass and ('-p"%s"'):format(dbPass) or '')
     local host = (dbHost and ('-h "%s"'):format(dbHost) or '')
@@ -217,7 +222,7 @@ end
 
 รับชื่อ ตาราง, คอลัมน์ บนฐานข้อมูล
 
-```lua title="บรรทัดที่ 130"
+```lua title="บรรทัดที่ 132"
 function DATABASE.GetSchemaTable(dbName)
     return MySQL.query.await(("SELECT table_name, column_name FROM information_schema.columns WHERE table_schema = '%s'"):format(dbName))
 end
@@ -242,7 +247,7 @@ end
 
 รับชื่อ ตาราง ทีมีความสัมพันธ์กับตารางอื่นๆ ([**Foreign Keys**](https://en.wikipedia.org/wiki/Foreign_key))
 
-```lua title="บรรทัดที่ 137"
+```lua title="บรรทัดที่ 139"
 function DATABASE.GetForeignKeyTable(dbName)
     return MySQL.query.await(("SELECT table_name, referenced_table_name FROM information_schema.key_column_usage WHERE table_schema = '%s' AND referenced_table_name IS NOT NULL"):format(dbName))
 end
@@ -267,7 +272,7 @@ end
 
 รับข้อมูลผู้เล่นที่ไม่ได้ใช้งาน
 
-```lua title="บรรทัดที่ 147"
+```lua title="บรรทัดที่ 149"
 function DATABASE.GetIdlePlayers(delStatus, dayLimit, delLimit, ignoreIds)
     local query = 'SELECT `identifier`, UNIX_TIMESTAMP(`lastseen`) AS `lastseen` FROM `azael_db_guardian` WHERE `deleted` = ? AND `lastseen` < DATE_SUB(NOW(), INTERVAL ? DAY)'
 
@@ -306,7 +311,7 @@ end
 
 นับจำนวนผู้เล่นที่ไม่ได้ใช้งาน (ไม่เชื่อมต่อกับเซิร์ฟเวอร์มากกว่าวันที่กำหนด)
 
-```lua title="บรรทัดที่ 166"
+```lua title="บรรทัดที่ 168"
 function DATABASE.CountIdlePlayers(delStatus, dayLimit, ignoreIds)
     local query = 'SELECT COUNT(`identifier`) AS `count` FROM `azael_db_guardian` WHERE `deleted` = ? AND `lastseen` < DATE_SUB(NOW(), INTERVAL ? DAY)'
 
@@ -341,7 +346,7 @@ end
 
 รับข้อมูล วันที่เชื่อมต่อ และ สถานะการถูกลบ ของผู้เล่น
 
-```lua title="บรรทัดที่ 183"
+```lua title="บรรทัดที่ 185"
 function DATABASE.GetPlayerData(identifier)
     local row = MySQL.prepare.await('SELECT UNIX_TIMESTAMP(`lastseen`) AS `lastseen`, `deleted` FROM `azael_db_guardian` WHERE `identifier` = ? LIMIT 1', { identifier })
 
@@ -371,7 +376,7 @@ end
 
 รับรายการตัวระบุที่ถูกสร้างโดย Framework เพื่อใช้ในการ ลบข้อมูล และ สำรองข้อมูล ของผู้เล่น
 
-```lua title="บรรทัดที่ 196"
+```lua title="บรรทัดที่ 198"
 function DATABASE.GetForeignCharIds(identifier)
     local idsStr
 
@@ -419,7 +424,7 @@ end
 
 รับคีย์อ้างอิงจาก ตัวระบุ เพื่อ สำรองข้อมูล หรือ ลบข้อมูล ของผู้เล่น
 
-```lua title="บรรทัดที่ 226"
+```lua title="บรรทัดที่ 228"
 function DATABASE.GetKeysByIdentifier(identifier, tableName, idColumnName, keyColumnName)
     local rows = MySQL.query.await(('SELECT `%s` AS `key` FROM `%s` WHERE `%s` = ?'):format(keyColumnName, tableName, idColumnName), { identifier })
     local keysStr
@@ -457,7 +462,7 @@ end
 
 ตรวจสอบว่ามีข้อมูลอยู่หรือไม่
 
-```lua title="บรรทัดที่ 249"
+```lua title="บรรทัดที่ 251"
 function DATABASE.DoesRowExist(identifier, tableName, columnName, isSpecialId)
     local where = isSpecialId and ('`%s` IN (%s)'):format(columnName, identifier) or FRAMEWORK.Database.WHERE_IDENTIFIER:format(columnName, identifier)
     local row = MySQL.scalar.await(('SELECT 1 FROM `%s` WHERE %s'):format(tableName, where))
@@ -485,7 +490,7 @@ end
 
 บันทึกข้อมูลการเชื่อมต่อผู้เล่น
 
-```lua title="บรรทัดที่ 259"
+```lua title="บรรทัดที่ 261"
 function DATABASE.InsertPlayerConnection(identifier)
     MySQL.insert('INSERT INTO `azael_db_guardian` (`identifier`) VALUES (?)', { identifier })
 end
@@ -501,7 +506,7 @@ end
 
 บันทึกข้อมูลการเชื่อมต่อผู้เล่น
 
-```lua title="บรรทัดที่ 266"
+```lua title="บรรทัดที่ 268"
 function DATABASE.UpdatePlayerConnection(identifier)
     MySQL.prepare('UPDATE `azael_db_guardian` SET lastseen = CURRENT_TIMESTAMP WHERE `identifier` = ?', { identifier })
 end
@@ -517,7 +522,7 @@ end
 
 อัพเดทวันที่เชื่อมต่อให้ผู้เล่น ในกรณีแจ้งลาต่างๆ
 
-```lua title="บรรทัดที่ 274"
+```lua title="บรรทัดที่ 276"
 function DATABASE.UpdatePlayerLeaveDays(identifier, days)
     local success, err = pcall(MySQL.update.await, 'UPDATE `azael_db_guardian` SET lastseen = DATE_ADD(CURRENT_TIMESTAMP, INTERVAL ? DAY) WHERE `identifier` = ?', { days, identifier })
 
@@ -556,7 +561,7 @@ end
 
 อัพเดตสถานะการลบข้อมูลผู้เล่น
 
-```lua title="บรรทัดที่ 291"
+```lua title="บรรทัดที่ 293"
 function DATABASE.UpdateDeletionStatus(identifier, delStatus)
     local success, err = pcall(MySQL.update.await, (delStatus 
         and 'UPDATE `azael_db_guardian` SET deleted = ? WHERE `identifier` = ?'
@@ -585,7 +590,7 @@ end
 
 ลบข้อมูลผู้เล่นออกจากฐานข้อมูล
 
-```lua title="บรรทัดที่ 306"
+```lua title="บรรทัดที่ 308"
 function DATABASE.DeletePlayerData(identifier, tableName, columnName, isSpecialId)
     local where = isSpecialId and ('`%s` IN (%s)'):format(columnName, identifier) or FRAMEWORK.Database.WHERE_IDENTIFIER:format(columnName, identifier)
     local success, rows = pcall(MySQL.update.await, ('DELETE FROM `%s` WHERE %s'):format(tableName, where))
