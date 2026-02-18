@@ -95,7 +95,7 @@ sidebar_label: Tutorials
 UPDATE azael_db_guardian SET lastseen = DATE_SUB(lastseen, INTERVAL 100 DAY) LIMIT 100;
 ```
 
-5. ไปยังโฟลเดอร์ **`azael_data`** (ที่อยู่เดียวกันกับไฟล์ [**`server.cfg`**](https://docs.fivem.net/docs/server-manual/setting-up-a-server-vanilla/#servercfg)) และดำเนินการ ลบโฟลเดอร์ [**`azael_db-guardian`**](./index.md)
+5. ไปยังโฟลเดอร์ **`azael_db-guardian/data`** และดำเนินการ ลบโฟลเดอร์ **`server-backups`** และ **`player-backups`** ทิ้ง
 6. ดำเนินการ **เริ่มต้นเซิร์ฟเวอร์ (FXServer)** และ [**`ensure azael_db-guardian`**](./index.md) อีกครั้ง **เพือทดสอบการทำงาน** ของทรัพยากรนี้
 
 :::tip
@@ -133,13 +133,7 @@ UPDATE azael_db_guardian SET lastseen = DATE_SUB(lastseen, INTERVAL 100 DAY) LIM
 
 | Folder Name            | Folder Path
 |------------------------|----------------------------------------------------
-| `server-backups`       | `azael_data/azael_db-guardian/server-backups`
-
-:::info
-
-โฟลเดอร์ **`azael_data`** จะอยู่ที่อยู่เดียวกันกับไฟล์ **`server.cfg`**
-
-:::
+| `server-backups`       | `azael_db-guardian/data/server-backups`
 
 ### วิธีการนำเข้าไฟล์ สำรองข้อมูลผู้เล่นที่ถูกลบ
 
@@ -151,13 +145,7 @@ UPDATE azael_db_guardian SET lastseen = DATE_SUB(lastseen, INTERVAL 100 DAY) LIM
 
 | Folder Name            | Folder Path
 |------------------------|----------------------------------------------------
-| `player-backups`       | `azael_data/azael_db-guardian/player-backups`
-
-:::info
-
-โฟลเดอร์ **`azael_data`** จะอยู่ที่อยู่เดียวกันกับไฟล์ **`server.cfg`**
-
-:::
+| `player-backups`       | `azael_db-guardian/data/player-backups`
 
 ## Google Cloud Platform (GCP)
 

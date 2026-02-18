@@ -237,7 +237,7 @@ CONFIG.General.LastSeen.PlayerDropped.Enable = true -- [[ boolean ]]
 
 ### Backup.ServerData.ResourceStart.Enable
 
-เปิดใช้งาน สำรองข้อมูลของเซิร์ฟเวอร์ เมื่อทรัพยากรนี้เรื่มต้น (เส้นทางไฟล์: **`azael_data/azael_db-guardian/server-backups`**)
+เปิดใช้งาน สำรองข้อมูลของเซิร์ฟเวอร์ เมื่อทรัพยากรนี้เรื่มต้น (เส้นทางไฟล์: **`azael_db-guardian/data/server-backups`**)
 
 ```lua title="บรรทัดที่ 77"
 CONFIG.General.Backup.ServerData.ResourceStart.Enable = true -- [[ boolean ]]
@@ -355,7 +355,7 @@ CONFIG.General.Backup.ServerData.DeleteOldFiles.Days = 30 -- [[ number ]]
 
 ### Backup.PlayerData.Enable
 
-เปิดใช้งาน สำรองข้อมูลของผู้เล่น เมื่อถูกลบข้อมูล (เส้นทางไฟล์: **`azael_data/azael_db-guardian/player-backups`**)
+เปิดใช้งาน สำรองข้อมูลของผู้เล่น เมื่อถูกลบข้อมูล (เส้นทางไฟล์: **`azael_db-guardian/data/player-backups`**)
 
 ```lua title="บรรทัดที่ 119"
 CONFIG.General.Backup.PlayerData.Enable = true -- [[ boolean ]]
