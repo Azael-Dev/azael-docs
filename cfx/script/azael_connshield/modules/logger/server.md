@@ -138,8 +138,8 @@ function Logger.onPlayerIpReputationBlocked(payload)
                 { name = 'VPN', value = ('```%s```'):format(payload.isVPN and '✔️ Yes' or '❌ No'), inline = true },
                 { name = 'PROXY', value = ('```%s```'):format(payload.isProxy and '✔️ Yes' or '❌ No'), inline = true },
                 { name = 'COUNTRY', value = ('```%s (%s)```'):format(payload.country or 'Unknown', payload.isoCode or 'Unknown'), inline = false },
-                { name = 'RISK', value = ('```%d%%```'):format(payload.riskScore), inline = true },
-                { name = 'CONFIDENCE', value = ('```%d%%```'):format(payload.confidenceScore), inline = true },
+                { name = 'RISK', value = payload.riskScore and ('```%d%%```'):format(payload.riskScore) or '```N/A```', inline = true },
+                { name = 'CONFIDENCE', value = payload.confidenceScore and ('```%d%%```'):format(payload.confidenceScore) or '```N/A```', inline = true },
                 { name = 'BLOCK REASON', value = ('```%s```'):format(payload.blockReason or 'Unknown'), inline = false }
             },
             source = payload.netId,
@@ -172,10 +172,10 @@ end
             - ประเทศที่ตรวจพบ
         - isoCode: `string?`
             - รหัสประเทศ ISO
-        - riskScore: `integer`
-            - คะแนนความเสี่ยง
-        - confidenceScore: `integer`
-            - คะแนนความมั่นใจ
+        - riskScore: `integer?`
+            - คะแนนความเสี่ยง (เฉพาะ [proxycheck.io](../../config/core.md#proxycheck))
+        - confidenceScore: `integer?`
+            - คะแนนความมั่นใจ (เฉพาะ [proxycheck.io](../../config/core.md#proxycheck))
 
 :::tip
 

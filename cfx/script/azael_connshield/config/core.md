@@ -39,7 +39,7 @@ debugMode = false
 
 ป้องกันการใช้งานตัวระบุเดียวกันเชื่อมต่อพร้อมกัน (Identifier Uniqueness)
 
-```lua title="บรรทัดที่ 30"
+```lua title="บรรทัดที่ 29"
 identifierUniqueness = {
     enable = true,
     provider = IDENTIFIER_TYPE.STEAM
@@ -100,9 +100,9 @@ connectionLimit = {
 
 การตรวจสอบความน่าเชื่อถือของที่อยู่ IP (IP Reputation Check)
 
-```lua title="บรรทัดที่ 44"
+```lua title="บรรทัดที่ 46"
 ipReputation = {
-    enable = false,
+    enable = true,
     provider = IP_PROVIDER.PROXYCHECK,
     allowOnFailure = true,
     providers = { ... }
@@ -113,7 +113,9 @@ ipReputation = {
     - เปิดใช้งาน การตรวจสอบความน่าเชื่อถือของที่อยู่ IP (`true` = เปิดใช้งาน, `false` = ปิดใช้งาน)
 - provider: `string`
     - ผู้ให้บริการตรวจสอบ IP Reputation
-        - ผู้ให้บริการที่รองรับ: `proxycheck`
+        - `proxycheck` — [proxycheck.io](https://proxycheck.io/)
+        - `vpnapi` — [vpnapi.io](https://vpnapi.io/)
+        - `custom` — ผู้ให้บริการที่กำหนดเอง (ดูรายละเอียดที่ [Custom Provider](#custom-provider))
 - allowOnFailure: `boolean`
     - อนุญาตให้ผู้เล่นเชื่อมต่อหากการตรวจสอบล้มเหลว (`true` = อนุญาต, `false` = ไม่อนุญาต)
 
@@ -127,7 +129,7 @@ ipReputation = {
 
 การตั้งค่าผู้ให้บริการ [proxycheck.io](https://proxycheck.io/)
 
-```lua title="บรรทัดที่ 50"
+```lua title="บรรทัดที่ 54"
 proxycheck = {
     apiKey = 'YOUR_API_KEY',
     blockVPN = true,
@@ -143,7 +145,7 @@ proxycheck = {
 - blockVPN: `boolean`
     - บล็อกการเชื่อมต่อผ่าน VPN (`true` = บล็อก, `false` = ไม่บล็อก)
 - blockProxy: `boolean`
-    - บล็อกการเชื่อมต่อผ่าน Proxy (`true` = บล็อก, `false` = ไม่บล็อก)
+    - บล็อกการเชื่อมต่อผ่าน Proxy, TOR, Hosting หรือ Anonymous (`true` = บล็อก, `false` = ไม่บล็อก)
 - allowCountries: `table<{ [index]: string }>` | `table<{}>`
     - อนุญาตให้เชื่อมต่อจากประเทศที่ระบุเท่านั้น โดยระบุ [รหัสประเทศ ISO](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) เช่น `TH`, `LA`, `VN`, `SG`
         - หากไม่ต้องการจำกัดประเทศ ให้เว้นว่างตารางนี้ไว้ `{}`
@@ -154,11 +156,54 @@ proxycheck = {
 
 :::
 
+#### vpnapi
+
+การตั้งค่าผู้ให้บริการ [vpnapi.io](https://vpnapi.io/)
+
+```lua title="บรรทัดที่ 62"
+vpnapi = {
+    apiKey = 'YOUR_API_KEY',
+    blockVPN = true,
+    blockProxy = true,
+    allowCountries = {
+        'TH'
+    }
+}
+```
+
+- apiKey: `string`
+    - ระบุ API Key ที่ได้รับจากแดชบอร์ด [vpnapi.io](https://vpnapi.io/dashboard)
+- blockVPN: `boolean`
+    - บล็อกการเชื่อมต่อผ่าน VPN (`true` = บล็อก, `false` = ไม่บล็อก)
+- blockProxy: `boolean`
+    - บล็อกการเชื่อมต่อผ่าน Proxy, TOR หรือ Relay (`true` = บล็อก, `false` = ไม่บล็อก)
+- allowCountries: `table<{ [index]: string }>` | `table<{}>`
+    - อนุญาตให้เชื่อมต่อจากประเทศที่ระบุเท่านั้น โดยระบุ [รหัสประเทศ ISO](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) เช่น `TH`, `LA`, `VN`, `SG`
+        - หากไม่ต้องการจำกัดประเทศ ให้เว้นว่างตารางนี้ไว้ `{}`
+
+:::tip
+
+ใช้งาน API ได้ฟรี **1,000 คำขอต่อวัน** ดูรายละเอียดราคาเพิ่มเติมได้ที่ [vpnapi.io/pricing](https://vpnapi.io/pricing)
+
+:::
+
+#### Custom Provider
+
+เมื่อตั้งค่า [`provider = IP_PROVIDER.CUSTOM`](./core.md#ipreputation) ระบบจะเรียกใช้ฟังก์ชัน [`IpReputation.customProvider`](../modules/ip-reputation/server.md#customprovider) ที่ไฟล์ [`./modules/ip-reputation/server.lua`](../modules/ip-reputation/server.md) แทน
+
+:::info
+
+หากต้องการใช้งาน Custom Provider:
+1. ตั้งค่า [`provider = IP_PROVIDER.CUSTOM`](./core.md#ipreputation) ในไฟล์ [`./config/core.lua`](./core.md)
+2. แก้ไขฟังก์ชัน [`IpReputation.customProvider`](../modules/ip-reputation/server.md#customprovider) ในไฟล์ [`./modules/ip-reputation/server.lua`](../modules/ip-reputation/server.md) ให้เรียก API ของตนเองและส่งคืนผลลัพธ์ในรูปแบบ [`ProxycheckResult`](../modules/ip-reputation/server.md#returns)
+
+:::
+
 ## bypassRules
 
 ข้ามการตรวจสอบตามกฎที่กำหนด (Bypass Rules) สำหรับกลุ่ม ACE ที่กำหนดไว้
 
-```lua title="บรรทัดที่ 61"
+```lua title="บรรทัดที่ 74"
 bypassRules = {
     enable = true,
     groups = {

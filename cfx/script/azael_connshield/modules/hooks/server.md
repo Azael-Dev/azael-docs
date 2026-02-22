@@ -117,10 +117,10 @@ end
             - ประเทศที่ตรวจพบ
         - isoCode: `string?`
             - รหัสประเทศ ISO
-        - riskScore: `integer`
-            - คะแนนความเสี่ยง
-        - confidenceScore: `integer`
-            - คะแนนความมั่นใจ
+        - riskScore: `integer?`
+            - คะแนนความเสี่ยง (เฉพาะ [proxycheck.io](../../config/core.md#proxycheck))
+        - confidenceScore: `integer?`
+            - คะแนนความมั่นใจ (เฉพาะ [proxycheck.io](../../config/core.md#proxycheck))
 
 #### Returns
 

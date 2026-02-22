@@ -401,6 +401,13 @@ const sidebars = {
                 },
                 {
                   type: 'category',
+                  label: 'IP Reputation',
+                  items: [
+                    'script/azael_connshield/modules/ip-reputation/server',
+                  ],
+                },
+                {
+                  type: 'category',
                   label: 'Logger',
                   items: [
                     'script/azael_connshield/modules/logger/server',
