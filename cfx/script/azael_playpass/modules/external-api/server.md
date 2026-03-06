@@ -70,20 +70,20 @@ function CustomAPI.httpRequest(req, identifier)
         ['Content-Type'] = 'application/json; charset=utf-8',
         ['Authorization'] = req.auth
     })
-    
-    if resStatus == 200 then
+
+    if resStatus == 200 and resBody then
         local resData <const> = json.decode(resBody)
-        
+
         if not resData or not resData.success then  -- disallow
             return false, {
                 code = resStatus,
-                message = resData?.message  -- หาก resData.message เป็น nil จะเรียกใช้ข้อความ "join_not_permitted" ที่ไฟล์ ./locales/<langcode>.json แทน
+                message = resData?.message  -- หาก resData.message เป็น nil จะเรียกใช้ข้อความ "join_not_permitted" ที่ไฟล์ ./locales/langcode.json แทน
             }
         end
-        
+
         return true
     end
-    
+
     return false, {
         code = resStatus,
         message = ('HTTP status code %d (%s)'):format(resStatus, 'For more details: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/' .. resStatus)

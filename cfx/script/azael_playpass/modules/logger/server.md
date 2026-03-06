@@ -98,7 +98,7 @@ end
 
 ทำงานเมื่อผู้เล่นเชื่อมต่อและ[ตรวจพบ HWIDs ของผู้เล่นอื่นที่ถูกแบน](../../config/core.md#banplayerhwids)
 
-```lua title="บรรทัดที่ 86"
+```lua title="บรรทัดที่ 62"
 function Logger.onBannedHwidDetected(payload)
     pcall(function()
         exports['azael_dc-serverlogs']:insertData({
@@ -150,7 +150,7 @@ end
 
 ทำงานเมื่อผู้เล่นเชื่อมต่อและตรวจพบ Identifiers ของผู้เล่นที่ถูกแบน
 
-```lua title="บรรทัดที่ 130"
+```lua title="บรรทัดที่ 86"
 function Logger.onBannedIdentifierDetected(payload)
     pcall(function()
         exports['azael_dc-serverlogs']:insertData({
@@ -193,7 +193,7 @@ end
 
 ทำงานเมื่อ[คิวพอยท์แบบชั่วคราว](../database/server.md#temporary-fields)ของผู้เล่นหมดอายุแล้ว
 
-```lua title="บรรทัดที่ 173"
+```lua title="บรรทัดที่ 107"
 function Logger.onPlayerTempPointsExpired(payload)
     pcall(function()
         exports['azael_dc-serverlogs']:insertData({
@@ -239,7 +239,7 @@ end
 
 ทำงานเมื่อผู้เล่นถูกแบนชั่วคราวหรือถาวร
 
-```lua title="บรรทัดที่ 215"
+```lua title="บรรทัดที่ 129"
 function Logger.onPlayerBanned(payload)
     local banType <const> = payload.data.banDetails.type
     local fields <const> = { { name = 'IDENTIFIER', value = ('```%s```'):format(payload.player.identifier), inline = false } }
@@ -298,7 +298,7 @@ end
 
 ทำงานเมื่อผู้เล่นถูกยกเลิกการแบนแล้ว
 
-```lua title="บรรทัดที่ 270"
+```lua title="บรรทัดที่ 164"
 function Logger.onPlayerUnbanned(payload)
     pcall(function()
         exports['azael_dc-serverlogs']:insertData({
@@ -346,7 +346,7 @@ end
 
 ทำงานเมื่อ[ผู้เล่นไม่ได้เข้าร่วมเซิร์ฟเวอร์ตามระยะเวลาที่กำหนด](../../config/core.md#inactiveplayers)และถูกระงับการใช้งานแล้ว
 
-```lua title="บรรทัดที่ 294"
+```lua title="บรรทัดที่ 188"
 function Logger.onPlayerInactiveDetected(payload)
     pcall(function()
         exports['azael_dc-serverlogs']:insertData({
@@ -389,7 +389,7 @@ end
 
 ทำงานเมื่อผู้เล่นเชื่อมต่อและใช้งาน[บัญชีที่ผูกไว้](../../config/core.md#bindidentifier)ไม่ตรงกับฐานข้อมูล
 
-```lua title="บรรทัดที่ 315"
+```lua title="บรรทัดที่ 209"
 function Logger.onPlayerBoundIdMismatch(payload)
     pcall(function()
         exports['azael_dc-serverlogs']:insertData({
@@ -431,7 +431,7 @@ end
 
 ทำงานเมื่อมีการ[บันทึกข้อมูลผู้เล่นไปยังฐานข้อมูล](../database/server.md#insertplayerdata)ของเซิร์ฟเวอร์
 
-```lua title="บรรทัดที่ 374"
+```lua title="บรรทัดที่ 231"
 function Logger.onPlayerDataStored(payload)
     pcall(function()
         exports['azael_dc-serverlogs']:insertData({
@@ -469,7 +469,7 @@ end
 
 ทำงานเมื่อ[ข้อมูลผู้เล่นถูกลบออกจากฐานข้อมูล](../database/server.md#deleteplayerdata)ของเซิร์ฟเวอร์
 
-```lua title="บรรทัดที่ 432"
+```lua title="บรรทัดที่ 253"
 function Logger.onPlayerDataDeleted(payload)
     pcall(function()
         exports['azael_dc-serverlogs']:insertData({
@@ -505,7 +505,7 @@ end
 
 ทำงานเมื่อมีการ[อัปเดทตัวระบุ](../database/server.md#updateplayeridentifier)ของผู้เล่นใหม่
 
-```lua title="บรรทัดที่ 490"
+```lua title="บรรทัดที่ 274"
 function Logger.onPlayerIdentifierUpdated(payload)
     pcall(function()
         exports['azael_dc-serverlogs']:insertData({
@@ -543,7 +543,7 @@ end
 
 ทำงานเมื่อผู้เล่นเชื่อมต่อและ[อัปเดตตัวระบุการผูกบัญชี](../database/server.md#updatebindidentifier)ใหม่
 
-```lua title="บรรทัดที่ 512"
+```lua title="บรรทัดที่ 296"
 function Logger.onPlayerBoundIdUpdated(payload)
     pcall(function()
         exports['azael_dc-serverlogs']:insertData({
@@ -584,7 +584,7 @@ end
 
 ทำงานเมื่อผู้เล่นได้รับรางวัลจากกิจกรรม [Lucky Slots](../../config/queue.md#luckyslots) ของระบบ [Queue](../../config/queue.md)
 
-```lua title="บรรทัดที่ 554"
+```lua title="บรรทัดที่ 317"
 function Logger.onPlayerAwardedLuckySlots(payload)
     pcall(function()
         exports['azael_dc-serverlogs']:insertData({
@@ -641,7 +641,7 @@ end
 
 ทำงานเมื่อ[แอร์ไทม์ของผู้เล่น](../database/server.md#setplayerairtime)มีการเปลี่ยนแปลง
 
-```lua title="บรรทัดที่ 590"
+```lua title="บรรทัดที่ 342"
 function Logger.onPlayerAirtimeUpdated(payload)
     local oldAirtime <const> = payload.data.oldAirtime
     local newAirtime <const> = payload.data.newAirtime
@@ -691,7 +691,7 @@ end
 
 ทำงานเมื่อดำเนินการ[ใช้คำสั่งเสร็จสิ้นแล้ว](../commands/server.md#onexecuted)
 
-```lua title="บรรทัดที่ 641"
+```lua title="บรรทัดที่ 368"
 function Logger.onCommandExecuted(payload)
     local command <const> = payload.data.command
     local success <const> = payload.data.success
@@ -772,6 +772,63 @@ end
 :::
     </TabItem>
 </Tabs>
+
+### onAdminActionNui
+
+ทำงานเมื่อผู้ดูแลระบบดำเนินการกับผู้เล่นผ่านแผง NUI
+
+```lua title="บรรทัดที่ 401"
+function Logger.onAdminActionNui(payload)
+    local action <const> = payload.data.action
+    local success <const> = payload.data.success
+
+    pcall(function()
+        local fields <const> = {
+            { name = 'ACTION', value = ('```%s```'):format(action), inline = true },
+            { name = 'STATUS', value = ('```%s```'):format((success and '✔️ ➔ Success' or '❌ ➔ Failed')), inline = true },
+            { name = 'TARGET', value = ('```%s```'):format(payload.data.targetIdentifier), inline = false },
+            { name = 'ADMIN', value = ('```%s```'):format(payload.invoker.identifier or ('netId: %d'):format(payload.invoker.netId)), inline = false }
+        }
+
+        if payload.data.details then
+            fields[#fields + 1] = { name = 'DETAILS', value = ('```%s```'):format(json.encode(payload.data.details, { indent = true })), inline = false }
+        end
+
+        exports['azael_dc-serverlogs']:insertData({
+            event = 'APP_AdminActionNui',
+            content = ('### ผู้ดูแลระบบดำเนินการ `%s` %s'):format(action, (success and 'สำเร็จ' or 'ล้มเหลว')),
+            fields = fields,
+            source = payload.invoker.netId or 0,
+            color = (success and 2 or 1),
+            options = {
+                codeblock = false
+            }
+        })
+    end)
+end
+```
+
+#### Parameters
+
+- payload: `table<{ invoker: table, data: table }>`
+    - ตารางข้อมูล
+        - invoker: `table<{ [key]: any }>`
+            - ข้อมูลของผู้ดูแลระบบที่ดำเนินการ
+                - netId: `integer`
+                    - [Net ID](https://docs.fivem.net/docs/scripting-manual/networking/ids/#server-id) ของผู้ดูแลระบบ
+                        - ⚠️ หากเป็น `0` แสดงว่าดำเนินการผ่าน Server Console
+                - identifier: `string` | `nil`
+                    - [ตัวระบุ](../../config/core.md#identifiertype) ของผู้ดูแลระบบ
+        - data: `table<{ [key]: any }>`
+            - ข้อมูลของการดำเนินการ
+                - action: `string`
+                    - ชื่อการดำเนินการที่ดำเนินการ
+                - success: `boolean`
+                    - สถานะของการดำเนินการ
+                - targetIdentifier: `string`
+                    - [ตัวระบุ](../../config/core.md#identifiertype) ของผู้เล่นเป้าหมาย
+                - details: `table<{ [key]: any }>` | `nil`
+                    - ข้อมูลเพิ่มเติมของการดำเนินการ
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

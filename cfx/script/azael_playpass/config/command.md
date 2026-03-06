@@ -11,7 +11,7 @@ sidebar_label: Command
 
 การกำหนดค่าการจัดการ [HTTP Request](https://en.wikipedia.org/wiki/HTTP) เพื่ออนุญาตให้เรียกใช้คำสั่งได้จากภายนอก
 
-```lua title="บรรทัดที่ 14"
+```lua title="บรรทัดที่ 16"
 httpHandler = {
     enable = false,
     authorization = 'Bearer <your_bearer_token>',
@@ -31,6 +31,13 @@ httpHandler = {
 
 <details>
 <summary>ตัวอย่างรหัสการเรียกใช้คำสั่งจากภายนอก</summary>
+
+:::warning Nucleus Reverse Proxy Deprecation
+
+ทาง [**Cfx.re**](https://forum.cfx.re/t/nucleus-reverse-proxy-deprecation/5387399?u=azael.dev) จะยกเลิกการใช้งาน **Nucleus Reverse Proxy (Web BaseURL)** ในวันที่ **31 มีนาคม 2026** หลังจากวันที่ดังกล่าว ฟีเจอร์นี้จะไม่สามารถใช้งานได้อีก
+- อ่านเพิ่มเติมเกี่ยวกับเรื่องนี้ได้ที่ [**https://forum.cfx.re/t/5387399**](https://forum.cfx.re/t/nucleus-reverse-proxy-deprecation/5387399?u=azael.dev)
+
+:::
 
 **ตัวอย่างการ[เพิ่มคิวพอยท์ผู้ใช้](./command.md#addpoints)**
 
@@ -128,7 +135,7 @@ try {
 
 ชื่อคำสั่งหลักสำหรับใช้งานใน Server Console หรือ Client Console เพื่ออ้างอิงคำสั่งของทรัพยากรนี้
 
-```lua title="บรรทัดที่ 27"
+```lua title="บรรทัดที่ 29"
 commandName = 'app'
 ```
 
@@ -139,7 +146,7 @@ commandName = 'app'
 
 รายการคำสั่งย่อย
 
-```lua title="บรรทัดที่ 29"
+```lua title="บรรทัดที่ 31"
 subCommands  = { ... }
 ```
 
@@ -147,7 +154,7 @@ subCommands  = { ... }
 
 คำสั่งรับข้อมูลผู้ใช้
 
-```lua title="บรรทัดที่ 30"
+```lua title="บรรทัดที่ 32"
 getUser = {
     name = 'getuser',
     serverOnly = false,
@@ -173,7 +180,7 @@ getUser = {
 
 คำสั่งเพิ่มข้อมูลผู้ใช้
 
-```lua title="บรรทัดที่ 39"
+```lua title="บรรทัดที่ 41"
 addUser = {
     name = 'adduser',
     serverOnly = false,
@@ -199,7 +206,7 @@ addUser = {
 
 คำสั่งลบข้อมูลผู้ใช้
 
-```lua title="บรรทัดที่ 48"
+```lua title="บรรทัดที่ 50"
 deleteUser = {
     name = 'deluser',
     serverOnly = false,
@@ -225,7 +232,7 @@ deleteUser = {
 
 คำสั่งรับข้อมูลการถูกแบน
 
-```lua title="บรรทัดที่ 57"
+```lua title="บรรทัดที่ 59"
 getBanInfo = {
     name = 'baninfo',
     serverOnly = false,
@@ -251,7 +258,7 @@ getBanInfo = {
 
 คำสั่งแบนผู้ใช้ถาวรหรือชั่วคราว
 
-```lua title="บรรทัดที่ 66"
+```lua title="บรรทัดที่ 68"
 banUser = {
     name = 'banuser',
     serverOnly = false,
@@ -277,9 +284,9 @@ banUser = {
 
 คำสั่งยกเลิกแบนผู้ใช้
 
-```lua title="บรรทัดที่ 75"
+```lua title="บรรทัดที่ 77"
 unbanUser = {
-    name = 'banuser',
+    name = 'unbanuser',
     serverOnly = false,
     allowedRoles = {
         PLAYER_ROLES.MODERATOR,
@@ -303,7 +310,7 @@ unbanUser = {
 
 คำสั่งกำหนดบทบาทของผู้ใช้
 
-```lua title="บรรทัดที่ 84"
+```lua title="บรรทัดที่ 86"
 setUserRole = {
     name = 'setrole',
     serverOnly = false,
@@ -329,7 +336,7 @@ setUserRole = {
 
 คำสั่งปิดใช้งานบัญชีผู้ใช้ ในกรณีกำลังตรวจสอบหรือดำเนินการเกี่ยวกับบัญชีของผู้ใช้อยู่ เพื่อไม่ให้ผู้ใช้สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้
 
-```lua title="บรรทัดที่ 93"
+```lua title="บรรทัดที่ 95"
 deactivateUser = {
     name = 'deactivate',
     serverOnly = false,
@@ -355,7 +362,7 @@ deactivateUser = {
 
 คำสั่งเปิดใช้งานบัญชีผู้ใช้อีกครั้ง หรือ ยกเลิกสถานะการถูกระงับเมื่อผู้เล่นถูกระงับจาก [inactivePlayers](./core.md#inactiveplayers)
 
-```lua title="บรรทัดที่ 102"
+```lua title="บรรทัดที่ 104"
 reactivateUser = {
     name = 'reactivate',
     serverOnly = false,
@@ -381,7 +388,7 @@ reactivateUser = {
 
 คำสั่งกำหนดตัวระบุให้ผู้ใช้ใหม่
 
-```lua title="บรรทัดที่ 111"
+```lua title="บรรทัดที่ 113"
 setNewIdentifier = {
     name = 'setnewid',
     serverOnly = false,
@@ -407,7 +414,7 @@ setNewIdentifier = {
 
 คำสั่งรีเซ็ต[ตัวระบุที่ถูกผูกไว้](./core.md#bindidentifier)ของผู้ใช้
 
-```lua title="บรรทัดที่ 120"
+```lua title="บรรทัดที่ 122"
 resetBindIdentifier = {
     name = 'resetbindid',
     serverOnly = false,
@@ -433,7 +440,7 @@ resetBindIdentifier = {
 
 คำสั่งรีเซ็ต [HWIDs](https://docs.fivem.net/natives/?_0x54C06897) ของผู้ใช้
 
-```lua title="บรรทัดที่ 129"
+```lua title="บรรทัดที่ 131"
 resetHwids = {
     name = 'resethwids',
     serverOnly = false,
@@ -459,7 +466,7 @@ resetHwids = {
 
 คำสั่งรับข้อมูลคิวพอยท์ของผู้ใช้
 
-```lua title="บรรทัดที่ 138"
+```lua title="บรรทัดที่ 140"
 getPoints = {
     name = 'getpoints',
     serverOnly = false,
@@ -485,7 +492,7 @@ getPoints = {
 
 คำสั่งเพิ่มคิวพอยท์ให้ผู้ใช้
 
-```lua title="บรรทัดที่ 147"
+```lua title="บรรทัดที่ 149"
 addPoints = {
     name = 'addpoints',
     serverOnly = false,
@@ -511,7 +518,7 @@ addPoints = {
 
 คำสั่งกำหนดคิวพ้อยท์แบบไม่มีวันหมดอายุให้ผู้ใช้
 
-```lua title="บรรทัดที่ 156"
+```lua title="บรรทัดที่ 158"
 setPermanentPoints = {
     name = 'setpoints',
     serverOnly = false,
@@ -537,7 +544,7 @@ setPermanentPoints = {
 
 คำสั่งลบคิวพ้อยท์แบบมีวันหมดอายุของผู้ใช้
 
-```lua title="บรรทัดที่ 165"
+```lua title="บรรทัดที่ 167"
 deleteTemporaryPoints = {
     name = 'delpoints',
     serverOnly = false,
@@ -563,7 +570,7 @@ deleteTemporaryPoints = {
 
 คำสั่งลบคิวพ้อยท์ทั้งหมดของผู้ใช้
 
-```lua title="บรรทัดที่ 174"
+```lua title="บรรทัดที่ 176"
 purgePoints = {
     name = 'purgepoints',
     serverOnly = false,
@@ -589,7 +596,7 @@ purgePoints = {
 
 คำสั่งรับแอร์ไทม์คงเหลือของผู้ใช้
 
-```lua title="บรรทัดที่ 183"
+```lua title="บรรทัดที่ 185"
 getAirtime = {
     name = 'getairtime',
     serverOnly = false,
@@ -615,7 +622,7 @@ getAirtime = {
 
 คำสั่งกำหนดแอร์ไทม์ให้ผู้ใช้
 
-```lua title="บรรทัดที่ 192"
+```lua title="บรรทัดที่ 194"
 setAirtime = {
     name = 'setairtime',
     serverOnly = false,
@@ -641,7 +648,7 @@ setAirtime = {
 
 คำสั่งเพิ่มแอร์ไทม์ให้ผู้ใช้
 
-```lua title="บรรทัดที่ 201"
+```lua title="บรรทัดที่ 203"
 addAirtime = {
     name = 'addairtime',
     serverOnly = false,
@@ -667,7 +674,7 @@ addAirtime = {
 
 คำสั่งลบ/ลดแอร์ไทม์ของผู้ใช้
 
-```lua title="บรรทัดที่ 210"
+```lua title="บรรทัดที่ 212"
 removeAirtime = {
     name = 'removeairtime',
     serverOnly = false,
@@ -693,7 +700,7 @@ removeAirtime = {
 
 คำสั่งสำหรับล้างแคชข้อมูลผู้เล่น (ℹ️ ใช้เมื่อเกิดข้อผิดพลาด และต้องการโหลดข้อมูลผู้เล่นใหม่จากฐานข้อมูล)
 
-```lua title="บรรทัดที่ 219"
+```lua title="บรรทัดที่ 221"
 clearPlayerCache = {
     name = 'clearcache',
     serverOnly = false,
@@ -718,7 +725,7 @@ clearPlayerCache = {
 
 คำสั่งสำหรับล้างคิวทั้งหมดที่กำลังรอเข้าร่วมกับเซิร์ฟเวอร์อยู่
 
-```lua title="บรรทัดที่ 228"
+```lua title="บรรทัดที่ 230"
 purgeQueue = {
     name = 'queuepurge',
     serverOnly = false,
@@ -743,7 +750,7 @@ purgeQueue = {
 
 คำสั่งสำหรับเพิ่มสิทธิ์การข้ามคิวเพื่อให้ผู้เล่นสามารถเข้าเซิร์ฟเวอร์ได้ทันที
 
-```lua title="บรรทัดที่ 237"
+```lua title="บรรทัดที่ 239"
 addQueueBypass = {
     name = 'queuebypass',
     serverOnly = false,
@@ -774,7 +781,7 @@ addQueueBypass = {
 
 คำสั่งรับข้อมูลส่วนตัวของผู้เล่นภายในเกม (ℹ️ คำสั่งนี้สามารถใช้งานได้เพียงฝั่งไคลเอนต์เท่านั้น)
 
-```lua title="บรรทัดที่ 246"
+```lua title="บรรทัดที่ 248"
 getMyInfo = {
     name = 'myinfo',
     allowedRoles = {
@@ -799,7 +806,7 @@ getMyInfo = {
 
 คำสั่งรับข้อมูลเกี่ยวกับระบบคิว
 
-```lua title="บรรทัดที่ 257"
+```lua title="บรรทัดที่ 259"
 getQueueInfo = {
     name = 'queueinfo',
     serverOnly = false,

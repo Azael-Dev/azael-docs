@@ -11,7 +11,7 @@ sidebar_label: Profile
 ระยะเวลาที่จะแสดงข้อมูลโปรไฟล์ก่อนหมดเวลา
 
 
-```lua title="บรรทัดที่ 12"
+```lua title="บรรทัดที่ 13"
 timeoutAfter = 10
 ```
 
@@ -22,7 +22,7 @@ timeoutAfter = 10
 
 เชื่อมต่ออัตโนมัติเมื่อหมดเวลา
 
-```lua title="บรรทัดที่ 13"
+```lua title="บรรทัดที่ 14"
 autoConnectOnTimeout = true
 ```
 
@@ -34,7 +34,7 @@ autoConnectOnTimeout = true
 
 ป้องกันการผูกบัญชีอัตโนมัติสำหรับผู้เล่นใหม่
 
-```lua title="บรรทัดที่ 14"
+```lua title="บรรทัดที่ 15"
 preventAutoBindAccounts = true
 ```
 
@@ -47,7 +47,7 @@ preventAutoBindAccounts = true
 
 การกำหนดค่ารับข้อมูลโปรไฟล์ผู้ใช้จาก API ของผู้ให้บริการ
 
-```lua title="บรรทัดที่ 16"
+```lua title="บรรทัดที่ 17"
 userProfileAPIs = {
     provider = {
         steam = { ... },
@@ -70,7 +70,7 @@ userProfileAPIs = {
 
 การตั้งค่ารับข้อมูลโปรไฟล์ผู้ใช้จาก [Steam Web API](https://steamcommunity.com/dev)
 
-```lua title="บรรทัดที่ 18"
+```lua title="บรรทัดที่ 19"
 steam = { 
     enable = true,
     endpointUrl = 'https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/?key=${WEB_API_KEY}&steamids=${STEAM_ID}',
@@ -100,7 +100,7 @@ set steam_webApiKey "your_api_key"
 
 การตั้งค่ารับข้อมูลโปรไฟล์ผู้ใช้จาก [Discord API](https://discord.com/developers/docs/reference)
 
-```lua title="บรรทัดที่ 23"
+```lua title="บรรทัดที่ 24"
 discord = {
     enable = true,
     endpointUrl = 'https://discord.com/api/v10/users/${USER_ID}',
@@ -130,7 +130,7 @@ set discord_botToken "your_bot_token"
 
 กำหนดค่าการจำกัดจำนวนคำขอ
 
-```lua title="บรรทัดที่ 30"
+```lua title="บรรทัดที่ 31"
  requestLimits = {
     enable = true,
     rate = 30,
@@ -155,7 +155,7 @@ set discord_botToken "your_bot_token"
 
 การกำหนดค่า URL ของรูปภาพที่ใช้ในการ์ดโปรไฟล์
 
-```lua title="บรรทัดที่ 37"
+```lua title="บรรทัดที่ 38"
 imageUrl = {
     logo = {
         steam = 'https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg',
@@ -187,7 +187,7 @@ imageUrl = {
 
 การกำหนดค่าประเภทฉลากเพื่อใช้เเสดงในการ์ดโปรไฟล์
 
-```lua title="บรรทัดที่ 48"
+```lua title="บรรทัดที่ 49"
 labelTypes = {
     steam = {
         [1] = 'HEX ID:',

@@ -10,7 +10,7 @@ sidebar_label: Queue
 
 จำนวนผู้เล่นสูงสุดที่สามารถรอในคิวเมื่อเซิร์ฟเวอร์สล็อตเต็ม
 
-```lua title="บรรทัดที่ 12"
+```lua title="บรรทัดที่ 13"
 svFullQueueLimit = 128
 ```
 
@@ -31,7 +31,7 @@ set azael_playpass:svFullQueueLimit 256
 
 จำนวนผู้เล่นสูงสุดที่จะปล่อยเข้าเซิร์ฟเวอร์ในแต่ละรอบเมื่อสล็อตว่าง
 
-```lua title="บรรทัดที่ 14"
+```lua title="บรรทัดที่ 15"
 releaseQueueLimit = 6
 ```
 
@@ -41,7 +41,7 @@ releaseQueueLimit = 6
 
 ระยะเวลาในการอัปเดตการประมวลผลของระบบคิวและข้อความที่แสดงผลต่อผู้เล่น
 
-```lua title="บรรทัดที่ 16"
+```lua title="บรรทัดที่ 17"
  updateQueueInterval = 3
 ```
 
@@ -52,7 +52,7 @@ releaseQueueLimit = 6
 
 ระยะเวลาในการตรวจสอบว่าผู้เล่นยังอยู่ในคิวหรือระหว่างดาวน์โหลดไฟล์ทรัพยากรหรือไม่
 
-```lua title="บรรทัดที่ 18"
+```lua title="บรรทัดที่ 19"
 playerCheckInterval = 5
 ```
 
@@ -63,7 +63,7 @@ playerCheckInterval = 5
 
 การกำหนดค่าการดาวน์โหลดไฟล์ทรัพยากรก่อนเข้าสู่ [Loading Screen](https://docs.fivem.net/docs/scripting-manual/nui-development/loading-screens/)
 
-```lua title="บรรทัดที่ 20"
+```lua title="บรรทัดที่ 21"
 resourceDownload = {
     maxLimit = 64,
     allowRetryOnFail = {
@@ -94,7 +94,7 @@ resourceDownload = {
 
 แสดงรายชื่อผู้เล่นในคิวที่กำลังจะเข้าสู่เซิร์ฟเวอร์
 
-```lua title="บรรทัดที่ 33"
+```lua title="บรรทัดที่ 34"
 queueDisplayLists = {
     enable = true,
     hideName = false,
@@ -120,7 +120,7 @@ queueDisplayLists = {
 
 ระบบคิวพอยท์สะสมสำหรับผู้เล่นที่รอคิว ช่วยให้ผู้เล่นที่ไม่มีพ้อยท์มีโอกาสเข้าร่วมเซิร์ฟเวอร์ได้ง่ายขึ้น
 
-```lua title="บรรทัดที่ 44"
+```lua title="บรรทัดที่ 45"
 queueSessionPoints = {
     enable = true,
     increment = 2,
@@ -146,7 +146,7 @@ queueSessionPoints = {
 
 กิจกรรม Lucky Slots สำหรับผู้เล่นที่รอคิวเข้าเซิร์ฟ
 
-```lua title="บรรทัดที่ 50"
+```lua title="บรรทัดที่ 51"
 luckySlots = {
     enable = true,
     timeRequired = 60 * 10,
@@ -192,7 +192,7 @@ luckySlots = {
 
 ผู้เล่นกลับเข้าสู่เซิร์ฟเวอร์ได้ทันทีโดยไม่ต้องรอคิวหากเกิดการขัดข้อง
 
-```lua title="บรรทัดที่ 65"
+```lua title="บรรทัดที่ 66"
 rejoinOnCrashes = {
     enable = true,
     timeout = 2,

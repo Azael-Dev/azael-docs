@@ -13,7 +13,7 @@ sidebar_label: Client
 ```lua title="บรรทัดที่ 6"
 function Player.onFirstSpawn(cb)
     local eventHandler
-    
+
     eventHandler = AddEventHandler('playerSpawned', function()
         RemoveEventHandler(eventHandler)
         cb(true)
@@ -39,11 +39,11 @@ function Player.initNewbieLabel(getNewbieState)
         local MAX_DISTANCE <const> = 20.0   -- ระยะสูงสุดที่ป้ายกำกับผู้เล่นใหม่จะแสดง
         local playerId <const> = PlayerId()
         local activeTags <const> = {}
-        
+
         while true do
             local playerPed <const> = PlayerPedId()
             local playerCoords <const> = GetEntityCoords(playerPed)
-            
+
             for _, id in ipairs(GetActivePlayers()) do
                 if id ~= playerId then
                     local targetPed <const> = GetPlayerPed(id)
@@ -51,16 +51,16 @@ function Player.initNewbieLabel(getNewbieState)
                     local distance <const> = #(playerCoords - targetCoords)
                     local inRange <const> = distance <= MAX_DISTANCE and HasEntityClearLosToEntity(playerPed, targetPed, 17)
                     local shouldShow <const> = inRange and getNewbieState(GetPlayerServerId(id))
-                    
+
                     if shouldShow and not activeTags[id] then
                         if not IsMpGamerTagActive(id) and IsMpGamerTagFree(id) then
                             CreateMpGamerTagWithCrewColor(id, '', false, false, '', 0, 255, 255, 255)
                         end
-                        
+
                         SetMpGamerTagBigText(id, 'NEWBIE')
                         SetMpGamerTagColour(id, 3, 234)
                         SetMpGamerTagVisibility(id, 3, true)
-                        
+
                         activeTags[id] = true
                     elseif not shouldShow and activeTags[id] then
                         SetMpGamerTagVisibility(id, 3, false)
@@ -68,7 +68,7 @@ function Player.initNewbieLabel(getNewbieState)
                     end
                 end
             end
-            
+
             Citizen.Wait(1000)
         end
     end)

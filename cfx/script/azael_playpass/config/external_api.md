@@ -10,7 +10,7 @@ sidebar_label: External API
 
 ประเภทตัวเลือกการตรวจสอบสิทธิ์จาก API ภายนอกที่ต้องการใช้งาน
 
-```lua title="บรรทัดที่ 14"
+```lua title="บรรทัดที่ 16"
 activeAPI = ACTIVE_API.DISCORD
 ```
 
@@ -28,7 +28,7 @@ activeAPI = ACTIVE_API.DISCORD
 
 กำหนด [Base URL](https://discord.com/developers/docs/reference#api-reference-base-url) สำหรับการเชื่อมต่อกับ [Discord API](https://discord.com/developers/docs/reference)
 
-```lua title="บรรทัดที่ 19"
+```lua title="บรรทัดที่ 21"
 baseUrl = 'https://discord.com/api'
 ```
 
@@ -38,7 +38,7 @@ baseUrl = 'https://discord.com/api'
 
 กำหนดเวอร์ชัน [Discord API](https://discord.com/developers/docs/reference#api-versioning) ที่ต้องการใช้งาน
 
-```lua title="บรรทัดที่ 20"
+```lua title="บรรทัดที่ 22"
 version = 10
 ```
 
@@ -48,7 +48,7 @@ version = 10
 
 [Bot Token](https://discord.com/developers/docs/discord-social-sdk/development-guides/using-with-discord-apis#authentication-types) ใช้สำหรับยืนยันตัวตนของบอท เพื่อให้สามารถเข้าถึง [Discord API](https://discord.com/developers/docs/reference) ได้
 
-```lua title="บรรทัดที่ 21"
+```lua title="บรรทัดที่ 23"
 botToken = GetConvar('discord_botToken', '')
 ```
 
@@ -73,7 +73,7 @@ set discord_botToken "your_bot_token"
 
 Guild ID ที่ต้องการเข้าถึงข้อมูลสมาชิก
 
-```lua title="บรรทัดที่ 22"
+```lua title="บรรทัดที่ 24"
 guildId = GetConvar('discord_guildId', '')
 ```
 
@@ -96,7 +96,7 @@ set discord_guildId "your_guild_id"
 
 รายการ [Role ID](https://discord.com/developers/docs/topics/permissions#role-object) ที่ได้รับอนุญาตให้เข้าร่วมเซิร์ฟเวอร์ (รหัสของบทบาท/ยศ)
 
-```lua title="บรรทัดที่ 23"
+```lua title="บรรทัดที่ 25"
 allowedRoleIds = {
     'XXXXXXXXXXXXXXXXXX',
     'XXXXXXXXXXXXXXXXXX'
@@ -118,7 +118,7 @@ allowedRoleIds = {
 
 :::
 
-```lua title="บรรทัดที่ 27"
+```lua title="บรรทัดที่ 29"
 disallowRoles = {
     enable = false,
     entries = {
@@ -145,7 +145,7 @@ disallowRoles = {
 
 เปิดใช้งานตรวจสอบสถานะการถูกแบนจาก Guild บน Discord เมื่อผู้เล่นเชื่อมต่อ
 
-```lua title="บรรทัดที่ 36"
+```lua title="บรรทัดที่ 38"
 guildBanCheck = true
 ```
 
@@ -161,7 +161,7 @@ Bot จะต้องมีสิทธิ์ [`BAN_MEMBERS`](https://discord.c
 
 กำหนดค่าการจำกัดจำนวนคำขอสำหรับ [Discord API](https://discord.com/developers/docs/reference)
 
-```lua title="บรรทัดที่ 38"
+```lua title="บรรทัดที่ 40"
 requestLimits = {
     enable = true,
     rate = 5,
@@ -186,7 +186,7 @@ requestLimits = {
 
 ใช้การตรวจสอบสิทธิ์จากฐานข้อมูลแทน หากเกิดข้อผิดพลาดในการตรวจสอบสิทธิ์จาก [Discord API](https://discord.com/developers/docs/reference)
 
-```lua title="บรรทัดที่ 43"
+```lua title="บรรทัดที่ 45"
 useDbAuthOnFail = {
     enable = true,
     disallowStatusCodes = {
@@ -227,7 +227,7 @@ useDbAuthOnFail = {
 
 กำหนด Base URL สำหรับการเชื่อมต่อกับ Custom API โดยใช้ Identifier อ้างอิงสิทธิ์การเชื่อมต่อกับเซิร์ฟเวอร์
 
-```lua title="บรรทัดที่ 55"
+```lua title="บรรทัดที่ 57"
 baseUrl = 'https://example.com/api/players'
 ```
 
@@ -243,7 +243,7 @@ baseUrl = 'https://example.com/api/players'
 
 การกำหนดค่าการตรวจสอบสิทธิ์สำหรับการเข้าถึง Custom API
 
-```lua title="บรรทัดที่ 56"
+```lua title="บรรทัดที่ 58"
 authorization = 'Bearer <your_bearer_token>'
 ```
 
@@ -253,10 +253,10 @@ authorization = 'Bearer <your_bearer_token>'
 
 กำหนดค่าการจำกัดจำนวนคำขอสำหรับ Custom API
 
-```lua title="บรรทัดที่ 57"
+```lua title="บรรทัดที่ 59"
 requestLimits = {
     enable = true,
-    rate = 5,
+    rate = 10,
     per = 1
 }
 ```
@@ -272,7 +272,7 @@ requestLimits = {
 
 ใช้การตรวจสอบสิทธิ์จากฐานข้อมูลแทน หากเกิดข้อผิดพลาดในการตรวจสอบสิทธิ์จาก Custom API 
 
-```lua title="บรรทัดที่ 62"
+```lua title="บรรทัดที่ 64"
 useDbAuthOnFail = {
     enable = true,
     disallowStatusCodes = {

@@ -8,6 +8,12 @@ sidebar_label: Client
 
 ## showUI
 
+:::warning Deprecated
+
+ฟังก์ชันนี้จะยกเลิกการใช้งานในอนาคต แนะนำให้ใช้ [`openUserPanel`](./client.md#openuserpanel) แทน
+
+:::
+
 เปิด UI แสดงข้อมูลผู้ใช้และคิวรอเข้าร่วมเซิร์ฟเวอร์
 
 ```lua
@@ -16,10 +22,40 @@ exports.azael_playpass:showUI()
 
 ## closeUI
 
+:::warning Deprecated
+
+ฟังก์ชันนี้จะยกเลิกการใช้งานในอนาคต แนะนำให้ใช้ [`closePanel`](./client.md#closepanel) แทน
+
+:::
+
 ปิด UI แสดงข้อมูลผู้ใช้และคิวรอเข้าร่วมเซิร์ฟเวอร์
 
 ```lua
 exports.azael_playpass:closeUI()
+```
+
+## openUserPanel
+
+เปิดแผงข้อมูลบัญชีผู้ใช้ (User Panel)
+
+```lua
+exports.azael_playpass:openUserPanel()
+```
+
+## openAdminPanel
+
+เปิดแผงข้อมูลผู้ดูแลระบบ (Admin Panel)
+
+```lua
+exports.azael_playpass:openAdminPanel()
+```
+
+## closePanel
+
+ปิดแผง UI ที่เปิดอยู่ (ทั้ง User Panel และ Admin Panel)
+
+```lua
+exports.azael_playpass:closePanel()
 ```
 
 ## hasInactiveRecord

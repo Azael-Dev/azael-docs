@@ -10,7 +10,7 @@ sidebar_label: Server
 
 ทำงานเมื่อดำเนินการใช้คำสั่งเสร็จสิ้นแล้ว
 
-```lua title="บรรทัดที่ 22"
+```lua title="บรรทัดที่ 19"
 function Commands.onExecuted(source, command, success, response)
     local client <const> = (source > 0 and source or nil)
     
@@ -62,7 +62,7 @@ end
 
 ส่งข้อความไปยังฝั่งไคลเอนต์เมื่อใช้คำสั่งเสร็จสิ้นแล้ว
 
-```lua title="บรรทัดที่ 38"
+```lua title="บรรทัดที่ 35"
 function Commands.sendClientMessage(client, success, message)
     if success then
         return TriggerClientEvent('chat:addMessage', client, { multiline = true, color = { 0, 255, 0 }, args = { '»', message } })
@@ -89,7 +89,7 @@ end
 
 ทำงานเมื่อใช้คำสั่ง "[รับข้อมูลผู้ใช้งาน](../../config/command.md#getuser)" สำเร็จ
 
-```lua title="บรรทัดที่ 83"
+```lua title="บรรทัดที่ 46"
 function respHandler.getUser(client, resp)
     local message <const> = ("[^2INFO^7] Successfully retrieved data for identifier '^5%s^7': %s"):format(resp.identifier, json.encode(resp.data, { indent = true }))
     
@@ -116,7 +116,7 @@ end
 
 ทำงานเมื่อใช้คำสั่ง "[เพิ่มข้อมูลผู้ใช้งาน](../../config/command.md#adduser)" สำเร็จ
 
-```lua title="บรรทัดที่ 130"
+```lua title="บรรทัดที่ 59"
 function respHandler.addUser(client, resp)
     local message <const> = resp.data.bound_id 
         and ("[^2INFO^7] Successfully added identifier '^5%s^7' and bound ID '^5%s^7' to the database"):format(resp.identifier, resp.data.bound_id)
@@ -145,7 +145,7 @@ end
 
 ทำงานเมื่อใช้คำสั่ง "[ลบข้อมูลผู้ใช้งาน](../../config/command.md#deleteuser)" สำเร็จ
 
-```lua title="บรรทัดที่ 179"
+```lua title="บรรทัดที่ 74"
 function respHandler.deleteUser(client, resp)
     local message <const> = ("[^2INFO^7] Successfully deleted data for identifier '^5%s^7' from the database"):format(resp.identifier)
     
@@ -172,7 +172,7 @@ end
 
 ทำงานเมื่อใช้คำสั่ง "[รับข้อมูลการถูกแบน](../../config/command.md#getbaninfo)" สำเร็จ
 
-```lua title="บรรทัดที่ 206"
+```lua title="บรรทัดที่ 87"
 function respHandler.getBanInfo(client, resp)
     local message <const> = ("[^2INFO^7] Identifier: ^5%s^7\n[^2INFO^7] Bound ID: %s\n[^2INFO^7] Associated ID: %s\n[^2INFO^7] Ban Type: %s\n[^2INFO^7] Ban Reason: %s\n[^2INFO^7] Ban Start: %s\n[^2INFO^7] Ban End: %s")
         :format(resp.identifier, 
@@ -211,7 +211,7 @@ end
 
 ทำงานเมื่อใช้คำสั่ง "[แบนผู้ใช้ถาวรหรือชั่วคราว](../../config/command.md#banuser)" สำเร็จ
 
-```lua title="บรรทัดที่ 242"
+```lua title="บรรทัดที่ 108"
 function respHandler.banUser(client, resp)
     local message <const> = resp.banDays 
         and ("[^2INFO^7] Successfully banned identifier '^5%s^7' for ^3%d^7 days"):format(resp.identifier, resp.banDays) 
@@ -246,7 +246,7 @@ end
 
 ทำงานเมื่อใช้คำสั่ง "[ยกเลิกแบนผู้ใช้](../../config/command.md#unbanuser)" สำเร็จ
 
-```lua title="บรรทัดที่ 272"
+```lua title="บรรทัดที่ 123"
 function respHandler.unbanUser(client, resp)
     local message <const> = ("[^2INFO^7] Successfully unbanned identifier '^5%s^7' by '^3%s^7'"):format(resp.identifier, (resp.unbanBy or 'Unknown'))
     
@@ -279,7 +279,7 @@ end
 
 ทำงานเมื่อใช้คำสั่ง "[กำหนดบทบาทของผู้ใช้](../../config/command.md#setuserrole)" สำเร็จ
 
-```lua title="บรรทัดที่ 295"
+```lua title="บรรทัดที่ 136"
 function respHandler.setUserRole(client, resp)
     local message <const> = ("[^2INFO^7] Successfully assigned role '^2%s^7' (ID: ^2%d^7) to identifier '^5%s^7'."):format(resp.newRole.name, resp.newRole.id, resp.identifier)
     
@@ -308,7 +308,7 @@ end
 
 ทำงานเมื่อใช้คำสั่ง "[ปิดใช้งานบัญชีผู้ใช้](../../config/command.md#reactivateuser)" สำเร็จ
 
-```lua title="บรรทัดที่ 318"
+```lua title="บรรทัดที่ 149"
 function respHandler.deactivateUser(client, resp)
     local message <const> = ("[^2INFO^7] Successfully deactivated identifier '^5%s^7' in the database"):format(resp.identifier)
     
@@ -337,7 +337,7 @@ end
 
 ทำงานเมื่อใช้คำสั่ง "[เปิดใช้งานบัญชีผู้ใช้อีกครั้ง](../../config/command.md#reactivateuser)" สำเร็จ (เป็นการยกเลิกสถานะ [inactivePlayers](../../config/core.md#inactiveplayers))
 
-```lua title="บรรทัดที่ 341"
+```lua title="บรรทัดที่ 162"
 function respHandler.reactivateUser(client, resp)
     local message <const> = ("[^2INFO^7] Successfully reactivated identifier '^5%s^7' in the database"):format(resp.identifier)
     
@@ -366,7 +366,7 @@ end
 
 ทำงานเมื่อใช้คำสั่ง "[กำหนดตัวระบุให้ผู้ใช้ใหม่](../../config/command.md#setnewidentifier)" สำเร็จ
 
-```lua title="บรรทัดที่ 357"
+```lua title="บรรทัดที่ 175"
 function respHandler.setNewIdentifier(client, resp)
     local message <const> = ("[^2INFO^7] Successfully updated identifier from '^3%s^7' to '^2%s^7' in the database"):format(resp.identifier, resp.newIdentifier)
     
@@ -393,7 +393,7 @@ end
 
 ทำงานเมื่อใช้คำสั่ง "[รีเซ็ตตัวระบุที่ถูกผูกไว้ของผู้ใช้](../../config/command.md#resetbindidentifier)" สำเร็จ
 
-```lua title="บรรทัดที่ 373"
+```lua title="บรรทัดที่ 188"
 function respHandler.resetBindIdentifier(client, resp)
     local message <const> = ("[^2INFO^7] Successfully reset bound ID for identifier '^5%s^7' in the database"):format(resp.identifier)
     
@@ -420,7 +420,7 @@ end
 
 ทำงานเมื่อใช้คำสั่ง ["รีเซ็ต HWIDs ของผู้ใช้](../../config/command.md#resethwids)" สำเร็จ
 
-```lua title="บรรทัดที่ 391"
+```lua title="บรรทัดที่ 201"
 function respHandler.resetHwids(client, resp)
     local message <const> = ("[^2INFO^7] Successfully reset HWIDs for identifier '^5%s^7' in the database"):format(resp.identifier)
     
@@ -447,7 +447,7 @@ end
 
 ทำงานเมื่อใช้คำสั่ง "[รับพอยท์ของผู้ใช้](../../config/command.md#getpoints)" สำเร็จ
 
-```lua title="บรรทัดที่ 418"
+```lua title="บรรทัดที่ 214"
 function respHandler.getPoints(client, resp)
     local indexedData <const> = {}
     
@@ -489,7 +489,7 @@ end
 
 ทำงานเมื่อใช้คำสั่ง "[เพิ่มพอยท์ให้ผู้ใช้](../../config/command.md#addpoints)" สำเร็จ
 
-```lua title="บรรทัดที่ 455"
+```lua title="บรรทัดที่ 236"
 function respHandler.addPoints(client, resp)
     local message <const> = resp.expirationDays 
         and ("[^2INFO^7] Successfully added ^2%d^7 points with an expiration of ^3%d^7 days for identifier '^5%s^7' (Prev Points: ^3%d^7, New Points: ^2%d^7)")
@@ -528,7 +528,7 @@ end
 
 ทำงานเมื่อใช้คำสั่ง "[กำหนดพ้อยท์แบบไม่มีวันหมดอายุให้ผู้ใช้](../../config/command.md#setpermanentpoints)" สำเร็จ
 
-```lua title="บรรทัดที่ 487"
+```lua title="บรรทัดที่ 253"
 function respHandler.setPermanentPoints(client, resp)
     local message <const> = ("[^2INFO^7] Permanent points successfully set: ^2%d^7 for identifier '^5%s^7'\n[^2INFO^7] Prev Permanent Points: ^3%d^7\n[^2INFO^7] New Permanent Points: ^2%d^7\n[^2INFO^7] Current Temporary Points: ^5%d^7\n[^2INFO^7] Total Points: ^2%d^7")
         :format(resp.setPermPoints, resp.identifier, resp.prevPermPoints, resp.setPermPoints, resp.tempPoints, resp.totalPoints)
@@ -564,7 +564,7 @@ end
 
 ทำงานเมื่อใช้คำสั่ง "[ลบพ้อยท์แบบมีวันหมดอายุของผู้ใช้](../../config/command.md#deletetemporarypoints)" สำเร็จ
 
-```lua title="บรรทัดที่ 519"
+```lua title="บรรทัดที่ 267"
 function respHandler.deleteTemporaryPoints(client, resp)
     local message <const> = ("[^2INFO^7] Successfully deleted ^1%d^7 temporary points from index ^3%d^7 for identifier '^5%s^7'\n[^2INFO^7] Prev Temporary Points: ^3%d^7\n[^2INFO^7] Remaining Temporary Points: ^2%d^7\n[^2INFO^7] Current Permanent Points: ^5%d^7\n[^2INFO^7] Current Total Points: ^2%d^7")
         :format(resp.removedData.value, resp.removedIndex, resp.identifier, (resp.tempPoints + resp.removedData.value), resp.tempPoints, resp.permPoints, resp.totalPoints)
@@ -600,7 +600,7 @@ end
 
 ทำงานเมื่อใช้คำสั่ง "[ลบพ้อยท์ทั้งหมดของผู้ใช้](../../config/command.md#purgepoints)" สำเร็จ
 
-```lua title="บรรทัดที่ 544"
+```lua title="บรรทัดที่ 281"
 function respHandler.purgePoints(client, resp)
     local message <const> = ("[^2INFO^7] Successfully purged points for identifier '^5%s^7'\n[^2INFO^7] Total Points Removed: ^1%d^7\n[^2INFO^7] Permanent Points Removed: ^1%d^7\n[^2INFO^7] Temporary Points Removed: ^1%d^7\n[^2INFO^7] Data Before Purge: %s")
         :format(resp.identifier, resp.totalPoints, resp.permPoints, resp.tempPoints, json.encode(resp.data, { indent = true }))
@@ -628,7 +628,7 @@ end
 
 ทำงานเมื่อใช้คำสั่ง "[รับเวลาออนไลน์ที่เหลือของผู้ใช้](../../config/command.md#getairtime)" สำเร็จ
 
-```lua title="บรรทัดที่ 561"
+```lua title="บรรทัดที่ 295"
 function respHandler.getAirtime(client, resp)
     local message <const> = ("[^2INFO^7] Successfully retrieved remaining airtime for identifier '^5%s^7'\n[^2INFO^7] Remaining Airtime: ^2%d^7 seconds"):format(resp.identifier, resp.numAirtime)
     
@@ -655,7 +655,7 @@ end
 
 ทำงานเมื่อใช้คำสั่ง "[กำหนดเวลาออนไลน์ให้ผู้ใช้](../../config/command.md#setairtime)" สำเร็จ
 
-```lua title="บรรทัดที่ 578"
+```lua title="บรรทัดที่ 308"
 function respHandler.setAirtime(client, resp)
     local message <const> = ("[^2INFO^7] Successfully set ^3%d^7 seconds of airtime for identifier '^5%s^7'\n[^2INFO^7] Previous Airtime: ^3%d^7 seconds\n[^2INFO^7] Current Airtime: ^2%d^7 seconds")
         :format(resp.newAirtime, resp.identifier, resp.oldAirtime, resp.newAirtime)
@@ -685,7 +685,7 @@ end
 
 ทำงานเมื่อใช้คำสั่ง "[เพิ่มเวลาออนไลน์ให้ผู้ใช้](../../config/command.md#addairtime)" สำเร็จ
 
-```lua title="บรรทัดที่ 597"
+```lua title="บรรทัดที่ 322"
 function respHandler.addAirtime(client, resp)
     local message <const> = ("[^2INFO^7] Successfully added ^2%d^7 seconds of airtime for identifier '^5%s^7'\n[^2INFO^7] Previous Airtime: ^3%d^7 seconds\n[^2INFO^7] Current Airtime: ^2%d^7 seconds")
         :format(resp.addAirtime, resp.identifier, resp.oldAirtime, resp.newAirtime)
@@ -717,7 +717,7 @@ end
 
 ทำงานเมื่อใช้คำสั่ง "[ลดเวลาออนไลน์ของผู้ใช้](../../config/command.md#removeairtime)" สำเร็จ
 
-```lua title="บรรทัดที่ 616"
+```lua title="บรรทัดที่ 336"
 function respHandler.removeAirtime(client, resp)
     local message <const> = ("[^2INFO^7] Successfully removed ^1%d^7 seconds of airtime for identifier '^5%s^7'\n[^2INFO^7] Previous Airtime: ^3%d^7 seconds\n[^2INFO^7] Current Airtime: ^2%d^7 seconds")
         :format(resp.removeAirtime, resp.identifier, resp.oldAirtime, resp.newAirtime)
@@ -749,7 +749,7 @@ end
 
 ทำงานเมื่อใช้คำสั่ง "[ล้างแคชข้อมูลผู้เล่น](../../config/command.md#clearplayercache)" สำเร็จ
 
-```lua title="บรรทัดที่ 630"
+```lua title="บรรทัดที่ 350"
 function respHandler.clearPlayerCache(client, resp)
     local message <const> = ("[^2INFO^7] Successfully cleared player cache for identifier '^5%s^7'"):format(resp.identifier)
     
@@ -774,7 +774,7 @@ end
 
 ทำงานเมื่อใช้คำสั่ง "[ล้างคิวผู้เล่นทั้งหมดที่รอเข้าเซิร์ฟเวอร์](../../config/command.md#purgequeue)" สำเร็จ
 
-```lua title="บรรทัดที่ 643"
+```lua title="บรรทัดที่ 363"
 function respHandler.purgeQueue(client, resp)
     local message <const> = ("[^2INFO^7] Successfully purged the queue (Removed ^3%d^7 players)"):format(resp.numPurged)
     
@@ -799,7 +799,7 @@ end
 
 ทำงานเมื่อใช้คำสั่ง "[เพิ่มสิทธิ์การข้ามคิวให้กับผู้เล่น](../../config/command.md#addqueuebypass)" สำเร็จ
 
-```lua title="บรรทัดที่ 656"
+```lua title="บรรทัดที่ 376"
 function respHandler.addQueueBypass(client, resp)
     local message <const> = ("[^2INFO^7] Successfully added queue bypass for identifier '^5%s^7' (Timeout: ^3%d^7 minutes)")
         :format(resp.identifier, resp.timeoutMinutes)
@@ -827,7 +827,7 @@ end
 
 ทำงานเมื่อใช้คำสั่ง "[รับข้อมูลส่วนตัวของผู้เล่น](../../config/command.md#getmyinfo)" สำเร็จ
 
-```lua title="บรรทัดที่ 699"
+```lua title="บรรทัดที่ 390"
 function respHandler.getMyInfo(client, resp)
     local message <const> = ("[^2INFO^7] User Role: ^2%s^7\n[^2INFO^7] Airtime Left: ^3%s^7\n[^2INFO^7] Total Points: ^2%d^7\n[^2INFO^7] Permanent Points: ^5%d^7\n[^2INFO^7] Temporary Points: ^3%d^7")
         :format(resp.role.name:gsub('^%l', string.upper), resp.airtimeLeft, resp.queuePoints.total, resp.queuePoints.permanent, resp.queuePoints.temporary)
@@ -854,7 +854,7 @@ end
 
 ทำงานเมื่อใช้คำสั่ง "[รับข้อมูลเกี่ยวกับระบบคิว](../../config/command.md#getqueueinfo)" สำเร็จ
 
-```lua title="บรรทัดที่ 722"
+```lua title="บรรทัดที่ 404"
 function respHandler.getQueueInfo(client, resp)
     local message <const> = ('[^2INFO^7] Queue Status: %s\n[^2INFO^7] Max Queue Size: ^3%d^7\n[^2INFO^7] Players in Queue: ^3%d^7\n[^2INFO^7] Players Downloading: ^3%d^7\n[^2INFO^7] Players Reconnectable (Crashed): ^3%d^7\n[^2INFO^7] Players Online: ^3%d^7\n[^2INFO^7] Total Used Slots: ^5%d^7/^5%d^7')
         :format((resp.isQueueFull and '^1Full^7' or '^2Not Full^7'), resp.maxQueueSize, resp.numQueues, resp.numDownloads, resp.numCrashes, resp.numPlayers, resp.numUsedSlots, resp.maxServerSlots)

@@ -131,24 +131,24 @@ CREATE TABLE `azael_playpass` (
 - ตัวแปร [**PLAYER_ROLES**](../../config/setup.md#roles) คือข้อมูลการกำหนดค่าเกี่ยวกับบทบาทของผู้เล่น โดยอ้างอิงการกำหนดค่าที่ไฟล์ [`./config/setup.lua`](../../config/setup.md)
 :::
 
-```lua title="บรรทัดที่ 87"
+```lua title="บรรทัดที่ 84"
 function Database.setupTables()
     if not pcall(MySQL.scalar.await, 'SELECT 1 FROM `azael_playpass`') then
-        ---@param t table<{ [key]: integer
-        ---@return string|nil
+        ---@param t table<string, integer>
+        ---@return string?
         local function tableToEnumString(t)
-            local result <const>, names <const> = {}, {}
+            local result <const>, names <const> = {}, {} ---@type {name: string, value: integer}[], string[]
 
             for k, v in pairs(t) do
                 table.insert(result, { name = k:lower(), value = v })
             end
-            
+
             table.sort(result, function(a, b) return a.value < b.value end)
-            
+
             for _, v in ipairs(result) do
                 table.insert(names, v.name)
             end
-            
+
             return next(names) and "'" .. table.concat(names, "', '") .. "'" or nil
         end
 
@@ -185,13 +185,17 @@ function Database.setupTables()
             local modifiedCloneTable <const> = cloneTable
                 :gsub('${PLAYER_ROLE_BANNED}', bannedEnum)
                 :gsub('${PLAYER_ROLE_ACTIVE}', activeEnum)
-            
+
             success, response = pcall(MySQL.query.await, modifiedCloneTable)
-            
+
             if not success then
                 print(('[^1ERROR^7] %s'):format(response))
-            elseif response?.affectedRows > 0 then
-                print(("[^2INFO^7] Successfully copied ^2%s^7 players from '^5azael_dc_whitelisted^7' to '^5azael_playpass^7' table"):format(response.affectedRows))
+            else
+                local result <const> = response --[[@as MySQLQueryResult?]]
+
+                if result and result.affectedRows and result.affectedRows > 0 then
+                    print(("[^2INFO^7] Successfully copied ^2%s^7 players from '^5azael_dc_whitelisted^7' to '^5azael_playpass^7' table"):format(result.affectedRows))
+                end
             end
         end
     end
@@ -209,7 +213,7 @@ end
 
 รับข้อมูลตัวระบุและบทบาทเฉพาะของผู้เล่น เพื่อนำมาจัดเก็บเอาไว้ใช้งานในขั้นตอนการตรวจสอบ [โหมดปิดปรับปรุงเซิร์ฟเวอร์](../../config/core.md#maintenancemode), [พยายามเชื่อมต่อบ่อยและเร็วเกินกำหนด](../../config/core.md#connectionattemptlimit), [Ping สูงเกินกำหนด](../../config/core.md#maxpinglimit), [ถูกแบน HWID Tokens](../../config/core.md#banplayerhwids) และ [จำนวนผู้เล่นในระบบคิวเต็ม](../../config/queue.md#svfullqueuelimit)
 
-```lua title="บรรทัดที่ 157"
+```lua title="บรรทัดที่ 158"
 function Database.getRolePlayers(roles)
     local placeholders <const> = ('?'):rep(#roles):gsub('.', '?, '):sub(1, -3)
 
@@ -236,7 +240,7 @@ end
 
 รับข้อมูลคิวพอยท์ของผู้เล่นทั้งหมดที่มีวันหมดอายุ (คิวพอยท์แบบชั่วคราว)
 
-```lua title="บรรทัดที่ 176"
+```lua title="บรรทัดที่ 166"
 function Database.getTempQueuePoints()
     return MySQL.query.await("SELECT `identifier`, `queue_points` FROM `azael_playpass` WHERE JSON_EXTRACT(`queue_points`, '$.temporary') IS NOT NULL AND JSON_LENGTH(JSON_EXTRACT(`queue_points`, '$.temporary')) > 0")
 end
@@ -256,7 +260,7 @@ end
 
 รับข้อมูลผู้เล่นทั้งหมดที่สถานะการแบนชั่วคราวหมดอายุแล้ว
 
-```lua title="บรรทัดที่ 193"
+```lua title="บรรทัดที่ 172"
 function Database.getExpiredTempBans()
     return MySQL.query.await("SELECT `identifier`, `ban_details` FROM `azael_playpass` WHERE `status` = ? AND JSON_UNQUOTE(JSON_EXTRACT(`ban_details`, '$.type')) = ? AND STR_TO_DATE(JSON_UNQUOTE(JSON_EXTRACT(`ban_details`, '$.end_datetime')), '%Y-%m-%d %H:%i:%s') < NOW()", { PLAYER_STATUS.BANNED, 'temporary' })
 end
@@ -276,7 +280,7 @@ end
 
 รับข้อมูล HWIDs ของผู้เล่นทั้งหมดที่มีสถานะถูกแบน
 
-```lua title="บรรทัดที่ 199"
+```lua title="บรรทัดที่ 178"
 function Database.getBannedHwids()
     return MySQL.query.await("SELECT `identifier`, `last_hwids` FROM `azael_playpass` WHERE `status` = ? AND `last_hwids` IS NOT NULL AND JSON_UNQUOTE(JSON_EXTRACT(`ban_details`, '$.start_datetime')) IS NOT NULL ORDER BY JSON_UNQUOTE(JSON_EXTRACT(`ban_details`, '$.start_datetime')) ASC", { PLAYER_STATUS.BANNED })
 end
@@ -302,7 +306,7 @@ end
 
 รับข้อมูลผู้เล่นทั้งหมดที่ไม่ได้เข้าสู่เซิร์ฟเวอร์ตามระยะเวลาที่กำหนด
 
-```lua title="บรรทัดที่ 206"
+```lua title="บรรทัดที่ 185"
 function Database.getInactivePlayers(limitDays)
     return MySQL.query.await("SELECT `identifier`, CAST(`last_seen` AS CHAR) AS last_seen FROM `azael_playpass` WHERE `status` = ? AND `last_seen` < DATE_SUB(NOW(), INTERVAL ? DAY)", { PLAYER_STATUS.ACTIVE, limitDays })
 end
@@ -326,7 +330,7 @@ end
 
 ตรวจสอบว่าตัวระบุมีอยู่ในฐานข้อมูลหรือไม่
 
-```lua title="บรรทัดที่ 213"
+```lua title="บรรทัดที่ 192"
 function Database.doesIdExist(identifier)
     return MySQL.scalar.await('SELECT 1 FROM `azael_playpass` WHERE `identifier` = ?', { identifier }) ~= nil
 end
@@ -346,7 +350,7 @@ end
 
 ตรวจสอบว่าตัวระบุที่จะผูกมีอยู่ในฐานข้อมูลหรือไม่
 
-```lua title="บรรทัดที่ 220"
+```lua title="บรรทัดที่ 199"
 function Database.hasBoundId(bindId)
     return MySQL.scalar.await('SELECT `identifier` FROM `azael_playpass` WHERE `bound_id` = ?', { bindId })
 end
@@ -366,7 +370,7 @@ end
 
 ตรวจสอบว่าตัวระบุถูกแบนแล้วหรือไม่
 
-```lua title="บรรทัดที่ 227"
+```lua title="บรรทัดที่ 206"
 function Database.isIdBanned(identifier)
     return MySQL.scalar.await('SELECT 1 FROM `azael_playpass` WHERE `identifier` = ? AND `status` = ?', { identifier, PLAYER_STATUS.BANNED }) ~= nil
 end
@@ -386,10 +390,10 @@ end
 
 บันทึกข้อมูลของผู้เล่น
 
-```lua title="บรรทัดที่ 236"
+```lua title="บรรทัดที่ 215"
 function Database.insertPlayerData(identifier, bindId, airtime)
     local success <const>, err <const> = pcall(MySQL.insert.await, 'INSERT INTO `azael_playpass` (`identifier`, `bound_id`, `airtime_left`) VALUES (?, ?, ?)', { identifier, bindId, airtime })
-    
+
     if not success then
         print(("[^1ERROR^7] Failed to insert player data for identifier '^3%s^7' into the database: ^1%s^7"):format(identifier, err))
     end
@@ -416,10 +420,10 @@ end
 
 ลบข้อมูลของผู้เล่น
 
-```lua title="บรรทัดที่ 249"
+```lua title="บรรทัดที่ 228"
 function Database.deletePlayerData(identifier)
     local success <const>, err <const> = pcall(MySQL.update.await, 'DELETE FROM `azael_playpass` WHERE `identifier` = ?', { identifier })
-    
+
     if not success then
         print(("[^1ERROR^7] Failed to delete player data for identifier '^3%s^7' from the database: ^1%s^7"):format(identifier, err))
     end
@@ -442,19 +446,19 @@ end
 
 รับข้อมูลของผู้เล่นเมื่อเชื่อมต่อกับเซิร์ฟเวอร์
 
-```lua title="บรรทัดที่ 292"
+```lua title="บรรทัดที่ 241"
 function Database.getPlayerData(identifier)
     local row <const> = MySQL.prepare.await('SELECT `bound_id`, `queue_points`, `airtime_left`, CAST(`created_at` AS CHAR) AS created_at, CAST(`rejoin_at` AS CHAR) AS rejoin_at, CAST(`last_seen` AS CHAR) AS last_seen, `ban_details`, `role`, CAST(`role` AS UNSIGNED) AS role_id, `status`, CAST(`status` AS UNSIGNED) AS status_id FROM `azael_playpass` WHERE `identifier` = ? LIMIT 1', { identifier })
-    
+
     if row then
         row.queue_points = row.queue_points and json.decode(row.queue_points) or nil
         row.ban_details = (row.status_id == PLAYER_STATUS.BANNED) and json.decode(row.ban_details) or nil
         row.role = { id = row.role_id, name = row.role }
         row.status = { id = row.status_id, name = row.status }
-        
+
         row.role_id, row.status_id = nil, nil
     end
-    
+
     return row
 end
 ```
@@ -485,7 +489,7 @@ end
 
 รับข้อมูลสถานะหรือรายละเอียดเกี่ยวกับการถูกแบนของผู้เล่น
 
-```lua title="บรรทัดที่ 310"
+```lua title="บรรทัดที่ 259"
 function Database.getPlayerBanInfo(identifier)
     local row <const> = MySQL.prepare.await('SELECT `ban_details` FROM `azael_playpass` WHERE `identifier` = ? AND `status` = ? LIMIT 1', { identifier, PLAYER_STATUS.BANNED })
 
@@ -506,10 +510,10 @@ end
 
 บข้อมูล HWIDs ล่าสุดของผู้เล่น
 
-```lua title="บรรทัดที่ 319"
+```lua title="บรรทัดที่ 268"
 function Database.getPlayerLastHwids(identifier)
     local row <const> = MySQL.prepare.await('SELECT `last_hwids` FROM `azael_playpass` WHERE `identifier` = ? AND `last_hwids` IS NOT NULL LIMIT 1', { identifier })
-    
+
     return row and json.decode(row) or nil
 end
 ```
@@ -528,10 +532,10 @@ end
 
 อัปเดต HWIDs ล่าสุดของผู้เล่น
 
-```lua title="บรรทัดที่ 329"
+```lua title="บรรทัดที่ 278"
 function Database.updatePlayerLastHwids(identifier, hwids)
     local lastHwids <const> = (type(hwids) == 'table' and next(hwids)) and json.encode(hwids) or nil
-    
+
     MySQL.prepare('UPDATE `azael_playpass` SET `last_hwids` = ? WHERE `identifier` = ?', { lastHwids, identifier })
 end
 ```
@@ -547,7 +551,7 @@ end
 
 อัปเดตวันและเวลาที่ผู้เล่นออนไลน์ล่าสุด
 
-```lua title="บรรทัดที่ 338"
+```lua title="บรรทัดที่ 287"
 function Database.updatePlayerLastSeen(identifier)
     MySQL.prepare('UPDATE `azael_playpass` SET `last_seen` = CURRENT_TIMESTAMP WHERE `identifier` = ?', { identifier })
 end
@@ -562,18 +566,18 @@ end
 
 อัปเดตสถานะแบนหรือยกเลิกแบนผู้เล่น
 
-```lua title="บรรทัดที่ 347"
+```lua title="บรรทัดที่ 296"
 function Database.updatePlayerBanState(identifier, isBanned, banDetails)
-    local data <const> = isBanned 
-        and { json.encode(banDetails), PLAYER_STATUS.BANNED, identifier } 
+    local data <const> = isBanned
+        and { json.encode(banDetails), PLAYER_STATUS.BANNED, identifier }
         or { nil, PLAYER_STATUS.ACTIVE, identifier }
-    
+
     local success <const>, err <const> = pcall(MySQL.prepare.await, 'UPDATE `azael_playpass` SET `ban_details` = ?, `status` = ? WHERE `identifier` = ?', data)
 
     if not success then
         print(("[^1ERROR^7] Failed to update player ban state for identifier '^3%s^7' in the database: ^1%s^7"):format(identifier, err))
     end
-    
+
     return success
 end
 ```
@@ -599,14 +603,14 @@ end
 
 อัปเดตข้อมูลคิวพอยท์ของผู้เล่น
 
-```lua title="บรรทัดที่ 373"
+```lua title="บรรทัดที่ 314"
 function Database.updatePlayerQueuePoints(identifier, queuePoints)
     local success <const>, err <const> = pcall(MySQL.prepare.await, 'UPDATE `azael_playpass` SET `queue_points` = ? WHERE `identifier` = ?', { ((queuePoints and next(queuePoints)) and json.encode(queuePoints) or nil), identifier })
-    
+
     if not success then
         print(("[^1ERROR^7] Failed to update player queue points for identifier '^3%s^7' in the database: ^1%s^7"):format(identifier, err))
     end
-    
+
     return success
 end
 ```
@@ -627,9 +631,9 @@ end
 
 อัปเดตสถานะของผู้เล่น
 
-```lua title="บรรทัดที่ 387"
+```lua title="บรรทัดที่ 328"
 function Database.updatePlayerStatus(identifier, status)
-    local query <const> = status == PLAYER_STATUS.ACTIVE 
+    local query <const> = status == PLAYER_STATUS.ACTIVE
         and 'UPDATE `azael_playpass` SET `rejoin_at` = CURRENT_TIMESTAMP, `status` = ? WHERE `identifier` = ?'
         or 'UPDATE `azael_playpass` SET `rejoin_at` = NULL, `status` = ? WHERE `identifier` = ?'
 
@@ -638,7 +642,7 @@ function Database.updatePlayerStatus(identifier, status)
     if not success then
         print(("[^1ERROR^7] Failed to update player status for identifier '^3%s^7' in the database: ^1%s^7"):format(identifier, err))
     end
-    
+
     return success
 end
 ```
@@ -655,14 +659,14 @@ end
 
 ### updatePlayerRole
 
-```lua title="บรรทัดที่ 404"
+```lua title="บรรทัดที่ 346"
 function Database.updatePlayerRole(identifier, role)
     local success <const>, err <const> = pcall(MySQL.prepare.await, 'UPDATE `azael_playpass` SET `role` = ? WHERE `identifier` = ?', { role, identifier })
-    
+
     if not success then
         print(("[^1ERROR^7] Failed to update player role for identifier '^3%s^7' in the database: ^1%s^7"):format(identifier, err))
     end
-    
+
     return success
 end
 ```
@@ -683,14 +687,14 @@ end
 
 อัปเดท[ตัวระบุหลัก](../../config/core.md#identifiertype)ของผู้เล่น
 
-```lua title="บรรทัดที่ 418"
+```lua title="บรรทัดที่ 360"
 function Database.updatePlayerIdentifier(identifier, newIdentifier)
     local success <const>, err <const> = pcall(MySQL.prepare.await, 'UPDATE `azael_playpass` SET `identifier` = ? WHERE `identifier` = ?', { newIdentifier, identifier })
-    
+
     if not success then
         print(("[^1ERROR^7] Failed to update player identifier from '^3%s^7' to '^3%s^7' in the database: ^1%s^7"):format(identifier, newIdentifier, err))
     end
-    
+
     return success
 end
 ```
@@ -711,14 +715,14 @@ end
 
 อัปเดตข้อมูล[ตัวระบุที่จะถูกผูก](../../config/core.md#bindidentifier)กับ[ตัวระบุหลัก](../../config/core.md#identifiertype)ของผู้เล่น
 
-```lua title="บรรทัดที่ 432"
+```lua title="บรรทัดที่ 374"
 function Database.updateBindIdentifier(identifier, bindId)
     local success <const>, err <const> = pcall(MySQL.prepare.await, 'UPDATE `azael_playpass` SET `bound_id` = ? WHERE `identifier` = ?', { bindId, identifier })
 
     if not success then
         print(("[^1ERROR^7] Failed to update bind identifier '^3%s^7' in the database: ^1%s^7"):format(identifier, err))
     end
-    
+
     return success
 end
 ```
@@ -739,14 +743,14 @@ end
 
 กำหนด[แอร์ไทม์](../../config/core.md#airtimeserver)ของผู้เล่น
 
-```lua title="บรรทัดที่ 446"
+```lua title="บรรทัดที่ 388"
 function Database.setPlayerAirtime(identifier, airtime)
     local success <const>, err <const> = pcall(MySQL.prepare.await, 'UPDATE `azael_playpass` SET `airtime_left` = ? WHERE `identifier` = ?', { airtime, identifier })
-    
+
     if not success then
         print(("[^1ERROR^7] Failed to set airtime for identifier '^3%s^7' in the database: ^1%s^7"):format(identifier, err))
     end
-    
+
     return success
 end
 ```
@@ -757,6 +761,198 @@ end
     - [ตัวระบุ](../../config/core.md#identifiertype)ของผู้เล่น
 - airtime: `integer`
     - จำนวนแอร์ไทม์ที่กำหนด ([ระบบจำกัดเวลาในการเล่น](../../config/core.md#airtimeserver))
+
+### getPlayersPaginated
+
+รับข้อมูลผู้เล่นแบบแบ่งหน้าจากฐานข้อมูลสำหรับแผงผู้ดูแลระบบ
+
+```lua title="บรรทัดที่ 406"
+function Database.getPlayersPaginated(offset, limit, filter, search, onlineIdentifiers, adminRoleIds)
+    local conditions <const> = {}
+    local params <const> = {}
+
+    if filter == 'banned' then
+        conditions[#conditions + 1] = 'CAST(`status` AS UNSIGNED) = ?'
+        params[#params + 1] = PLAYER_STATUS.BANNED
+    elseif filter == 'admin' then
+        if adminRoleIds and #adminRoleIds > 0 then
+            local placeholders <const> = {}
+
+            for i = 1, #adminRoleIds do
+                placeholders[i] = '?'
+                params[#params + 1] = adminRoleIds[i]
+            end
+
+            conditions[#conditions + 1] = ('CAST(`role` AS UNSIGNED) IN (%s)'):format(table.concat(placeholders, ','))
+        end
+    elseif filter == 'offline' then
+        conditions[#conditions + 1] = 'CAST(`status` AS UNSIGNED) != ?'
+        params[#params + 1] = PLAYER_STATUS.BANNED
+
+        if onlineIdentifiers and #onlineIdentifiers > 0 then
+            local placeholders <const> = {}
+
+            for i = 1, #onlineIdentifiers do
+                placeholders[i] = '?'
+                params[#params + 1] = onlineIdentifiers[i]
+            end
+
+            conditions[#conditions + 1] = ('`identifier` NOT IN (%s)'):format(table.concat(placeholders, ','))
+        end
+    end
+
+    if search:match('%S') then
+        conditions[#conditions + 1] = '(`identifier` LIKE ? OR `bound_id` LIKE ?)'
+
+        local searchLike <const> = '%' .. search .. '%'
+        params[#params + 1] = searchLike
+        params[#params + 1] = searchLike
+    end
+
+    local whereClause <const> = #conditions > 0 and (' WHERE ' .. table.concat(conditions, ' AND ')) or ''
+    local query <const> = ([[
+        SELECT `identifier`, `bound_id`, `queue_points`, `airtime_left`,
+            CAST(`created_at` AS CHAR) AS created_at,
+            CAST(`last_seen` AS CHAR) AS last_seen,
+            `ban_details`, `role`,
+            CAST(`role` AS UNSIGNED) AS role_id,
+            `status`,
+            CAST(`status` AS UNSIGNED) AS status_id
+        FROM `azael_playpass`%s
+        ORDER BY `last_seen` DESC
+        LIMIT ? OFFSET ?
+    ]]):format(whereClause)
+
+    params[#params + 1] = limit
+    params[#params + 1] = offset
+
+    return MySQL.query.await(query, params)
+end
+```
+
+#### Parameters
+
+- offset: `integer`
+    - ตำแหน่งเริ่มต้น
+- limit: `integer`
+    - จำนวนแถวต่อหน้า
+- filter: `string`
+    - ประเภทตัวกรอง (`'all'` | `'banned'` | `'offline'` | `'admin'`)
+- search: `string`
+    - คำค้นหา (ค้นจาก `identifier`, `bound_id`)
+- onlineIdentifiers: `string[]?`
+    - รายการ identifier ของผู้เล่นออนไลน์ (สำหรับกรอง `offline`)
+- adminRoleIds: `integer[]?`
+    - รายการ role ID ของผู้ดูแลระบบ (สำหรับกรอง `admin`)
+
+#### Returns
+
+- rows: `table[]?`
+    - รายการข้อมูลผู้เล่นตาม filter และ search ที่กำหนด
+
+### getFilteredCount
+
+นับจำนวนผู้เล่นตาม filter และ search สำหรับแบ่งหน้า
+
+```lua title="บรรทัดที่ 474"
+function Database.getFilteredCount(filter, search, onlineIdentifiers, adminRoleIds)
+    local conditions <const> = {}
+    local params <const> = {}
+
+    if filter == 'banned' then
+        conditions[#conditions + 1] = 'CAST(`status` AS UNSIGNED) = ?'
+        params[#params + 1] = PLAYER_STATUS.BANNED
+    elseif filter == 'admin' then
+        if adminRoleIds and #adminRoleIds > 0 then
+            local placeholders <const> = {}
+
+            for i = 1, #adminRoleIds do
+                placeholders[i] = '?'
+                params[#params + 1] = adminRoleIds[i]
+            end
+
+            conditions[#conditions + 1] = ('CAST(`role` AS UNSIGNED) IN (%s)'):format(table.concat(placeholders, ','))
+        end
+    elseif filter == 'offline' then
+        conditions[#conditions + 1] = 'CAST(`status` AS UNSIGNED) != ?'
+        params[#params + 1] = PLAYER_STATUS.BANNED
+
+        if onlineIdentifiers and #onlineIdentifiers > 0 then
+            local placeholders <const> = {}
+
+            for i = 1, #onlineIdentifiers do
+                placeholders[i] = '?'
+                params[#params + 1] = onlineIdentifiers[i]
+            end
+
+            conditions[#conditions + 1] = ('`identifier` NOT IN (%s)'):format(table.concat(placeholders, ','))
+        end
+    end
+
+    if search:match('%S') then
+        conditions[#conditions + 1] = '(`identifier` LIKE ? OR `bound_id` LIKE ?)'
+
+        local searchLike <const> = '%' .. search .. '%'
+        params[#params + 1] = searchLike
+        params[#params + 1] = searchLike
+    end
+
+    local whereClause <const> = #conditions > 0 and (' WHERE ' .. table.concat(conditions, ' AND ')) or ''
+    local count <const> = MySQL.scalar.await(('SELECT COUNT(*) FROM `azael_playpass`%s'):format(whereClause), params)
+
+    return math.tointeger(count) or 0
+end
+```
+
+#### Parameters
+
+- filter: `string`
+    - ประเภทตัวกรอง (`'all'` | `'banned'` | `'offline'` | `'admin'`)
+- search: `string`
+    - คำค้นหา
+- onlineIdentifiers: `string[]?`
+    - รายการ identifier ของผู้เล่นออนไลน์
+- adminRoleIds: `integer[]?`
+    - รายการ role ID ของผู้ดูแลระบบ (สำหรับกรอง `admin`)
+
+#### Returns
+
+- count: `integer`
+    - จำนวนผู้เล่นที่ตรงตามเงื่อนไข
+
+### getBannedCount
+
+นับจำนวนผู้เล่นที่ถูกแบนทั้งหมด
+
+```lua title="บรรทัดที่ 524"
+function Database.getBannedCount()
+    local count <const> = MySQL.scalar.await('SELECT COUNT(*) FROM `azael_playpass` WHERE CAST(`status` AS UNSIGNED) = ?', { PLAYER_STATUS.BANNED })
+
+    return math.tointeger(count) or 0
+end
+```
+
+#### Returns
+
+- count: `integer`
+    - จำนวนผู้เล่นที่ถูกแบนทั้งหมด
+
+### getTotalCount
+
+นับจำนวนผู้เล่นทั้งหมดในตาราง `azael_playpass`
+
+```lua title="บรรทัดที่ 532"
+function Database.getTotalCount()
+    local count <const> = MySQL.scalar.await('SELECT COUNT(*) FROM `azael_playpass`')
+
+    return math.tointeger(count) or 0
+end
+```
+
+#### Returns
+
+- count: `integer`
+    - จำนวนผู้เล่นทั้งหมด
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

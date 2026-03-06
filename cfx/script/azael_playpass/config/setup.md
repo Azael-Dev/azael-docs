@@ -20,7 +20,7 @@ sidebar_label: Setup
 
 การกำหนดค่าเกี่ยวกับสถานะของผู้เล่น
 
-```lua title="บรรทัดที่ 16"
+```lua title="บรรทัดที่ 17"
 STATUS = {
     ACTIVE = 1,
     INACTIVE = 2,
@@ -39,7 +39,7 @@ STATUS = {
 
 การกำหนดค่าเกี่ยวกับบทบาทของผู้เล่น
 
-```lua title="บรรทัดที่ 22"
+```lua title="บรรทัดที่ 23"
 ROLES = {   
     PLAYER = 1,
     VIP = 2,

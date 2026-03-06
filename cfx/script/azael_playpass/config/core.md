@@ -10,7 +10,7 @@ sidebar_label: Core
 
 ภาษาที่ต้องการใช้งาน
 
-```lua title="บรรทัดที่ 15"
+```lua title="บรรทัดที่ 19"
 locale = 'th'
 ```
 
@@ -21,7 +21,7 @@ locale = 'th'
 
 ประเภทการตรวจสอบสิทธิ์การเชื่อมต่อที่ต้องการใช้งาน
 
-```lua title="บรรทัดที่ 17"
+```lua title="บรรทัดที่ 21"
 authMethod = AUTH_METHOD.EXTERNAL_API
 ```
 
@@ -35,7 +35,7 @@ authMethod = AUTH_METHOD.EXTERNAL_API
 
 เปิดใช้งานโหมดปิดปรับปรุงเซิร์ฟเวอร์ โดยผู้เล่นที่ไม่มีสิทธิ์จะไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้
 
-```lua title="บรรทัดที่ 22"
+```lua title="บรรทัดที่ 26"
 maintenanceMode = false
 ```
 
@@ -46,7 +46,7 @@ maintenanceMode = false
 
 เปิดใช้งานการแสดงโปรไฟล์ข้อมูลบัญชีของผู้เล่นเมื่อเชื่อมต่อ
 
-```lua title="บรรทัดที่ 25"
+```lua title="บรรทัดที่ 29"
 userProfileCard = true
 ```
 
@@ -57,7 +57,7 @@ userProfileCard = true
 
 เปิดใช้งานระบบคิวการเชื่อมต่อ
 
-```lua title="บรรทัดที่ 28"
+```lua title="บรรทัดที่ 32"
 connectionQueue = true
 ```
 
@@ -68,7 +68,7 @@ connectionQueue = true
 
 ตัวระบุของผู้เล่นที่ต้องการใช้งาน
 
-```lua title="บรรทัดที่ 31"
+```lua title="บรรทัดที่ 35"
 identifierType = 'discord'
 ```
 
@@ -85,7 +85,7 @@ identifierType = 'discord'
 
 ผูกตัวระบุที่ต้องการเข้ากับตัวระบุที่กำหนดใน [`identifierType`](./core.md#identifiertype) เพื่อป้องกันการใช้บัญชีซ้ำหรือแจกจ่ายสิทธิ์ในการเชื่อมต่อกับเซิร์ฟเวอร์
 
-```lua title="บรรทัดที่ 34"
+```lua title="บรรทัดที่ 38"
 bindIdentifier = {
     enable = true,
     type = 'steam'
@@ -108,7 +108,7 @@ bindIdentifier = {
 
 กำหนดค่า [Ping](https://en.wikipedia.org/wiki/Ping_(networking_utility)) สูงสุดที่อนุญาตให้ผู้เล่นเข้าร่วมกับเซิร์ฟเวอร์
 
-```lua title="บรรทัดที่ 39"
+```lua title="บรรทัดที่ 43"
 maxPingLimit = 500
 ```
 
@@ -119,7 +119,7 @@ maxPingLimit = 500
 
 ป้องกันการเชื่อมต่อบ่อยและเร็วเกินกำหนด
 
-```lua title="บรรทัดที่ 41"
+```lua title="บรรทัดที่ 45"
 connectionAttemptLimit = {
     enable = true,
     maxAttempts = 3,
@@ -141,7 +141,7 @@ connectionAttemptLimit = {
 
 การแบน HWIDs ของผู้เล่น ([Player Tokens](https://docs.fivem.net/natives/?_0x54C06897))
 
-```lua title="บรรทัดที่ 48"
+```lua title="บรรทัดที่ 52"
 banPlayerHwids = {
     enable = true,
     strict = true,
@@ -180,7 +180,7 @@ banPlayerHwids = {
 
 โหมดการแบนผู้เล่นที่เกี่ยวข้องกับผู้เล่นที่ถูกแบน จะทำการแบนอัตโนมัติเมื่อพบข้อมูลที่ตรงกับผู้เล่นที่ถูกแบนในฐานข้อมูลของเซิร์ฟเวอร์
 
-```lua title="บรรทัดที่ 55"
+```lua title="บรรทัดที่ 59"
 autoBanAssociated = {
     boundId = true,
     hwids = false
@@ -198,7 +198,7 @@ autoBanAssociated = {
 
 รับฟังเหตุการณ์ แบน หรือ ยกเลิกแบน จาก [txAdmin](https://txadmin.gg/) เพื่อจัดการการแบนและยกเลิกแบนภายในระบบของทรัพยากรนี้
 
-```lua title="บรรทัดที่ 60"
+```lua title="บรรทัดที่ 64"
 txAdminBanListener = true
 ```
 
@@ -211,11 +211,22 @@ txAdminBanListener = true
 
 :::
 
+## obfuscateBannedIdentifier
+
+เปิดใช้งานการทำให้ตัวระบุที่ถูกแบนไม่สามารถอ่านได้ในข้อความแจ้งเตือน
+
+```lua title="บรรทัดที่ 67"
+obfuscateBannedIdentifier = true
+```
+
+- obfuscateBannedIdentifier: `boolean`
+    - เมื่อเปิดใช้งาน ตัวระบุที่ถูกแบนจะถูกแทนที่ด้วยรูปแบบที่ไม่สามารถอ่านได้ เช่น `discord:443334508020891658` จะกลายเป็น `XXXXXX-XXXXXX-XXXXXX`
+
 ## inactivePlayers
 
 กำหนดค่าการตรวจสอบผู้เล่นที่ไม่ได้เข้าร่วมเซิร์ฟเวอร์ตามระยะเวลาที่กำหนด ผู้เล่นจะถูกระงับการใช้งานเมื่อครบระยะเวลาที่กำหนด
 
-```lua title="บรรทัดที่ 63"
+```lua title="บรรทัดที่ 70"
 inactivePlayers = {
     enable = false,
     limitDays = 14
@@ -231,7 +242,7 @@ inactivePlayers = {
 
 ระบบจำกัดเวลาในการเล่น โดยผู้เล่นจะต้องเติม Airtime เพื่อเพิ่มเวลาในการเล่น
 
-```lua title="บรรทัดที่ 68"
+```lua title="บรรทัดที่ 75"
 airTimeServer = {
     enable = false, 
     addTime = 86400 * 7,
@@ -251,7 +262,7 @@ airTimeServer = {
 
 ป้ายกำกับผู้เล่นใหม่ โดยจะแสดงข้อความบนส่วนหัวของผู้เล่น
 
-```lua title="บรรทัดที่ 74"
+```lua title="บรรทัดที่ 81"
 newPlayerLabel = { 
     enable = false,
     durationDays = 7
@@ -273,7 +284,7 @@ newPlayerLabel = {
 
 ลิงก์ของชุมชนจะถูกแสดงให้ผู้เล่นทราบเมื่อไม่มีสิทธิ์เข้าร่วมเซิร์ฟเวอร์หรือเกิดปัญหาอื่นๆ
 
-```lua title="บรรทัดที่ 79"
+```lua title="บรรทัดที่ 86"
 communityLink = {
     enable = true,
     mainUrl = 'https://example.com',
@@ -295,7 +306,7 @@ communityLink = {
 
 ทรัพยากรที่ต้องประมวลผลให้เสร็จก่อนเมื่อผู้เล่นเชื่อมต่อ เพื่อป้องกันการทำงานทับซ้อนของ [deferrals.update](https://docs.fivem.net/docs/scripting-reference/events/list/playerconnecting/#updatemessage-string-void) หรือ [update.presentCard](https://docs.fivem.net/docs/scripting-reference/events/list/playerconnecting/#presentcardcard-object--string-cb-data-object-rawdata-string--void-void) จากทรัพยากรอื่น
 
-```lua title="บรรทัดที่ 86"
+```lua title="บรรทัดที่ 93"
 awaitedResources = {
     ['nc_PROTECT+'] = {
         timeout = 15 
@@ -322,7 +333,7 @@ awaitedResources = {
 
 บล็อกทรัพยากรที่ส่งผลต่อการทำงาน เช่น การควบคุมระบบคิว หรือ การตรวจสอบสิทธิ์การเชื่อมต่อกับเซิร์ฟเวอร์
 
-```lua title="บรรทัดที่ 98"
+```lua title="บรรทัดที่ 105"
 resourceBlocks = {
     'azael_dc-whitelisted',
     'hardcap'
@@ -337,7 +348,7 @@ resourceBlocks = {
 
 กำหนดสิทธิ์ในการเข้าถึงและการข้ามข้อจำกัดต่างๆ
 
-```lua title="บรรทัดที่ 103"
+```lua title="บรรทัดที่ 110"
 permissions = {
     skipRules = { ... }
 }
@@ -350,7 +361,7 @@ permissions = {
 
 กำหนดสิทธิ์ที่อนุญาตให้ผู้เล่นข้ามการตรวจสอบและข้อจำกัดตามบทบาท
 
-```lua title="บรรทัดที่ 104"
+```lua title="บรรทัดที่ 111"
 skipRules = {
     ['full_queue_limit'] = {
         PLAYER_ROLES.MODERATOR,
@@ -430,7 +441,7 @@ skipRules = {
 
 เปิดการแชร์ข้อมูลการแบนหรือยกเลิกแบนของผู้เล่นไปยังบริการ [BAN DB](https://bandb.azael.dev/)
 
-```lua title="บรรทัดที่ 157"
+```lua title="บรรทัดที่ 164"
 azaelBanOptions = {
     enableDataShare = true
 }
