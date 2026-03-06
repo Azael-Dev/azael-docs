@@ -33,6 +33,7 @@ CONFIG.Custom.Events = { -- [[ table ]]
     ['APP_TempPointsExpired'] = true,                       -- คิวพอยท์หมดอายุ
     ['APP_AwardedLuckySlots'] = true,                       -- รางวัลลัคกี้สล็อต
     ['APP_ExecuteCommands'] = true,                         -- ประวัติใช้คำสั่ง
+    ['APP_AdminActionNui'] = true,                          -- ประวัติแผงผู้ดูแล
     --[[ azael_connshield ]]
     ['CNS_DuplicateIdKick'] = true,                         -- เชื่อมต่อ-ตัวระบุซ้ำ
     ['CNS_IpLimitExceeded'] = true,                         -- เกินขีดจำกัด-ip

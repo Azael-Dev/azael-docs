@@ -33,6 +33,7 @@ CONFIG.Discord.Events = { -- [[ table ]]
     ['APP_TempPointsExpired'] = 'webhook_url',              -- คิวพอยท์หมดอายุ
     ['APP_AwardedLuckySlots'] = 'webhook_url',              -- รางวัลลัคกี้สล็อต
     ['APP_ExecuteCommands'] = 'webhook_url',                -- ประวัติใช้คำสั่ง
+    ['APP_AdminActionNui'] = 'webhook_url',                 -- ประวัติแผงผู้ดูแล
     --[[ azael_connshield ]]
     ['CNS_DuplicateIdKick'] = 'webhook_url',                -- เชื่อมต่อ-ตัวระบุซ้ำ
     ['CNS_IpLimitExceeded'] = 'webhook_url',                -- เกินขีดจำกัด-ip
