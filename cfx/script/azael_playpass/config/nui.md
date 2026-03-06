@@ -128,3 +128,83 @@ permissions = {
 ใช้สำหรับ [RedM](https://www.redm.gg/) เท่านั้น เนื่องจาก [RedM](https://www.redm.gg/) ไม่รองรับ [RegisterKeyMapping](https://docs.fivem.net/natives/?_0xD7664FD1) คีย์ที่กำหนดใน [`userPanel.openKey`](./nui.md#userpanel) และ [`adminPanel.openKey`](./nui.md#adminpanel) จะถูกแปลงจากชื่อเป็นรหัสคีย์ผ่านตารางนี้
 
 :::
+
+```lua title="บรรทัดที่ 72"
+virtualKeyCodes = {
+    -- Letters
+    A = 0x41,                                                                   -- ปุ่ม A
+    B = 0x42,                                                                   -- ปุ่ม B
+    C = 0x43,                                                                   -- ปุ่ม C
+    D = 0x44,                                                                   -- ปุ่ม D
+    E = 0x45,                                                                   -- ปุ่ม E
+    F = 0x46,                                                                   -- ปุ่ม F
+    G = 0x47,                                                                   -- ปุ่ม G
+    H = 0x48,                                                                   -- ปุ่ม H
+    I = 0x49,                                                                   -- ปุ่ม I
+    J = 0x4A,                                                                   -- ปุ่ม J
+    K = 0x4B,                                                                   -- ปุ่ม K
+    L = 0x4C,                                                                   -- ปุ่ม L
+    M = 0x4D,                                                                   -- ปุ่ม M
+    N = 0x4E,                                                                   -- ปุ่ม N
+    O = 0x4F,                                                                   -- ปุ่ม O
+    P = 0x50,                                                                   -- ปุ่ม P
+    Q = 0x51,                                                                   -- ปุ่ม Q
+    R = 0x52,                                                                   -- ปุ่ม R
+    S = 0x53,                                                                   -- ปุ่ม S
+    T = 0x54,                                                                   -- ปุ่ม T
+    U = 0x55,                                                                   -- ปุ่ม U
+    V = 0x56,                                                                   -- ปุ่ม V
+    W = 0x57,                                                                   -- ปุ่ม W
+    X = 0x58,                                                                   -- ปุ่ม X
+    Y = 0x59,                                                                   -- ปุ่ม Y
+    Z = 0x5A,                                                                   -- ปุ่ม Z
+    -- Numbers
+    ['0'] = 0x30,                                                               -- ปุ่ม 0
+    ['1'] = 0x31,                                                               -- ปุ่ม 1
+    ['2'] = 0x32,                                                               -- ปุ่ม 2
+    ['3'] = 0x33,                                                               -- ปุ่ม 3
+    ['4'] = 0x34,                                                               -- ปุ่ม 4
+    ['5'] = 0x35,                                                               -- ปุ่ม 5
+    ['6'] = 0x36,                                                               -- ปุ่ม 6
+    ['7'] = 0x37,                                                               -- ปุ่ม 7
+    ['8'] = 0x38,                                                               -- ปุ่ม 8
+    ['9'] = 0x39,                                                               -- ปุ่ม 9
+    -- Function Keys
+    F1  = 0x70,                                                                 -- ปุ่ม F1
+    F2  = 0x71,                                                                 -- ปุ่ม F2
+    F3  = 0x72,                                                                 -- ปุ่ม F3
+    F4  = 0x73,                                                                 -- ปุ่ม F4
+    F5  = 0x74,                                                                 -- ปุ่ม F5
+    F6  = 0x75,                                                                 -- ปุ่ม F6
+    F7  = 0x76,                                                                 -- ปุ่ม F7
+    F8  = 0x77,                                                                 -- ปุ่ม F8
+    F9  = 0x78,                                                                 -- ปุ่ม F9
+    F10 = 0x79,                                                                 -- ปุ่ม F10
+    F11 = 0x7A,                                                                 -- ปุ่ม F11
+    F12 = 0x7B,                                                                 -- ปุ่ม F12
+    -- Special Keys
+    BACK     = 0x08,                                                            -- ปุ่ม Backspace
+    TAB      = 0x09,                                                            -- ปุ่ม Tab
+    RETURN   = 0x0D,                                                            -- ปุ่ม Enter
+    ESCAPE   = 0x1B,                                                            -- ปุ่ม Escape
+    SPACE    = 0x20,                                                            -- ปุ่ม Space
+    HOME     = 0x24,                                                            -- ปุ่ม Home
+    END      = 0x23,                                                            -- ปุ่ม End
+    PRIOR    = 0x21,                                                            -- ปุ่ม Page Up
+    NEXT     = 0x22,                                                            -- ปุ่ม Page Down
+    INSERT   = 0x2D,                                                            -- ปุ่ม Insert
+    DELETE   = 0x2E,                                                            -- ปุ่ม Delete
+    -- Arrow Keys
+    LEFT  = 0x25,                                                               -- ปุ่ม ←
+    UP    = 0x26,                                                               -- ปุ่ม ↑
+    RIGHT = 0x27,                                                               -- ปุ่ม →
+    DOWN  = 0x28,                                                               -- ปุ่ม ↓
+    -- Modifier Keys
+    LSHIFT   = 0xA0,                                                            -- ปุ่ม Left Shift
+    RSHIFT   = 0xA1,                                                            -- ปุ่ม Right Shift
+    LCONTROL = 0xA2,                                                            -- ปุ่ม Left Ctrl
+    RCONTROL = 0xA3,                                                            -- ปุ่ม Right Ctrl
+    LMENU    = 0xA4,                                                            -- ปุ่ม Left Alt
+    RMENU    = 0xA5,                                                            -- ปุ่ม Right Alt
+}
+```
