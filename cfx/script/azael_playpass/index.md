@@ -26,18 +26,18 @@
 
 :::
 
-:::danger
+:::info
 
-ทรัพยากรนี้ไม่สามารถใช้งานร่วมกับ [**nc_PROTECT+**](https://fivem.nc-developer.com/product/62517d4c2d7b0) ได้ และอาจทำให้เกิดปัญหา *Deadloop* ที่ฝั่ง Client  
-โปรดดำเนินการตามขั้นตอนด้านล่างเพื่อหลีกเลี่ยงปัญหา:
-1. เปิดไฟล์ `nc_PROTECT+/config/config.resources.lua`  
-2. เพิ่ม `azael_playpass` ในการกำหนดค่า `Config.IgnoredResources`
+ทรัพยากร [**azael_playpass**](https://cfx.azael.dev/digishop/playpass/) ตั้งแต่เวอร์ชัน `5.0.1` เป็นต้นไป สามารถทำงานร่วมกับ [**nc_PROTECT+**](https://fivem.nc-developer.com/product/62517d4c2d7b0), [**bt_defender**](https://betters.dev/) และ **Anti-Cheat** จากผู้ให้บริการอื่น ๆ ได้โดยตรง
+โดย **ไม่จำเป็นต้องเพิ่ม `azael_playpass` ในรายการยกเว้น (Ignore / Whitelist)** อีกต่อไป
 
 :::
 
 :::warning
 
-หากใช้งาน [**bt_defender**](https://betters.dev/) หรือ **Anti-Cheat** จากผู้ให้บริการอื่นๆ และพบปัญหาการค้างที่หน้า [Loading Screen](https://docs.fivem.net/docs/scripting-manual/nui-development/loading-screens/) ให้ดำเนินการละเว้น **azael_playpass** เช่นเดียวกัน
+สำหรับผู้ที่ใช้งานเวอร์ชัน **ต่ำกว่า `5.0.1`** อาจพบปัญหา *Deadloop* ที่ฝั่ง Client หรือการค้างที่หน้า [Loading Screen](https://docs.fivem.net/docs/scripting-manual/nui-development/loading-screens/) เมื่อใช้งานร่วมกับทรัพยากร **Anti-Cheat** จากผู้ให้บริการอื่น ๆ
+
+ในกรณีดังกล่าว จำเป็นต้องเพิ่ม `azael_playpass` ในรายการยกเว้น (Ignore / Whitelist) ของทรัพยากร **Anti-Cheat** ที่กำลังใช้งาน
 
 :::
 
