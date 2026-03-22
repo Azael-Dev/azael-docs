@@ -126,7 +126,7 @@ CONFIG.Death.Custom.Zones = { -- [[ table ]]
 
 :::info
 
-- `Event` หมายถึง ชื่อเหตุการณ์ (หากใช้งาน **[Discord API](../config/server.md#discord-api)** จะต้องกำหนดชื่อเหตุการณ์นี้ใน **"[CONFIG.Discord.Webhooks](../config/events/discord#discord-events)"**)<br/>
+- `Event` หมายถึง ชื่อเหตุการณ์ (หากใช้งาน **[Discord API](../config/server.md#discord-api)** จะต้องกำหนดชื่อเหตุการณ์นี้ใน **"[CONFIG.Discord.Webhooks](../config/events/discord.md#discord-events)"**)<br/>
 - `Coords` หมายถึง พิกัดของโซนที่กำหนด (`X`, `Y`, `Z`) ในรูปแบบ **[vector3](https://docs.fivem.net/docs/scripting-reference/runtimes/lua/functions/vector3/)**<br/>
 - `Radius` หมายถึง รัศมี หรือ ขอบเขต โดยอ้างอิงจากจุดศูนย์กลางของพิกัดที่กำหนดใน `Coords`
 

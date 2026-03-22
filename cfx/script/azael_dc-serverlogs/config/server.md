@@ -24,7 +24,7 @@ CONFIG.General.Option.Type = 'DISCORD' -- [[ string ]]
 
 :::info
 
-- `DISCORD` เท่ากับ ส่งคำขอไปยัง **[Discord API](https://discord.com/developers/docs/resources/webhook#create-webhook)** โดยใช้ **[Webhook URL](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)** (อ้างอิงจากกำหนดค่า **[Webhooks](./events/discord#discord-events)**)<br/>
+- `DISCORD` เท่ากับ ส่งคำขอไปยัง **[Discord API](https://discord.com/developers/docs/resources/webhook#create-webhook)** โดยใช้ **[Webhook URL](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)** (อ้างอิงจากกำหนดค่า **[Webhooks](./events/discord.md#discord-events)**)<br/>
 - `CUSTOM` เท่ากับ ส่งคำขอไปยัง **[Server API](https://en.wikipedia.org/wiki/Web_API)** ที่กำหนดเอง (อ้างอิงจากกำหนดค่า **[API.BaseURL](./server.md#apibaseurl)**)
 
 :::
@@ -454,6 +454,6 @@ CONFIG.Discord.Filter.Identifiers = { -- [[ table ]]
 ```
 
 - `identifier` หมายถึง ตัวระบุของผู้เล่นที่ต้องการตรวจจับ และดำเนินการย้ายไปยังเหตุการณ์ใหม่<br/>
-- `new_event` หมายถึง ชื่อเหตุการณ์ใหม่ โดยอ้างอิงจาก ชื่อเหตุการณ์ ที่กำหนดใน **[CONFIG.Discord.Webhooks](./events/discord#discord-events)**
+- `new_event` หมายถึง ชื่อเหตุการณ์ใหม่ โดยอ้างอิงจาก ชื่อเหตุการณ์ ที่กำหนดใน **[CONFIG.Discord.Webhooks](./events/discord.md#discord-events)**
 
 :::
