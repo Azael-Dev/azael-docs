@@ -376,6 +376,7 @@ const sidebars = {
               label: 'Config',
               items: [
                 'script/azael_connshield/config/auth',
+                'script/azael_connshield/config/locale',
                 'script/azael_connshield/config/core',
                 'script/azael_connshield/config/command',
                 'script/azael_connshield/config/permissions',

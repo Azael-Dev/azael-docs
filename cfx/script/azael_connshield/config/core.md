@@ -6,22 +6,11 @@ sidebar_label: Core
 
 การกำหนดค่าหลักของทรัพยากรนี้
 
-## locale
-
-ภาษาที่ต้องการใช้งาน
-
-```lua title="บรรทัดที่ 22"
-locale = 'th'
-```
-
-- locale: `string`
-    - เส้นทางไฟล์ `./locales/<langcode>.json`
-
 ## debugMode
 
 โหมดดีบัก (Debug Mode) ใช้สำหรับแสดงข้อมูลดีบักในคอนโซลเซิร์ฟเวอร์
 
-```lua title="บรรทัดที่ 24"
+```lua title="บรรทัดที่ 22"
 debugMode = false
 ```
 
@@ -39,7 +28,7 @@ debugMode = false
 
 ป้องกันการใช้งานตัวระบุเดียวกันเชื่อมต่อพร้อมกัน (Identifier Uniqueness)
 
-```lua title="บรรทัดที่ 29"
+```lua title="บรรทัดที่ 27"
 identifierUniqueness = {
     enable = true,
     provider = IDENTIFIER_TYPE.STEAM
@@ -62,7 +51,7 @@ identifierUniqueness = {
 
 การป้องกันและควบคุมการเชื่อมต่อจากที่อยู่ IP (IP Protection)
 
-```lua title="บรรทัดที่ 36"
+```lua title="บรรทัดที่ 34"
 ipProtection = {
     enable = true,
     connectionLimit = { ... },
@@ -77,7 +66,7 @@ ipProtection = {
 
 การจำกัดการเชื่อมต่อจากที่อยู่ IP เดียวกัน (IP Connection Limit)
 
-```lua title="บรรทัดที่ 39"
+```lua title="บรรทัดที่ 37"
 connectionLimit = {
     enable = true,
     maxConnections = 3
@@ -100,7 +89,7 @@ connectionLimit = {
 
 การตรวจสอบความน่าเชื่อถือของที่อยู่ IP (IP Reputation Check)
 
-```lua title="บรรทัดที่ 46"
+```lua title="บรรทัดที่ 44"
 ipReputation = {
     enable = true,
     provider = IP_PROVIDER.PROXYCHECK,
@@ -129,7 +118,7 @@ ipReputation = {
 
 การตั้งค่าผู้ให้บริการ [proxycheck.io](https://proxycheck.io/)
 
-```lua title="บรรทัดที่ 54"
+```lua title="บรรทัดที่ 52"
 proxycheck = {
     apiKey = 'YOUR_API_KEY',
     blockVPN = true,
@@ -160,7 +149,7 @@ proxycheck = {
 
 การตั้งค่าผู้ให้บริการ [vpnapi.io](https://vpnapi.io/)
 
-```lua title="บรรทัดที่ 62"
+```lua title="บรรทัดที่ 60"
 vpnapi = {
     apiKey = 'YOUR_API_KEY',
     blockVPN = true,
@@ -203,7 +192,7 @@ vpnapi = {
 
 ข้ามการตรวจสอบตามกฎที่กำหนด (Bypass Rules) สำหรับกลุ่ม ACE ที่กำหนดไว้
 
-```lua title="บรรทัดที่ 74"
+```lua title="บรรทัดที่ 72"
 bypassRules = {
     enable = true,
     groups = {
@@ -283,7 +272,7 @@ bypassRules = {
 
 บล็อกทรัพยากรที่ส่งผลต่อการทำงาน หรือทำงานซ้ำซ้อนกับทรัพยากรนี้
 
-```lua title="บรรทัดที่ 92"
+```lua title="บรรทัดที่ 119"
 resourceBlocks = {
     'azael_active-identifiers'
 }

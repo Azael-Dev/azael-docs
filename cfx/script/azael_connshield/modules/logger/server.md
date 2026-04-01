@@ -20,7 +20,7 @@ sidebar_label: Server
 
 ทำงานเมื่อผู้เล่นถูกเตะออกจากเซิร์ฟเวอร์ เนื่องจากมีการเชื่อมต่อด้วยตัวระบุเดียวกัน
 
-```lua title="บรรทัดที่ 16"
+```lua title="บรรทัดที่ 27"
 function Logger.onPlayerDuplicateIdentifier(payload)
     local incoming <const> = payload.players.incoming
     local existing <const> = payload.players.existing
@@ -33,7 +33,7 @@ function Logger.onPlayerDuplicateIdentifier(payload)
 
     pcall(function()
         exports['azael_dc-serverlogs']:insertData({
-            event = 'CNS_DuplicateIdKick',
+            event = LOGGER_EVENTS.DUPLICATE_ID_KICK,
             content = kickReasonTitle,
             fields = {
                 { name = 'DUPLICATE IDENTIFIER', value = ('```%s```'):format(kickedPlayer.identifier), inline = false },
@@ -79,11 +79,11 @@ end
 
 ทำงานเมื่อผู้เล่นเชื่อมต่อกับเซิร์ฟเวอร์แต่เกินขีดจำกัดการเชื่อมต่อจากที่อยู่ IP เดียวกัน
 
-```lua title="บรรทัดที่ 47"
+```lua title="บรรทัดที่ 58"
 function Logger.onPlayerIpLimitExceeded(payload)
     pcall(function()
         exports['azael_dc-serverlogs']:insertData({
-            event = 'CNS_IpLimitExceeded',
+            event = LOGGER_EVENTS.IP_LIMIT_EXCEEDED,
             content = '### ปฏิเสธการเชื่อมต่อเนื่องจากมีผู้เล่นออนไลน์เกินขีดจำกัดจากที่อยู่ IP เดียวกัน',
             fields = {
                 { name = 'IP ADDRESS', value = ('```%s```'):format(payload.ipAddress), inline = false },
@@ -127,19 +127,19 @@ end
 
 ทำงานเมื่อผู้เล่นเชื่อมต่อกับเซิร์ฟเวอร์แต่ไม่ผ่านการตรวจสอบความน่าเชื่อถือของที่อยู่ IP
 
-```lua title="บรรทัดที่ 69"
+```lua title="บรรทัดที่ 80"
 function Logger.onPlayerIpReputationBlocked(payload)
     pcall(function()
         exports['azael_dc-serverlogs']:insertData({
-            event = 'CNS_IpReputationBlocked',
+            event = LOGGER_EVENTS.IP_REPUTATION_BLOCKED,
             content = '### ปฏิเสธการเชื่อมต่อเนื่องจาก IP ไม่ผ่านการตรวจสอบ',
             fields = {
                 { name = 'IP ADDRESS', value = ('```%s```'):format(payload.ipAddress), inline = false },
                 { name = 'VPN', value = ('```%s```'):format(payload.isVPN and '✔️ Yes' or '❌ No'), inline = true },
                 { name = 'PROXY', value = ('```%s```'):format(payload.isProxy and '✔️ Yes' or '❌ No'), inline = true },
                 { name = 'COUNTRY', value = ('```%s (%s)```'):format(payload.country or 'Unknown', payload.isoCode or 'Unknown'), inline = false },
-                { name = 'RISK', value = payload.riskScore and ('```%d%%```'):format(payload.riskScore) or '```N/A```', inline = true },
-                { name = 'CONFIDENCE', value = payload.confidenceScore and ('```%d%%```'):format(payload.confidenceScore) or '```N/A```', inline = true },
+                { name = 'RISK', value = payload.riskScore and ('```%s%%```'):format(payload.riskScore) or '```N/A```', inline = true },
+                { name = 'CONFIDENCE', value = payload.confidenceScore and ('```%s%%```'):format(payload.confidenceScore) or '```N/A```', inline = true },
                 { name = 'BLOCK REASON', value = ('```%s```'):format(payload.blockReason or 'Unknown'), inline = false }
             },
             source = payload.netId,
@@ -187,7 +187,7 @@ end
 
 ทำงานเมื่อผู้เล่นมีสิทธิ์ข้ามกฎการเชื่อมต่อบางอย่าง
 
-```lua title="บรรทัดที่ 95"
+```lua title="บรรทัดที่ 106"
 function Logger.onPlayerBypassedRules(payload)
     local fields <const> = {}
 
@@ -204,7 +204,7 @@ function Logger.onPlayerBypassedRules(payload)
 
     pcall(function()
         exports['azael_dc-serverlogs']:insertData({
-            event = 'CNS_BypassRules',
+            event = LOGGER_EVENTS.BYPASS_RULES,
             content = ('### ผู้เล่นข้ามกฎการเชื่อมต่อ `%d` รายการ'):format(#payload.bypassedRules),
             fields = fields,
             source = payload.netId,
@@ -244,7 +244,7 @@ end
 
 ทำงานเมื่อมีการดำเนินการใช้คำสั่ง
 
-```lua title="บรรทัดที่ 126"
+```lua title="บรรทัดที่ 137"
 function Logger.onCommandExecuted(payload)
     local invokerType <const> = payload.type
     local invoker <const> = payload.invoker
@@ -291,7 +291,7 @@ function Logger.onCommandExecuted(payload)
 
     pcall(function()
         exports['azael_dc-serverlogs']:insertData({
-            event = 'CNS_CommandExecuted',
+            event = LOGGER_EVENTS.COMMAND_EXECUTED,
             content = ('### คำสั่ง `%s` ถูกดำเนินการ'):format(command.name),
             fields = fields,
             source = (invokerType == 'console' and invoker.player.netId > 0) and invoker.player.netId or 0,
