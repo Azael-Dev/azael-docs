@@ -20,7 +20,7 @@ locale = GetConvar('locale', 'th-TH')
 
 :::info
 
-ค่าเริ่มต้นจะรับข้อมูลจาก [`sets locale`](https://docs.fivem.net/docs/server-manual/server-commands/#sets-valuename-value) ที่ไฟล์ `server.cfg` หากไม่มีจะใช้ `th-TH` เป็นค่าเริ่มต้น
+ค่าเริ่มต้นจะรับข้อมูลจาก [`sets locale`](https://docs.fivem.net/docs/server-manual/server-commands/#sets-valuename-value) ที่ไฟล์ [`server.cfg`](https://docs.fivem.net/docs/server-manual/setting-up-a-server-vanilla/#servercfg) หากไม่มีจะใช้ `th-TH` เป็นค่าเริ่มต้น
 
 :::
 

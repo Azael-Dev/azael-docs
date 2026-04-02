@@ -91,7 +91,7 @@ connectionLimit = {
 
 ```lua title="บรรทัดที่ 44"
 ipReputation = {
-    enable = true,
+    enable = false,
     provider = IP_PROVIDER.PROXYCHECK,
     allowOnFailure = true,
     providers = { ... }
