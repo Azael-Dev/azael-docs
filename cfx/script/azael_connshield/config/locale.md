@@ -8,7 +8,7 @@ sidebar_label: Locale
 
 ## locale
 
-ภาษาที่ต้องการใช้งาน
+กำหนดภาษาที่ต้องการใช้งาน
 
 ```lua title="บรรทัดที่ 13"
 locale = GetConvar('locale', 'th-TH')
@@ -16,17 +16,20 @@ locale = GetConvar('locale', 'th-TH')
 
 - locale: `string`
     - [BCP 47 Locale Tag](https://en.wikipedia.org/wiki/IETF_language_tag) ต้องกำหนดในรูปแบบ `ภาษา-ประเทศ`
-    - เส้นทางไฟล์ `./locales/<locale>.json`
+    - เส้นทางไฟล์ `./locales/<language>.json` เช่น `th.json`, `en.json`
 
 :::info
 
-ค่าเริ่มต้นจะรับข้อมูลจาก [`sets locale`](https://docs.fivem.net/docs/server-manual/server-commands/#sets-valuename-value) ที่ไฟล์ [`server.cfg`](https://docs.fivem.net/docs/server-manual/setting-up-a-server-vanilla/#servercfg) หากไม่มีจะใช้ `th-TH` เป็นค่าเริ่มต้น
+ต้องกำหนดในรูปแบบ **ภาษา-ประเทศ** เช่น `th-TH` สำหรับภาษาไทย (ประเทศไทย) หรือ `en-US` สำหรับภาษาอังกฤษ (สหรัฐอเมริกา)
 
 :::
 
-#### ตัวอย่างค่า Locale
+:::tip
 
-| Locale Tag | Description |
-|---|---|
-| `th-TH` | ภาษาไทย (ประเทศไทย) |
-| `en-US` | ภาษาอังกฤษ (สหรัฐอเมริกา) |
+การกำหนดค่าเริ่มต้นจะรับภาษามาจาก `locale` ที่กำหนดไว้ภายในไฟล์ [`server.cfg`](https://docs.fivem.net/docs/server-manual/setting-up-a-server-vanilla/#servercfg)
+
+```diff title="server.cfg"
+sets locale "th-TH"
+```
+
+:::
