@@ -27,32 +27,94 @@ set azael_playpass:svFullQueueLimit 256
 
 :::
 
+## allowPointsPriorityOnFullQueue
+
+อนุญาตให้ผู้เล่นที่มีคิวพอยท์มีโอกาสเข้าคิวได้มากกว่าเมื่อคิวรอเข้าเซิร์ฟเวอร์เต็ม
+
+```lua title="บรรทัดที่ 16"
+allowPointsPriorityOnFullQueue = true
+```
+
+- allowPointsPriorityOnFullQueue: `boolean`
+    - หากเปิดใช้งาน ผู้เล่นที่มีคิวพอยท์เท่ากับหรือมากกว่าคิวพ้อยท์ของผู้เล่นที่อยู่ในลำดับสุดท้ายของคิว จะมีโอกาสเข้าคิวได้มากกว่าเมื่อคิวรอเข้าเซิร์ฟเวอร์เต็ม (ผู้เล่นที่มีคิวพอยท์สูงกว่าจะมีโอกาสเข้าคิวได้มากกว่า)
+
+:::tip
+
+รองรับการกำหนดค่า **แบบไดนามิก** ผ่านคำสั่ง [**convar**](https://docs.fivem.net/docs/scripting-reference/convars/) เพื่อเปลี่ยนค่า **ได้ทันทีระหว่างรันไทม์**
+
+```diff
+set azael_playpass:allowPointsPriorityOnFullQueue true
+```
+
+:::
+
 ## releaseQueueLimit
 
 จำนวนผู้เล่นสูงสุดที่จะปล่อยเข้าเซิร์ฟเวอร์ในแต่ละรอบเมื่อสล็อตว่าง
 
-```lua title="บรรทัดที่ 15"
+```lua title="บรรทัดที่ 21"
 releaseQueueLimit = 6
 ```
 
 - releaseQueueLimit: `integer`
 
+:::tip
+
+รองรับการกำหนดค่า **แบบไดนามิก** ผ่านคำสั่ง [**convar**](https://docs.fivem.net/docs/scripting-reference/convars/) เพื่อเปลี่ยนค่า **ได้ทันทีระหว่างรันไทม์**
+
+```diff
+set azael_playpass:releaseQueueLimit 6
+```
+
+:::
+
 ## updateQueueInterval
 
 ระยะเวลาในการอัปเดตการประมวลผลของระบบคิวและข้อความที่แสดงผลต่อผู้เล่น
 
-```lua title="บรรทัดที่ 17"
- updateQueueInterval = 3
+```lua title="บรรทัดที่ 24"
+updateQueueInterval = {
+    default = 3,
+    fullSlots = {
+        stepSize = 25,
+        stepSeconds = 1,
+        maxInterval = 10
+    },
+    compactMode = {
+        enable = true,
+        firstUpdateFull = true,
+        onlyWhenFull = true,
+        minPosition = 20
+    }
+}
 ```
 
-- updateQueueInterval: `integer`
-    - หน่วยเป็น **วินาที**
+- default: `integer`
+    - ค่าเริ่มต้นสำหรับระยะเวลาในการอัปเดต (หน่วยเป็น **วินาที**)
+- fullSlots: `table`
+    - การกำหนดค่าระยะเวลาในการอัปเดตเมื่อเซิร์ฟเวอร์สล็อตเต็ม
+        - stepSize: `integer`
+            - จำนวนตำแหน่งในคิวต่อระยะเวลาจะเพิ่มขึ้น เช่น ทุกๆ **25** ตำแหน่งในคิวจะเพิ่มระยะเวลา **1** วินาที
+        - stepSeconds: `integer`
+            - ระยะเวลาที่เพิ่มขึ้นในแต่ละขั้น (หน่วยเป็น **วินาที**)
+        - maxInterval: `integer`
+            - ระยะเวลาในการอัปเดตสูงสุด เพื่อป้องกันการอัปเดตช้าเกินไป (หน่วยเป็น **วินาที**)
+- compactMode: `table`
+    - การกำหนดค่าในการอัปเดตข้อความคิวแบบย่อ เมื่อผู้เล่นอยู่ในลำดับคิวที่มากกว่า `minPosition`
+        - enable: `boolean`
+            - เปิดใช้งานแสดงข้อความแบบย่อเมื่อผู้เล่นอยู่ในลำดับคิวที่มากกว่า `minPosition`
+        - firstUpdateFull: `boolean`
+            - เปิดใช้งานแสดงข้อความแบบเต็มในการอัปเดตครั้งแรกเมื่อผู้เล่นเข้าสู่คิว
+        - onlyWhenFull: `boolean`
+            - เปิดใช้งานแสดงข้อความแบบย่อเฉพาะเมื่อเซิร์ฟเวอร์เต็ม
+        - minPosition: `integer`
+            - ตำแหน่งขั้นต่ำในคิวที่จะเริ่มแสดงข้อความแบบย่อ เช่น หากอยู่ในลำดับมากกว่า **20** จะเริ่มแสดงข้อความแบบย่อ
 
 ## playerCheckInterval
 
 ระยะเวลาในการตรวจสอบว่าผู้เล่นยังอยู่ในคิวหรือระหว่างดาวน์โหลดไฟล์ทรัพยากรหรือไม่
 
-```lua title="บรรทัดที่ 19"
+```lua title="บรรทัดที่ 39"
 playerCheckInterval = 5
 ```
 
@@ -63,7 +125,7 @@ playerCheckInterval = 5
 
 การกำหนดค่าการดาวน์โหลดไฟล์ทรัพยากรก่อนเข้าสู่ [Loading Screen](https://docs.fivem.net/docs/scripting-manual/nui-development/loading-screens/)
 
-```lua title="บรรทัดที่ 21"
+```lua title="บรรทัดที่ 41"
 resourceDownload = {
     maxLimit = 64,
     allowRetryOnFail = {
@@ -101,7 +163,7 @@ resourceDownload = {
 
 แสดงรายชื่อผู้เล่นในคิวที่กำลังจะเข้าสู่เซิร์ฟเวอร์
 
-```lua title="บรรทัดที่ 34"
+```lua title="บรรทัดที่ 54"
 queueDisplayLists = {
     enable = true,
     hideName = false,
@@ -127,7 +189,7 @@ queueDisplayLists = {
 
 ระบบคิวพอยท์สะสมสำหรับผู้เล่นที่รอคิว ช่วยให้ผู้เล่นที่ไม่มีพ้อยท์มีโอกาสเข้าร่วมเซิร์ฟเวอร์ได้ง่ายขึ้น
 
-```lua title="บรรทัดที่ 45"
+```lua title="บรรทัดที่ 65"
 queueSessionPoints = {
     enable = true,
     increment = 2,
@@ -153,7 +215,7 @@ queueSessionPoints = {
 
 กิจกรรม Lucky Slots สำหรับผู้เล่นที่รอคิวเข้าเซิร์ฟ
 
-```lua title="บรรทัดที่ 51"
+```lua title="บรรทัดที่ 71"
 luckySlots = {
     enable = true,
     timeRequired = 60 * 10,
@@ -199,7 +261,7 @@ luckySlots = {
 
 ผู้เล่นกลับเข้าสู่เซิร์ฟเวอร์ได้ทันทีโดยไม่ต้องรอคิวหากเกิดการขัดข้อง
 
-```lua title="บรรทัดที่ 66"
+```lua title="บรรทัดที่ 86"
 rejoinOnCrashes = {
     enable = true,
     timeout = 2,

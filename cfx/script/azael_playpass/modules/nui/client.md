@@ -10,7 +10,7 @@ sidebar_label: Client
 
 ฟังก์ชันแสดง UI (User Panel)
 
-```lua title="บรรทัดที่ 33"
+```lua title="บรรทัดที่ 39"
 function Nui.show()
     if isNuiVisible then return end
     
@@ -18,7 +18,7 @@ function Nui.show()
         SetFrontendActive(false)
     end
     
-    SendNUIMessage({ action = 'show', theme = gameName, panel = 'user', locale = getLocale() })
+    SendNUIMessage({ action = 'show', theme = gameName, panel = 'user', locale = LOCALE })
     SetNuiFocus(true, false)
     SetNuiFocusKeepInput(true)
     
@@ -33,7 +33,7 @@ end
 
 ฟังก์ชันแสดง UI (Admin Panel)
 
-```lua title="บรรทัดที่ 51"
+```lua title="บรรทัดที่ 57"
 function Nui.showAdmin()
     if isNuiVisible then return end
     
@@ -41,7 +41,7 @@ function Nui.showAdmin()
         SetFrontendActive(false)
     end
     
-    SendNUIMessage({ action = 'show', theme = gameName, panel = 'admin', locale = getLocale() })
+    SendNUIMessage({ action = 'show', theme = gameName, panel = 'admin', locale = LOCALE })
     SetNuiFocus(true, true)
     
     isNuiVisible = true
@@ -55,7 +55,7 @@ end
 
 ฟังก์ชันปิด UI
 
-```lua title="บรรทัดที่ 70"
+```lua title="บรรทัดที่ 76"
 function Nui.close(_, cb)
     if not isNuiVisible then
         return cb and cb({ success = false, message = 'NUI is not visible' }) or nil
@@ -88,7 +88,7 @@ end
 
 ตรวจสอบว่า NUI เปิดอยู่หรือไม่
 
-```lua title="บรรทัดที่ 94"
+```lua title="บรรทัดที่ 100"
 function Nui.isVisible()
     return isNuiVisible
 end
@@ -103,7 +103,7 @@ end
 
 รับ panel ที่กำลังใช้งานอยู่
 
-```lua title="บรรทัดที่ 100"
+```lua title="บรรทัดที่ 106"
 function Nui.getActivePanel()
     return activePanel
 end
@@ -118,7 +118,7 @@ end
 
 ฟังก์ชันอัปเดตข้อมูลผู้ใช้
 
-```lua title="บรรทัดที่ 106"
+```lua title="บรรทัดที่ 112"
 function Nui.updateUser(data)
     SendNUIMessage({ action = 'updateUser', data = data })
 end
@@ -149,7 +149,7 @@ end
 
 ฟังก์ชันอัปเดตข้อมูล[คิวรอเชื่อมต่อ](../../config/queue.md)
 
-```lua title="บรรทัดที่ 112"
+```lua title="บรรทัดที่ 118"
 function Nui.updateQueue(data)
     SendNUIMessage({ action = 'updateQueue', data = data })
 end
@@ -172,7 +172,7 @@ end
 
 ฟังก์ชันอัปเดตข้อมูลผู้ดูแลระบบ
 
-```lua title="บรรทัดที่ 118"
+```lua title="บรรทัดที่ 124"
 function Nui.updateAdmin(data)
     SendNUIMessage({ action = 'updateAdmin', data = data })
 end
@@ -187,7 +187,7 @@ end
 
 ส่งผลลัพธ์ของการดำเนินการผู้ดูแลระบบ
 
-```lua title="บรรทัดที่ 124"
+```lua title="บรรทัดที่ 130"
 function Nui.sendAdminActionResult(data)
     SendNUIMessage({ action = 'adminActionResult', data = data })
 end
@@ -202,7 +202,7 @@ end
 
 ส่งการแจ้งเตือนไปยังแผงผู้ดูแลระบบ
 
-```lua title="บรรทัดที่ 131"
+```lua title="บรรทัดที่ 137"
 function Nui.sendAdminNotify(type, message)
     SendNUIMessage({ action = 'adminNotify', data = { type = type, message = message } })
 end
@@ -219,7 +219,7 @@ end
 
 ส่งข้อมูลผู้เล่นแบบแบ่งหน้าไปยังแผงผู้ดูแลระบบ
 
-```lua title="บรรทัดที่ 137"
+```lua title="บรรทัดที่ 143"
 function Nui.sendPlayerPageResult(data)
     SendNUIMessage({ action = 'playerPageResult', data = data })
 end

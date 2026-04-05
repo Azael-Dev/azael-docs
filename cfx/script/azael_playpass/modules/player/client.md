@@ -10,7 +10,7 @@ sidebar_label: Client
 
 ฟังก์ชันรับเหตุการณ์การเกิดของตัวละครเมื่อผู้เล่นเข้าสู่เกม
 
-```lua title="บรรทัดที่ 6"
+```lua title="บรรทัดที่ 16"
 function Player.onFirstSpawn(cb)
     local eventHandler
 
@@ -33,7 +33,7 @@ end
 
 ฟังก์ชันสร้าง[ป้ายกำกับผู้เล่นใหม่](../../config/core.md#newplayerlabel) โดยจะแสดงข้อความบนส่วนหัวของผู้เล่น
 
-```lua title="บรรทัดที่ 30"
+```lua title="บรรทัดที่ 40"
 function Player.initNewbieLabel(getNewbieState)
     Citizen.CreateThread(function()
         local MAX_DISTANCE <const> = 20.0   -- ระยะสูงสุดที่ป้ายกำกับผู้เล่นใหม่จะแสดง

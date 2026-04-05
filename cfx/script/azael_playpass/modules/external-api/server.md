@@ -111,7 +111,7 @@ end
         - code: `integer`
             - รหัสสถานะ HTTP ที่ตอบกลับโดย [Custom API](../../config/external_api.md#custom)
         - message: `string` | `nil`
-            - ข้อความการปฏิเสธหรือไม่อนุญาตให้เข้าร่วมเซิร์ฟเวอร์ (หากเป็น `nil` จะใช้ข้อความจาก [`join_not_permitted`](../../config/core.md#locale))
+            - ข้อความการปฏิเสธหรือไม่อนุญาตให้เข้าร่วมเซิร์ฟเวอร์ (หากเป็น `nil` จะใช้ข้อความจาก [`join_not_permitted`](../../config/locale.md#locale-1))
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -34,7 +34,7 @@ httpHandler = {
 
 :::warning Nucleus Reverse Proxy Deprecation
 
-ทาง [**Cfx.re**](https://forum.cfx.re/t/nucleus-reverse-proxy-deprecation/5387399?u=azael.dev) จะยกเลิกการใช้งาน **Nucleus Reverse Proxy (Web BaseURL)** ในวันที่ **31 มีนาคม 2026** หลังจากวันที่ดังกล่าว ฟีเจอร์นี้จะไม่สามารถใช้งานได้อีก
+ทาง [**Cfx.re**](https://forum.cfx.re/t/nucleus-reverse-proxy-deprecation/5387399?u=azael.dev) จะยกเลิกการใช้งาน **Nucleus Reverse Proxy (Web BaseURL)** ในวันที่ [**31 มิถุนายน 2569 (June 30, 2026)**](https://forum.cfx.re/t/nucleus-reverse-proxy-deprecation/5387399/43?u=azael.dev) หลังจากวันที่ดังกล่าว ฟีเจอร์นี้จะไม่สามารถใช้งานได้อีก
 - อ่านเพิ่มเติมเกี่ยวกับเรื่องนี้ได้ที่ [**https://forum.cfx.re/t/5387399**](https://forum.cfx.re/t/nucleus-reverse-proxy-deprecation/5387399?u=azael.dev)
 
 :::

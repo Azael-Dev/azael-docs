@@ -1209,5 +1209,61 @@ sidebar_label: Server
 
 :::
 
+## getCachedUserProfile
+
+ดึงข้อมูลโปรไฟล์ผู้ใช้ที่ถูกแคชไว้ในระบบ
+
+:::warning
+
+จำเป็นที่จะต้องเปิดใช้งาน [userProfileCard](../config/core.md#userprofilecard) จึงจะสามารถใช้งานฟังก์ชันส่งออกนี้ได้
+
+:::
+
+<Tabs>
+    <TabItem value="usage" label="Usage">
+        ```lua
+        exports.azael_playpass:getCachedUserProfile(identifier)
+        ```
+    </TabItem>
+    <TabItem value="example" label="Example">
+        ```lua
+        local userData = exports.azael_playpass:getCachedUserProfile('steam:110000112345678')
+
+        if not userData then
+            print('[^1ERROR^7] User profile not found or not cached.')
+            return
+        end
+
+        print(json.encode(userData, { indent = true }))
+        ```
+    </TabItem>
+</Tabs>
+
+#### Arguments
+
+- identifier: `string`
+    - [ตัวระบุหลัก](../config/core.md#identifiertype) ของผู้ใช้ (ต้องมีคำนำหน้า เช่น `steam:110000112345678` หรือ `discord:443334508020891658`)
+
+#### Returns
+
+- userData: `table?`
+    - ข้อมูลโปรไฟล์ผู้ใช้ที่ถูกแคชไว้ หรือ `nil` หากไม่พบ Provider ที่กำหนดหรือข้อมูลยังไม่ถูกแคช
+
+    **Steam**
+    | Key | Type | Description |
+    | --- | --- | --- |
+    | `id` | `string` | Steam ID ของผู้ใช้ |
+    | `hexId` | `string` | Steam Hex ID ของผู้ใช้ |
+    | `name` | `string` | ชื่อผู้ใช้ |
+    | `avatarUrl` | `string` | URL รูปโปรไฟล์ผู้ใช้ |
+
+    **Discord**
+    | Key | Type | Description |
+    | --- | --- | --- |
+    | `id` | `string` | Discord ID ของผู้ใช้ |
+    | `username` | `string` | Discord Username ของผู้ใช้ |
+    | `name` | `string` | ชื่อผู้ใช้ |
+    | `avatarUrl` | `string` | URL รูปโปรไฟล์ผู้ใช้ |
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -404,5 +404,45 @@ end
 - payload: `table<{ [key]: any }>`
     - [ข้อมูลของผู้เล่นที่จะใช้งานภายในระบบคิว](./server.md#onaddplayertoqueue-parameters)
 
+### onPlayerDeferralComplete
+
+ทำงานเมื่อปล่อยให้ผู้เล่นเข้าร่วมเซิร์ฟเวอร์หลังจากผ่านคิวรอเข้าร่วมเซิร์ฟเวอร์แล้ว
+
+```lua title="บรรทัดที่ 111"
+function Hooks.onPlayerDeferralComplete(payload)
+    payload.deferrals.done()
+end
+```
+
+:::warning
+
+จะต้องเรียก **`payload.deferrals.done()`** เพื่ออนุญาตให้ผู้เล่นเข้าร่วมเซิร์ฟเวอร์ที่ฟังก์ชันนี้
+
+:::
+
+#### Parameters
+
+- payload: `table<{ player: table, deferrals: table }>`
+    - ตารางข้อมูล
+        - player: `table<{ [key]: any }>`
+            - ข้อมูลของผู้เล่นเมื่อเชื่อมต่อ
+                - tempId: `integer`
+                    - [Temp ID](https://docs.fivem.net/docs/scripting-reference/events/list/playerconnecting/#parameters) ของผู้เล่น 
+                - identifier: `string`
+                    - [ตัวระบุหลัก](../../config/core.md#identifiertype) ของผู้เล่น
+                - bindId: `string` | `nil`
+                    - [ตัวระบุที่ผูก](../../config/core.md#bindidentifier)ไว้กับ[ตัวระบุหลัก](../../config/core.md#identifiertype) ของผู้เล่น
+        - deferrals: `table<{ [key]: function }>`
+            - ฟังก์ชันสำหรับการเลื่อนการเชื่อมต่อ (ดูข้อมูลเพิ่มเติมได้ที่ [Deferring connections](https://docs.fivem.net/docs/scripting-reference/events/list/playerconnecting/#deferring-connections))
+                - update: `function`
+                    - ส่งข้อความไปยังไคลเอนต์ที่เชื่อมต่อ
+                - presentCard: `function`
+                    - ส่งข้อมูล [Adaptive Card](https://adaptivecards.io/) ไปยังไคลเอนต์ที่เชื่อมต่อ
+                - done: `function`
+                    - สิ้นสุดกระบวนการ deferral โดยจำเป็นต้องรออย่างน้อยหนึ่ง tick ก่อนที่จะเรียกใช้ done
+                    - หากระบุ `failureReason` การเชื่อมต่อจะถูกปฏิเสธ และไคลเอนต์จะเห็นข้อความที่ระบุเหตุผลไว้ หากไม่ระบุ `failureReason` ไคลเอนต์จะได้รับอนุญาตให้เข้าร่วมเซิร์ฟเวอร์
+                - handover: `function`
+                    - อนุญาตให้กำหนดชุดของ [endpoints](https://docs.fivem.net/docs/scripting-reference/events/list/playerconnecting/#dynamic-handover) สำหรับผู้เล่นในขณะที่กำลังเชื่อมต่อ
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
