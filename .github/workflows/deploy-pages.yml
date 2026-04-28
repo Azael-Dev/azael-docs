@@ -35,7 +35,9 @@ jobs:
 
       # 3. Install dependencies
       - name: Install dependencies
-        run: bun install
+        run: |
+          rm -f bun.lockb
+          bun install
 
       # 4. Build Docusaurus
       - name: Build site
