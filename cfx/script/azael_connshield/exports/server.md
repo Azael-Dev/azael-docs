@@ -64,6 +64,8 @@ sidebar_label: Server
 |---------------------------|-------------------------------
 | `addBypass`               | [เพิ่มสิทธิ์ข้ามกฎการตรวจสอบ](../commands.md#addbypass)
 | `removeBypass`            | [ลบสิทธิ์ข้ามกฎการตรวจสอบ](../commands.md#removebypass)
+| `addBypassIP`             | [เพิ่ม IPv4 เข้ารายการยกเว้น IP Protection](./server.md#addbypassip)
+| `removeBypassIP`          | [ลบ IPv4 ออกจากรายการยกเว้น IP Protection](./server.md#removebypassip)
 
 ## addBypass
 
@@ -165,6 +167,108 @@ sidebar_label: Server
     |-----------------------|-------------------------------|-------------------------------
     | `identifier`          | `string`                      | ตัวระบุผู้เล่น
     | `bypassTypes`         | `string[]`                    | ประเภทของ bypass ที่ถูกลบออก
+:::
+
+:::danger Failed
+    | Field                 | Type                          | Description
+    |-----------------------|-------------------------------|-------------------------------
+    | `type`                | `string`                      | ประเภทของข้อผิดพลาด
+    | `message`             | `string`                      | ข้อความของข้อผิดพลาด
+:::
+</details>
+
+## addBypassIP
+
+เพิ่มที่อยู่ IPv4 เข้ารายการยกเว้น IP Protection แบบ Dynamic (มีผลทันทีโดยไม่ต้อง restart)
+
+<Tabs>
+    <TabItem value="usage" label="Usage">
+        ```lua
+        exports.azael_connshield:addBypassIP(ipAddress)
+        ```
+    </TabItem>
+    <TabItem value="example" label="Example">
+        ```lua
+        local success, response = exports.azael_connshield:addBypassIP('192.168.1.1')
+
+        if not success then
+            return print('Error type:', response.type, 'Error message:', response.message)
+        end
+
+        print('Added IPv4 bypass for:', response.ipAddress)
+        ```
+    </TabItem>
+</Tabs>
+
+#### Arguments
+
+- ipAddress: `string`
+    - ที่อยู่ IPv4 ที่ต้องการเพิ่มเข้ารายการยกเว้น (เช่น `192.168.1.1` หรือ `ip:192.168.1.1`)
+
+#### Returns
+
+- success: `boolean`
+    - สถานะการดำเนินการ
+- response: `table<{ [key]: any }>`
+    - ข้อมูลตอบกลับ
+
+<details>
+  <summary>รายละเอียดข้อมูลตอบกลับ</summary>
+:::tip Success
+    | Field                 | Type                          | Description
+    |-----------------------|-------------------------------|-------------------------------
+    | `ipAddress`           | `string`                      | ที่อยู่ IPv4 ที่ถูกเพิ่มเข้ารายการยกเว้น
+:::
+
+:::danger Failed
+    | Field                 | Type                          | Description
+    |-----------------------|-------------------------------|-------------------------------
+    | `type`                | `string`                      | ประเภทของข้อผิดพลาด
+    | `message`             | `string`                      | ข้อความของข้อผิดพลาด
+:::
+</details>
+
+## removeBypassIP
+
+ลบที่อยู่ IPv4 ออกจากรายการยกเว้น IP Protection แบบ Dynamic (มีผลทันทีโดยไม่ต้อง restart)
+
+<Tabs>
+    <TabItem value="usage" label="Usage">
+        ```lua
+        exports.azael_connshield:removeBypassIP(ipAddress)
+        ```
+    </TabItem>
+    <TabItem value="example" label="Example">
+        ```lua
+        local success, response = exports.azael_connshield:removeBypassIP('192.168.1.1')
+
+        if not success then
+            return print('Error type:', response.type, 'Error message:', response.message)
+        end
+
+        print('Removed IPv4 bypass for:', response.ipAddress)
+        ```
+    </TabItem>
+</Tabs>
+
+#### Arguments
+
+- ipAddress: `string`
+    - ที่อยู่ IPv4 ที่ต้องการลบออกจากรายการยกเว้น (เช่น `192.168.1.1` หรือ `ip:192.168.1.1`)
+
+#### Returns
+
+- success: `boolean`
+    - สถานะการดำเนินการ
+- response: `table<{ [key]: any }>`
+    - ข้อมูลตอบกลับ
+
+<details>
+  <summary>รายละเอียดข้อมูลตอบกลับ</summary>
+:::tip Success
+    | Field                 | Type                          | Description
+    |-----------------------|-------------------------------|-------------------------------
+    | `ipAddress`           | `string`                      | ที่อยู่ IPv4 ที่ถูกลบออกจากรายการยกเว้น
 :::
 
 :::danger Failed

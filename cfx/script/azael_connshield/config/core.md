@@ -54,6 +54,7 @@ identifierUniqueness = {
 ```lua title="บรรทัดที่ 34"
 ipProtection = {
     enable = true,
+    allowedIPs = { ... },
     connectionLimit = { ... },
     ipReputation = { ... }
 }
@@ -62,11 +63,36 @@ ipProtection = {
 - enable: `boolean`
     - เปิดใช้งาน การป้องกันและควบคุมการเชื่อมต่อจากที่อยู่ IP (`true` = เปิดใช้งาน, `false` = ปิดใช้งาน)
 
+### allowedIPs
+
+รายการที่อยู่ IPv4 ที่ได้รับการยกเว้นจากการตรวจสอบ IP Protection ทั้งหมด (IP Bypass Whitelist)
+
+```lua title="บรรทัดที่ 37"
+allowedIPs = {
+    '127.0.0.1',
+}
+```
+
+- allowedIPs: `table<{ [index]: string }>` | `table<{}>`
+    - รายการที่อยู่ IPv4 ที่จะข้ามการตรวจสอบทั้ง `connectionLimit` และ `ipReputation` โดยอัตโนมัติ
+        - ระบุในรูปแบบ IPv4 เช่น `127.0.0.1`
+        - หากไม่ต้องการกำหนด ให้เว้นว่างตารางนี้ไว้ `{}`
+
+:::tip
+
+คุณสามารถเพิ่ม/ลบที่อยู่ IP แบบ **Dynamic** ได้โดยไม่ต้อง restart เซิร์ฟเวอร์โดยใช้คำสั่ง:
+- [`cshield addbypassip 127.0.0.1`](../commands.md#addbypassip) เพื่อ **เพิ่ม** IPv4 เข้ารายการยกเว้น
+- [`cshield removebypassip 127.0.0.1`](../commands.md#removebypassip) เพื่อ **ลบ** IPv4 ออกจากรายการยกเว้น
+
+หมายเหตุ: การเพิ่ม/ลบด้วยคำสั่งเป็นแบบชั่วคราว (runtime เท่านั้น) หากต้องการถาวรให้เพิ่มในรายการ `allowedIPs` นี้
+
+:::
+
 ### connectionLimit
 
 การจำกัดการเชื่อมต่อจากที่อยู่ IP เดียวกัน (IP Connection Limit)
 
-```lua title="บรรทัดที่ 37"
+```lua title="บรรทัดที่ 41"
 connectionLimit = {
     enable = true,
     maxConnections = 3
@@ -89,7 +115,7 @@ connectionLimit = {
 
 การตรวจสอบความน่าเชื่อถือของที่อยู่ IP (IP Reputation Check)
 
-```lua title="บรรทัดที่ 44"
+```lua title="บรรทัดที่ 48"
 ipReputation = {
     enable = false,
     provider = IP_PROVIDER.PROXYCHECK,
@@ -118,7 +144,7 @@ ipReputation = {
 
 การตั้งค่าผู้ให้บริการ [proxycheck.io](https://proxycheck.io/)
 
-```lua title="บรรทัดที่ 52"
+```lua title="บรรทัดที่ 56"
 proxycheck = {
     apiKey = 'YOUR_API_KEY',
     blockVPN = true,
@@ -149,7 +175,7 @@ proxycheck = {
 
 การตั้งค่าผู้ให้บริการ [vpnapi.io](https://vpnapi.io/)
 
-```lua title="บรรทัดที่ 60"
+```lua title="บรรทัดที่ 64"
 vpnapi = {
     apiKey = 'YOUR_API_KEY',
     blockVPN = true,
@@ -192,7 +218,7 @@ vpnapi = {
 
 ข้ามการตรวจสอบตามกฎที่กำหนด (Bypass Rules) สำหรับกลุ่ม ACE ที่กำหนดไว้
 
-```lua title="บรรทัดที่ 72"
+```lua title="บรรทัดที่ 76"
 bypassRules = {
     enable = true,
     groups = {
@@ -272,7 +298,7 @@ bypassRules = {
 
 บล็อกทรัพยากรที่ส่งผลต่อการทำงาน หรือทำงานซ้ำซ้อนกับทรัพยากรนี้
 
-```lua title="บรรทัดที่ 119"
+```lua title="บรรทัดที่ 123"
 resourceBlocks = {
     'azael_active-identifiers'
 }

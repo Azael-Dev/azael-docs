@@ -66,3 +66,49 @@ removeBypass = {
     - ใช้คำสั่งฝั่งเซิร์ฟเวอร์เท่านั้น (`true` = เปิดใช้งาน, `false` = ปิดใช้งาน)
 - allowedGroups: `table<{ [index]: string }>`
     - กลุ่มผู้ใช้ที่อนุญาตให้ใช้คำสั่งฝั่งไคลเอนต์ (ACE Permission Groups)
+
+### addBypassIp
+
+คำสั่งย่อย: เพิ่มที่อยู่ IPv4 เข้ารายการยกเว้น IP Protection
+
+```lua title="บรรทัดที่ 41"
+addBypassIp = {
+    name = 'addbypassip',
+    serverOnly = false,
+    allowedGroups = {
+        GROUPS.SUPERADMIN,
+        GROUPS.ADMIN,
+        GROUPS.MODERATOR
+    }
+}
+```
+
+- name: `string`
+    - ชื่อคำสั่งย่อย
+- serverOnly: `boolean`
+    - ใช้คำสั่งฝั่งเซิร์ฟเวอร์เท่านั้น (`true` = เปิดใช้งาน, `false` = ปิดใช้งาน)
+- allowedGroups: `table<{ [index]: string }>`
+    - กลุ่มผู้ใช้ที่อนุญาตให้ใช้คำสั่งฝั่งไคลเอนต์ (ACE Permission Groups)
+
+### removeBypassIp
+
+คำสั่งย่อย: ลบที่อยู่ IPv4 ออกจากรายการยกเว้น IP Protection
+
+```lua title="บรรทัดที่ 50"
+removeBypassIp = {
+    name = 'removebypassip',
+    serverOnly = false,
+    allowedGroups = {
+        GROUPS.SUPERADMIN,
+        GROUPS.ADMIN,
+        GROUPS.MODERATOR
+    }
+}
+```
+
+- name: `string`
+    - ชื่อคำสั่งย่อย
+- serverOnly: `boolean`
+    - ใช้คำสั่งฝั่งเซิร์ฟเวอร์เท่านั้น (`true` = เปิดใช้งาน, `false` = ปิดใช้งาน)
+- allowedGroups: `table<{ [index]: string }>`
+    - กลุ่มผู้ใช้ที่อนุญาตให้ใช้คำสั่งฝั่งไคลเอนต์ (ACE Permission Groups)

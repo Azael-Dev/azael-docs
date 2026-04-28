@@ -151,5 +151,57 @@ end
         - bypassTypes: `string[]`
             - ประเภทของ bypass ที่ถูกลบออก
 
+### addBypassIp
+
+ทำงานเมื่อใช้คำสั่ง "[เพิ่ม IPv4 เข้ารายการยกเว้น IP Protection](../../commands.md#addbypassip)" สำเร็จ
+
+```lua title="บรรทัดที่ 84"
+function respHandler.addBypassIp(client, resp)
+    local message <const> = ("[^2INFO^7] Successfully added IPv4 bypass for '^5%s^7'\n[^2INFO^7] This IP address will bypass all IP Protection checks")
+        :format(resp.ipAddress)
+
+    if client then
+        return Commands.sendClientMessage(client, true, message)
+    end
+
+    print(message)
+end
+```
+
+#### Parameters
+
+- client: `integer` | `nil`
+    - [Net ID](https://docs.fivem.net/docs/scripting-manual/networking/ids/#server-id) ของผู้เล่น หรือ `nil` หากใช้คำสั่งที่ Server Console
+- resp: `table<{ [key]: any }>`
+    - ข้อมูลตอบกลับของคำสั่ง
+        - ipAddress: `string`
+            - ที่อยู่ IPv4 ที่ถูกเพิ่มเข้ารายการยกเว้น
+
+### removeBypassIp
+
+ทำงานเมื่อใช้คำสั่ง "[ลบ IPv4 ออกจากรายการยกเว้น IP Protection](../../commands.md#removebypassip)" สำเร็จ
+
+```lua title="บรรทัดที่ 98"
+function respHandler.removeBypassIp(client, resp)
+    local message <const> = ("[^2INFO^7] Successfully removed IPv4 bypass for '^5%s^7'\n[^2INFO^7] This IP address will no longer bypass IP Protection checks")
+        :format(resp.ipAddress)
+
+    if client then
+        return Commands.sendClientMessage(client, true, message)
+    end
+
+    print(message)
+end
+```
+
+#### Parameters
+
+- client: `integer` | `nil`
+    - [Net ID](https://docs.fivem.net/docs/scripting-manual/networking/ids/#server-id) ของผู้เล่น หรือ `nil` หากใช้คำสั่งที่ Server Console
+- resp: `table<{ [key]: any }>`
+    - ข้อมูลตอบกลับของคำสั่ง
+        - ipAddress: `string`
+            - ที่อยู่ IPv4 ที่ถูกลบออกจากรายการยกเว้น
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
